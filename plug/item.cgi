@@ -1,4 +1,4 @@
-# item ƒvƒ‰ƒOƒCƒ“ 2003/07/19 —R˜Ò
+# item ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/07/19 ç”±ä¾†
 
 sub CheckShowCaseItem
 {
@@ -19,8 +19,8 @@ sub CheckItemNo
 	$itemno+=0;
 	$DT=$main::DT if !$DT;
 	
-	OutError('‚»‚ñ‚ÈƒAƒCƒeƒ€‚Í‚È‚¢‚Å‚·B') if $itemno<1 || $itemno>$MAX_ITEM;
-	OutError('ƒAƒCƒeƒ€‚ÌİŒÉ‚ª‚ ‚è‚Ü‚¹‚ñB') if !$DT->{item}[$itemno-1];
+	OutError('ãã‚“ãªã‚¢ã‚¤ãƒ†ãƒ ã¯ãªã„ã§ã™ã€‚') if $itemno<1 || $itemno>$MAX_ITEM;
+	OutError('ã‚¢ã‚¤ãƒ†ãƒ ã®åœ¨åº«ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if !$DT->{item}[$itemno-1];
 
 	return $itemno;
 }
@@ -40,14 +40,14 @@ sub GetSaleTax
 	return ($taxrate,$tax);
 }
 
-# ‘‹à/¤•iˆÚ“®‚ÌŠÔÁ”ïŒvZ
+# è³‡é‡‘/å•†å“ç§»å‹•æ™‚ã®æ™‚é–“æ¶ˆè²»è¨ˆç®—
 sub GetTimeDeal
 {
 	my($price,$itemno,$itemcount)=@_;
 	
 	if(!$itemno)
 	{
-		#‘‹àˆÚ“®
+		#è³‡é‡‘ç§»å‹•
 		return 0 if !$price;
 		return $TIME_SEND_MONEY if !$TIME_SEND_MONEY_PLUS;
 		return int($TIME_SEND_MONEY*$price/$TIME_SEND_MONEY_PLUS)+$TIME_SEND_MONEY;
@@ -59,13 +59,13 @@ sub GetTimeDeal
 	
 	#$mul=$ITEM[$itemno]->{price}/($price/$itemcount) if $price && $ITEM[$itemno]->{price};
 	$mul=2 - ($price / $itemcount / $ITEM[$itemno]->{price}) if $price && $ITEM[$itemno]->{price};
-	$mul=2 if (!$price && $ITEM[$itemno]->{price}) || $mul>2;	#20‚ğ2‚É•ÏX
-	$mul=0.5 if $mul<0.5;	#’Ç‰Á
+	$mul=2 if (!$price && $ITEM[$itemno]->{price}) || $mul>2;	#20ã‚’2ã«å¤‰æ›´
+	$mul=0.5 if $mul<0.5;	#è¿½åŠ 
 	
 	return int($TIME_SEND_ITEM*$mul);
 }
 
-# ‘‹à/¤•iˆÚ“®‚ÌŠÔÁ”ï
+# è³‡é‡‘/å•†å“ç§»å‹•æ™‚ã®æ™‚é–“æ¶ˆè²»
 sub UseTimeDeal
 {
 	my($price,$itemno,$itemcount)=@_;

@@ -1,4 +1,4 @@
-# guild ƒvƒ‰ƒOƒCƒ“ 2005/03/30 —R˜Ò
+# guild ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2005/03/30 ç”±ä¾†
 
 sub ReadGuildData
 {
@@ -39,7 +39,7 @@ sub CheckGuild
 	my $price=$_[2];
 	my $margin=0;
 	my $rate=1000;
-	my $type=0; # 0:•Ğ•ûor‘o•ûƒMƒ‹ƒh–³Š‘® 1:“¯ƒMƒ‹ƒh 2:ˆÙƒMƒ‹ƒh -1:•â•‹à•s‘«
+	my $type=0; # 0:ç‰‡æ–¹oråŒæ–¹ã‚®ãƒ«ãƒ‰ç„¡æ‰€å± 1:åŒã‚®ãƒ«ãƒ‰ 2:ç•°ã‚®ãƒ«ãƒ‰ -1:è£œåŠ©é‡‘ä¸è¶³
 	
 	if($dt1guild ne '' && $dt2guild ne '')
 	{
@@ -54,7 +54,7 @@ sub CheckGuild
 		}
 	}
 	return($type,$rate,$margin);
-	#return (ƒMƒ‹ƒhŠ‘®ó‘Ô,æˆø‹àŠz”{—¦,Š„ˆø/Š„‘Šz)
+	#return (ã‚®ãƒ«ãƒ‰æ‰€å±çŠ¶æ…‹,å–å¼•é‡‘é¡å€ç‡,å‰²å¼•/å‰²å¢—é¡)
 }
 
 

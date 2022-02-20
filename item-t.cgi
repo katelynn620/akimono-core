@@ -1,4 +1,4 @@
-# ƒAƒCƒeƒ€”jŠü 2005/01/06 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ ç ´æ£„ 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 $Q{er}='stock';
@@ -13,22 +13,22 @@ $count=CheckCount($Q{cnt1},$Q{cnt2},0,$DT->{item}[$itemno-1]);
 
 if ($ITEM[$itemno]->{flag}=~/h/) {
 
-OutError('•s³‚È—v‹‚Å‚·') if ($ITEM[$itemno]->{flag}=~/t/);
-OutError('‰ğŒÙl”‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if !$count;
+OutError('ä¸æ­£ãªè¦æ±‚ã§ã™') if ($ITEM[$itemno]->{flag}=~/t/);
+OutError('è§£é›‡äººæ•°ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if !$count;
 
-$ret=$itemname."‚ğ".$count.$scale."‰ğŒÙ‚µ‚Ü‚µ‚½";
+$ret=$itemname."ã‚’".$count.$scale."è§£é›‡ã—ã¾ã—ãŸ";
 $disp.=$ret;
 $DT->{item}[$itemno-1]-=$count;
 
  }	else	{
 
-OutError('•s³‚È—v‹‚Å‚·') if ($ITEM[$itemno]->{flag}=~/t/);
-OutError('”jŠü”—Ê‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if !$count;
+OutError('ä¸æ­£ãªè¦æ±‚ã§ã™') if ($ITEM[$itemno]->{flag}=~/t/);
+OutError('ç ´æ£„æ•°é‡ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if !$count;
 
-$ret=$itemname."‚ğ".$count.$scale."ˆ•ª‚µ‚Ü‚µ‚½";
+$ret=$itemname."ã‚’".$count.$scale."å‡¦åˆ†ã—ã¾ã—ãŸ";
 $disp.=$ret;
 $DT->{item}[$itemno-1]-=$count;
-$DT->{trush}+=int($ITEM[$itemno]->{price} * $count / 5);	#‚²‚İ
+$DT->{trush}+=int($ITEM[$itemno]->{price} * $count / 5);	#ã”ã¿
 
 $DTwholestore[$itemno-1]+=$count;
 my $limit=0;
@@ -49,12 +49,12 @@ $DTwholestore[$itemno-1]=0 if $DTwholestore[$itemno-1]<0;
 	ReadGuild();
 	ReadGuildData();
 	if ( $GUILD_DATA{$DT->{guild}}->{money} <= 0 ) {
-		$disp.="<br>ƒMƒ‹ƒh‚©‚ç‚Ì•â•‹à‚Í‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½";
+		$disp.="<br>ã‚®ãƒ«ãƒ‰ã‹ã‚‰ã®è£œåŠ©é‡‘ã¯ã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸ";
 		} else {
 		my $guildmargin = int( $ITEM[$itemno]->{price} * $GUILD{$DT->{guild}}->[$GUILDIDX_dealrate] * $count / 1000 );
 		$guildmargin = $GUILD_DATA{$DT->{guild}}->{money} if ($guildmargin > $GUILD_DATA{$DT->{guild}}->{money});
-		$disp.="<br>ƒMƒ‹ƒh‚©‚ç".GetMoneyString($guildmargin)."‚Ì•â•‹à‚ªx‹‹‚³‚ê‚Ü‚µ‚½";
-		$ret.="/ƒMƒ‹ƒh‚©‚ç".GetMoneyString($guildmargin)."x‹‹";
+		$disp.="<br>ã‚®ãƒ«ãƒ‰ã‹ã‚‰".GetMoneyString($guildmargin)."ã®è£œåŠ©é‡‘ãŒæ”¯çµ¦ã•ã‚Œã¾ã—ãŸ";
+		$ret.="/ã‚®ãƒ«ãƒ‰ã‹ã‚‰".GetMoneyString($guildmargin)."æ”¯çµ¦";
 		EditGuildMoney($DT->{guild} ,-$guildmargin);
 		$DT->{money}+=$guildmargin;
 		WriteGuildData() ;

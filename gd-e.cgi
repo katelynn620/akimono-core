@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒhlŽ– 2004/01/20 —R˜Ò
+# ã‚®ãƒ«ãƒ‰äººäº‹ 2004/01/20 ç”±ä¾†
 
 Lock(), $Q{mode}=$Q{edit} if $Q{edit};
 DataRead();
@@ -21,20 +21,20 @@ OutError("bad request") if (!$DT->{guild});
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhŽó•t</SPAN>FƒMƒ‹ƒh‚ð‘Þ’c‚µ‚Ü‚·‚©H<br>
-ƒƒ“ƒo[‚É˜A—‚µ‚Ä‚©‚ç‘Þ’c‚·‚é‚±‚Æ‚ð‚¨‚·‚·‚ß‚µ‚Ü‚·B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šã‚®ãƒ«ãƒ‰ã‚’é€€å›£ã—ã¾ã™ã‹ï¼Ÿ<br>
+ãƒ¡ãƒ³ãƒãƒ¼ã«é€£çµ¡ã—ã¦ã‹ã‚‰é€€å›£ã™ã‚‹ã“ã¨ã‚’ãŠã™ã™ã‚ã—ã¾ã™ã€‚
 $TRE$TBE<br>
 HTML
-$disp.="ƒMƒ‹ƒhí’†‚Í‘Þ’c‚Å‚«‚Ü‚¹‚ñ",return if ($DTevent{guildbattle});
+$disp.="ã‚®ãƒ«ãƒ‰æˆ¦ä¸­ã¯é€€å›£ã§ãã¾ã›ã‚“",return if ($DTevent{guildbattle});
 $disp.=<<STR;
 	<form action="action.cgi" $METHOD>
 	<INPUT TYPE=HIDDEN NAME=key VALUE="user">
 	<INPUT TYPE=HIDDEN NAME=mode SIZE=10 VALUE="guild">
 	$USERPASSFORM
-	<SPAN>ƒMƒ‹ƒh‘Þ’c</SPAN>
+	<SPAN>ã‚®ãƒ«ãƒ‰é€€å›£</SPAN>
 	<INPUT TYPE=TEXT NAME=guild SIZE=10 VALUE="">
-	(leave‚Æ“ü—Í)
-	<INPUT TYPE=SUBMIT VALUE="‘Þ’c‚·‚é"></FORM>
+	(leaveã¨å…¥åŠ›)
+	<INPUT TYPE=SUBMIT VALUE="é€€å›£ã™ã‚‹"></FORM>
 STR
 }
 
@@ -48,8 +48,8 @@ OutError("bad request") if (!$ckeckok);
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhŽó•t</SPAN>FlŽ–Žº‚Å‚ÍCƒƒ“ƒo[‚ÉŒ¨‘‚«‚ð‚Â‚¯‚½‚èC‘Þ’c‚³‚¹‚½‚è‚Å‚«‚Ü‚·B<br>
-‚½‚¾‚µC‚±‚ÌŠX‚Ìƒƒ“ƒo[‚ÉŒÀ‚è‚Ü‚·‚Ì‚Å‚²’ˆÓ‚­‚¾‚³‚¢B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šäººäº‹å®¤ã§ã¯ï¼Œãƒ¡ãƒ³ãƒãƒ¼ã«è‚©æ›¸ãã‚’ã¤ã‘ãŸã‚Šï¼Œé€€å›£ã•ã›ãŸã‚Šã§ãã¾ã™ã€‚<br>
+ãŸã ã—ï¼Œã“ã®è¡—ã®ãƒ¡ãƒ³ãƒãƒ¼ã«é™ã‚Šã¾ã™ã®ã§ã”æ³¨æ„ãã ã•ã„ã€‚
 $TRE$TBE<br>
 HTML
 
@@ -63,26 +63,26 @@ foreach(@DT)
 $disp.=<<STR;
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
-<BIG>œŒ¨‘‚«–½–¼</BIG>F
+<BIG>â—è‚©æ›¸ãå‘½å</BIG>ï¼š
 <INPUT TYPE=HIDDEN NAME=edit VALUE="name">
 <SELECT NAME=id SIZE=1>
-<OPTION VALUE="">‘I‘ð
+<OPTION VALUE="">é¸æŠž
 $formmember
-</SELECT> ‚ÌŒ¨‘‚«‚ð
+</SELECT> ã®è‚©æ›¸ãã‚’
 <INPUT TYPE=TEXT NAME=name SIZE=16 VALUE="">
-‚Æ <INPUT TYPE=SUBMIT VALUE="–½–¼‚·‚é"> (20•¶ŽšˆÈ“à)
+ã¨ <INPUT TYPE=SUBMIT VALUE="å‘½åã™ã‚‹"> (20æ–‡å­—ä»¥å†…)
 </FORM>
 <hr width=500 noshade size=1>
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
-<SPAN>‘Þ’cˆ•ª</SPAN>F
+<SPAN>é€€å›£å‡¦åˆ†</SPAN>ï¼š
 <INPUT TYPE=HIDDEN NAME=edit VALUE="fire">
 <SELECT NAME=id SIZE=1>
-<OPTION VALUE="">‘I‘ð
+<OPTION VALUE="">é¸æŠž
 $formmember
-</SELECT> ‚ð <INPUT TYPE=SUBMIT VALUE="‘Þ’c‚³‚¹‚é">
+</SELECT> ã‚’ <INPUT TYPE=SUBMIT VALUE="é€€å›£ã•ã›ã‚‹">
 <INPUT TYPE=TEXT NAME=guild SIZE=10 VALUE="">
-(leave‚Æ“ü—Í)
+(leaveã¨å…¥åŠ›)
 </FORM>
 STR
 }
@@ -95,15 +95,15 @@ $ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{leadt} eq $MYDIR && $GUILD_DETAIL{$
 $ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{$MYDIR} == $DT->{id});
 OutError("bad request") if (!$ckeckok);
 
-OutError('–½–¼‚·‚é‘ŠŽè‚ð‘I‚ñ‚Å‚­‚¾‚³‚¢B') if !$Q{id};
-OutError('‘¶Ý‚µ‚È‚¢“X•Ü‚Å‚·B') if !defined($id2idx{$Q{id}});
+OutError('å‘½åã™ã‚‹ç›¸æ‰‹ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚') if !$Q{id};
+OutError('å­˜åœ¨ã—ãªã„åº—èˆ—ã§ã™ã€‚') if !defined($id2idx{$Q{id}});
 my $tg=$id2idx{$Q{id}};
-OutError('–½–¼Œ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT[$tg]->{guild} ne $DT->{guild});
-OutError('Œ¨‘‚«‚ª’·‚·‚¬‚Å‚·B') if length($Q{name})>20;
+OutError('å‘½åæ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT[$tg]->{guild} ne $DT->{guild});
+OutError('è‚©æ›¸ããŒé•·ã™ãŽã§ã™ã€‚') if length($Q{name})>20;
 
 $DT[$tg]->{user}{_so_e}=$Q{name};
-my $ret=$DT[$tg]->{shopname}."‚ðu".$Q{name}."v‚É–‚µ‚Ü‚µ‚½B";
-PushLog(2,0,"ƒMƒ‹ƒhu".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."v‚Í".$ret);
+my $ret=$DT[$tg]->{shopname}."ã‚’ã€Œ".$Q{name}."ã€ã«å™ã—ã¾ã—ãŸã€‚";
+PushLog(2,0,"ã‚®ãƒ«ãƒ‰ã€Œ".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."ã€ã¯".$ret);
 $disp.=$ret;
 
 RenewLog();
@@ -120,18 +120,18 @@ $ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{leadt} eq $MYDIR && $GUILD_DETAIL{$
 $ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{$MYDIR} == $DT->{id});
 OutError("bad request") if (!$ckeckok);
 
-OutError('‘Þ’c‚³‚¹‚éƒƒ“ƒo[‚ð‘I‚ñ‚Å‚­‚¾‚³‚¢B') if !$Q{id};
-OutError('‘¶Ý‚µ‚È‚¢“X•Ü‚Å‚·B') if !defined($id2idx{$Q{id}});
+OutError('é€€å›£ã•ã›ã‚‹ãƒ¡ãƒ³ãƒãƒ¼ã‚’é¸ã‚“ã§ãã ã•ã„ã€‚') if !$Q{id};
+OutError('å­˜åœ¨ã—ãªã„åº—èˆ—ã§ã™ã€‚') if !defined($id2idx{$Q{id}});
 my $tg=$id2idx{$Q{id}};
-OutError('Œ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT[$tg]->{guild} ne $DT->{guild});
-OutError('’c’·‚ð‘Þ’c‚³‚¹‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB') if ($GUILD_DETAIL{$DT->{guild}}->{leadt} eq $MYDIR && $GUILD_DETAIL{$DT->{guild}}->{leader} == $Q{id});
-OutError('‘Þ’c‚³‚¹‚é‚É‚Íleave‚Æ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢') if $Q{guild} ne 'leave';
+OutError('æ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT[$tg]->{guild} ne $DT->{guild});
+OutError('å›£é•·ã‚’é€€å›£ã•ã›ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚') if ($GUILD_DETAIL{$DT->{guild}}->{leadt} eq $MYDIR && $GUILD_DETAIL{$DT->{guild}}->{leader} == $Q{id});
+OutError('é€€å›£ã•ã›ã‚‹ã«ã¯leaveã¨å…¥åŠ›ã—ã¦ãã ã•ã„') if $Q{guild} ne 'leave';
 
 delete $DT[$tg]->{user}{_so_e};
 $DT[$tg]->{guild}="";
 my $name=$GUILD{$DT->{guild}}->[$GUILDIDX_name];
-PushLog(1,0,$DT[$tg]->{shopname}."‚ªƒMƒ‹ƒhu".$name."v‚©‚çœ–¼‚³‚ê‚Ü‚µ‚½B");
-$disp.=$DT[$tg]->{shopname}."‚ð‘Þ’c‚³‚¹‚Ü‚µ‚½B";
+PushLog(1,0,$DT[$tg]->{shopname}."ãŒã‚®ãƒ«ãƒ‰ã€Œ".$name."ã€ã‹ã‚‰é™¤åã•ã‚Œã¾ã—ãŸã€‚");
+$disp.=$DT[$tg]->{shopname}."ã‚’é€€å›£ã•ã›ã¾ã—ãŸã€‚";
 
 RenewLog();
 DataWrite();

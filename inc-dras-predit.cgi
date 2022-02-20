@@ -1,7 +1,7 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ƒhƒ‰ƒSƒ“ƒƒ“ƒe 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¡ãƒ³ãƒ† 2005/03/30 ç”±ä¾†
 
 ReadDragon();
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF–qê</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç‰§å ´</BIG><br><br>";
 
 my $functionname=$Q{code};
 OutError("bad request") if !defined(&$functionname);
@@ -13,20 +13,20 @@ CoDataCA();
 
 sub retire
 {
-	#ƒhƒ‰ƒSƒ“ƒ`ƒFƒbƒN
+	#ãƒ‰ãƒ©ã‚´ãƒ³ãƒã‚§ãƒƒã‚¯
 	my $cnt=$id2dra{$Q{dr}};
 	OutError("bad request") if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
 	OutError("bad request") if ($DR[$cnt]->{race} > 1);
 	OutError("bad request") if ($NOW_TIME-$DR[$cnt]->{birth} < $DRretire);
 
-	OutError("ƒhƒ‰ƒSƒ“‚ðˆø‘Þ‚³‚¹‚é‚É‚Í retire ‚Æ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢") if ($Q{check} ne "retire");
+	OutError("ãƒ‰ãƒ©ã‚´ãƒ³ã‚’å¼•é€€ã•ã›ã‚‹ã«ã¯ retire ã¨å…¥åŠ›ã—ã¦ãã ã•ã„") if ($Q{check} ne "retire");
 
-	$disp.="ƒhƒ‰ƒSƒ“u".$DR[$cnt]->{name}."v‚ðˆø‘Þ‚³‚¹‚Ü‚µ‚½B";
+	$disp.="ãƒ‰ãƒ©ã‚´ãƒ³ã€Œ".$DR[$cnt]->{name}."ã€ã‚’å¼•é€€ã•ã›ã¾ã—ãŸã€‚";
 
 	if ($DR[$cnt]->{prize} >= $PRentry)
 	{
-	$disp.="<br>Œ»–ðŽž‘ã‚ÌŠˆ–ô‚É‚æ‚èC".($DR[$cnt]->{fm} ? "”ÉB" : "Ží").$FM[$DR[$cnt]->{fm}]."—³“ü‚è‚ª”F‚ß‚ç‚ê‚Ü‚µ‚½B";
-	PushDraLog(0,"ƒhƒ‰ƒSƒ“u".$DR[$cnt]->{name}."v‚ªˆø‘Þ‚µC".($DR[$cnt]->{fm} ? "”ÉB" : "Ží").$FM[$DR[$cnt]->{fm}]."—³“ü‚è‚µ‚Ü‚µ‚½B");
+	$disp.="<br>ç¾å½¹æ™‚ä»£ã®æ´»èºã«ã‚ˆã‚Šï¼Œ".($DR[$cnt]->{fm} ? "ç¹æ®–" : "ç¨®").$FM[$DR[$cnt]->{fm}]."ç«œå…¥ã‚ŠãŒèªã‚ã‚‰ã‚Œã¾ã—ãŸã€‚";
+	PushDraLog(0,"ãƒ‰ãƒ©ã‚´ãƒ³ã€Œ".$DR[$cnt]->{name}."ã€ãŒå¼•é€€ã—ï¼Œ".($DR[$cnt]->{fm} ? "ç¹æ®–" : "ç¨®").$FM[$DR[$cnt]->{fm}]."ç«œå…¥ã‚Šã—ã¾ã—ãŸã€‚");
 	RenewDraLog();
 
 	ReadParent();
@@ -67,41 +67,41 @@ sub retire
 
 sub preg
 {
-	OutError('‚±‚êˆÈãƒhƒ‰ƒSƒ“‚ðŠ—L‚Å‚«‚Ü‚¹‚ñB') if (scalar @MYDR >= $MYDRmax);
+	OutError('ã“ã‚Œä»¥ä¸Šãƒ‰ãƒ©ã‚´ãƒ³ã‚’æ‰€æœ‰ã§ãã¾ã›ã‚“ã€‚') if (scalar @MYDR >= $MYDRmax);
 
 	ReadParent();
 
-	#Ž©ƒhƒ‰ƒSƒ“ƒ`ƒFƒbƒN
+	#è‡ªãƒ‰ãƒ©ã‚´ãƒ³ãƒã‚§ãƒƒã‚¯
 	my $p=$id2pr{$Q{dr}};
 	OutError("bad request") if ($MYDIR ne $PR[$p]->{town});
 	OutError("bad request") if ($PR[$p]->{owner}!=$DT->{id});
 	OutError("bad request") if (!$PR[$p]->{fm});
 	OutError("bad request") if ($NOW_TIME-$PR[$p]->{preg} < $PRcycle);
 
-	#Žíƒhƒ‰ƒSƒ“ƒ`ƒFƒbƒN
+	#ç¨®ãƒ‰ãƒ©ã‚´ãƒ³ãƒã‚§ãƒƒã‚¯
 	my $q=$id2pr{$Q{pr}};
 	OutError("bad request") if ($PR[$q]->{fm});
 
-	# –¼‘O‚Ì³“–«‚ðƒ`ƒFƒbƒN
+	# åå‰ã®æ­£å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯
 	require $JCODE_FILE;
 	if(!$Q{name})
 	{
-		OutError('–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B');
+		OutError('åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚');
 	}
 	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('–¼‘O‚ÉŽg—p‚Å‚«‚È‚¢•¶Žš‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B');
+		OutError('åå‰ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚');
 	}
 
-	#ˆê“xEUC‚É•ÏŠ·
+	#ä¸€åº¦EUCã«å¤‰æ›
 	&jcode::convert(\$Q{name}, "euc", "sjis");
 	$ZkatakanaExt = '(?:\xA5[\xA1-\xF6]|\xA1[\xA6\xBC\xB3\xB4])';
-	OutError('–¼‘O‚Í‘SŠpƒJƒ^ƒJƒi‚ÅŽw’è‚µ‚Ä‚­‚¾‚³‚¢B') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
+	OutError('åå‰ã¯å…¨è§’ã‚«ã‚¿ã‚«ãƒŠã§æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
 	&jcode::convert(\$Q{name}, "sjis", "euc");
 
-	OutError('–¼‘O‚ª’·‚·‚¬‚Ü‚·B') if length($Q{name})>20;
-	OutError('–¼‘O‚ª’Z‚·‚¬‚Ü‚·B') if length($Q{name})<6;
+	OutError('åå‰ãŒé•·ã™ãŽã¾ã™ã€‚') if length($Q{name})>20;
+	OutError('åå‰ãŒçŸ­ã™ãŽã¾ã™ã€‚') if length($Q{name})<6;
 
 	@DR=reverse(@DR);
 	$DRcount++;
@@ -136,6 +136,6 @@ sub preg
 	$PR[$p]->{preg}=$NOW_TIME;
 	WriteParent();
 
-$disp.="V‚µ‚¢ƒhƒ‰ƒSƒ“u<b>".$Q{name}."</b>v‚ª’a¶‚µ‚Ü‚µ‚½B";
+$disp.="æ–°ã—ã„ãƒ‰ãƒ©ã‚´ãƒ³ã€Œ<b>".$Q{name}."</b>ã€ãŒèª•ç”Ÿã—ã¾ã—ãŸã€‚";
 }
 

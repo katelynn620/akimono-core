@@ -1,4 +1,4 @@
-# åfé¶î¬àÍóóï\é¶ 2003/09/25 óRò“
+# Êé≤Á§∫Êùø‰∏ÄË¶ßË°®Á§∫ 2003/09/25 Áî±‰æÜ
 
 Treelist();
 &move_list;
@@ -28,18 +28,18 @@ EOM
 
 		$disp.=($name eq $adminname) ? $TR.$TDB : $TR.$TD;
 		$disp.=$no.$TD;
-		$disp.="Ñ•" if ($lx==1);
-		$disp.="Ñ†Å@Ñ§" if ($lx > 1);
+		$disp.="‚îú" if ($lx==1);
+		$disp.="‚îÇ„ÄÄ‚îî" if ($lx > 1);
 		my $newsign="";
 		$newsign = " ".$newmark if ($NOW_TIME - $t < $new_time * 3600);
 		$sub = &cut_subject($sub);
 
-		# ÉåÉXãLéñ
+		# „É¨„ÇπË®ò‰∫ã
 		if ($lx != 0) {
-			$disp.="Åû<a href=\"action.cgi?key=treebbs&$USERPASSURL&no=$no&reno=$reno&oya=$oya&mode=msgview&page=$page\">$sub</a>$newsign\n";
-		# êeãLéñ
+			$disp.="‚óá<a href=\"action.cgi?key=treebbs&$USERPASSURL&no=$no&reno=$reno&oya=$oya&mode=msgview&page=$page\">$sub</a>$newsign\n";
+		# Ë¶™Ë®ò‰∫ã
 		} else {
-			$disp.="<a href=\"action.cgi?key=treebbs&$USERPASSURL&mode=allread&no=$no&page=$page\">Åü</a>";
+			$disp.="<a href=\"action.cgi?key=treebbs&$USERPASSURL&mode=allread&no=$no&page=$page\">‚óÜ</a>";
 			$disp.="<a href=\"action.cgi?key=treebbs&$USERPASSURL&no=$no&reno=$reno&oya=$oya&mode=msgview&page=$page\">$sub</a>$newsign\n";
 		}
 	$disp.=$TD.$name.$TD.$town.$TD."<small>".GetTime2FormatTime($t)."<small>".$TD.$VALUE[$sml]."\n";
@@ -56,13 +56,13 @@ sub move_list {
 		$disp.="<td><FORM ACTION=\"action.cgi\" $METHOD>$MYFORM$USERPASSFORM\n";
 		$disp.="<input type=hidden name=page value=\"$back\">\n";
 		$disp.="<input type=hidden name=list value=\"$Q{list}\">\n";
-		$disp.="<input type=submit value=\"ëOÉyÅ[ÉW\"></td></form>\n";
+		$disp.="<input type=submit value=\"Ââç„Éö„Éº„Ç∏\"></td></form>\n";
 	}
 	if ($next < $i) {
 		$disp.="<td><FORM ACTION=\"action.cgi\" $METHOD>$MYFORM$USERPASSFORM\n";
 		$disp.="<input type=hidden name=page value=\"$next\">\n";
 		$disp.="<input type=hidden name=list value=\"$Q{list}\">\n";
-		$disp.="<input type=submit value=\"éüÉyÅ[ÉW\"></td></form>\n";
+		$disp.="<input type=submit value=\"Ê¨°„Éö„Éº„Ç∏\"></td></form>\n";
 	}
 	$disp.="<td width=10></td><td class=num>";
 

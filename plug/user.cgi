@@ -1,11 +1,11 @@
-# user ƒvƒ‰ƒOƒCƒ“ 2004/02/28 —R˜Ò
+# user ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2004/02/28 ç”±ä¾†
 
 sub GetID2UserName
 {
 	my($to)=@_;
-	return ("–fˆÕ","") if $to==1;
+	return ("è²¿æ˜“","") if $to==1;
 	return ($DT[$id2idx{$to}]->{shopname},$DT[$id2idx{$to}]->{name}) if defined($id2idx{$to});
-	return ('•Â“XÏ','');
+	return ('é–‰åº—æ¸ˆ','');
 }
 
 sub CheckUserID
@@ -14,7 +14,7 @@ sub CheckUserID
 	$id+=0;
 	
 	return 0 if $enable0 && !$id;
-	OutError('‚»‚Ì“X•Ü‚Í‘¶İ‚µ‚Ü‚¹‚ñB') if !defined($id2idx{$id});
+	OutError('ãã®åº—èˆ—ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚') if !defined($id2idx{$id});
 
 	return ($id,$id2idx{$id});
 }

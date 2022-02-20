@@ -1,4 +1,4 @@
-# •ºmŒÙ—p”½—ˆ— 2005/01/06 —R˜Ò
+# å…µå£«é›‡ç”¨åä¹±å‡¦ç† 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 Lock();
@@ -17,8 +17,8 @@ DataCommitOrAbort();
 UnLock();
 
 $disp.=$TBT.$TRT.$TD.GetTagImgJob($DT->{job},$DT->{icon});
-$disp.=$TD.GetMenuTag('army',	'[—b•ºŠ‚Ö]');
-$disp.=GetMenuTag('main','[©“X‚É–ß‚é]');
+$disp.=$TD.GetMenuTag('army',	'[å‚­å…µæ‰€ã¸]');
+$disp.=GetMenuTag('main','[è‡ªåº—ã«æˆ»ã‚‹]');
 $disp.=$TRE.$TBE;
 $disp.="<br>".$ret;
 OutSkin();
@@ -33,38 +33,38 @@ my $usetime=60*40;
 UseTime($usetime);
 
 $num=CheckCount($Q{cnt1},$Q{cnt2},0,$limit);
-OutError('”—Ê‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$num;
+OutError('æ•°é‡ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$num;
 
 $num=int($DT->{money}/$price) if $DT->{money}<$num*$price;
 $num=0 if $num<0;
-OutError('‘‹à‚ª‘«‚è‚Ü‚¹‚ñB') if !$num;
+OutError('è³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if !$num;
 
 $ARMY{$DT->{id}}+=$num;
 $DT->{money}-=$num*$price;
 
-$ret="•ºm’““ÔŠ‚É‚Äƒhƒ[ƒt•ºm‚ğ".$num."l@".GetMoneyString($price)."(Œv".GetMoneyString($price*$num).")‚É‚ÄŒÙ‚¢‚Ü‚µ‚½";
-$ret.="/".GetTime2HMS($usetime)."Á”ï";
+$ret="å…µå£«é§å±¯æ‰€ã«ã¦ãƒ‰ãƒ¯ãƒ¼ãƒ•å…µå£«ã‚’".$num."äºº@".GetMoneyString($price)."(è¨ˆ".GetMoneyString($price*$num).")ã«ã¦é›‡ã„ã¾ã—ãŸ";
+$ret.="/".GetTime2HMS($usetime)."æ¶ˆè²»";
 PushLog(0,$DT->{id},$ret);
 }
 
 sub fire
 {
 $num=CheckCount($Q{cnt1},$Q{cnt2},0,$ARMY{$DT->{id}});
-OutError('”—Ê‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$num;
+OutError('æ•°é‡ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$num;
 
 my $usetime=60*10;
 UseTime($usetime);
 $ARMY{$DT->{id}}-=$num;
 
-$ret="ƒhƒ[ƒt•ºm‚ğ".$num."l‰ğŒÙ‚µ‚Ü‚µ‚½";
-$ret.="/".GetTime2HMS($usetime)."Á”ï";
+$ret="ãƒ‰ãƒ¯ãƒ¼ãƒ•å…µå£«ã‚’".$num."äººè§£é›‡ã—ã¾ã—ãŸ";
+$ret.="/".GetTime2HMS($usetime)."æ¶ˆè²»";
 PushLog(0,$DT->{id},$ret);
 }
 
 sub rebelon
 {
-OutError('”½—‚ğŠJn‚·‚é‚É‚Í rebel ‚Æ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B') if ($Q{cmd} ne "rebel");
-OutError('•ºm”‚ª‘«‚è‚Ü‚¹‚ñB') if ($ARMY{$DT->{id}} < 2500);
+OutError('åä¹±ã‚’é–‹å§‹ã™ã‚‹ã«ã¯ rebel ã¨å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚') if ($Q{cmd} ne "rebel");
+OutError('å…µå£«æ•°ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if ($ARMY{$DT->{id}} < 2500);
 
 my $usetime=60*30;
 UseTime($usetime);
@@ -72,27 +72,27 @@ $DTevent{rebel}=$NOW_TIME+86400*3;
 $RIOT{$DT->{id}}=1;
 $STATE->{safety}=int($STATE->{safety} * 9 / 10) if ($STATE->{safety} > 5000);
 
-$ret="ƒhƒ[ƒt•ºm‚ª•‘•–I‹NB”½—‚ªn‚Ü‚è‚Ü‚µ‚½I";
-PushLog(2,0,$DT->{shopname}."‚ÌwŠö‚Å".$ret);
-$ret.="/".GetTime2HMS($usetime)."Á”ï";
+$ret="ãƒ‰ãƒ¯ãƒ¼ãƒ•å…µå£«ãŒæ­¦è£…èœ‚èµ·ã€‚åä¹±ãŒå§‹ã¾ã‚Šã¾ã—ãŸï¼";
+PushLog(2,0,$DT->{shopname}."ã®æŒ‡æ®ã§".$ret);
+$ret.="/".GetTime2HMS($usetime)."æ¶ˆè²»";
 }
 
 sub rside
 {
-OutError('”½—‚ÉŒÄ‰‚·‚é‚É‚Í rebel ‚Æ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B') if ($Q{cmd} ne "rebel");
+OutError('åä¹±ã«å‘¼å¿œã™ã‚‹ã«ã¯ rebel ã¨å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚') if ($Q{cmd} ne "rebel");
 
 my $usetime=60*20;
 UseTime($usetime);
 $RIOT{$DT->{id}}=1;
 
-$ret="”½—‚ÉŒÄ‰‚µCQí‚µ‚Ü‚µ‚½I";
-PushLog(3,0,$DT->{shopname}."‚ª".$ret);
-$ret.="/".GetTime2HMS($usetime)."Á”ï";
+$ret="åä¹±ã«å‘¼å¿œã—ï¼Œå‚æˆ¦ã—ã¾ã—ãŸï¼";
+PushLog(3,0,$DT->{shopname}."ãŒ".$ret);
+$ret.="/".GetTime2HMS($usetime)."æ¶ˆè²»";
 }
 
 sub lside
 {
-OutError('”½—‚ÉQ‰Á‚µ‚È‚ª‚ç—Ìå‚Ì–¡•û‚ğ‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB') if ($RIOT{$DT->{id}});
+OutError('åä¹±ã«å‚åŠ ã—ãªãŒã‚‰é ˜ä¸»ã®å‘³æ–¹ã‚’ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚') if ($RIOT{$DT->{id}});
 
 my $usetime=60*20;
 UseTime($usetime);
@@ -103,10 +103,10 @@ if ($STATE->{leader}==$DT->{id})
 	else
 	{
 	$STATE->{robina}+=$ARMY{$DT->{id}};
-	PushLog(3,0,$DT->{shopname}.'‚Í—Ìå‚É–¡•û‚µC‹`—E•º‚ğ”hŒ­‚µ‚Ü‚µ‚½B');
+	PushLog(3,0,$DT->{shopname}.'ã¯é ˜ä¸»ã«å‘³æ–¹ã—ï¼Œç¾©å‹‡å…µã‚’æ´¾é£ã—ã¾ã—ãŸã€‚');
 	}
 
 delete $ARMY{$DT->{id}};
-$ret="•ºm‚ğ—Ìå‚ÌŒì‰qŒR‚É”hŒ­‚µ‚Ü‚µ‚½";
-$ret.="/".GetTime2HMS($usetime)."Á”ï";
+$ret="å…µå£«ã‚’é ˜ä¸»ã®è­·è¡›è»ã«æ´¾é£ã—ã¾ã—ãŸ";
+$ret.="/".GetTime2HMS($usetime)."æ¶ˆè²»";
 }

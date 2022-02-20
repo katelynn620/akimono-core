@@ -1,4 +1,4 @@
-# –fˆÕ•iƒŠƒXƒg•\¦ 2005/01/06 —R˜Ò
+# è²¿æ˜“å“ãƒªã‚¹ãƒˆè¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 OutError("bad request") unless -e "trade.cgi";
 CheckTradeProcess();
@@ -39,21 +39,21 @@ close(IN);
 my($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$RANKING_PAGE_ROWS,scalar(@itemlist));
 
-$disp.=GetMenuTag('dwarf','[‘î”z•ÖƒŠƒXƒg]')
-	.GetMenuTag('dwarf',		'[‘î”z•Ö‚ğo‚·]','&form=make');
-$disp.=GetMenuTag('dwarf','[–fˆÕ•iƒŠƒXƒg]','&trade=list') if -e "trade.cgi";
+$disp.=GetMenuTag('dwarf','[å®…é…ä¾¿ãƒªã‚¹ãƒˆ]')
+	.GetMenuTag('dwarf',		'[å®…é…ä¾¿ã‚’å‡ºã™]','&form=make');
+$disp.=GetMenuTag('dwarf','[è²¿æ˜“å“ãƒªã‚¹ãƒˆ]','&trade=list') if -e "trade.cgi";
 $disp.="<hr width=500 noshade size=1>";
 
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>Z‚İ‚İƒhƒ[ƒt</SPAN>F‚¢‚Üæ‚èˆµ‚¢’†‚Ì–fˆÕ•i‚ÍŸ‚Ì’Ê‚è‚¶‚áB<br>
-—~‚µ‚¢•¨‚ª‚ ‚Á‚½‚ç‚·‚®‚Éè‘±‚·‚é‚Æ‚æ‚¢‚Ì‚¤B
+<SPAN>ä½ã¿è¾¼ã¿ãƒ‰ãƒ¯ãƒ¼ãƒ•</SPAN>ï¼šã„ã¾å–ã‚Šæ‰±ã„ä¸­ã®è²¿æ˜“å“ã¯æ¬¡ã®é€šã‚Šã˜ã‚ƒã€‚<br>
+æ¬²ã—ã„ç‰©ãŒã‚ã£ãŸã‚‰ã™ãã«æ‰‹ç¶šã™ã‚‹ã¨ã‚ˆã„ã®ã†ã€‚
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="trade">
-<BIG>œ“ü`’†‚Ì–fˆÕ•i</BIG><br><br>
+<BIG>â—å…¥æ¸¯ä¸­ã®è²¿æ˜“å“</BIG><br><br>
 HTML
 
 foreach my $cnt (0..$#ITEMTYPE)
@@ -72,18 +72,18 @@ $disp.=$TB;
 
 	$disp.=<<"HTML";
 $TB$TR
-$TD^
-$TDB‘—•t•i
-$TDB‘ã‹à
-$TDB‘—•tŒ³
-$TDBó‘Ô
-$TDBŠúŒÀ
+$TDï¼
+$TDBé€ä»˜å“
+$TDBä»£é‡‘
+$TDBé€ä»˜å…ƒ
+$TDBçŠ¶æ…‹
+$TDBæœŸé™
 $TRE
 HTML
 
 my @MODE;
-$MODE[1]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign1.png">”Ì”„’†|;
-$MODE[2]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign2.png">”„–ñÏ‚İ|;
+$MODE[1]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign1.png">è²©å£²ä¸­|;
+$MODE[2]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign2.png">å£²ç´„æ¸ˆã¿|;
 
 my $allbuy=1;
 foreach my $cnt ($pagestart .. $pageend)
@@ -94,18 +94,18 @@ foreach my $cnt ($pagestart .. $pageend)
 	$disp.="<input type=radio name=\"code\" value=\"$item->[9]:$item->[3]:$item->[4]:$item->[5]\">",$allbuy=0 if !$item->[8];
 	$disp.=$TD;
 	$disp.=GetTagImgItemType($item->[3]).$ITEM[$item->[3]]->{name}.' '.$item->[4].$ITEM[$item->[3]]->{scale};
-	$disp.='<br><small>(’è‰¿ '.GetMoneyString($ITEM[$item->[3]]->{price} * $item->[4]).')</small>';
+	$disp.='<br><small>(å®šä¾¡ '.GetMoneyString($ITEM[$item->[3]]->{price} * $item->[4]).')</small>';
 	
 	$disp.=$TDNW.GetMoneyString($item->[5]);
 	$disp.=$TDNW.$item->[1]."<br><small> (".$item->[2].")</small>";
 	$disp.=$TDNW;
 	$disp.=($item->[8] ? $MODE[2] : $MODE[1]);
-	$disp.=$TD.($lasttime>0 ? "‚ ‚Æ".GetTime2HMS($lasttime) : "‚Ü‚à‚È‚­");
+	$disp.=$TD.($lasttime>0 ? "ã‚ã¨".GetTime2HMS($lasttime) : "ã¾ã‚‚ãªã");
 	$disp.=$TRE;
 }
 $disp.=$TBE."<br>";
 $disp.=<<"HTML" if !$allbuy;
-‘I‘ğ‚µ‚½–fˆÕ•i‚É‚Â‚¢‚Ä <INPUT TYPE=SUBMIT VALUE="—A“ü‚ğ\\‚µ‚Ş">
+é¸æŠã—ãŸè²¿æ˜“å“ã«ã¤ã„ã¦ <INPUT TYPE=SUBMIT VALUE="è¼¸å…¥ã‚’ç”³\ã—è¾¼ã‚€">
 </FORM>
 HTML
 
@@ -119,12 +119,12 @@ sub CheckTradeProcess
 	
 	if((stat($fn))[9]<$NOW_TIME-60*30)
 	{
-		#30•ªˆÈã‚ÌƒƒbƒN‚ÍˆÙí‚ÆŒ©‚È‚µ‰ğœ
+		#30åˆ†ä»¥ä¸Šã®ãƒ­ãƒƒã‚¯ã¯ç•°å¸¸ã¨è¦‹ãªã—è§£é™¤
 		Lock();
-		unlink($fn) if (stat($fn))[9]<$NOW_TIME-60*30; #Šù‚É‰ğœ‚³‚ê‚Ä‚¢‚é‰Â”\«‚ğƒ`ƒFƒbƒNŒã‰ğœ
+		unlink($fn) if (stat($fn))[9]<$NOW_TIME-60*30; #æ—¢ã«è§£é™¤ã•ã‚Œã¦ã„ã‚‹å¯èƒ½æ€§ã‚’ãƒã‚§ãƒƒã‚¯å¾Œè§£é™¤
 		UnLock();
 	}
-	OutError('‚½‚¾¡–fˆÕ‘D‚ª“ü`‚µ‚Ä‚¢‚Ü‚·B‚à‚¤‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢');
+	OutError('ãŸã ä»Šè²¿æ˜“èˆ¹ãŒå…¥æ¸¯ã—ã¦ã„ã¾ã™ã€‚ã‚‚ã†ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„');
 }
 
 sub ConvertItem

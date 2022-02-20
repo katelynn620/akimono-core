@@ -1,4 +1,4 @@
-# ƒƒ“ƒeƒiƒ“ƒX•\Ž¦ 2005/03/30 —R˜Ò
+# ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹è¡¨ç¤º 2005/03/30 ç”±ä¾†
 
 my $msg="";
 if(-f "./lock")
@@ -33,8 +33,8 @@ if (-e "$DATA_DIR/error.log")
 	<TABLE cellspacing="0" cellpadding="5" width="700" border="0">
 	<TBODY><TR><TD width="80" bgcolor="#ABA5FF" align="center">
 	<FONT color="#FFFFFF"><small>for Admin</small></FONT></TD>
-	<TD align="center" bgcolor="#DBD5FF">ƒGƒ‰[‚Ì‚½‚ßƒVƒXƒeƒ€‚ð’âŽ~‚µ‚Ü‚µ‚½B c 
-	<A HREF="$DATA_DIR/error.log">[ƒGƒ‰[î•ñ]</A> F <A HREF="http://akimono.org/">[ƒGƒ‰[‘Š’k]</A>
+	<TD align="center" bgcolor="#DBD5FF">ã‚¨ãƒ©ãƒ¼ã®ãŸã‚ã‚·ã‚¹ãƒ†ãƒ ã‚’åœæ­¢ã—ã¾ã—ãŸã€‚ â€¦ 
+	<A HREF="$DATA_DIR/error.log">[ã‚¨ãƒ©ãƒ¼æƒ…å ±]</A> ï¼š <A HREF="http://akimono.org/">[ã‚¨ãƒ©ãƒ¼ç›¸è«‡]</A>
 	</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
 STR
 	}
@@ -54,18 +54,18 @@ SPAN { font-family:"Comic Sans MS"; font-size:16pt; color:#664499 ;}
 input,input.button{color:#000000;background-color:#FFFFFF;border:1 #5f5f8c solid}
 -->
 </Style>
-<TITLE>$HTML_TITLE:ƒƒ“ƒe’†</TITLE>
+<TITLE>$HTML_TITLE:ãƒ¡ãƒ³ãƒ†ä¸­</TITLE>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#6050cc" VLINK="#6050cc" ALINK="#FF0000">
 <center><br><SPAN>Sorry, Now Under Site Maintenance.</SPAN><br><br>
 <TABLE cellspacing="0" cellpadding="0"><TBODY><TR><TD bgcolor="#6B6599">
 <TABLE cellspacing="1" cellpadding="0" border="0" width="700"><TBODY><TR><TD bgcolor="#FFFFFF" align="center">
-<br>‚½‚¾‚¢‚Üƒƒ“ƒeƒiƒ“ƒXì‹Æ’†‚Ì‚½‚ßCƒQ[ƒ€‚ª’âŽ~‚µ‚Ä‚¨‚è‚Ü‚·B<br><br>
-ƒvƒŒƒC’†‚Ì•û‚É‚Í‚²•s•Ö‚ð‚¨‚©‚¯‚µ‚Ü‚·‚ªC‚à‚¤‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B<br>
-”ŽžŠÔˆÈãŒo‚Á‚Ä‚à–ß‚ç‚È‚¢ê‡‚ÍC‚¨Žè”‚Å‚·‚ª<a href="mailto:$ADMIN_EMAIL">ŠÇ—l‚Ü‚Å‚²˜A—</a>‚­‚¾‚³‚¢B<br><br>
-<A HREF=\"$HOME_PAGE\" TARGET=_top>[ƒz[ƒ€‚É–ß‚é]</A>
+<br>ãŸã ã„ã¾ãƒ¡ãƒ³ãƒ†ãƒŠãƒ³ã‚¹ä½œæ¥­ä¸­ã®ãŸã‚ï¼Œã‚²ãƒ¼ãƒ ãŒåœæ­¢ã—ã¦ãŠã‚Šã¾ã™ã€‚<br><br>
+ãƒ—ãƒ¬ã‚¤ä¸­ã®æ–¹ã«ã¯ã”ä¸ä¾¿ã‚’ãŠã‹ã‘ã—ã¾ã™ãŒï¼Œã‚‚ã†ã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚<br>
+æ•°æ™‚é–“ä»¥ä¸ŠçµŒã£ã¦ã‚‚æˆ»ã‚‰ãªã„å ´åˆã¯ï¼ŒãŠæ‰‹æ•°ã§ã™ãŒ<a href="mailto:$ADMIN_EMAIL">ç®¡ç†äººã¾ã§ã”é€£çµ¡</a>ãã ã•ã„ã€‚<br><br>
+<A HREF=\"$HOME_PAGE\" TARGET=_top>[ãƒ›ãƒ¼ãƒ ã«æˆ»ã‚‹]</A>
 <br><div align="right"><small>
-<A HREF="http://akimono.org/">¤l•¨Œê</A></small></div>
+<A HREF="http://akimono.org/">å•†äººç‰©èªž</A></small></div>
 </TD></TR></TBODY></TABLE>
 </TD></TR></TBODY></TABLE>
 $er<br>$msg</CENTER>

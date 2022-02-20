@@ -1,4 +1,4 @@
-# ƒAƒCƒeƒ€’Â—ñ‰º¿‚¯ 2004/01/20 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ é™³åˆ—ä¸‹è«‹ã‘ 2004/01/20 ç”±ä¾†
 
 $disp.=<<STR;
 <FORM ACTION="action.cgi" $METHOD>
@@ -6,32 +6,32 @@ $disp.=<<STR;
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=bk VALUE="$Q{bk}">
 <INPUT TYPE=HIDDEN NAME=item VALUE="$itemno">
-<BIG>œ’Â—ñF</BIG>
+<BIG>â—é™³åˆ—ï¼š</BIG>
 <SELECT NAME=no>
 STR
 foreach my $cnt (1..$DT->{showcasecount})
 {
 	$disp.="<OPTION VALUE='".($cnt-1)."'".($showcase==$cnt?' SELECTED':'').">";
-	$disp.="’I$cnt($ITEM[$DT->{showcase}[$cnt-1]]->{name})";
+	$disp.="æ£š$cnt($ITEM[$DT->{showcase}[$cnt-1]]->{name})";
 }
 	$disp.="</SELECT>";
-	$disp.="‚Ö•W€‰¿Ši‚Ì";
+	$disp.="ã¸æ¨™æº–ä¾¡æ ¼ã®";
 	$disp.=<<STR;
 <SELECT NAME=per>
-<OPTION VALUE='50'>5Š„ˆø
-<OPTION VALUE='60'>4Š„ˆø
-<OPTION VALUE='70'>3Š„ˆø
-<OPTION VALUE='80'>2Š„ˆø
-<OPTION VALUE='90'>1Š„ˆø
-<OPTION VALUE='100' SELECTED>‚Ü‚Ü
-<OPTION VALUE='110'>1Š„‘
-<OPTION VALUE='120'>2Š„‘
+<OPTION VALUE='50'>5å‰²å¼•
+<OPTION VALUE='60'>4å‰²å¼•
+<OPTION VALUE='70'>3å‰²å¼•
+<OPTION VALUE='80'>2å‰²å¼•
+<OPTION VALUE='90'>1å‰²å¼•
+<OPTION VALUE='100' SELECTED>ã¾ã¾
+<OPTION VALUE='110'>1å‰²å¢—
+<OPTION VALUE='120'>2å‰²å¢—
 </SELECT>
-‚Ü‚½‚Í
-<INPUT TYPE=TEXT NAME=prc SIZE=6 VALUE="$Q{pr}">‰~
-‚Å
-<INPUT TYPE=SUBMIT VALUE='’Â—ñ‚·‚é'>
-(ŽžŠÔ${\GetTime2HMS($TIME_EDIT_SHOWCASE)}Á”ï)
+ã¾ãŸã¯
+<INPUT TYPE=TEXT NAME=prc SIZE=6 VALUE="$Q{pr}">å††
+ã§
+<INPUT TYPE=SUBMIT VALUE='é™³åˆ—ã™ã‚‹'>
+(æ™‚é–“${\GetTime2HMS($TIME_EDIT_SHOWCASE)}æ¶ˆè²»)
 </FORM>
 STR
 1;

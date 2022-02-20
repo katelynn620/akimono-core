@@ -1,4 +1,4 @@
-# ‘î”z•Ö•ÒW 2005/03/30 —R˜Ò
+# å®…é…ä¾¿ç·¨é›† 2005/03/30 ç”±ä¾†
 
 my $functionname=$Q{mode};
 OutError("bad request") if !defined(&$functionname);
@@ -13,28 +13,28 @@ UnLock();
 sub new
 {
 	my ($to,$item)=($Q{to},$Q{item});
-	OutError("ˆ¶æ‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢B") if $to==-1;
-	OutError("Ž©•ªŽ©g‚É‘î”z•Ö‚ðo‚·‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB") if ($to == $DT->{id});
+	OutError("å®›å…ˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚") if $to==-1;
+	OutError("è‡ªåˆ†è‡ªèº«ã«å®…é…ä¾¿ã‚’å‡ºã™ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚") if ($to == $DT->{id});
 	if ($to==99)
 		{
-		OutError("–fˆÕ‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚È‚¢‚Ì‚ÅŽw’è‚Å‚«‚Ü‚¹‚ñB") unless -e "trade.cgi";
+		OutError("è²¿æ˜“ãŒã¤ãªãŒã£ã¦ã„ãªã„ã®ã§æŒ‡å®šã§ãã¾ã›ã‚“ã€‚") unless -e "trade.cgi";
 		$Q{notice}=0;
 		}
 		else
 		{
-		OutError("‘¶Ý‚µ‚È‚¢“X•Ü‚Å‚·B") if !defined($id2idx{$to});
+		OutError("å­˜åœ¨ã—ãªã„åº—èˆ—ã§ã™ã€‚") if !defined($id2idx{$to});
 		}
-	OutError("ƒAƒCƒeƒ€‚ÌŽw’è‚ª•s³‚Å‚·B") if !$ITEM[$item]->{name};
-	OutError("ƒAƒCƒeƒ€‚ÌŽw’è‚ª•s³‚Å‚·B") if $ITEM[$item]->{flag}=~/r/;	# r ˆË—Š•s‰Â
+	OutError("ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ‡å®šãŒä¸æ­£ã§ã™ã€‚") if !$ITEM[$item]->{name};
+	OutError("ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ‡å®šãŒä¸æ­£ã§ã™ã€‚") if $ITEM[$item]->{flag}=~/r/;	# r ä¾é ¼ä¸å¯
 
 	$Q{num}||=$DT->{item}[$item-1];
 	$Q{num}=CheckCount($Q{num},0,0,$DT->{item}[$item-1]);
-	OutError("ƒAƒCƒeƒ€‚ÌÝŒÉ‚ª‚ ‚è‚Ü‚¹‚ñB") if !$Q{num};
+	OutError("ã‚¢ã‚¤ãƒ†ãƒ ã®åœ¨åº«ãŒã‚ã‚Šã¾ã›ã‚“ã€‚") if !$Q{num};
 	my $price=CheckCount($Q{price},0,0,$MAX_MONEY);
 	$price=$price * $Q{num} if $Q{unit};
-	OutError("—¿‹à‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢B") if !$price;
+	OutError("æ–™é‡‘ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚") if !$price;
 	my $numrate=$ITEM[$item]->{price} * $Q{num};
-	OutError("¤•i‚Æ—¿‹à‚Ì‰¿’l‚ª‚Â‚è‚ ‚Á‚Ä‚¢‚Ü‚¹‚ñB") if ($price > $numrate * 2) || ($numrate > $price * 2);
+	OutError("å•†å“ã¨æ–™é‡‘ã®ä¾¡å€¤ãŒã¤ã‚Šã‚ã£ã¦ã„ã¾ã›ã‚“ã€‚") if ($price > $numrate * 2) || ($numrate > $price * 2);
 
 	NoticeDwarf() if $Q{notice};
 
@@ -54,7 +54,7 @@ sub new
 
 	my $cost=0;
 	$cost=int($price * $DTTaxrate / 100);
-	OutError("Å‹à‚ð•¥‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñB") if ($cost > $DT->{money});
+	OutError("ç¨Žé‡‘ã‚’æ‰•ã†ã“ã¨ãŒã§ãã¾ã›ã‚“ã€‚") if ($cost > $DT->{money});
 	$DT->{taxtoday}+=$cost;
 	$DT->{money}-=$cost;
 
@@ -66,7 +66,7 @@ sub plus
 {
 	if ($Q{ng})
 	{
-		# Žó‚¯Žæ‚è‹‘”Û
+		# å—ã‘å–ã‚Šæ‹’å¦
 		foreach my $i(0..$Dcount)
 		{
 		next unless $DWF[$i]->{to}==$DT->{id};
@@ -77,7 +77,7 @@ sub plus
 		return;
 	}
 
-	# Žó‚¯Žæ‚è
+	# å—ã‘å–ã‚Š
 	foreach my $i(0..$Dcount)
 	{
 	next unless $DWF[$i]->{to}==$DT->{id};
@@ -93,25 +93,25 @@ sub plus
 	$DT->{item}[$item-1]+=$num;
 	$DT->{item}[$item-1]=$ITEM[$item]->{limit} if ($DT->{item}[$item-1]>$ITEM[$item]->{limit});
 	}
-	OutError("‘ã‹à‚ðŽx•¥‚¤‚Ì‚É•K—v‚ÈŽ‘‹à‚ª‘«‚è‚Ü‚¹‚ñB") if ($DT->{money} < 0);
+	OutError("ä»£é‡‘ã‚’æ”¯æ‰•ã†ã®ã«å¿…è¦ãªè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚") if ($DT->{money} < 0);
 	DataWrite();
 }
 
 sub trade
 {
-	OutError("–fˆÕ‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚È‚¢‚Ì‚ÅŽw’è‚Å‚«‚Ü‚¹‚ñB") unless -e "trade.cgi";
-	OutError("–fˆÕ•i‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢B") if !defined($Q{code});
+	OutError("è²¿æ˜“ãŒã¤ãªãŒã£ã¦ã„ãªã„ã®ã§æŒ‡å®šã§ãã¾ã›ã‚“ã€‚") unless -e "trade.cgi";
+	OutError("è²¿æ˜“å“ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚") if !defined($Q{code});
 
 	my($boxno,$item,$num,$price)=split(/:/,$Q{code});
-	OutError("ƒAƒCƒeƒ€‚ÌŽw’è‚ª•s³‚Å‚·B") if !$ITEM[$item]->{name};
-	OutError("ƒAƒCƒeƒ€‚ÌŽw’è‚ª•s³‚Å‚·B") if $ITEM[$item]->{flag}=~/r/;	# r ˆË—Š•s‰Â
+	OutError("ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ‡å®šãŒä¸æ­£ã§ã™ã€‚") if !$ITEM[$item]->{name};
+	OutError("ã‚¢ã‚¤ãƒ†ãƒ ã®æŒ‡å®šãŒä¸æ­£ã§ã™ã€‚") if $ITEM[$item]->{flag}=~/r/;	# r ä¾é ¼ä¸å¯
 
 	$num=CheckCount($num,0,0,$MAX_MONEY);
-	OutError("ŒÂ”‚ÌŽw’è‚ª•s³‚Å‚·B".$num) if !$num;
+	OutError("å€‹æ•°ã®æŒ‡å®šãŒä¸æ­£ã§ã™ã€‚".$num) if !$num;
 	$price=CheckCount($price,0,0,$MAX_MONEY);
-	OutError("—¿‹à‚ÌŽw’è‚ª•s³‚Å‚·B") if !$price;
-	OutError("Ž‘‹à‚ð€”õ‚µ‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢B") if $price > $DT->{money};
-	OutError("‚»‚Ì–fˆÕ•i‚Í‚·‚Å‚É”„–ñÏ‚Å‚·B") if grep($_->{trade} eq $boxno,@DWF);
+	OutError("æ–™é‡‘ã®æŒ‡å®šãŒä¸æ­£ã§ã™ã€‚") if !$price;
+	OutError("è³‡é‡‘ã‚’æº–å‚™ã—ã¦ãŠã„ã¦ãã ã•ã„ã€‚") if $price > $DT->{money};
+	OutError("ãã®è²¿æ˜“å“ã¯ã™ã§ã«å£²ç´„æ¸ˆã§ã™ã€‚") if grep($_->{trade} eq $boxno,@DWF);
 
 	@DWF=reverse(@DWF);
 	$Dcount++;
@@ -134,7 +134,7 @@ sub delete
 	next unless $DWF[$i]->{from}==$DT->{id};
 	my $act="del_".$DWF[$i]->{no};
 	next unless ($Q{$act});
-	if ($DWF[$i]->{mode}!=2)	# ŽóŽæÏ‚Ý‚È‚ç•Ô‹p‚Ì•K—v‚È‚µ
+	if ($DWF[$i]->{mode}!=2)	# å—å–æ¸ˆã¿ãªã‚‰è¿”å´ã®å¿…è¦ãªã—
 		{
 		$WriteMode=1;
 		my ($item,$num)=($DWF[$i]->{item},$DWF[$i]->{num});
@@ -148,7 +148,7 @@ sub delete
 
 sub WriteDwarf
 {
-	undef @RECDWF;	# •Û‘¶‚ÆÄ’è‹`‚ð“¯Žž‚É
+	undef @RECDWF;	# ä¿å­˜ã¨å†å®šç¾©ã‚’åŒæ™‚ã«
 	undef @SENDWF;
 	$NeverD=0;
 	my @buf;
@@ -181,9 +181,9 @@ sub NoticeDwarf
 	$LETTER[$i]->{fromid}=1;
 	$LETTER[$i]->{tot}=$MYDIR;
 	$LETTER[$i]->{toid}=$Q{to};
-	$LETTER[$i]->{title}="‘î”z•Ö“ž’…‚Ì‚¨’m‚ç‚¹";
-	$LETTER[$i]->{msg}="‚±‚¿‚çƒhƒ[ƒt‘î”z•Ö‚Å‚·B".$DT->{shopname}."‚³‚ñ‚æ‚èC¬•ï‚ª“Í‚¯‚ç‚ê‚Ü‚µ‚½‚Ì‚ÅC‚²Šm”F‚ð‚¨Šè‚¢‚¢‚½‚µ‚Ü‚·B";
-	$LETTER[$i]->{mode}=1;	#–¢“ÇÝ’è
+	$LETTER[$i]->{title}="å®…é…ä¾¿åˆ°ç€ã®ãŠçŸ¥ã‚‰ã›";
+	$LETTER[$i]->{msg}="ã“ã¡ã‚‰ãƒ‰ãƒ¯ãƒ¼ãƒ•å®…é…ä¾¿ã§ã™ã€‚".$DT->{shopname}."ã•ã‚“ã‚ˆã‚Šï¼Œå°åŒ…ãŒå±Šã‘ã‚‰ã‚Œã¾ã—ãŸã®ã§ï¼Œã”ç¢ºèªã‚’ãŠé¡˜ã„ã„ãŸã—ã¾ã™ã€‚";
+	$LETTER[$i]->{mode}=1;	#æœªèª­è¨­å®š
 	$LETTER[$i]->{other}=$DT->{shopname};
 	@LETTER=reverse(@LETTER);
 

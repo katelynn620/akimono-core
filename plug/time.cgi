@@ -1,4 +1,4 @@
-# time プラグイン 2003/07/19 由來
+# time 繝励Λ繧ｰ繧､繝ｳ 2003/07/19 逕ｱ萓�
 
 sub GetTime2FormatTime
 {
@@ -15,7 +15,7 @@ sub GetTime2found
 	my($tm,$mode)=@_;
 	
 	my $h=int($tm/3600);
-	return $h.'時間' if $h<24;
-	return int($h/24).'日';
+	return $h.'譎る俣' if $h<24;
+	return int($h/24).'譌･';
 }
 1;

@@ -1,4 +1,4 @@
-# w“üˆ— 2005/03/30 —R˜Ò
+# è³¼å…¥å‡¦ç† 2005/03/30 ç”±ä¾†
 
 $NOMENU=1;
 $id=int($Q{id}+0);
@@ -12,21 +12,21 @@ DataRead();
 CheckUserPass();
 
 $num=CheckCount($Q{num1},$Q{num2},0,$ITEM[$itemno]->{limit}-$DT->{item}[$itemno-1]);
-OutError('”—Ê‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$num;
+OutError('æ•°é‡ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$num;
 
 if($id==0)
 {
-	# sê
+	# å¸‚å ´
 	$DTS=GetWholeStore();
 	$DTS->{_wholestore_}=1;
 }
 else
 {
-	# ˆê”Ê“X
-	OutError('“XI‚¢‚µ‚½‚©‚à‚µ‚ê‚Ü‚¹‚ñ') if !defined($id2idx{$id});
+	# ä¸€èˆ¬åº—
+	OutError('åº—çµ‚ã„ã—ãŸã‹ã‚‚ã—ã‚Œã¾ã›ã‚“') if !defined($id2idx{$id});
 	$DTS=$DT[$id2idx{$id}];
 }
-OutError('©•ª‚Ì“X‚©‚ç”ƒ‚¤‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñ') if $DT->{id}==$DTS->{id};
+OutError('è‡ªåˆ†ã®åº—ã‹ã‚‰è²·ã†ã“ã¨ã¯ã§ãã¾ã›ã‚“') if $DT->{id}==$DTS->{id};
 CheckShowCaseNumber($DTS,$showcase);
 CheckItemNo($itemno,$DTS);
 
@@ -39,14 +39,14 @@ if($itemno!= $DTS->{showcase}[$showcase]
 || !$DTS->{item}[$itemno-1]
 )
 {
-	OutError('¤•i‚â‰¿Ši‚ª•Ï‰»‚µ‚½‚æ‚¤‚Å‚·');
+	OutError('å•†å“ã‚„ä¾¡æ ¼ãŒå¤‰åŒ–ã—ãŸã‚ˆã†ã§ã™');
 }
 
 $num=$DTS->{item}[$itemno-1] if $DTS->{item}[$itemno-1]<$num;
 $num=int($DT->{money}/$price) if ($DT->{money}<$num*$price && $price > 0);
 $num=0 if $num<0;
 
-OutError('—â‚â‚©‚µ‚Å‚·‚©H') if !$num;
+OutError('å†·ã‚„ã‹ã—ã§ã™ã‹ï¼Ÿ') if !$num;
 
 $TIME_SEND_ITEM=int($TIME_SEND_ITEM/2) if !$id;
 my $usetime=GetTimeDeal($baseprice*$num,$itemno,$num);
@@ -66,11 +66,11 @@ $DTS->{taxtoday}+=$tax;
 EditGuildMoney($DT->{guild} ,-$guildmargin*$num) if $guild==1;
 EditGuildMoney($DTS->{guild}, $guildmargin*$num) if $guild==2;
 
-#”„‚èØ‚ê‚Ìl‹CDOWN(‘Šè“X•Ü) ¦“¯ƒMƒ‹ƒh‚Ìê‡‚ÍSKIP
+#å£²ã‚Šåˆ‡ã‚Œæ™‚ã®äººæ°—DOWN(ç›¸æ‰‹åº—èˆ—) â€»åŒã‚®ãƒ«ãƒ‰ã®å ´åˆã¯SKIP
 if($DTS->{item}[$itemno-1]==0 && $guild!=1 && $guild!=-1)
 {
-	my $rankdown+=($DTS->{rank}/100)**3/1000; #l‹C‚É‰‚¶‚Äƒ_ƒEƒ“
-	#$rankdown+=70*4/($nowranking+3); #ƒ‰ƒ“ƒLƒ“ƒO‚É‰‚¶‚Äƒ_ƒEƒ“
+	my $rankdown+=($DTS->{rank}/100)**3/1000; #äººæ°—ã«å¿œã˜ã¦ãƒ€ã‚¦ãƒ³
+	#$rankdown+=70*4/($nowranking+3); #ãƒ©ãƒ³ã‚­ãƒ³ã‚°ã«å¿œã˜ã¦ãƒ€ã‚¦ãƒ³
 
 	if($rankdown<1 && $rankdown>0)
 		{$rankdown=1 if rand(1/$rankdown)<1;}
@@ -78,11 +78,11 @@ if($DTS->{item}[$itemno-1]==0 && $guild!=1 && $guild!=-1)
 	$DTS->{rank}=0 if $DTS->{rank}<0;
 }
 
-$ret=$DTS->{shopname}."‚æ‚è".$ITEM[$itemno]->{name}."‚ğ".$num.$ITEM[$itemno]->{scale}.'@'.GetMoneyString($price)."(Œv".GetMoneyString($price*$num).")";
-$ret.=(($ITEM[$itemno]->{flag}=~/h/) ? "‚É‚ÄŒÙ‚¢‚Ü‚µ‚½" : "‚É‚Äd“ü‚ê‚Ü‚µ‚½");
-$ret.="/".GetTime2HMS($usetime)."Á”ï";
-$ret.="/".('ƒMƒ‹ƒh“àŠ„ˆø','ƒMƒ‹ƒhŠÔŠ„‘')[$guild-1].'@'.GetMoneyString($guildmargin) if $guild>0;
-$ret.="/ƒMƒ‹ƒh“àŠ„ˆø•â•‚È‚µ" if $guild==-1;
+$ret=$DTS->{shopname}."ã‚ˆã‚Š".$ITEM[$itemno]->{name}."ã‚’".$num.$ITEM[$itemno]->{scale}.'@'.GetMoneyString($price)."(è¨ˆ".GetMoneyString($price*$num).")";
+$ret.=(($ITEM[$itemno]->{flag}=~/h/) ? "ã«ã¦é›‡ã„ã¾ã—ãŸ" : "ã«ã¦ä»•å…¥ã‚Œã¾ã—ãŸ");
+$ret.="/".GetTime2HMS($usetime)."æ¶ˆè²»";
+$ret.="/".('ã‚®ãƒ«ãƒ‰å†…å‰²å¼•','ã‚®ãƒ«ãƒ‰é–“å‰²å¢—')[$guild-1].'@'.GetMoneyString($guildmargin) if $guild>0;
+$ret.="/ã‚®ãƒ«ãƒ‰å†…å‰²å¼•è£œåŠ©ãªã—" if $guild==-1;
 PushLog(0,$DT->{id},$ret);
 
 @item::DT=@DT;
@@ -107,7 +107,7 @@ require "$ITEM_DIR/funcbuy.cgi" if $DEFINE_FUNCBUY;
 
 if($ITEM[$itemno]->{funcbuy})
 {
-	#@@item funcb ˆ—
+	#@@item funcb å‡¦ç†
 	my $item=$ITEM[$itemno];
 	my $file="$ITEM_DIR/item-b/$item->{no}$FILE_EXT";
 	my $func="item::".$item->{funcsale};
@@ -131,8 +131,8 @@ DataCommitOrAbort();
 UnLock();
 
 $disp.=$TBT.$TRT.$TD.GetTagImgJob($DT->{job},$DT->{icon});
-$disp.=$TD.GetMenuTag('stock',	'[‘qŒÉ‚Ö]');
-$disp.=($id==0) ? GetMenuTag('shop-m','[d“ü‚ê‚ğ‘±‚¯‚é]') : GetMenuTag('shop-a','[”ƒ‚¢•¨‚ğ‘±‚¯‚é]','&t=2');
+$disp.=$TD.GetMenuTag('stock',	'[å€‰åº«ã¸]');
+$disp.=($id==0) ? GetMenuTag('shop-m','[ä»•å…¥ã‚Œã‚’ç¶šã‘ã‚‹]') : GetMenuTag('shop-a','[è²·ã„ç‰©ã‚’ç¶šã‘ã‚‹]','&t=2');
 $disp.=$TRE.$TBE;
 $disp.="<br>".$ret;
 

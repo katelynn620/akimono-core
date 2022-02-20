@@ -1,4 +1,4 @@
-# drread cプラグイン 2005/03/30 由來
+# drread c繝励Λ繧ｰ繧､繝ｳ 2005/03/30 逕ｱ萓�
 
 sub ReadRace
 {

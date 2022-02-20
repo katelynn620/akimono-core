@@ -1,4 +1,4 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ƒŒ[ƒX“WŠJ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ãƒ¬ãƒ¼ã‚¹å±•é–‹ 2005/03/30 ç”±ä¾†
 
 if ($NOW_TIME > $DRTIME[2]) { $rcode=1; } else { $rcode=0; }
 
@@ -37,13 +37,13 @@ sub WriteRaceLog
 
 sub Entry
 {
-	# o‘–ƒXƒ‰ƒCƒ€Šm’èˆ—
+	# å‡ºèµ°ã‚¹ãƒ©ã‚¤ãƒ ç¢ºå®šå‡¦ç†
 	ReadDragon();
 	ReadJock();
 
 	if (scalar @RD < 3)
 		{
-		# o‘–”‚ª‚R‚Â‚É–ž‚½‚È‚¢ê‡‚Í‘S•”—Ž‘I‚µ‚¨—¬‚ê
+		# å‡ºèµ°æ•°ãŒï¼“ã¤ã«æº€ãŸãªã„å ´åˆã¯å…¨éƒ¨è½é¸ã—ãŠæµã‚Œ
 		foreach(0..$#RD)
 			{
 			my $id=$RD[$_]->{dr};
@@ -55,7 +55,7 @@ sub Entry
 			undef $RD[$_];
 
 			}
-		PushDraLog($rcode+1,$R[0]."‚Ío‘–—³•s‘«‚Ì‚½‚ßŠJÃ‚ªŒ©‘—‚ç‚ê‚Ü‚µ‚½B");
+		PushDraLog($rcode+1,$R[0]."ã¯å‡ºèµ°ç«œä¸è¶³ã®ãŸã‚é–‹å‚¬ãŒè¦‹é€ã‚‰ã‚Œã¾ã—ãŸã€‚");
 		$DRTIME[$rcode+1]+=86400*2;
 		$RDS[1]++;
 		$RDS[1]=0 if ($RDS[1] > $#MYRACE);
@@ -63,22 +63,22 @@ sub Entry
 		}
 		else
 		{
-		PushDraLog($rcode+1,$R[0]."‚Ìo‘–“o˜^‚ª’÷‚ßØ‚ç‚ê‚Ü‚µ‚½B");
-		# o‘–”‚ª’èˆõ‚ð’´‚¦‚éê‡‚Í’Š‘I
+		PushDraLog($rcode+1,$R[0]."ã®å‡ºèµ°ç™»éŒ²ãŒç· ã‚åˆ‡ã‚‰ã‚Œã¾ã—ãŸã€‚");
+		# å‡ºèµ°æ•°ãŒå®šå“¡ã‚’è¶…ãˆã‚‹å ´åˆã¯æŠ½é¸
 		if (scalar @RD > $R[9])
 			{
 			foreach(0..$#RD) { $RD[$_]->{rnd}=($RD[$_]->{prize} * 10000) + int(rand(10000));}
 			if ($rcode)
 				{
-				@RD=sort{$b->{rnd}<=>$a->{rnd}}@RD;	#dÜƒŒ[ƒX‚Í‘å‚«‚¢‡
+				@RD=sort{$b->{rnd}<=>$a->{rnd}}@RD;	#é‡è³žãƒ¬ãƒ¼ã‚¹ã¯å¤§ãã„é †
 				}
 				else
 				{
-				@RD=sort{$a->{rnd}<=>$b->{rnd}}@RD;	#“o—³ƒŒ[ƒX‚Í¬‚³‚¢‡
+				@RD=sort{$a->{rnd}<=>$b->{rnd}}@RD;	#ç™»ç«œãƒ¬ãƒ¼ã‚¹ã¯å°ã•ã„é †
 				}
 			foreach($R[9]..$#RD)
 				{
-				#—Ž‘I
+				#è½é¸
 				my $id=$RD[$_]->{dr};
 				$DR[$id2dra{$id}]->{race}=1 if (defined $id2dra{$id});
 
@@ -86,15 +86,15 @@ sub Entry
 				$JK[$id2jk{$id}]->{race}=1 if (defined $id2jk{$id});
 				undef $RD[$_];
 				}
-			PushDraLog($rcode+1,"o‘–—³‘½”‚Ì‚½‚ßC’Š‘I‚ªs‚í‚ê‚Ü‚µ‚½B");
+			PushDraLog($rcode+1,"å‡ºèµ°ç«œå¤šæ•°ã®ãŸã‚ï¼ŒæŠ½é¸ãŒè¡Œã‚ã‚Œã¾ã—ãŸã€‚");
 			}
 
-		#o‘–ˆ—
+		#å‡ºèµ°å‡¦ç†
 		my $num=$R[9] - 1;
 		foreach(0..$num)
 			{
 			next if !$RD[$_]->{name};
-			$RD[$_]->{no}=$_ + 1;	#˜g”ÔU‚è’¼‚µ
+			$RD[$_]->{no}=$_ + 1;	#æž ç•ªæŒ¯ã‚Šç›´ã—
 			my $id=$RD[$_]->{dr};
 			$DR[$id2dra{$id}]->{race}=3 if (defined $id2dra{$id});
 
@@ -106,51 +106,51 @@ sub Entry
 		$RDS[0]++;
 		}
 	my $fn=GetPath($COMMON_DIR,"dra-rlog$rcode");
-	unlink $fn if -e $fn;				#‰ß‹Ž‚ÌŽÀ‹µƒƒOÁ‹Ž
+	unlink $fn if -e $fn;				#éŽåŽ»ã®å®Ÿæ³ãƒ­ã‚°æ¶ˆåŽ»
 	WriteDragon();
 	WriteJock();
 }
 
 sub Race1
 {
-	# l‹C‚ÌŒˆ’è
+	# äººæ°—ã®æ±ºå®š
 	foreach(0..$#RD) { $RD[$_]->{sumsp}=$RD[$_]->{prize}*100 + int(rand(100)); }
 	@RD=sort{$b->{sumsp}<=>$a->{sumsp}}@RD;
 
 	foreach(0..$#RD)
 		{
-		$RD[$_]->{pop}=$_ + 1;		#l‹C‚ðo—Í
+		$RD[$_]->{pop}=$_ + 1;		#äººæ°—ã‚’å‡ºåŠ›
 		$RD[$_]->{time}+=int($R[5] * 1000 / 4 / $RD[$_]->{sp1});
 		}
 	@RD=sort{$a->{time}<=>$b->{time}}@RD;
 
-	$RACELOG.="‚»‚ê‚Å‚Í <b>".$R[0]."</b>‚Ìo‘–‚Å‚·<br>\n";
-	$RACELOG.="‰X‚µ‚¢—³‚½‚¿‚ª¨‚¼‚ë‚¢<br>\n" if $R[1]==5;
-	$RACELOG.="‰hŠ¥‚ðŽè‚É‚·‚é‚Ì‚Í ‰Ê‚½‚µ‚Ä‚Ç‚Ì—³‚È‚Ì‚©<br>\n" if $R[1]==0;
-	$RACELOG.="‚±‚ÌƒR[ƒX‚ÌI”Õ‚Íâ‚É‚È‚Á‚Ä‚¢‚Ü‚· ˆê”g—‚ ‚é‚©‚à‚µ‚ê‚Ü‚¹‚ñ<br>\n" if $R[4];
-	$RACELOG.="‚¢‚Ü ƒXƒ^[ƒg‚Å‚·<br>\n";
+	$RACELOG.="ãã‚Œã§ã¯ <b>".$R[0]."</b>ã®å‡ºèµ°ã§ã™<br>\n";
+	$RACELOG.="åˆã€…ã—ã„ç«œãŸã¡ãŒå‹¢ãžã‚ã„<br>\n" if $R[1]==5;
+	$RACELOG.="æ „å† ã‚’æ‰‹ã«ã™ã‚‹ã®ã¯ æžœãŸã—ã¦ã©ã®ç«œãªã®ã‹<br>\n" if $R[1]==0;
+	$RACELOG.="ã“ã®ã‚³ãƒ¼ã‚¹ã®çµ‚ç›¤ã¯å‚ã«ãªã£ã¦ã„ã¾ã™ ä¸€æ³¢ä¹±ã‚ã‚‹ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“<br>\n" if $R[4];
+	$RACELOG.="ã„ã¾ ã‚¹ã‚¿ãƒ¼ãƒˆã§ã™<br>\n";
 
 	if ($RD[0]->{strate}< 2)
 		{
-		$RACELOG.="ƒgƒbƒv‚É—§‚Á‚½‚Ì‚Í <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
-		$RACELOG.="‘å•û‚Ì—\\‘z’Ê‚è‚Æ‚¢‚Á‚½‚Æ‚±‚ë‚Å‚µ‚å‚¤‚©<br>\n";
+		$RACELOG.="ãƒˆãƒƒãƒ—ã«ç«‹ã£ãŸã®ã¯ <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
+		$RACELOG.="å¤§æ–¹ã®äºˆ\æƒ³é€šã‚Šã¨ã„ã£ãŸã¨ã“ã‚ã§ã—ã‚‡ã†ã‹<br>\n";
 		}
 		else
 		{
-		$RACELOG.="‚È‚ñ‚Æ <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b> ‚ª‚¢‚«‚È‚èƒgƒbƒv‚É—§‚¿‚Ü‚µ‚½<br>\n";
-		$RACELOG.="‚±‚ê‚Í ìí‚È‚Ì‚©<br>\n";
+		$RACELOG.="ãªã‚“ã¨ <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b> ãŒã„ããªã‚Šãƒˆãƒƒãƒ—ã«ç«‹ã¡ã¾ã—ãŸ<br>\n";
+		$RACELOG.="ã“ã‚Œã¯ ä½œæˆ¦ãªã®ã‹<br>\n";
 		}
 
-	#”CˆÓ‚Ì‚P“ª‚ðÐ‰î
+	#ä»»æ„ã®ï¼‘é ­ã‚’ç´¹ä»‹
 	my $i=int(rand($#RD))+1;
-	$RACELOG.="Œ»Ý ".($i + 1)."”Ô–Ú‚ð‘–‚Á‚Ä‚¢‚é‚Ì‚Í ".$RD[$i]->{no}."˜g <b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b><br>\n";
+	$RACELOG.="ç¾åœ¨ ".($i + 1)."ç•ªç›®ã‚’èµ°ã£ã¦ã„ã‚‹ã®ã¯ ".$RD[$i]->{no}."æž  <b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b><br>\n";
 	if ($RD[$i]->{pop} < 4)
 		{
-		$RACELOG.=$RD[$i]->{pop}."”Ôl‹C‚ÌŠú‘Ò‚ðŽó‚¯ ‚±‚ÌˆÊ’u‚©‚çŸ—˜‚ð‘_‚¢‚Ü‚·<br>\n";
+		$RACELOG.=$RD[$i]->{pop}."ç•ªäººæ°—ã®æœŸå¾…ã‚’å—ã‘ ã“ã®ä½ç½®ã‹ã‚‰å‹åˆ©ã‚’ç‹™ã„ã¾ã™<br>\n";
 		}
 		else
 		{
-		$RACELOG.="l‹C‚Í ".$RD[$i]->{pop}."”Ô‚Æ‚È‚è‚Ü‚µ‚½‚ª ‰Ê‚½‚µ‚Ä‚±‚Ì—³‚Í•š•º‚Æ‚È‚é‚Å‚µ‚å‚¤‚©<br>\n";
+		$RACELOG.="äººæ°—ã¯ ".$RD[$i]->{pop}."ç•ªã¨ãªã‚Šã¾ã—ãŸãŒ æžœãŸã—ã¦ã“ã®ç«œã¯ä¼å…µã¨ãªã‚‹ã§ã—ã‚‡ã†ã‹<br>\n";
 		}
 
 	$DRTIME[$rcode+1]+=3600*8;
@@ -159,36 +159,36 @@ sub Race1
 
 sub Race2
 {
-	my $no=$RD[0]->{no};	#ˆÈ‘O‚Ì‚PˆÊ‚ðT‚¦‚Ä‚¨‚­
+	my $no=$RD[0]->{no};	#ä»¥å‰ã®ï¼‘ä½ã‚’æŽ§ãˆã¦ãŠã
 	foreach(0..$#RD)
 		{
 		$RD[$_]->{time}+=int($R[5] * 1000 / 4 / $RD[$_]->{sp2});
 		}
 	@RD=sort{$a->{time}<=>$b->{time}}@RD;
 
-	$RACELOG.="Å‰‚ÌƒR[ƒi[‚ð‰ñ‚è‚Ü‚µ‚½<br>\n";
+	$RACELOG.="æœ€åˆã®ã‚³ãƒ¼ãƒŠãƒ¼ã‚’å›žã‚Šã¾ã—ãŸ<br>\n";
 	if ($no == $RD[0]->{no})
 		{
-		$RACELOG.="Œ»Ý ƒgƒbƒv‚Í•Ï‚í‚ç‚¸ <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
-		$RACELOG.="‚±‚Ì¨‚¢‚Í ÅŒã‚Ü‚Å‘±‚­‚Ì‚©<br>\n";
+		$RACELOG.="ç¾åœ¨ ãƒˆãƒƒãƒ—ã¯å¤‰ã‚ã‚‰ãš <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
+		$RACELOG.="ã“ã®å‹¢ã„ã¯ æœ€å¾Œã¾ã§ç¶šãã®ã‹<br>\n";
 		}
 		else
 		{
-		$RACELOG.="‚±‚±‚Å ƒgƒbƒv‚ª•Ï‚í‚é ";
-		$RACELOG.="ƒgƒbƒv‚Í <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
+		$RACELOG.="ã“ã“ã§ ãƒˆãƒƒãƒ—ãŒå¤‰ã‚ã‚‹ ";
+		$RACELOG.="ãƒˆãƒƒãƒ—ã¯ <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
 		}
 
-	#ƒŒ[ƒX“WŠJ”»’è –¢ŽÀ‘•
-	$RACELOG.="’†ŠÔ".($R[5] / 2)."km‚Ì’Ê‰ßƒ^ƒCƒ€‚Í ".GetRaceTime($RD[0]->{time})."<br>\n";
-	$RACELOG.="‚Ù‚Ú •½í‚Ç‚¨‚è‚Æ‚¢‚¦‚é‚Å‚µ‚å‚¤ “WŠJ‚É‚³‚Ù‚Ç‰e‹¿‚Í‚È‚³‚»‚¤‚Å‚·<br>\n";
+	#ãƒ¬ãƒ¼ã‚¹å±•é–‹åˆ¤å®š æœªå®Ÿè£…
+	$RACELOG.="ä¸­é–“".($R[5] / 2)."kmã®é€šéŽã‚¿ã‚¤ãƒ ã¯ ".GetRaceTime($RD[0]->{time})."<br>\n";
+	$RACELOG.="ã»ã¼ å¹³å¸¸ã©ãŠã‚Šã¨ã„ãˆã‚‹ã§ã—ã‚‡ã† å±•é–‹ã«ã•ã»ã©å½±éŸ¿ã¯ãªã•ãã†ã§ã™<br>\n";
 
-	#·‚µ”n‚Ì‚P“ª‚ðÐ‰î
+	#å·®ã—é¦¬ã®ï¼‘é ­ã‚’ç´¹ä»‹
 	my $i=int(rand($#RD))+1;
 	foreach(1..$#RD)
 		{
 		$i=$_,last if ($RD[$_]->{strate}==2 || $RD[$_]->{strate}==3);
 		}
-	$RACELOG.="<b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b> ‚¢‚¢ˆÊ’u‚¾ ‚±‚±‚©‚ç ƒgƒbƒv‚ð‘_‚¤‚Ì‚©<br>\n";
+	$RACELOG.="<b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b> ã„ã„ä½ç½®ã  ã“ã“ã‹ã‚‰ ãƒˆãƒƒãƒ—ã‚’ç‹™ã†ã®ã‹<br>\n";
 
 	$DRTIME[$rcode+1]+=3600*8;
 	$RDS[0]++;
@@ -203,27 +203,27 @@ sub Race3
 		}
 	@RD=sort{$a->{time}<=>$b->{time}}@RD;
 
-	$RACELOG.="Œã‘±—³‚ª·‚ð‹l‚ß‚Ä‚¢‚«‚Ü‚·<br>\n";
+	$RACELOG.="å¾Œç¶šç«œãŒå·®ã‚’è©°ã‚ã¦ã„ãã¾ã™<br>\n";
 	if ($no == $RD[0]->{no})
 		{
-		$RACELOG.="‚³‚  ‚Ç‚¤‚©</b> ";
-		$RACELOG.="ƒgƒbƒv‚Í•Ï‚í‚ç‚¸ <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
-		$RACELOG.="‚±‚Ì‚Ü‚Ü “¦‚°Ø‚ê‚é‚Ì‚© ";
+		$RACELOG.="ã•ã‚ ã©ã†ã‹</b> ";
+		$RACELOG.="ãƒˆãƒƒãƒ—ã¯å¤‰ã‚ã‚‰ãš <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
+		$RACELOG.="ã“ã®ã¾ã¾ é€ƒã’åˆ‡ã‚Œã‚‹ã®ã‹ ";
 		}
 		else
 		{
-		$RACELOG.="<b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b> ‚ª·‚µ‚½I<br>\n";
-		$RACELOG.="‚³‚  ‚Ç‚¤‚©</b> ";
+		$RACELOG.="<b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b> ãŒå·®ã—ãŸï¼<br>\n";
+		$RACELOG.="ã•ã‚ ã©ã†ã‹</b> ";
 		}
-	$RACELOG.="Œã‚ð’Ç‚¤‚Ì‚Í <b>".GetTagImgDra($RD[1]->{fm},$RD[1]->{color}).$RD[1]->{name}."</b><br>\n";
+	$RACELOG.="å¾Œã‚’è¿½ã†ã®ã¯ <b>".GetTagImgDra($RD[1]->{fm},$RD[1]->{color}).$RD[1]->{name}."</b><br>\n";
 
-	#·‚µ”n‚Ì‚P“ª‚ðÐ‰î
+	#å·®ã—é¦¬ã®ï¼‘é ­ã‚’ç´¹ä»‹
 	my $i=int(rand($#RD))+1;
 	foreach(2..$#RD)
 		{
 		$i=$_,last if ($RD[$_]->{strate}==2 || $RD[$_]->{strate}==3);
 		}
-	$RACELOG.="<b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b> ‚¢‚¢‘«Žæ‚è‚¾‚ª ‚Ç‚¤‚©<br>\n";
+	$RACELOG.="<b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b> ã„ã„è¶³å–ã‚Šã ãŒ ã©ã†ã‹<br>\n";
 
 	$DRTIME[$rcode+1]+=3600*6;
 	$RDS[0]++;
@@ -241,61 +241,61 @@ sub Race4
 	my $name1=GetTagImgDra($RD[0]->{fm},$RD[0]->{color})."<b>".$RD[0]->{name}."</b>";
 	my $name2=GetTagImgDra($RD[1]->{fm},$RD[1]->{color})."<b>".$RD[1]->{name}."</b>";
 
-	$RACELOG.="ÅŒã‚ÌƒR[ƒi[‚ð‚Ü‚í‚Á‚Ä ’¼ü‚É“ü‚è‚Ü‚·<br>\n";
+	$RACELOG.="æœ€å¾Œã®ã‚³ãƒ¼ãƒŠãƒ¼ã‚’ã¾ã‚ã£ã¦ ç›´ç·šã«å…¥ã‚Šã¾ã™<br>\n";
 	if ($no == $RD[0]->{no})
 			{
-			# ƒgƒbƒv•Ï‚í‚ç‚¸
-			$RACELOG.="‚³‚  ‚Ç‚¤‚© ";
-			$RACELOG.="$name2 ‚ª’Ç‚¢ã‚°‚é<br>\n";
-			$RACELOG.="$name1 ‚ª“¦‚°‚é ‚±‚Ì‚Ü‚Ü“¦‚°Ø‚é‚©<br>\n";
+			# ãƒˆãƒƒãƒ—å¤‰ã‚ã‚‰ãš
+			$RACELOG.="ã•ã‚ ã©ã†ã‹ ";
+			$RACELOG.="$name2 ãŒè¿½ã„ä¸Šã’ã‚‹<br>\n";
+			$RACELOG.="$name1 ãŒé€ƒã’ã‚‹ ã“ã®ã¾ã¾é€ƒã’åˆ‡ã‚‹ã‹<br>\n";
 
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.="$name2 ‚ª”—‚éI ‚µ‚©‚µ $name1 ‚à”S‚éI<br>\n";
-				$RACELOG.="$name1 ‚¾I “¦‚°Ø‚è‚Ü‚µ‚½I Ÿ‚Á‚½‚Ì‚Í $name1I<br>\n";
+				$RACELOG.="$name2 ãŒè¿«ã‚‹ï¼ ã—ã‹ã— $name1 ã‚‚ç²˜ã‚‹ï¼<br>\n";
+				$RACELOG.="$name1 ã ï¼ é€ƒã’åˆ‡ã‚Šã¾ã—ãŸï¼ å‹ã£ãŸã®ã¯ $name1ï¼<br>\n";
 				}
 				else
 				{
-				$RACELOG.="$name1 ·‚ðL‚°‚éI<br>\n";
-				$RACELOG.="$name1I ‚±‚Ì—³‚Í‹­‚¢I Ÿ‚Á‚½‚Ì‚Í $name1I<br>\n";
+				$RACELOG.="$name1 å·®ã‚’åºƒã’ã‚‹ï¼<br>\n";
+				$RACELOG.="$name1ï¼ ã“ã®ç«œã¯å¼·ã„ï¼ å‹ã£ãŸã®ã¯ $name1ï¼<br>\n";
 				}
 			}
 		elsif ($no == $RD[1]->{no})
 			{
-			# ‚Q’…
-			$RACELOG.="‚³‚  ‚Ç‚¤‚© ";
-			$RACELOG.="$name1 ‚ª’Ç‚¢ã‚°‚é<br>\n";
-			$RACELOG.="$name2 ‚ª“¦‚°‚é ‚±‚Ì‚Ü‚Ü“¦‚°Ø‚é‚©<br>\n";
+			# ï¼’ç€
+			$RACELOG.="ã•ã‚ ã©ã†ã‹ ";
+			$RACELOG.="$name1 ãŒè¿½ã„ä¸Šã’ã‚‹<br>\n";
+			$RACELOG.="$name2 ãŒé€ƒã’ã‚‹ ã“ã®ã¾ã¾é€ƒã’åˆ‡ã‚‹ã‹<br>\n";
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.="$name1 ‚ª”—‚éI $name2 ‚ª”S‚éI<br>\n";
-				$RACELOG.="$name1 ‚ª·‚µ‚½I<br>\n";
-				$RACELOG.="$name2 ˆê•à‹y‚Î‚¸I Ÿ‚Á‚½‚Ì‚Í $name1I<br>\n";
+				$RACELOG.="$name1 ãŒè¿«ã‚‹ï¼ $name2 ãŒç²˜ã‚‹ï¼<br>\n";
+				$RACELOG.="$name1 ãŒå·®ã—ãŸï¼<br>\n";
+				$RACELOG.="$name2 ä¸€æ­©åŠã°ãšï¼ å‹ã£ãŸã®ã¯ $name1ï¼<br>\n";
 				}
 				else
 				{
-				$RACELOG.="$name1 ‚ª·‚µ‚½I<br>\n";
-				$RACELOG.="$name1 ‚³‚ç‚É·‚ðL‚°‚éI<br>\n";
-				$RACELOG.="$name1I ‚±‚Ì—³‚Í‹­‚¢I Ÿ‚Á‚½‚Ì‚Í $name1I<br>\n";
+				$RACELOG.="$name1 ãŒå·®ã—ãŸï¼<br>\n";
+				$RACELOG.="$name1 ã•ã‚‰ã«å·®ã‚’åºƒã’ã‚‹ï¼<br>\n";
+				$RACELOG.="$name1ï¼ ã“ã®ç«œã¯å¼·ã„ï¼ å‹ã£ãŸã®ã¯ $name1ï¼<br>\n";
 				}
 			}
 		else
 			{
-			# ƒgƒbƒvŠ®‘SŒð‘ã
-			$RACELOG.="‚³‚  ‚Ç‚¤‚© ";
-			$RACELOG.="$name2 ‚ª·‚µ‚½I<br>\n";
-			$RACELOG.="‚³‚ç‚É <b>$name1</b> ‚ªŒã‚É‘±‚­I<br>\n";
+			# ãƒˆãƒƒãƒ—å®Œå…¨äº¤ä»£
+			$RACELOG.="ã•ã‚ ã©ã†ã‹ ";
+			$RACELOG.="$name2 ãŒå·®ã—ãŸï¼<br>\n";
+			$RACELOG.="ã•ã‚‰ã« <b>$name1</b> ãŒå¾Œã«ç¶šãï¼<br>\n";
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.="$name1 ‚ª”—‚éI $name2 ‚ª”S‚éI<br>\n";
-				$RACELOG.="$name1 ‚ª·‚µ‚½I<br>\n";
-				$RACELOG.="$name2 ˆê•à‹y‚Î‚¸I Ÿ‚Á‚½‚Ì‚Í $name1I<br>\n";
+				$RACELOG.="$name1 ãŒè¿«ã‚‹ï¼ $name2 ãŒç²˜ã‚‹ï¼<br>\n";
+				$RACELOG.="$name1 ãŒå·®ã—ãŸï¼<br>\n";
+				$RACELOG.="$name2 ä¸€æ­©åŠã°ãšï¼ å‹ã£ãŸã®ã¯ $name1ï¼<br>\n";
 				}
 				else
 				{
-				$RACELOG.="$name1 ‚ªˆê‹C‚É·‚µ‚½I<br>\n";
-				$RACELOG.="$name1 ‚³‚ç‚É·‚ðL‚°‚éI<br>\n";
-				$RACELOG.="$name1I ‚±‚Ì—³‚Í‹­‚¢I Ÿ‚Á‚½‚Ì‚Í $name1I<br>\n";
+				$RACELOG.="$name1 ãŒä¸€æ°—ã«å·®ã—ãŸï¼<br>\n";
+				$RACELOG.="$name1 ã•ã‚‰ã«å·®ã‚’åºƒã’ã‚‹ï¼<br>\n";
+				$RACELOG.="$name1ï¼ ã“ã®ç«œã¯å¼·ã„ï¼ å‹ã£ãŸã®ã¯ $name1ï¼<br>\n";
 				}
 			}
 
@@ -304,8 +304,8 @@ sub Race4
 	ReadRanch();
 	ReadStable();
 
-	# ƒgƒbƒv
-	PushDraLog($rcode+1,$R[0]."‚Åu".$RD[0]->{name}."v‚ªŸ‚¿‚Ü‚µ‚½B");
+	# ãƒˆãƒƒãƒ—
+	PushDraLog($rcode+1,$R[0]."ã§ã€Œ".$RD[0]->{name}."ã€ãŒå‹ã¡ã¾ã—ãŸã€‚");
 
 	my $id=$RD[0]->{dr};
 	if (defined $id2dra{$id})
@@ -322,14 +322,14 @@ sub Race4
 		else { $DR[$i]->{g1win}++;}
 		}
 
-	# ƒgƒbƒv‹RŽè
+	# ãƒˆãƒƒãƒ—é¨Žæ‰‹
 	my $id=$RD[0]->{jock};
 	if (defined $id2jk{$id})
 		{
 		my $i=$id2jk{$id};
 		$JK[$i]->{sp}=int(rand(scalar @JKSP)) if !$JK[$i]->{sp};
 
-		#‚Æ‚Á‚½ìí‚É‰ž‚¶‚Ä”\—Íã¸
+		#ã¨ã£ãŸä½œæˆ¦ã«å¿œã˜ã¦èƒ½åŠ›ä¸Šæ˜‡
 		if ($RD[0]->{str} > 1)
 			{
 			$JK[$i]->{back}+=15;
@@ -346,7 +346,7 @@ sub Race4
 		else { $JK[$i]->{g1win}++;}
 		}
 
-	# ƒgƒbƒv–qê
+	# ãƒˆãƒƒãƒ—ç‰§å ´
 	my $id=$RD[0]->{ranch};
 	if (defined $id2rc{$id})
 		{
@@ -358,7 +358,7 @@ sub Race4
 		else { $RC[$i]->{g1win}++;}
 		}
 
-	# ƒgƒbƒv‰XŽÉ
+	# ãƒˆãƒƒãƒ—åŽ©èˆŽ
 	my $id=$RD[0]->{stable};
 	if (defined $id2st{$id})
 		{
@@ -376,7 +376,7 @@ sub Race4
 		else { $ST[$i]->{g1win}++;}
 		}
 
-	# ‚Q’…
+	# ï¼’ç€
 	my $id=$RD[1]->{dr};
 	if (defined $id2dra{$id})
 		{
@@ -387,7 +387,7 @@ sub Race4
 		WritePayLog($DR[$i]->{town},$DR[$i]->{owner},$R[7]*10000);
 		}
 
-	# ‚Q’…–qê
+	# ï¼’ç€ç‰§å ´
 	my $id=$RD[1]->{ranch};
 	if (defined $id2rc{$id})
 		{
@@ -395,7 +395,7 @@ sub Race4
 		$RC[$i]->{prize}+=$R[7];
 		}
 
-	# ‚R’…
+	# ï¼“ç€
 	my $id=$RD[2]->{dr};
 	if (defined $id2dra{$id})
 		{
@@ -406,7 +406,7 @@ sub Race4
 		WritePayLog($DR[$i]->{town},$DR[$i]->{owner},$R[8]*10000);
 		}
 
-	# ‚R’…–qê
+	# ï¼“ç€ç‰§å ´
 	my $id=$RD[2]->{ranch};
 	if (defined $id2rc{$id})
 		{
@@ -417,7 +417,7 @@ sub Race4
 	$RACELOG.="<br>";
 	foreach(0..$#RD)
 		{
-		$RACELOG.=($_ + 1)."’… ".GetRaceTime($RD[$_]->{time});
+		$RACELOG.=($_ + 1)."ç€ ".GetRaceTime($RD[$_]->{time});
 		$RACELOG.=" ".$STRATE[ $RD[$_]->{str} ]." ";
 		$RACELOG.=GetTagImgDra($RD[$_]->{fm},$RD[$_]->{color}).$RD[$_]->{name};
 		$RACELOG.=" <small>(".$RD[$_]->{lose}.")</small>" if $_;

@@ -1,4 +1,4 @@
-# Œf¦”Â 2004/01/20 —R˜Ò
+# æ²ç¤ºæ¿ 2004/01/20 ç”±ä¾†
 
 $NOITEM=1;
 CoLock() if ($Q{mode} eq "form");
@@ -7,17 +7,17 @@ CheckUserPass();
 RequireFile('inc-treebbs.cgi');
 $datafile=GetPath($COMMON_DIR,"treelog");
 
-# ƒf[ƒ^‚Ì•ªÍ
+# ãƒ‡ãƒ¼ã‚¿ã®åˆ†æ
 $mode = $Q{mode} , $mode||="list";
 $page = $Q{page};
 if ($page eq "") { $page = 0; }
 while ($Q{message} =~ /<br>$/) { $Q{message} =~ s/<br>$//g; }
 
-$disp.=GetMenuTag('treebbs',	'[‹L–ˆê——]')
-	.GetMenuTag('treebbs',	'[V‹K“Še]','&mode=formview');
+$disp.=GetMenuTag('treebbs',	'[è¨˜äº‹ä¸€è¦§]')
+	.GetMenuTag('treebbs',	'[æ–°è¦æŠ•ç¨¿]','&mode=formview');
 $disp.="<hr width=500 noshade size=1>";
 
-$disp.="<BIG>œŒf¦”Â</BIG><br><br>";
+$disp.="<BIG>â—æ²ç¤ºæ¿</BIG><br><br>";
 
 %filename=qw(form edit msgview view allread all formview view list list);
 my $functionname=$filename{$mode};
@@ -43,7 +43,7 @@ sub GetQueryBBS
 		$val =~ tr/+/ /;
 		$val =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
 
-		# S-JIS•ÏŠ·
+		# S-JISå¤‰æ›
 		&jcode'convert(*val, "sjis", "", "z");
 
 		$val =~ s/&/&amp;/g;

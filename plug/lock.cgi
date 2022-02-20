@@ -1,4 +1,4 @@
-# lock ƒvƒ‰ƒOƒCƒ“ 2003/07/19 —R˜Ò
+# lock ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/07/19 ç”±ä¾†
 
 sub Lock
 {
@@ -48,7 +48,7 @@ sub RenameAndCheck
 		return if !-e $_[0] && -e $_[1];
 	}
 	WriteErrorLog('rename error '.$_[0]."->".$_[1],$LOG_ERROR_FILE);
-	OutError('ˆÙíˆ—‚Å‚·B’†’f‚µ‚Ü‚µ‚½B');
+	OutError('ç•°å¸¸å‡¦ç†ã§ã™ã€‚ä¸­æ–­ã—ã¾ã—ãŸã€‚');
 }
 
 sub OpenAndCheck
@@ -56,7 +56,7 @@ sub OpenAndCheck
 	my $count=5;
 	while(!open(OUT,">".$_[0]))
 	{
-		WriteErrorLog('write mode open error',$LOG_ERROR_FILE),OutError('ˆÙíˆ—‚Å‚·B’†’f‚µ‚Ü‚µ‚½B') if !$count--;
+		WriteErrorLog('write mode open error',$LOG_ERROR_FILE),OutError('ç•°å¸¸å‡¦ç†ã§ã™ã€‚ä¸­æ–­ã—ã¾ã—ãŸã€‚') if !$count--;
 		select(undef,undef,undef,0.2);
 	}
 }

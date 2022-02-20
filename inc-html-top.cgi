@@ -1,31 +1,31 @@
-# ãˆÊ•\¦ 2005/01/06 —R˜Ò
+# ä¸Šä½è¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 my ($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$TOP_RANKING_PAGE_ROWS,$DTusercount);
 
-$disp.="<BIG>œƒgƒbƒv $TOP_RANKING_PAGE_ROWS‚Ì“X•Ü</BIG>F".GetMenuTag('log','[Ú×]','&t=4')."<br><br>";
+$disp.="<BIG>â—ãƒˆãƒƒãƒ— $TOP_RANKING_PAGE_ROWSã®åº—èˆ—</BIG>ï¼š".GetMenuTag('log','[è©³ç´°]','&t=4')."<br><br>";
 $disp.=$TB;
 
 	$disp.=$TR;
-	$disp.=$TDB."“_”";
-	$disp.=$TDB."“X’·";
-	$disp.=$TDB."ƒWƒ‡ƒu";
-	$disp.=$TDB."“X–¼@l‹C";
-	$disp.=$TDB."¡Šú”„ã";
-	$disp.=$TDB."‘‹à";
-	$disp.=$TDB."n—û";
-	$disp.=$TDB."¤•i y‘n‹Æz ƒRƒƒ“ƒg";
+	$disp.=$TDB."ç‚¹æ•°";
+	$disp.=$TDB."åº—é•·";
+	$disp.=$TDB."ã‚¸ãƒ§ãƒ–";
+	$disp.=$TDB."åº—åã€€äººæ°—";
+	$disp.=$TDB."ä»ŠæœŸå£²ä¸Š";
+	$disp.=$TDB."è³‡é‡‘";
+	$disp.=$TDB."ç†Ÿç·´";
+	$disp.=$TDB."å•†å“ ã€å‰µæ¥­ã€‘ ã‚³ãƒ¡ãƒ³ãƒˆ";
 	$disp.=$TRE;
 
 foreach my $idx ($pagestart..$pageend)
 {
 	my $DT=$DT[$idx];
 	
-	my $rankupdown="(V)";
+	my $rankupdown="(æ–°)";
 	if($DT->{rankingyesterday})
 	{
 		$rankupdown=$DT->{rankingyesterday}-$idx-1;
-		$rankupdown=$rankupdown==0 ? " ¨ ": $rankupdown<0 ? "«".(-$rankupdown) : "ª".$rankupdown;
+		$rankupdown=$rankupdown==0 ? " â†’ ": $rankupdown<0 ? "â†“".(-$rankupdown) : "â†‘".$rankupdown;
 		$rankupdown="<small>($rankupdown)</small>";
 	}
 	my $itemtype=-1;
@@ -68,7 +68,7 @@ foreach my $idx ($pagestart..$pageend)
 	
 	$disp.="<BR>";
 	
-	$disp.=$tdh_fd."y".GetTime2found($NOW_TIME-$DT->{foundation})."z";
+	$disp.=$tdh_fd."ã€".GetTime2found($NOW_TIME-$DT->{foundation})."ã€‘";
 	$disp.=$tdh_cm.$DT->{comment} if $DT->{comment};
 	$disp.=$TRE;
 }

@@ -1,4 +1,4 @@
-# drwrite プラグイン 2005/03/30 由來
+# drwrite 繝励Λ繧ｰ繧､繝ｳ 2005/03/30 逕ｱ萓�
 
 sub WriteRanch
 {

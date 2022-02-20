@@ -1,4 +1,4 @@
-# sê 2005/01/06 —R˜Ò
+# å¸‚å ´ 2005/01/06 ç”±ä¾†
 
 DataRead();
 $DT={};
@@ -10,7 +10,7 @@ my $DTS=GetWholeStore();
 my($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$LIST_PAGE_ROWS,$DTS->{showcasecount});
 
-$disp.="<BIG>œsê</BIG><br><br>";
+$disp.="<BIG>â—å¸‚å ´</BIG><br><br>";
 
 my $pagecontrol=GetPageControl($pageprev,$pagenext,"","",$pagemax,$page);
 $disp.=$pagecontrol;
@@ -28,8 +28,8 @@ foreach my $i ($pagestart..$pageend)
 	$disp.="<A HREF=\"action.cgi?key=buy&buy=0!$i!$itemno&bk=m!$page&$USERPASSURL\">" if !$GUEST_USER;
 	$disp.=GetTagImgItemType($itemno).$ITEM->{name};
 	$disp.="</A>" if !$GUEST_USER;
-	$disp.=$TD.'@'.GetMoneyString($DTS->{price}[$i]).$TD."c".$DTS->{item}[$itemno-1].$ITEM->{scale};
-	$disp.=$TD.$DT->{item}[$itemno-1].$ITEM->{scale}."Š" if $DT->{item}[$itemno-1];
+	$disp.=$TD.'@'.GetMoneyString($DTS->{price}[$i]).$TD."æ®‹".$DTS->{item}[$itemno-1].$ITEM->{scale};
+	$disp.=$TD.$DT->{item}[$itemno-1].$ITEM->{scale}."æ‰€æŒ" if $DT->{item}[$itemno-1];
 	$disp.=$TRE;
 }
 $disp.=$TBE;

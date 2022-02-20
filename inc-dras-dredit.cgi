@@ -1,7 +1,7 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ƒhƒ‰ƒSƒ“ƒƒ“ƒe 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¡ãƒ³ãƒ† 2005/03/30 ç”±ä¾†
 
 ReadDragon();
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF–qê</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç‰§å ´</BIG><br><br>";
 
 my $functionname=$Q{code};
 OutError("bad request") if !defined(&$functionname);
@@ -13,33 +13,33 @@ CoDataCA();
 
 sub new
 {
-	#–qêƒ`ƒFƒbƒN
+	#ç‰§å ´ãƒã‚§ãƒƒã‚¯
 	ReadRanch();
 	OutError("bad request") if ($MYRC==-1);
 
-	OutError('‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $DRbuy);
-	OutError('‚±‚êˆÈãƒhƒ‰ƒSƒ“‚ğŠ—L‚Å‚«‚Ü‚¹‚ñB') if (scalar @MYDR >= $MYDRmax);
+	OutError('è³‡é‡‘ã®ä½™è£•ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < $DRbuy);
+	OutError('ã“ã‚Œä»¥ä¸Šãƒ‰ãƒ©ã‚´ãƒ³ã‚’æ‰€æœ‰ã§ãã¾ã›ã‚“ã€‚') if (scalar @MYDR >= $MYDRmax);
 
-	# –¼‘O‚Ì³“–«‚ğƒ`ƒFƒbƒN
+	# åå‰ã®æ­£å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯
 	require $JCODE_FILE;
 	if(!$Q{name})
 	{
-		OutError('–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B');
+		OutError('åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚');
 	}
 	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('–¼‘O‚Ég—p‚Å‚«‚È‚¢•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B');
+		OutError('åå‰ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚');
 	}
 
-	#ˆê“xEUC‚É•ÏŠ·
+	#ä¸€åº¦EUCã«å¤‰æ›
 	&jcode::convert(\$Q{name}, "euc", "sjis");
 	$ZkatakanaExt = '(?:\xA5[\xA1-\xF6]|\xA1[\xA6\xBC\xB3\xB4])';
-	OutError('–¼‘O‚Í‘SŠpƒJƒ^ƒJƒi‚Åw’è‚µ‚Ä‚­‚¾‚³‚¢B') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
+	OutError('åå‰ã¯å…¨è§’ã‚«ã‚¿ã‚«ãƒŠã§æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
 	&jcode::convert(\$Q{name}, "sjis", "euc");
 
-	OutError('–¼‘O‚ª’·‚·‚¬‚Ü‚·B') if length($Q{name})>20;
-	OutError('–¼‘O‚ª’Z‚·‚¬‚Ü‚·B') if length($Q{name})<6;
+	OutError('åå‰ãŒé•·ã™ãã¾ã™ã€‚') if length($Q{name})>20;
+	OutError('åå‰ãŒçŸ­ã™ãã¾ã™ã€‚') if length($Q{name})<6;
 
 	@DR=reverse(@DR);
 	$DRcount++;
@@ -61,7 +61,7 @@ sub new
 	$DR[$i]->{con}=70 + int(rand(20));
 	$DR[$i]->{wt}=49 + int(rand(3));
 
-	# “Á’¥‚ª‚È‚¢‚Æ‚©‚í‚¢‚»‚¤‚È‚Ì‚Å“Á’¥•t—^
+	# ç‰¹å¾´ãŒãªã„ã¨ã‹ã‚ã„ãã†ãªã®ã§ç‰¹å¾´ä»˜ä¸
 	if ($DR[$i]->{sr} > $DR[$i]->{ag})
 		{
 		$DR[$i]->{sr}+=15;
@@ -73,7 +73,7 @@ sub new
 	@DR=reverse(@DR);
 
 WritePayLog($MYDIR,$DT->{id},-$DRbuy);
-$disp.="V‚µ‚¢ƒhƒ‰ƒSƒ“u<b>".$Q{name}."</b>v‚ğw“ü‚µ‚Ü‚µ‚½B";
+$disp.="æ–°ã—ã„ãƒ‰ãƒ©ã‚´ãƒ³ã€Œ<b>".$Q{name}."</b>ã€ã‚’è³¼å…¥ã—ã¾ã—ãŸã€‚";
 }
 
 sub ent
@@ -86,33 +86,33 @@ OutError("bad request") if (!scalar @ST);
 OutError("bad request") if (!defined $id2st{$Q{ent}});
 $DR[$cnt]->{stable}=$Q{ent};
 my $i=$id2st{$Q{ent}};
-$disp.="ƒhƒ‰ƒSƒ“‚ğ‰XÉu".$ST[$i]->{name}."v‚É—a‘õ‚µ‚Ü‚µ‚½B";
+$disp.="ãƒ‰ãƒ©ã‚´ãƒ³ã‚’å©èˆã€Œ".$ST[$i]->{name}."ã€ã«é è¨—ã—ã¾ã—ãŸã€‚";
 }
 
 sub torace
 {
-	#ƒhƒ‰ƒSƒ“ƒ`ƒFƒbƒN
+	#ãƒ‰ãƒ©ã‚´ãƒ³ãƒã‚§ãƒƒã‚¯
 	my $cnt=$id2dra{$Q{dr}};
 	OutError("bad request") if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
 	OutError("bad request") if ($DR[$cnt]->{race} > 1);
 
-	#–qêƒ`ƒFƒbƒN
+	#ç‰§å ´ãƒã‚§ãƒƒã‚¯
 	ReadRanch();
 	OutError("bad request") if ($MYRC==-1);
 
-	#ƒŒ[ƒXƒ`ƒFƒbƒN
+	#ãƒ¬ãƒ¼ã‚¹ãƒã‚§ãƒƒã‚¯
 	my $rcode=$Q{rcode};
 	ReadRace($rcode);
-	OutError("Œ»İ".$RACETERM[$rcode]."‚Ío‘–“o˜^‚ğó‚¯•t‚¯‚Ä‚¢‚Ü‚¹‚ñ") if ($RDS[0]);
+	OutError("ç¾åœ¨".$RACETERM[$rcode]."ã¯å‡ºèµ°ç™»éŒ²ã‚’å—ã‘ä»˜ã‘ã¦ã„ã¾ã›ã‚“") if ($RDS[0]);
 
 	my @MYRACE=@{$RACE[$rcode]};
 	my @R=@{$MYRACE[$RDS[1]]};
 	undef @RACE;
-	undef @MYRACE;	#•s•K—v‚È”z—ñ‚Í‰ğ•ú
+	undef @MYRACE;	#ä¸å¿…è¦ãªé…åˆ—ã¯è§£æ”¾
 
-	OutError("Ÿ‰ñ‚Ì".$R[0]."‚ÍÜ‹à–¢Šl“¾‚Ìƒhƒ‰ƒSƒ“‚Ì‚İo‘–‚Å‚«‚Ü‚·") if ($R[1]==5 && $DR[$cnt]->{prize} > 0);
+	OutError("æ¬¡å›ã®".$R[0]."ã¯è³é‡‘æœªç²å¾—ã®ãƒ‰ãƒ©ã‚´ãƒ³ã®ã¿å‡ºèµ°ã§ãã¾ã™") if ($R[1]==5 && $DR[$cnt]->{prize} > 0);
 
-	#Š‘®‰XÉ‚ğ’²‚×‚é
+	#æ‰€å±å©èˆã‚’èª¿ã¹ã‚‹
 	ReadStable();
 	my $stname="";
 	if (scalar @ST)
@@ -123,75 +123,75 @@ sub torace
 		}
 	}
 
-	my $lose="À—Í•s‘«";
+	my $lose="å®ŸåŠ›ä¸è¶³";
 	my ($sp,$sr,$ag,$pw)=($DR[$cnt]->{sp},$DR[$cnt]->{sr},$DR[$cnt]->{ag},$DR[$cnt]->{pw});
 
-	# ƒpƒ[”z•ª
+	# ãƒ‘ãƒ¯ãƒ¼é…åˆ†
 	my $pwp=$R[3] * 4 + $RDS[2] * 3 + 1;
-	$lose="ƒpƒ[•s‘«" if ($pwp > 1 && $sp < $pw);
+	$lose="ãƒ‘ãƒ¯ãƒ¼ä¸è¶³" if ($pwp > 1 && $sp < $pw);
 	$sp=int(($sp * (10 - $pwp) + $pw * $pwp) / 10);
 
-	# ‘Ì’²‚É‚æ‚é‰e‹¿ Å‘å‚ÅƒXƒs[ƒh5Š„
+	# ä½“èª¿ã«ã‚ˆã‚‹å½±éŸ¿ æœ€å¤§ã§ã‚¹ãƒ”ãƒ¼ãƒ‰5å‰²
 	$sp-=int($sp*(100 - $DR[$cnt]->{con})/200);
-	$lose="‘Ì’²•s’²" if ($DR[$cnt]->{con} < 60);
+	$lose="ä½“èª¿ä¸èª¿" if ($DR[$cnt]->{con} < 60);
 
-	# ‘Ìd‚Æƒnƒ“ƒf‚É‚æ‚é‰e‹¿ 10ƒgƒ“‚ÅƒXƒs[ƒh5Š„
+	# ä½“é‡ã¨ãƒãƒ³ãƒ‡ã«ã‚ˆã‚‹å½±éŸ¿ 10ãƒˆãƒ³ã§ã‚¹ãƒ”ãƒ¼ãƒ‰5å‰²
 	my $wt=$DR[$cnt]->{wt} - 50;
 	$wt=-$wt if ($wt < 0);
 	$wt+=int($DR[$cnt]->{prize} / $R[2]) if $R[2];
 	$sp-=int($sp*$wt/20);
-	$lose="d—Ê’²®¸”s" if ($wt > 2);
+	$lose="é‡é‡èª¿æ•´å¤±æ•—" if ($wt > 2);
 
-	my $sp1=$sp2=$sp3=$sp4=$sp * 6 + 1000;		#Šî€‘¬“x 1000 - 1600
+	my $sp1=$sp2=$sp3=$sp4=$sp * 6 + 1000;		#åŸºæº–é€Ÿåº¦ 1000 - 1600
 
-	# I”Õ‚Éâ‚ª‚ ‚éê‡
+	# çµ‚ç›¤ã«å‚ãŒã‚ã‚‹å ´åˆ
 	$sp4=$sp * 4 + $pw * 2 + 950 if $R[4];
 
 	if (!$Q{str})
 		{
-		#“¦‚°‚Ìê‡
+		#é€ƒã’ã®å ´åˆ
 		$sp1+=$sr * 6 - $ag * 4 + 40;
 		$sp2+=$sr * 2 + 50;
 		$sp1=$sp2 if ($sp1 < $sp2);
 		}
 	elsif ($Q{str}==1)
 		{
-		#æs‚Ìê‡
+		#å…ˆè¡Œã®å ´åˆ
 		$sp1+=$sr * 2 + 50;
 		$sp2+=$sr * 4 + 100;
 		}
 	elsif ($Q{str}==2)
 		{
-		#·‚µ‚Ìê‡
+		#å·®ã—ã®å ´åˆ
 		$sp3+=$ag * 4 + 100;
 		$sp4+=$ag * 2 + 50;
 		}
 	else
 		{
-		#’Ç‚Ìê‡
+		#è¿½è¾¼ã®å ´åˆ
 		$sp3+=$ag * 2 + 50;
 		$sp4+=$ag * 6 - $sr * 4 + 40;
 		$sp4=$sp3 if ($sp4 < $sp3);
 		} 
 
-	# ‹——£“K«‚É‚æ‚é‰e‹¿
+	# è·é›¢é©æ€§ã«ã‚ˆã‚‹å½±éŸ¿
 	my $m=GetRaceApt($DR[$cnt]->{apt},$DR[$cnt]->{fl},$R[5]);
 	if ($m > 0)
 		{
-		$lose="‹——£’Z‚·‚¬";
+		$lose="è·é›¢çŸ­ã™ã";
 		$m=300 if $m > 300;
 		$sp1-=$m * 2;
 		$sp2-=$m;
 		}
 	elsif ($m < 0)
 		{
-		$lose="‹——£’·‚·‚¬";
+		$lose="è·é›¢é•·ã™ã";
 		$m=-300 if $m < -300;
 		$sp1+=$m * 2;
 		$sp2+=$m;
 		}
 
-	#‹Rè‚ğ’²‚×‚é
+	#é¨æ‰‹ã‚’èª¿ã¹ã‚‹
 	my $jkname="";
 	if ($Q{jock})
 	{
@@ -201,11 +201,11 @@ sub torace
 		foreach(0..$JKcount)
 			{
 			next if ($JK[$_]->{no}!=$Q{jock});
-			OutError("‚»‚Ì‹Rè‚Í‚·‚Å‚É‘¼‚Ì—³‚É‹Ræ‚µ‚Ä‚¢‚Ü‚·") if ($JK[$_]->{race} > 1);
+			OutError("ãã®é¨æ‰‹ã¯ã™ã§ã«ä»–ã®ç«œã«é¨ä¹—ã—ã¦ã„ã¾ã™") if ($JK[$_]->{race} > 1);
 			$jkname=$JK[$_]->{name};
 			$JK[$_]->{race}=2;
 
-			#‹Rè‚É‚æ‚é•â³
+			#é¨æ‰‹ã«ã‚ˆã‚‹è£œæ­£
 			$sp1+=int($sp1 * $JK[$_]->{ahead} / 20 / 100);
 			$sp2+=int($sp2 * $JK[$_]->{ahead} / 20 / 100);
 			$sp3+=int($sp3 * $JK[$_]->{back} / 20 / 100);
@@ -239,12 +239,12 @@ sub torace
 	$RD[$i]->{sp3}=$sp3;
 	$RD[$i]->{sp4}=$sp4;
 	$RD[$i]->{str}=$Q{str};
-	$lose="ìíƒ~ƒX" if ($Q{str} != $RD[$i]->{strate});
+	$lose="ä½œæˆ¦ãƒŸã‚¹" if ($Q{str} != $RD[$i]->{strate});
 	$RD[$i]->{lose}=$lose;
 
 	WriteRace($rcode);
 
 	$DR[$cnt]->{race}=2;
-$disp.="ƒhƒ‰ƒSƒ“u".$DR[$cnt]->{name}."v‚ğ".$R[0]."‚Éo‘–“o˜^‚µ‚Ü‚µ‚½B";
+$disp.="ãƒ‰ãƒ©ã‚´ãƒ³ã€Œ".$DR[$cnt]->{name}."ã€ã‚’".$R[0]."ã«å‡ºèµ°ç™»éŒ²ã—ã¾ã—ãŸã€‚";
 }
 

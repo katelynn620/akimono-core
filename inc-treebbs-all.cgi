@@ -1,4 +1,4 @@
-# Œf¦”Â‘S‹L–•\¦ 2003/11/03 —R˜Ò
+# æ²ç¤ºæ¿å…¨è¨˜äº‹è¡¨ç¤º 2003/11/03 ç”±ä¾†
 
 &allread;
 1;
@@ -8,7 +8,7 @@ sub allread {
 	my($no,$re,$lx,$sub,$eml,$nam,$msg,$t,$ho,$oya,$sml,$date);
 
 	$x=0;
-	$disp.="<table width=500>$TR$TD<BIG>¥ƒŒƒX‘S•\\¦</BIG>\n";
+	$disp.="<table width=500>$TR$TD<BIG>â–¼ãƒ¬ã‚¹å…¨è¡¨\ç¤º</BIG>\n";
 	$disp.="<UL>\n";
 	open(IN,$datafile) or return();
 	$top = <IN>;
@@ -40,10 +40,10 @@ sub allread {
 		$date = GetTime2FormatTime($lt);
 $disp.=<<HTML;
 <hr width=500 size=1><table width=500 id="$no">
-$TR$TDB¡ $sub$TRE
-$TR$TD<SPAN>”­Œ¾Ò</SPAN>F<b> $nam</b> $eml<br>
-<SPAN>”­Œ¾“ú</SPAN>F $date$TRE
-$TR$TD
+$TR$TDBâ–  $sub$TRE
+$TR$TD<SPAN>ç™ºè¨€è€…</SPAN>ï¼š<b> $nam</b> $eml<br>
+<SPAN>ç™ºè¨€æ—¥</SPAN>ï¼š $date$TRE
+$TR$TDâ—‡
 <blockquote>$msg</blockquote>
 </td></tr></table>
 HTML

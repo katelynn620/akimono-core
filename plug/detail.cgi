@@ -1,4 +1,4 @@
-# detail ƒvƒ‰ƒOƒCƒ“ 2005/01/06 —R˜Ò
+# detail ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2005/01/06 ç”±ä¾†
 
 sub SortDT
 {
@@ -30,7 +30,7 @@ sub GetRankMessage
 	return $bar;
 }
 
-#“X•Ü”„‹pÅ—¦ŒvZ
+#åº—èˆ—å£²å´ç¨ç‡è¨ˆç®—
 sub GetUserTaxRate
 {
 	my($DT,$usertax)=@_;
@@ -46,7 +46,7 @@ sub CheckShowCaseNumber
 	my($DT,$sc)=@_;
 	
 	$sc+=0;
-	OutError('‚»‚ñ‚È’Â—ñ’I‚Í‚ ‚è‚Ü‚¹‚ñ') if $sc<0 || $DT->{showcasecount}<=$sc;
+	OutError('ãã‚“ãªé™³åˆ—æ£šã¯ã‚ã‚Šã¾ã›ã‚“') if $sc<0 || $DT->{showcasecount}<=$sc;
 
 	return $sc;
 }
@@ -55,7 +55,7 @@ sub GetTopCountImage
 {
 	my($count)=@_;
 	return "" if !$count;
-	return $count."‰ñ—DŸ" if $MOBILE;
+	return $count."å›å„ªå‹" if $MOBILE;
 
 	my $ret="";
 	my $num=1;
@@ -65,7 +65,7 @@ sub GetTopCountImage
 		$num++;
 	}
 	my $fn=$IMAGE_URL."/rank".$num.$IMAGE_EXT;
-	$ret="<IMG class=\"i\" SRC=\"$fn\" ALT=\"$count‰ñ—DŸ\">";
+	$ret="<IMG class=\"i\" SRC=\"$fn\" ALT=\"$countå›å„ªå‹\">";
 	return $ret;
 }
 
@@ -78,12 +78,12 @@ sub GetMoneyMessage
 
 	foreach my $rank (10,20,50,100,500,1000,5000)
 	{
-		return $rank."<font size=\"-3\">–œ$term[2]ˆÈ‰º</font>" if $money<=$rank;
+		return $rank."<font size=\"-3\">ä¸‡$term[2]ä»¥ä¸‹</font>" if $money<=$rank;
 	}
 
 	foreach my $rank (10000,50000,100000)
 	{
-		return int($rank/10000)."<font size=\"-3\">‰­$term[2]ˆÈ‰º</font>" if $money<=$rank;
+		return int($rank/10000)."<font size=\"-3\">å„„$term[2]ä»¥ä¸‹</font>" if $money<=$rank;
 	}
 }
 

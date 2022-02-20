@@ -1,6 +1,6 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ƒhƒ‰ƒSƒ“Ú×•\Ž¦ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ãƒ‰ãƒ©ã‚´ãƒ³è©³ç´°è¡¨ç¤º 2005/03/30 ç”±ä¾†
 
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF–qê</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç‰§å ´</BIG><br><br>";
 
 ReadDragon();
 my $cnt=$id2dra{$Q{dr}};
@@ -18,7 +18,7 @@ if (scalar @ST)
 		}
 	}
 
-$disp.="$TB$TR$TDB–¼Ì$TDB”N—î$TDB«•Ê$TDB–ÑF$TDB—a‘õ‰XŽÉ$TDB‹rŽ¿$TDB‹——£“K«$TDB‘Ü‹à$TDB¬Ñ$TDBo‘–$TRE";
+$disp.="$TB$TR$TDBåç§°$TDBå¹´é½¢$TDBæ€§åˆ¥$TDBæ¯›è‰²$TDBé è¨—åŽ©èˆŽ$TDBè„šè³ª$TDBè·é›¢é©æ€§$TDBç·è³žé‡‘$TDBæˆç¸¾$TDBå‡ºèµ°$TRE";
 $disp.=$TR;
 $disp.=$TD."<b>".GetTagImgDra($DR[$cnt]->{fm},$DR[$cnt]->{color}).$DR[$cnt]->{name}."</b>";
 $disp.=$TD.GetTime2found($NOW_TIME-$DR[$cnt]->{birth});
@@ -27,22 +27,22 @@ $disp.=$TD.$DRCOLOR[$DR[$cnt]->{color}];
 $disp.=$TD.$stname;
 $disp.=$TD.$STRATE[ GetRaceStrate($DR[$cnt]->{sr},$DR[$cnt]->{ag}) ];
 $disp.=$TD.GetRaceApt($DR[$cnt]->{apt},$DR[$cnt]->{fl})."km";
-$disp.=$TD.($DR[$cnt]->{prize} + 0)."–œ";
+$disp.=$TD.($DR[$cnt]->{prize} + 0)."ä¸‡";
 $disp.=$TD.($DR[$cnt]->{g1win} + 0)." - ".($DR[$cnt]->{g2win} + 0)." - ".($DR[$cnt]->{g3win} + 0)." - ".($DR[$cnt]->{sdwin} + 0);
 $disp.=$TD.$ONRACE[$DR[$cnt]->{race}];
 $disp.=$TRE;
 $disp.=$TBE."<br>";
-$disp.="<BIG>œ”\\—Í‚ÌÚ×</BIG><br><br>";
+$disp.="<BIG>â—èƒ½\åŠ›ã®è©³ç´°</BIG><br><br>";
 $disp.=$TB;
-$disp.=$TR.$TDB."ƒXƒs[ƒh".$TD.GetDragonBar($DR[$cnt]->{sp},$DR[$cnt]->{spp}).$TRE;
-$disp.=$TR.$TDB."Ÿ•‰ª«".$TD.GetDragonBar($DR[$cnt]->{sr},$DR[$cnt]->{srp}).$TRE;
-$disp.=$TR.$TDB."u”­—Í".$TD.GetDragonBar($DR[$cnt]->{ag},$DR[$cnt]->{agp}).$TRE;
-$disp.=$TR.$TDB."ƒpƒ[".$TD.GetDragonBar($DR[$cnt]->{pw},$DR[$cnt]->{pwp}).$TRE;
-$disp.=$TR.$TDB."Œ’N".$TD.GetDragonBar($DR[$cnt]->{hl},$DR[$cnt]->{hlp}).$TRE;
-$disp.=$TR.$TDB."_“î«".$TD.GetDragonBar($DR[$cnt]->{fl},$DR[$cnt]->{flp}).$TRE;
-$disp.=$TR.$TDB."‘Ì’²".$TD.GetConBar($DR[$cnt]->{con}).$TRE;
-$disp.=$TR.$TDB."‘Ìd".$TD.GetWtBar($DR[$cnt]->{wt}).$TRE;
-$disp.=$TR.$TDB."¬’·“x".$TD.GetConBar($DR[$cnt]->{gr},1).$TRE;
+$disp.=$TR.$TDB."ã‚¹ãƒ”ãƒ¼ãƒ‰".$TD.GetDragonBar($DR[$cnt]->{sp},$DR[$cnt]->{spp}).$TRE;
+$disp.=$TR.$TDB."å‹è² æ ¹æ€§".$TD.GetDragonBar($DR[$cnt]->{sr},$DR[$cnt]->{srp}).$TRE;
+$disp.=$TR.$TDB."çž¬ç™ºåŠ›".$TD.GetDragonBar($DR[$cnt]->{ag},$DR[$cnt]->{agp}).$TRE;
+$disp.=$TR.$TDB."ãƒ‘ãƒ¯ãƒ¼".$TD.GetDragonBar($DR[$cnt]->{pw},$DR[$cnt]->{pwp}).$TRE;
+$disp.=$TR.$TDB."å¥åº·".$TD.GetDragonBar($DR[$cnt]->{hl},$DR[$cnt]->{hlp}).$TRE;
+$disp.=$TR.$TDB."æŸ”è»Ÿæ€§".$TD.GetDragonBar($DR[$cnt]->{fl},$DR[$cnt]->{flp}).$TRE;
+$disp.=$TR.$TDB."ä½“èª¿".$TD.GetConBar($DR[$cnt]->{con}).$TRE;
+$disp.=$TR.$TDB."ä½“é‡".$TD.GetWtBar($DR[$cnt]->{wt}).$TRE;
+$disp.=$TR.$TDB."æˆé•·åº¦".$TD.GetConBar($DR[$cnt]->{gr},1).$TRE;
 $disp.=$TBE."<br>";
 if ($DR[$cnt]->{race} < 2)
 	{
@@ -95,7 +95,7 @@ sub GetWtBar
 	$bar ="<nobr>";
 	$bar.=qq|<img src="$IMAGE_URL/r.gif" width="|.($per).qq|" height="12">| if $per;
 	$bar.=qq|<img src="$IMAGE_URL/t.gif" width="|.(100-$per).qq|" height="12">| if $per!=100;
-	$bar.=" ".$EVALUE[int($rank)]." ".$point."ƒgƒ“";
+	$bar.=" ".$EVALUE[int($rank)]." ".$point."ãƒˆãƒ³";
 	$bar.="</nobr>";
 	return $bar;
 }
@@ -111,15 +111,15 @@ $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="dredit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="ent">
 <INPUT TYPE=HIDDEN NAME=dr VALUE="$Q{dr}">
-<BIG>œ‰XŽÉ—a‘õ</BIG>F <SELECT NAME=ent SIZE=1>
+<BIG>â—åŽ©èˆŽé è¨—</BIG>ï¼š <SELECT NAME=ent SIZE=1>
 $forment
-</SELECT> ‚Éƒhƒ‰ƒSƒ“‚ð
-<INPUT TYPE=SUBMIT VALUE='—a‘õ'>
+</SELECT> ã«ãƒ‰ãƒ©ã‚´ãƒ³ã‚’
+<INPUT TYPE=SUBMIT VALUE='é è¨—'>
 </FORM>
 <br>
 $TB$TR$TD
-E‰XŽÉ‚Éƒhƒ‰ƒSƒ“‚ð—a‘õ‚·‚é‚ÆC’²‹³‚É‚æ‚é¬’·‚ªŒ©ž‚ß‚Ü‚·B<br>
-E—a‘õ—¿‚ª–ˆ“ú<b>$costmsg</b>‚©‚©‚è‚Ü‚·B
+ãƒ»åŽ©èˆŽã«ãƒ‰ãƒ©ã‚´ãƒ³ã‚’é è¨—ã™ã‚‹ã¨ï¼Œèª¿æ•™ã«ã‚ˆã‚‹æˆé•·ãŒè¦‹è¾¼ã‚ã¾ã™ã€‚<br>
+ãƒ»é è¨—æ–™ãŒæ¯Žæ—¥<b>$costmsg</b>ã‹ã‹ã‚Šã¾ã™ã€‚
 $TBE<br>
 STR
 }
@@ -127,7 +127,7 @@ STR
 sub FormToRace
 {
 my $formrace="";
-my $formjock="<OPTION VALUE=\"0\">||‹RŽè‚È‚µ||";
+my $formjock="<OPTION VALUE=\"0\">ï¼ï¼é¨Žæ‰‹ãªã—ï¼ï¼";
 my $formstrate="";
 foreach (0..$#RACETERM)
 	{
@@ -156,20 +156,20 @@ $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="dredit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="torace">
 <INPUT TYPE=HIDDEN NAME=dr VALUE="$Q{dr}">
-<BIG>œƒŒ[ƒXo‘–“o˜^</BIG>F ƒhƒ‰ƒSƒ“‚ð <SELECT NAME=rcode SIZE=1>
+<BIG>â—ãƒ¬ãƒ¼ã‚¹å‡ºèµ°ç™»éŒ²</BIG>ï¼š ãƒ‰ãƒ©ã‚´ãƒ³ã‚’ <SELECT NAME=rcode SIZE=1>
 $formrace
-</SELECT> ‚ÉCˆÆã <SELECT NAME=jock SIZE=1>
+</SELECT> ã«ï¼Œéžä¸Š <SELECT NAME=jock SIZE=1>
 $formjock
-</SELECT> ìí <SELECT NAME=str SIZE=1>
+</SELECT> ä½œæˆ¦ <SELECT NAME=str SIZE=1>
 $formstrate
-</SELECT> ‚Å 
-<INPUT TYPE=SUBMIT VALUE='o‘–'>
+</SELECT> ã§ 
+<INPUT TYPE=SUBMIT VALUE='å‡ºèµ°'>
 </FORM>
 <br>
 $TB$TR$TD
-E’èˆõ‚ð’´‚¦‚Ä‚¢‚é‚ÆC’Š‘I‚É‚æ‚Á‚Äo‘–‚Å‚«‚È‚¢ê‡‚ª‚ ‚è‚Ü‚·B<br>
-Eo‘–‚·‚é‚ÆC‚»‚ÌŠÔ‚Ì’²‹³‚ªs‚í‚ê‚È‚¢‚¤‚¦C‘Ì’²E‘Ìd‚ªŒ¸­‚µ‚Ü‚·B<br>
-EƒŒ[ƒX‚Ì‹——£‚âƒnƒ“ƒfC‘¼‚Ìoê—³‚È‚Ç‚ðŒ©‚ÄC•s—˜‚É‚È‚ç‚È‚¢‚©Šm”F‚µ‚Ü‚µ‚å‚¤B
+ãƒ»å®šå“¡ã‚’è¶…ãˆã¦ã„ã‚‹ã¨ï¼ŒæŠ½é¸ã«ã‚ˆã£ã¦å‡ºèµ°ã§ããªã„å ´åˆãŒã‚ã‚Šã¾ã™ã€‚<br>
+ãƒ»å‡ºèµ°ã™ã‚‹ã¨ï¼Œãã®é–“ã®èª¿æ•™ãŒè¡Œã‚ã‚Œãªã„ã†ãˆï¼Œä½“èª¿ãƒ»ä½“é‡ãŒæ¸›å°‘ã—ã¾ã™ã€‚<br>
+ãƒ»ãƒ¬ãƒ¼ã‚¹ã®è·é›¢ã‚„ãƒãƒ³ãƒ‡ï¼Œä»–ã®å‡ºå ´ç«œãªã©ã‚’è¦‹ã¦ï¼Œä¸åˆ©ã«ãªã‚‰ãªã„ã‹ç¢ºèªã—ã¾ã—ã‚‡ã†ã€‚
 $TBE<br>
 STR
 }
@@ -185,15 +185,15 @@ $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="predit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="retire">
 <INPUT TYPE=HIDDEN NAME=dr VALUE="$Q{dr}">
-<BIG>œˆø‘Þ</BIG>F ƒhƒ‰ƒSƒ“‚ð
-<INPUT TYPE=SUBMIT VALUE='ˆø‘Þ‚³‚¹‚é'>
+<BIG>â—å¼•é€€</BIG>ï¼š ãƒ‰ãƒ©ã‚´ãƒ³ã‚’
+<INPUT TYPE=SUBMIT VALUE='å¼•é€€ã•ã›ã‚‹'>
 <INPUT TYPE=TEXT NAME=check SIZE=10 VALUE="">
-(retire‚Æ“ü—Í) 
+(retireã¨å…¥åŠ›) 
 </FORM>
 <br>
 $TB$TR$TD
-E”N—î <b>$remsg</b>ˆÈã‚Ìƒhƒ‰ƒSƒ“‚ÍCˆø‘Þ‚³‚¹‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B<br>
-E‘Ü‹à‚ª <b>$PRentry–œ</b>ˆÈã‚Ìƒhƒ‰ƒSƒ“‚ÍCŽíE”ÉB“ü‚è‚µ‚Ü‚·B
+ãƒ»å¹´é½¢ <b>$remsg</b>ä»¥ä¸Šã®ãƒ‰ãƒ©ã‚´ãƒ³ã¯ï¼Œå¼•é€€ã•ã›ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚<br>
+ãƒ»ç·è³žé‡‘ãŒ <b>$PRentryä¸‡</b>ä»¥ä¸Šã®ãƒ‰ãƒ©ã‚´ãƒ³ã¯ï¼Œç¨®ãƒ»ç¹æ®–å…¥ã‚Šã—ã¾ã™ã€‚
 $TBE
 STR
 }

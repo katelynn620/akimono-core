@@ -1,4 +1,4 @@
-# market ƒvƒ‰ƒOƒCƒ“ 2003/07/19 —R˜Ò
+# market ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/07/19 ç”±ä¾†
 
 sub GetMarketStatus
 {
@@ -26,26 +26,26 @@ sub GetMarketStatus
 			$stock=$DT->{item}[$_-1];
 			next if !$_ || !$stock;
 			$ITEM=$ITEM[$_];
-			$ITEM->{todaystock}+=$stock;							# ’Â—ñİŒÉƒg[ƒ^ƒ‹
+			$ITEM->{todaystock}+=$stock;							# é™³åˆ—åœ¨åº«ãƒˆãƒ¼ã‚¿ãƒ«
 			$price=$DT->{price}[$caseno];
-			$ITEM->{todayprice}+=$price*$stock;						# ’Â—ñ‹àŠzƒg[ƒ^ƒ‹
+			$ITEM->{todayprice}+=$price*$stock;						# é™³åˆ—é‡‘é¡ãƒˆãƒ¼ã‚¿ãƒ«
 			$mpl=\$ITEM->{marketpricelow};
 			$mph=\$ITEM->{marketpricehigh};
-			$$mpl=$price if $$mpl>$price || !$$mpl;	#ÅˆÀ’l
-			$$mph=$price if $$mph<$price;			#Å‚’l
+			$$mpl=$price if $$mpl>$price || !$$mpl;	#æœ€å®‰å€¤
+			$$mph=$price if $$mph<$price;			#æœ€é«˜å€¤
 			$marketitemlist{$_}=$ITEM;
 		}
 		while(my($key,$value)=each %{$DT->{itemtoday}})
 		{
 			$ITEM=$ITEM[$key];
-			$ITEM->{todaysale}+=$value;						# ¡Šú”„ã”
-			#$marketitemlist{$key}=$ITEM;				#ƒJƒEƒ“ƒg‚Æ‚è‚â‚ß
+			$ITEM->{todaysale}+=$value;						# ä»ŠæœŸå£²ä¸Šæ•°
+			#$marketitemlist{$key}=$ITEM;				#ã‚«ã‚¦ãƒ³ãƒˆã¨ã‚Šã‚„ã‚
 		}
 		while(my($key,$value)=each %{$DT->{itemyesterday}})
 		{
 			$ITEM=$ITEM[$key];
-			$ITEM->{yesterdaysale}+=$value;					# ‘OŠú”„ã”
-			# $marketitemlist{$key}=$ITEM;  			#ƒJƒEƒ“ƒg‚Æ‚è‚â‚ß
+			$ITEM->{yesterdaysale}+=$value;					# å‰æœŸå£²ä¸Šæ•°
+			# $marketitemlist{$key}=$ITEM;  			#ã‚«ã‚¦ãƒ³ãƒˆã¨ã‚Šã‚„ã‚
 		}
 	}
 	
@@ -64,7 +64,7 @@ sub GetMarketStatus
 	}
 }
 
-# ù—v/‹Ÿ‹‹ƒoƒ‰ƒ“ƒXƒOƒ‰ƒt
+# éœ€è¦/ä¾›çµ¦ãƒãƒ©ãƒ³ã‚¹ã‚°ãƒ©ãƒ•
 sub GetMarketStatusGraph
 {
 	my($per,$noimage)=@_;
@@ -84,21 +84,21 @@ sub GetMarketStatusGraph
 		if($type)
 		{
 			$ret.=qq|<img src="$IMAGE_URL/t.gif" width="$imgwidthl" height="12">| if $imgwidthl;
-			$ret.=" –O˜a " if $imgwidthl==50;
+			$ret.=" é£½å’Œ " if $imgwidthl==50;
 			$ret.=qq|<img src="$IMAGE_URL/|.('b','r')[$type-1].qq|.gif" width="$imgwidth" height="12">|;
-			$ret.=" •s‘« " if $imgwidthr==50;
+			$ret.=" ä¸è¶³ " if $imgwidthr==50;
 			$ret.=qq|<img src="$IMAGE_URL/t.gif" width="$imgwidthr" height="12">| if $imgwidthr;
 		}
 		else
 		{
-			$ret.=qq|<img src="$IMAGE_URL/t.gif" width="50" height="12"> ‹Ït |;
+			$ret.=qq|<img src="$IMAGE_URL/t.gif" width="50" height="12"> å‡è¡¡ |;
 			$ret.=qq|<img src="$IMAGE_URL/t.gif" width="50" height="12">|;
 		}
 	}
 	else
 	{
 		$width=!$type ? "" : " $width%";
-		$ret.=('‹Ït ','–O˜a ','•s‘« ')[$type].$width;
+		$ret.=('å‡è¡¡ ','é£½å’Œ ','ä¸è¶³ ')[$type].$width;
 	}
 	return $ret;
 }

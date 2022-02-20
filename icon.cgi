@@ -1,8 +1,8 @@
-# ƒAƒCƒRƒ“ƒŠƒXƒg 2004/01/20 —R˜Ò
+# ã‚¢ã‚¤ã‚³ãƒ³ãƒªã‚¹ãƒˆ 2004/01/20 ç”±ä¾†
 
 $NOMENU=1;
 $Q{bk}="none";
-$disp.="<BIG>œƒAƒCƒRƒ“ˆê——</BIG><br><br>";
+$disp.="<BIG>â—ã‚¢ã‚¤ã‚³ãƒ³ä¸€è¦§</BIG><br><br>";
 
 $disp.=$TBT;
 foreach my $i(1..$ICON_NUMBER)

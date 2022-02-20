@@ -1,9 +1,9 @@
-# wis 2004/02/28 —R˜Ò
+# wis 2004/02/28 ç”±ä¾†
 
-$image[0]=GetTagImgKao("‚¨Žè“`‚¢","help");
+$image[0]=GetTagImgKao("ãŠæ‰‹ä¼ã„","help");
 DataRead();
 CheckUserPass();
-$disp.="<BIG>œwis</BIG><br><br>";
+$disp.="<BIG>â—wis</BIG><br><br>";
 
 if ($Q{form})
 {
@@ -22,17 +22,17 @@ sub WisForm
 	$disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>‚¨Žè“`‚¢</SPAN>F‘ŠŽè‚É˜b‚µ‚©‚¯‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·‚æB<br>
-‚­‚ê‚®‚ê‚àŽ¸—ç‚Ì‚È‚¢‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B
+<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šç›¸æ‰‹ã«è©±ã—ã‹ã‘ã‚‹ã“ã¨ãŒã§ãã¾ã™ã‚ˆã€‚<br>
+ãã‚Œãã‚Œã‚‚å¤±ç¤¼ã®ãªã„ã‚ˆã†ã«ã—ã¦ãã ã•ã„ã€‚
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="plus">
 $TB
-$TR$TDB<b>‘ŠŽè</b>
+$TR$TDB<b>ç›¸æ‰‹</b>
 HTML
 
-$disp.=$TD."<SELECT NAME=to><OPTION VALUE=\"-1\">||‘ŠŽè‘I‘ð||";
+$disp.=$TD."<SELECT NAME=to><OPTION VALUE=\"-1\">ï¼ï¼ç›¸æ‰‹é¸æŠžï¼ï¼";
 	foreach (@DT)
 	{
 		$disp.="<OPTION VALUE=\"$_->{id}\">$_->{shopname}";
@@ -40,15 +40,15 @@ $disp.=$TD."<SELECT NAME=to><OPTION VALUE=\"-1\">||‘ŠŽè‘I‘ð||";
 $disp.="</SELECT>$TRE\n";
 
 $disp.=<<"HTML";
-$TR$TDB<b>“à—e</b>
+$TR$TDB<b>å†…å®¹</b>
 $TD<INPUT TYPE=TEXT NAME=msg SIZE=60>$TRE
-$TR$TD<SPAN>Žg—p–@</SPAN>$TD
-E‘ŠŽè‚ªŽóM‚·‚é‘O‚É•Ê‚Èwis‚ª‘—‚ç‚ê‚é‚ÆCÅ‰‚Ìwis‚ÍÁ‚¦‚Ä‚µ‚Ü‚¢‚Ü‚·B<br>
-E‘ŠŽè‚ªƒƒOƒCƒ“‚µ‚Ä‚¢‚È‚¢ê‡CŒã‚É‚È‚Á‚ÄŽóM‚³‚ê‚é‚±‚Æ‚ª‚ ‚è‚Ü‚·B<br>
-Eƒ`ƒƒƒbƒg‘ã‚í‚è‚ÉŽg‚¤‚Ì‚Í”ð‚¯‚Ü‚µ‚å‚¤B
+$TR$TD<SPAN>ä½¿ç”¨æ³•</SPAN>$TD
+ãƒ»ç›¸æ‰‹ãŒå—ä¿¡ã™ã‚‹å‰ã«åˆ¥ãªwisãŒé€ã‚‰ã‚Œã‚‹ã¨ï¼Œæœ€åˆã®wisã¯æ¶ˆãˆã¦ã—ã¾ã„ã¾ã™ã€‚<br>
+ãƒ»ç›¸æ‰‹ãŒãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã„ãªã„å ´åˆï¼Œå¾Œã«ãªã£ã¦å—ä¿¡ã•ã‚Œã‚‹ã“ã¨ãŒã‚ã‚Šã¾ã™ã€‚<br>
+ãƒ»ãƒãƒ£ãƒƒãƒˆä»£ã‚ã‚Šã«ä½¿ã†ã®ã¯é¿ã‘ã¾ã—ã‚‡ã†ã€‚
 $TBE
 <br><INPUT TYPE=HIDDEN NAME=form VALUE="plus">
-<INPUT TYPE=SUBMIT VALUE="‘—M">
+<INPUT TYPE=SUBMIT VALUE="é€ä¿¡">
 </FORM>
 HTML
 }
@@ -56,10 +56,10 @@ HTML
 sub WisWrite
 {
 	my ($to,$msg)=($Q{to},$Q{msg});
-	OutError("‘ŠŽè‚ðŽw’è‚µ‚Ä‚­‚¾‚³‚¢B") if $to==-1;
-	OutError("‘¶Ý‚µ‚È‚¢“X•Ü‚Å‚·B") if !defined($id2idx{$to});
-	OutError("ƒƒbƒZ[ƒW‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B") if !$msg;
-	OutError('ƒƒbƒZ[ƒW‚Ì•¶Žš”‚ª‘½‚¢‚Å‚·B') if length($msg)>72;
+	OutError("ç›¸æ‰‹ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚") if $to==-1;
+	OutError("å­˜åœ¨ã—ãªã„åº—èˆ—ã§ã™ã€‚") if !defined($id2idx{$to});
+	OutError("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚") if !$msg;
+	OutError('ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®æ–‡å­—æ•°ãŒå¤šã„ã§ã™ã€‚') if length($msg)>72;
 	$NOMENU=1;$Q{bk}="wis";
 	$msg=~s/&/&amp;/g;
 	$msg=~s/>/&gt;/g;
@@ -67,7 +67,7 @@ sub WisWrite
 	OpenAndCheck(GetPath($SUBDATA_DIR,$DT[$id2idx{$to}]->{id}."-wis"));
 	print OUT "<SPAN>$DT->{name}</SPAN> > <b>$msg</b>";
 	close(OUT);
-	$disp.="wis‘—M‚µ‚Ü‚µ‚½B";
+	$disp.="wisé€ä¿¡ã—ã¾ã—ãŸã€‚";
 	return;
 }
 

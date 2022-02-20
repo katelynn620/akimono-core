@@ -1,14 +1,14 @@
-# ƒMƒ‹ƒhİ—§ˆ— 2004/01/20 —R˜Ò
+# ã‚®ãƒ«ãƒ‰è¨­ç«‹å‡¦ç† 2004/01/20 ç”±ä¾†
 
 CoLock();
 DataRead();
 CheckUserPass();
 ReadGuild();
 ReadGuildData();
-$image[0]=GetTagImgKao("ƒMƒ‹ƒhó•t","guild");
+$image[0]=GetTagImgKao("ã‚®ãƒ«ãƒ‰å—ä»˜","guild");
 $Q{er}='gd-f';
 
-$disp.="<BIG>œƒMƒ‹ƒhŒöŠÙ</BIG><br><br>";
+$disp.="<BIG>â—ã‚®ãƒ«ãƒ‰å…¬é¤¨</BIG><br><br>";
 
 $Q{url}="http://" if $Q{url} eq "";
 $Q{leadt}=$MYDIR;
@@ -17,20 +17,20 @@ $Q{leader}=$DT->{id};
 @MAX=(30,12,4,4,6,30,120,120,10,10,60);
 foreach my $i(0..$#GLIST)
 	{
-	OutError('‹L“ü‚³‚ê‚Ä‚¢‚È‚¢€–Ú‚ª‚ ‚è‚Ü‚· - '.$GLIST[$i]) if (!$Q{$GLIST[$i]});
+	OutError('è¨˜å…¥ã•ã‚Œã¦ã„ãªã„é …ç›®ãŒã‚ã‚Šã¾ã™ - '.$GLIST[$i]) if (!$Q{$GLIST[$i]});
 	$Q{$GLIST[$i]}=CutStr(jcode::sjis($Q{$GLIST[$i]},$CHAR_SHIFT_JIS&&'sjis'),$MAX[$i]);
 	$Q{$GLIST[$i]}=~s/&/&amp;/g;
 	$Q{$GLIST[$i]}=~s/>/&gt;/g;
 	$Q{$GLIST[$i]}=~s/</&lt;/g;
 	}
 $Q{url}="" if $Q{url} eq "http://";
-OutError('‰ï”ï—¦‚âŠ„ˆø‘—¦‚Ég—p‚Å‚«‚È‚¢•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·') if ($Q{dealrate} =~ /([^0-9])/)||($Q{feerate} =~ /([^0-9])/);
-OutError('Š„ˆø‘—¦‚Í10`500‚ÌŠÔ‚Ì”’l‚Åw’è‚µ‚Ä‚­‚¾‚³‚¢') if ($Q{dealrate} > 500) || ($Q{dealrate} < 10);
-OutError('‰ï”ï—¦‚Í10`500‚ÌŠÔ‚Ì”’l‚Åw’è‚µ‚Ä‚­‚¾‚³‚¢') if ($Q{feerate} > 500) || ($Q{feerate} < 10);
-OutError('ƒMƒ‹ƒhƒR[ƒh‚Ég—p‚Å‚«‚È‚¢•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·') if ($Q{code} =~ /([^a-z])/);
-OutError('ƒMƒ‹ƒhİ—§‚É‰æ‘œƒtƒ@ƒCƒ‹‚Í•K{‚Å‚·') if (!$Q{upfile})&&($Q{mode} ne "edit");
+OutError('ä¼šè²»ç‡ã‚„å‰²å¼•å¢—ç‡ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™') if ($Q{dealrate} =~ /([^0-9])/)||($Q{feerate} =~ /([^0-9])/);
+OutError('å‰²å¼•å¢—ç‡ã¯10ï½500ã®é–“ã®æ•°å€¤ã§æŒ‡å®šã—ã¦ãã ã•ã„') if ($Q{dealrate} > 500) || ($Q{dealrate} < 10);
+OutError('ä¼šè²»ç‡ã¯10ï½500ã®é–“ã®æ•°å€¤ã§æŒ‡å®šã—ã¦ãã ã•ã„') if ($Q{feerate} > 500) || ($Q{feerate} < 10);
+OutError('ã‚®ãƒ«ãƒ‰ã‚³ãƒ¼ãƒ‰ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™') if ($Q{code} =~ /([^a-z])/);
+OutError('ã‚®ãƒ«ãƒ‰è¨­ç«‹ã«ç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã¯å¿…é ˆã§ã™') if (!$Q{upfile})&&($Q{mode} ne "edit");
 
-OutError('“¯‚¶ƒMƒ‹ƒhƒR[ƒh‚ª‚·‚Å‚É‘¶İ‚µ‚Ä‚¢‚Ü‚·') if (-e $COMMON_DIR."/".$Q{code}.".pl")&&($Q{mode} ne "edit");
+OutError('åŒã˜ã‚®ãƒ«ãƒ‰ã‚³ãƒ¼ãƒ‰ãŒã™ã§ã«å­˜åœ¨ã—ã¦ã„ã¾ã™') if (-e $COMMON_DIR."/".$Q{code}.".pl")&&($Q{mode} ne "edit");
 
 GuildImgUp() if ($Q{upfile});
 BuildGuild();
@@ -50,8 +50,8 @@ if ($Q{mode} ne "edit")
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-ƒMƒ‹ƒhó•tFè‘±‚ªŠ®—¹‚µ‚Ü‚µ‚½B”•ªŒã‚É”½‰f‚³‚ê‚é‚Æv‚¢‚Ü‚·B<br>
-Šy‚µ‚¢ƒMƒ‹ƒh‚É‚È‚Á‚Ä‚¢‚­‚Æ‚¢‚¢‚Å‚·‚ËBŠæ’£‚Á‚Ä‚­‚¾‚³‚¢B
+ã‚®ãƒ«ãƒ‰å—ä»˜ï¼šæ‰‹ç¶šãŒå®Œäº†ã—ã¾ã—ãŸã€‚æ•°åˆ†å¾Œã«åæ˜ ã•ã‚Œã‚‹ã¨æ€ã„ã¾ã™ã€‚<br>
+æ¥½ã—ã„ã‚®ãƒ«ãƒ‰ã«ãªã£ã¦ã„ãã¨ã„ã„ã§ã™ã­ã€‚é ‘å¼µã£ã¦ãã ã•ã„ã€‚
 $TRE$TBE
 HTML
 OutSkin();
@@ -73,7 +73,7 @@ sub GuildImgUp
 	}
 	else
 	{
-	OutError('gif‰æ‘œƒtƒ@ƒCƒ‹‚Å‚Í‚È‚¢‚æ‚¤‚Å‚·B'.$MIMETYPE{upfile});
+	OutError('gifç”»åƒãƒ•ã‚¡ã‚¤ãƒ«ã§ã¯ãªã„ã‚ˆã†ã§ã™ã€‚'.$MIMETYPE{upfile});
 	}
 }
 

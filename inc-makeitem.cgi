@@ -1,7 +1,7 @@
-# ƒAƒCƒeƒ€ƒf[ƒ^¶¬ 2005/03/30 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ ãƒ‡ãƒ¼ã‚¿ç”Ÿæˆ 2005/03/30 ç”±ä¾†
 # ** --- makeitem.cgi,v 1.39 2002/12/02 13:05:10 mu Exp $
 
-# •Ï”‰Šú‰»
+# å¤‰æ•°åˆæœŸåŒ–
 $g_define={};
 $g_define->{itemusetimerate}=1;
 $g_define->{function}={};
@@ -9,10 +9,10 @@ $g_define->{localfuncmark}='_local_';
 $g_define->{cmdhead}='@@';
 $g_define->{cmdfoot}='';
 $linecount=0;
-($MYDIR,$MYNAME)=($ENV{SCRIPT_NAME}=~/^.*\/([^\/]+)\/([^\/]+)$/); # ©ƒtƒ@ƒCƒ‹–¼/ƒfƒBƒŒƒNƒgƒŠ–¼
-$g_define->{dirname}=$MYDIR; # İ’uƒfƒBƒŒƒNƒgƒŠ–¼(@@if“™‚Å—˜—p‰Â)
+($MYDIR,$MYNAME)=($ENV{SCRIPT_NAME}=~/^.*\/([^\/]+)\/([^\/]+)$/); # è‡ªãƒ•ã‚¡ã‚¤ãƒ«å/ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå
+$g_define->{dirname}=$MYDIR; # è¨­ç½®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå(@@ifç­‰ã§åˆ©ç”¨å¯)
 
-OutError('ŠÇ—ÒƒpƒXƒ[ƒh‚ª•s³‚Å‚·') if $Q{admin} ne $MASTER_PASSWORD;
+OutError('ç®¡ç†è€…ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸æ­£ã§ã™') if $Q{admin} ne $MASTER_PASSWORD;
 OutHeader();
 $mode=$Q{mode};
 
@@ -20,22 +20,22 @@ print "</center>\n";
 print <<"HTML" if $ENV{HTTP_REFERER} ne '';
 	<FORM ACTION="$ENV{HTTP_REFERER}" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="ŠÇ—ƒƒjƒ…[‚Ö–ß‚é">
+	<INPUT TYPE="SUBMIT" VALUE="ç®¡ç†ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã¸æˆ»ã‚‹">
 	</FORM>
 HTML
 
 if(!-e "./lock" and !-e "$DATA_DIR/lock")
 {
-	print("©“®“I‚Éƒƒ“ƒeƒ‚[ƒh‚ÉˆÚs‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½Bè“®‚Åƒƒ“ƒeƒ‚[ƒh‚É‚µ‚Ä‚©‚çÄ¶¬‚¨Šè‚¢‚µ‚Ü‚·B"),exit
+	print("è‡ªå‹•çš„ã«ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã«ç§»è¡Œã§ãã¾ã›ã‚“ã§ã—ãŸã€‚æ‰‹å‹•ã§ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã«ã—ã¦ã‹ã‚‰å†ç”ŸæˆãŠé¡˜ã„ã—ã¾ã™ã€‚"),exit
 		if !mkdir("$DATA_DIR/lock",$DIR_PERMISSION);
 	$LOCK_AUTO_MAKE=1;
-	sleep(1); # ”O‚Ì‚½‚ßwait
+	sleep(1); # å¿µã®ãŸã‚wait
 }
 
-DeleteItemData();                          # ˆê’UŒÃ‚¢ƒAƒCƒeƒ€ƒf[ƒ^‚ğÁ‚·
-print("deleted"),exit if $mode eq 'delete'; # ƒAƒ“ƒCƒ“ƒXƒgƒ‚[ƒh‚È‚çI—¹
+DeleteItemData();                          # ä¸€æ—¦å¤ã„ã‚¢ã‚¤ãƒ†ãƒ ãƒ‡ãƒ¼ã‚¿ã‚’æ¶ˆã™
+print("deleted"),exit if $mode eq 'delete'; # ã‚¢ãƒ³ã‚¤ãƒ³ã‚¹ãƒˆãƒ¢ãƒ¼ãƒ‰ãªã‚‰çµ‚äº†
 
-# ƒAƒCƒeƒ€ƒfƒBƒŒƒNƒgƒŠì¬
+# ã‚¢ã‚¤ãƒ†ãƒ ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä½œæˆ
 mkdir("$ITEM_DIR",$DIR_PERMISSION);
 mkdir("$ITEM_DIR/event",$DIR_PERMISSION);
 mkdir("$ITEM_DIR/event-s",$DIR_PERMISSION);
@@ -47,14 +47,14 @@ mkdir("$ITEM_DIR/item-t",$DIR_PERMISSION);
 mkdir("$ITEM_DIR/item-s",$DIR_PERMISSION);
 mkdir("$ITEM_DIR/item-b",$DIR_PERMISSION);
 
-AnalyzeItemData("FH00","inc-item-data.cgi");  # inc-item-data.cgi‰ğÍ
-AnalyzeItemData("FH00","inc-rebel-data.cgi");  # ”½—ƒf[ƒ^‚ğ’Ç‰Á‰ğÍ
+AnalyzeItemData("FH00","inc-item-data.cgi");  # inc-item-data.cgiè§£æ
+AnalyzeItemData("FH00","inc-rebel-data.cgi");  # åä¹±ãƒ‡ãƒ¼ã‚¿ã‚’è¿½åŠ è§£æ
 
-OutItemData();      # item‘‚«o‚µ
-OutEventData();     # event‘‚«o‚µ
-OutFunctionData();  # function‘‚«o‚µ
-OutDefineData();	# define‘‚«o‚µ
-OutResultMessage(); # Œ‹‰Ê html o—Í
+OutItemData();      # itemæ›¸ãå‡ºã—
+OutEventData();     # eventæ›¸ãå‡ºã—
+OutFunctionData();  # functionæ›¸ãå‡ºã—
+OutDefineData();	# defineæ›¸ãå‡ºã—
+OutResultMessage(); # çµæœ html å‡ºåŠ›
 
 print "</body></html>";
 
@@ -144,7 +144,7 @@ sub GetItemNumber
 		return $_->{no} if $_->{code} eq $val || $_->{name} eq $val;
 	}
 	
-	push(@errormsg,"ƒAƒCƒeƒ€–³\t".$val);
+	push(@errormsg,"ã‚¢ã‚¤ãƒ†ãƒ ç„¡\t".$val);
 	return $val;
 }
 
@@ -329,32 +329,32 @@ sub GetBuffer
 		if($line =~ s/\s(\\|MONEY|PRICE)\s*(\\|)(\S+)\s//i)
 		{
 			$g_item->{price}=GetNumber($3);
-			$flag_price=1;				#‰¿Ši‚ªİ’è‚³‚ê‚½
+			$flag_price=1;				#ä¾¡æ ¼ãŒè¨­å®šã•ã‚ŒãŸ
 
-			# ‰¿Ši‚ª‘¶İ‚·‚é‚Æ‚«‚Í•W€’l‚ğ©“®İ’è
+			# ä¾¡æ ¼ãŒå­˜åœ¨ã™ã‚‹ã¨ãã¯æ¨™æº–å€¤ã‚’è‡ªå‹•è¨­å®š
 			if ($g_item->{price} > 0)
 				{
-				#‘qŒÉÅ‘å”
+				#å€‰åº«æœ€å¤§æ•°
 					if (!$g_item->{limit})
 					{
 				$g_item->{limit}=int(1000000 / $g_item->{price});
-				$g_item->{limit}=1 if $g_item->{limit} < 1;		#Å’á’l
-				$g_item->{limit}=2000 if $g_item->{limit} > 2000;	#Å‚’l
-				$g_item->{limit}=int($g_item->{limit} / 10 + 0.5)*10 if $g_item->{limit}>100;	#10‚æ‚è‘å‚«‚¢‚Æ‚«‚ÍlÌŒÜ“ü
+				$g_item->{limit}=1 if $g_item->{limit} < 1;		#æœ€ä½å€¤
+				$g_item->{limit}=2000 if $g_item->{limit} > 2000;	#æœ€é«˜å€¤
+				$g_item->{limit}=int($g_item->{limit} / 10 + 0.5)*10 if $g_item->{limit}>100;	#10ã‚ˆã‚Šå¤§ãã„ã¨ãã¯å››æ¨äº”å…¥
 
-				#‘qŒÉÅ‘å”‚ªİ’è‚³‚ê‚½‚Ì‚ÅCsêÅ‘å”‚à©“®İ’è
+				#å€‰åº«æœ€å¤§æ•°ãŒè¨­å®šã•ã‚ŒãŸã®ã§ï¼Œå¸‚å ´æœ€å¤§æ•°ã‚‚è‡ªå‹•è¨­å®š
 				$g_item->{wslimit}=$g_item->{limit};
 					}
 
-				#ˆÛ”ï
+				#ç¶­æŒè²»
 				$g_item->{cost}=int($g_item->{price}/10) if !$g_item->{cost};
 
-				#”„‚ês‚«
+				#å£²ã‚Œè¡Œã
 					if (!$g_item->{popular})
 					{
 				$g_item->{popular}=int($g_item->{price} *2*6*6/10);
 
-				#”„‚ês‚«‚ªİ’è‚³‚ê‚½‚Ì‚ÅCl‹C•W€’l‚à©“®İ’è
+				#å£²ã‚Œè¡ŒããŒè¨­å®šã•ã‚ŒãŸã®ã§ï¼Œäººæ°—æ¨™æº–å€¤ã‚‚è‡ªå‹•è¨­å®š
 				$g_item->{point}=int($g_item->{popular} * 100 / 24 / 36);
 					}
 				}
@@ -362,14 +362,14 @@ sub GetBuffer
 
 		if($line =~ s/\sPOP\s+(\S+)\s//i)
 		{
-			push(@errormsg,"$NOW_FILENAME ($linecount) point‚æ‚è‘O‚Ìs‚Épop‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢") if $flag_point;
+			push(@errormsg,"$NOW_FILENAME ($linecount) pointã‚ˆã‚Šå‰ã®è¡Œã«popã‚’è¨˜è¿°ã—ã¦ãã ã•ã„") if $flag_point;
 			my $num=$1;
 			if($num =~ /^lv([\d\.]+)$/i)
 				{
-				push(@errormsg,"$NOW_FILENAME ($linecount) pop‚æ‚è‘O‚Ìs‚Éprice‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢") if !$flag_price;
+				push(@errormsg,"$NOW_FILENAME ($linecount) popã‚ˆã‚Šå‰ã®è¡Œã«priceã‚’è¨˜è¿°ã—ã¦ãã ã•ã„") if !$flag_price;
 				if ($1 > 0)
 					{
-					$g_item->{popular}=int($g_item->{popular}/ $1 * 5);	#ƒŒƒxƒ‹w’èiŒvZ®‹t‚É‚È‚éj
+					$g_item->{popular}=int($g_item->{popular}/ $1 * 5);	#ãƒ¬ãƒ™ãƒ«æŒ‡å®šï¼ˆè¨ˆç®—å¼é€†ã«ãªã‚‹ï¼‰
 					$g_item->{popular}=1 if ($g_item->{popular}<1);
 					}
 					else
@@ -381,7 +381,7 @@ sub GetBuffer
 				{
 				$g_item->{popular}=GetTime($num);
 				}
-			#”„‚ês‚«‚ªİ’è‚³‚ê‚½‚Ì‚ÅCl‹C•W€’l‚à©“®İ’è
+			#å£²ã‚Œè¡ŒããŒè¨­å®šã•ã‚ŒãŸã®ã§ï¼Œäººæ°—æ¨™æº–å€¤ã‚‚è‡ªå‹•è¨­å®š
 			$g_item->{point}=int($g_item->{popular} * 100 / 24 / 36);
 		}
 
@@ -390,14 +390,14 @@ sub GetBuffer
 			my $num=$2;
 			if($num =~ /^lv([\-\d\.]+)$/i)
 				{
-				push(@errormsg,"$NOW_FILENAME ($linecount) point‚æ‚è‘O‚Ìs‚Éprice‚Ü‚½‚Ípop‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢") if (!$g_item->{point} &&  !$flag_price);
-				$g_item->{point}=int($g_item->{point}* $1 / 5);	#ƒŒƒxƒ‹w’è
+				push(@errormsg,"$NOW_FILENAME ($linecount) pointã‚ˆã‚Šå‰ã®è¡Œã«priceã¾ãŸã¯popã‚’è¨˜è¿°ã—ã¦ãã ã•ã„") if (!$g_item->{point} &&  !$flag_price);
+				$g_item->{point}=int($g_item->{point}* $1 / 5);	#ãƒ¬ãƒ™ãƒ«æŒ‡å®š
 				}
 				else
 				{
 				$g_item->{point}=GetNumber($num);
 				}
-			$flag_point=1;					#l‹C‚ªİ’è‚³‚ê‚½
+			$flag_point=1;					#äººæ°—ãŒè¨­å®šã•ã‚ŒãŸ
 		}
 
 		if($line =~ s/\s(COST)\s*(\\|)(\S+)\s//i){$g_item->{cost}=GetNumber($3);}
@@ -413,7 +413,7 @@ sub GetBuffer
 			my @val=split(/\//,$1);
 			if($val[0] =~ /^lv([\d\.]+)$/i)
 				{
-				$g_item->{limit}=int($g_item->{limit}* $1 / 5);	#ƒŒƒxƒ‹w’è
+				$g_item->{limit}=int($g_item->{limit}* $1 / 5);	#ãƒ¬ãƒ™ãƒ«æŒ‡å®š
 				}
 				elsif ($val[0])
 				{
@@ -448,11 +448,11 @@ sub GetBuffer
 		{
 			my $flag=$1;
 			my @flag=();
-			push(@flag,'s') if $flag=~/\bnoshowcase\b/; # s ’Â—ñ•s‰Â
-			push(@flag,'r') if $flag=~/\bnorequest\b/;  # r ˆË—Š•s‰Â
-			push(@flag,'o') if $flag=~/\bonlysend\b/;   # o ˆË—Š‚Ío•i‚Ì‚İ
-			push(@flag,'t') if $flag=~/\bnotrash\b/;    # t ”jŠü•s‰Â
-			push(@flag,'h') if $flag=~/\bhuman\b/;      # h ƒqƒ…[ƒ}ƒmƒCƒh
+			push(@flag,'s') if $flag=~/\bnoshowcase\b/; # s é™³åˆ—ä¸å¯
+			push(@flag,'r') if $flag=~/\bnorequest\b/;  # r ä¾é ¼ä¸å¯
+			push(@flag,'o') if $flag=~/\bonlysend\b/;   # o ä¾é ¼ã¯å‡ºå“ã®ã¿
+			push(@flag,'t') if $flag=~/\bnotrash\b/;    # t ç ´æ£„ä¸å¯
+			push(@flag,'h') if $flag=~/\bhuman\b/;      # h ãƒ’ãƒ¥ãƒ¼ãƒãƒã‚¤ãƒ‰
 			$g_item->{flag}=join("",@flag);
 		}
 	}
@@ -597,10 +597,10 @@ sub GetFileList
 sub AnalyzeItemData
 {
 	my($filehandle,$filename)=@_;
-	push(@errormsg,$filename.' ‚ªƒ‹[ƒv‚µ‚Ä‚¢‚Ü‚·'),return if $analyzefile{$filename}; # @@includeƒ‹[ƒv‚ğŒŸo‚µ‚½ê‡‚Í“Ç‚İ‚İ’†~
+	push(@errormsg,$filename.' ãŒãƒ«ãƒ¼ãƒ—ã—ã¦ã„ã¾ã™'),return if $analyzefile{$filename}; # @@includeãƒ«ãƒ¼ãƒ—ã‚’æ¤œå‡ºã—ãŸå ´åˆã¯èª­ã¿è¾¼ã¿ä¸­æ­¢
 	$analyzefile{$filename}=1;
 	$filehandle++;
-	push(@errormsg,$filename.' ‚ªƒI[ƒvƒ“o—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½'),return if !open($filehandle,"$CUSTOM_DIR/$filename") && !open($filehandle,"$INCLUDE_DIR/$filename");
+	push(@errormsg,$filename.' ãŒã‚ªãƒ¼ãƒ—ãƒ³å‡ºæ¥ã¾ã›ã‚“ã§ã—ãŸ'),return if !open($filehandle,"$CUSTOM_DIR/$filename") && !open($filehandle,"$INCLUDE_DIR/$filename");
 	$analyzeoldmode=-1 if !defined($analyzeoldmode);
 	$analyzemode=''    if !defined($analyzemode);
 	$analyzeskip=0     if !defined($analyzeskip);
@@ -681,7 +681,7 @@ sub GetDefineList
 		$list2[$1]=$g_define->{$_};
 		if($quote){$list2[$1]="'$list2[$1]'";}
 	}
-	push(@errormsg,"\@DEFINE $idx ‚ÌƒŠƒXƒg”‚ª‡‚¢‚Ü‚¹‚ñ") if grep($_ ne '',@list2)!=$#list2-$baseidx+1;
+	push(@errormsg,"\@DEFINE $idx ã®ãƒªã‚¹ãƒˆæ•°ãŒåˆã„ã¾ã›ã‚“") if grep($_ ne '',@list2)!=$#list2-$baseidx+1;
 	$ret=join($sep,@list2);
 	return $ret;
 }
@@ -690,23 +690,23 @@ sub OutItemData
 {
 	open(OUT,">$ITEM_DIR/item$FILE_EXT");
 	
-	push(@dispmsg,("ƒfƒBƒŒƒNƒgƒŠ–¼","\t".$g_define->{dirname}));
+	push(@dispmsg,("ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå","\t".$g_define->{dirname}));
 	
-	push(@dispmsg,("ƒo[ƒWƒ‡ƒ“","\t".$g_define->{version}));
+	push(@dispmsg,("ãƒãƒ¼ã‚¸ãƒ§ãƒ³","\t".$g_define->{version}));
 	print OUT "\$ITEM_VERSION='$g_define->{version}';\n";
 	
-	push(@dispmsg,"’Â—ñ’IˆÛ”ï");
+	push(@dispmsg,"é™³åˆ—æ£šç¶­æŒè²»");
 	my $ary=GetDefineList("costshowcase"," ",1);
 	push(@dispmsg,"\t".$ary);
 	print OUT "\@SHOWCASE_COST=qw($ary);\n";
 	
-	push(@dispmsg,"Å‘å‘‹à");
+	push(@dispmsg,"æœ€å¤§è³‡é‡‘");
 	push(@dispmsg,"\t".$g_define->{maxmoney});
 	print OUT "\$MAX_MONEY=$g_define->{maxmoney};\n";
 	
-	push(@dispmsg,"ì‹ÆŠ—vŠÔ");
+	push(@dispmsg,"ä½œæ¥­æ‰€è¦æ™‚é–“");
 	push(@dispmsg,"\tEDIT SHOWCASE\t".$g_define->{timeeditshowcase});
-	#push(@dispmsg,"\tSHOPPING     \t".$g_define->{timeshopping}."š‚±‚Ìƒpƒ‰ƒ[ƒ^‚Í”p~‚µ‚Ü‚µ‚½") if $g_define->{timeshopping};
+	#push(@dispmsg,"\tSHOPPING     \t".$g_define->{timeshopping}."â˜…ã“ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯å»ƒæ­¢ã—ã¾ã—ãŸ") if $g_define->{timeshopping};
 	push(@dispmsg,"\tSEND ITEM    \t".$g_define->{timesenditem});
 	push(@dispmsg,"\tSEND MONEY   \t".$g_define->{timesendmoney});
 	#push(@dispmsg,"\tSEND ITEM PLUS   \t".$g_define->{timesenditemplus});
@@ -718,19 +718,19 @@ sub OutItemData
 	#print OUT "\$TIME_SEND_ITEM_PLUS=$g_define->{timesenditemplus};\n";
 	print OUT "\$TIME_SEND_MONEY_PLUS=$g_define->{timesendmoneyplus};\n";
 	
-	push(@dispmsg,"ƒAƒCƒeƒ€g—pŠÔ”{—¦ ".$g_define->{itemusetimerate}) if $g_define->{itemusetimerate}!=1;
+	push(@dispmsg,"ã‚¢ã‚¤ãƒ†ãƒ ä½¿ç”¨æ™‚é–“å€ç‡ ".$g_define->{itemusetimerate}) if $g_define->{itemusetimerate}!=1;
 	
-	push(@dispmsg,"ƒAƒCƒeƒ€•ª—Ş");
+	push(@dispmsg,"ã‚¢ã‚¤ãƒ†ãƒ åˆ†é¡");
 	$ary=GetDefineList("type");
 	push(@dispmsg,"\t".$ary);
 	print OUT "\@ITEMTYPE=qw($ary );\n";
 	
-	push(@dispmsg,"E‹ÆƒŠƒXƒg");
+	push(@dispmsg,"è·æ¥­ãƒªã‚¹ãƒˆ");
 	$ary=join(" ",map{/^job-([a-z]+)$/;($1,$g_define->{$_})}grep(/^job-[a-z]+$/,keys %$g_define));
 	print OUT "%JOBTYPE=qw($ary );\n";
 	push(@dispmsg,"\t".$ary);
 	
-	push(@dispmsg,"’è‹`ŠÖ”");
+	push(@dispmsg,"å®šç¾©é–¢æ•°");
 	foreach my $key (keys(%{$g_define->{function}}))
 	{
 		push(@dispmsg,"\t".$key);
@@ -743,15 +743,15 @@ sub OutItemData
 	
 	print OUT <<'CODE';
 tie @ITEM,"AutoVarItem",[
-{name=>'‚È‚µ',price=>0,point=>0},
+{name=>'ãªã—',price=>0,point=>0},
 CODE
 	my $prevno=0;
 	foreach(0..$#out_item){$out_item[$_]->{sort}=$_;};
 	foreach my $item (sort {$a->{no}<=>$b->{no}} @out_item)
 	{
-		push(@errormsg,"ƒR[ƒh–³\tITEM\t$item->{no}\t$item->{name}"),next if !$item->{code};
-		push(@errormsg,"d•¡“o˜^\tITEM\t".$item->{code}),next if $g_define_item{$item->{code}}++;
-		push(@errormsg,"d•¡“o˜^\tITEM-NO\t".$item->{no}),next if $g_define_itemno{$item->{no}}++;
+		push(@errormsg,"ã‚³ãƒ¼ãƒ‰ç„¡\tITEM\t$item->{no}\t$item->{name}"),next if !$item->{code};
+		push(@errormsg,"é‡è¤‡ç™»éŒ²\tITEM\t".$item->{code}),next if $g_define_item{$item->{code}}++;
+		push(@errormsg,"é‡è¤‡ç™»éŒ²\tITEM-NO\t".$item->{no}),next if $g_define_itemno{$item->{no}}++;
 		
 		my $itemname=$item->{name};
 		$itemname=~s/\\$//;
@@ -927,7 +927,7 @@ CODE
 					$ope.="=" if $ope=~/[\+\-\*]/;
 					$val=GetNumber($val);
 					my $jobcode=GetJobCode($val[0]);
-					push(@errormsg,"–¢’è‹`E‹Æ $val[0]"),next if !$jobcode;
+					push(@errormsg,"æœªå®šç¾©è·æ¥­ $val[0]"),next if !$jobcode;
 					
 					my @keys=();
 					push(@keys,qw(time exptime)) if $key eq 'times';
@@ -1029,8 +1029,8 @@ foreach(
 CODE
 	foreach my $event (@out_event)
 	{
-		push(@errormsg,"ƒR[ƒh–³\tEVENT\t$event->{info}"),next if !$event->{code};
-		push(@errormsg,"d•¡“o˜^\tEVENT\t".$event->{code}),next if $g_define_event{$event->{code}};
+		push(@errormsg,"ã‚³ãƒ¼ãƒ‰ç„¡\tEVENT\t$event->{info}"),next if !$event->{code};
+		push(@errormsg,"é‡è¤‡ç™»éŒ²\tEVENT\t".$event->{code}),next if $g_define_event{$event->{code}};
 		$g_define_event{$event->{code}}=1;
 		
 		push(@dispmsg,"EVENT\t$event->{info}");
@@ -1103,19 +1103,19 @@ CODE
 			
 			$key=~s/^(\\|money)$/price/i;
 			$key=~s/^base$/pricebase/i;
-			$key=~s/^harf$/pricehalf/i; # ver.2002-01-01-a ‚Ü‚Å‚Æ‚ÌŒİŠ·«Šm•Û
+			$key=~s/^harf$/pricehalf/i; # ver.2002-01-01-a ã¾ã§ã¨ã®äº’æ›æ€§ç¢ºä¿
 			$key=~s/^half$/pricehalf/i;
 			$key=~s/^pop$/popular/i;
 			
 			my $keyitem="\$ITEM[".GetItemNumber($val[0])."]->{$key}";
 			if($ope ne '/')
 			{
-				# / ˆÈŠO‚Ìê‡
+				# / ä»¥å¤–ã®å ´åˆ
 				print EOUTSUB "$keyitem$ope$val;\n";
 			}
 			else
 			{
-				# / ‚Ìê‡‚Í int ‚ÅŠÛ‚ß‚é
+				# / ã®å ´åˆã¯ int ã§ä¸¸ã‚ã‚‹
 				print EOUTSUB "$keyitem=int($keyitem/$val);\n";
 			}
 		}
@@ -1153,7 +1153,7 @@ sub GetFuncItemNo
 {
 	my($val,$type)=@_;
 	
-	$val=GetFuncValue($val,$type); # ‚Ü‚¸@@VALUE‚ğˆ—‚·‚é(@@ITEMNO"@@VALUE"BaseItemName""“™‚Ìˆ×‚É)
+	$val=GetFuncValue($val,$type); # ã¾ãš@@VALUEã‚’å‡¦ç†ã™ã‚‹(@@ITEMNO"@@VALUE"BaseItemName""ç­‰ã®ç‚ºã«)
 	
 	$val=~s/$g_define->{cmdhead}ITEMNO\s*"(.+?)"\s*$g_define->{cmdfoot}/GetItemNumber($1)/ige;
 	eval("sub { $val } ");
@@ -1204,7 +1204,7 @@ sub OutResultMessage
 {
 	if($errormsg[0])
 	{
-		print "œERRORœ<br>";
+		print "â—ERRORâ—<br>";
 		foreach(@errormsg)
 		{
 			print $_."<br>";
@@ -1212,7 +1212,7 @@ sub OutResultMessage
 		print "<hr>";
 	}
 	
-	print "—˜—p‰Â”\\ƒAƒCƒeƒ€No.<br>";
+	print "åˆ©ç”¨å¯èƒ½\ã‚¢ã‚¤ãƒ†ãƒ No.<br>";
 	foreach(1..$#g_useitemno)
 	{
 		if(!$g_useitemno[$_])
@@ -1220,14 +1220,14 @@ sub OutResultMessage
 			print "[$_] ";
 		}
 	}
-	print "[".($#g_useitemno+1)."`]";
+	print "[".($#g_useitemno+1)."ï½]";
 	print "<hr>";
 	if($dispmsg[0])
 	{
 		print "RESULT<br>";
 		foreach(@dispmsg)
 		{
-			s/\t/@/g;
+			s/\t/ã€€/g;
 			print $_."<br>";
 		}
 		print "<hr>";

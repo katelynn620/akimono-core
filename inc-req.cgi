@@ -1,9 +1,9 @@
-# ˆË—Š‰º¿‚¯ŠÖ” 2003/09/25 —R˜Ò
+# ä¾é ¼ä¸‹è«‹ã‘é–¢æ•° 2003/09/25 ç”±ä¾†
 
-$MENUSAY=GetMenuTag('stock',	'[‘qŒÉ‚ğŠm”F‚·‚é]')
-	.GetMenuTag('req','[ˆË—Šˆê——‚É–ß‚é]')
-	.GetMenuTag('town',	'[ˆË—ŠŠ‚ğo‚é]');
-$AucImg=GetTagImgKao("ó•t","req");
+$MENUSAY=GetMenuTag('stock',	'[å€‰åº«ã‚’ç¢ºèªã™ã‚‹]')
+	.GetMenuTag('req','[ä¾é ¼ä¸€è¦§ã«æˆ»ã‚‹]')
+	.GetMenuTag('town',	'[ä¾é ¼æ‰€ã‚’å‡ºã‚‹]');
+$AucImg=GetTagImgKao("å—ä»˜","req");
 
 @REQnamelist=qw(
 		no tm id itemno num prn pr mode
@@ -25,7 +25,7 @@ foreach my $cnt(0..$Scount)
 	chop $req[$cnt];
 	my @buf=split(/,/,$req[$cnt]); my $i=0;
 	foreach (@REQnamelist) { $REQ[$cnt]->{$_}=$buf[$i];$i++;}
-	undef $REQ[$cnt],next if ($REQ[$cnt]->{tm} < $NOW_TIME);	# ŠúŒÀØ‚ê‚ğíœB
+	undef $REQ[$cnt],next if ($REQ[$cnt]->{tm} < $NOW_TIME);	# æœŸé™åˆ‡ã‚Œã‚’å‰Šé™¤ã€‚
 	$REQNONE=0;
 	}
 }

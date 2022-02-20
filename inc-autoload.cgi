@@ -1,6 +1,6 @@
-# ƒvƒ‰ƒO”FŽ¯ 2003/07/19 —R˜Ò
+# ãƒ—ãƒ©ã‚°èªè­˜ 2003/07/19 ç”±ä¾†
 
-# ”r‘¼§Œä‚¹‚¸B
+# æŽ’ä»–åˆ¶å¾¡ã›ãšã€‚
 
 sub MakeIndexAutoLoad
 {

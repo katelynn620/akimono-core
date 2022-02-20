@@ -1,19 +1,19 @@
-# ˆË—Šˆê——•\¦ 2005/01/06 —R˜Ò
+# ä¾é ¼ä¸€è¦§è¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
 RequireFile('inc-req.cgi');
 RequireFile('inc-html-ownerinfo.cgi');
 
-$disp.="<BIG>œˆË—ŠŠ</BIG><br><br>";
+$disp.="<BIG>â—ä¾é ¼æ‰€</BIG><br><br>";
 
 $enum=0;
 if ($REQNONE)
 	{
 	$disp.=<<STR;
 	$TBT$TRT$TD$AucImg
-	$TD<SPAN>ˆË—ŠŠ‚Ìó•t</SPAN><br>
-	¡‚Ì‚Æ‚±‚ëˆË—Š‚Í‚È‚¢‚ºBˆË—Š‚ğo‚µ‚Ä‚İ‚é‚©‚¢H$TRE$TBE<br>
+	$TD<SPAN>ä¾é ¼æ‰€ã®å—ä»˜</SPAN><br>
+	ä»Šã®ã¨ã“ã‚ä¾é ¼ã¯ãªã„ãœã€‚ä¾é ¼ã‚’å‡ºã—ã¦ã¿ã‚‹ã‹ã„ï¼Ÿ$TRE$TBE<br>
 STR
 	}
 	else
@@ -27,7 +27,7 @@ if (!$GUEST_USER && $enum < $REQUEST_CAPACITY)
 	<FORM ACTION="action.cgi" $METHOD>
 	<INPUT TYPE=HIDDEN NAME=key VALUE="req-f">
 	$USERPASSFORM
-	<INPUT TYPE=SUBMIT VALUE='V‚µ‚¢ˆË—Š‘‚ğì¬‚·‚é'>
+	<INPUT TYPE=SUBMIT VALUE='æ–°ã—ã„ä¾é ¼æ›¸ã‚’ä½œæˆã™ã‚‹'>
 	</FORM>
 STR
 	}
@@ -39,14 +39,14 @@ sub ReqList
 {
 $disp.=<<STR;
 	$TBT$TRT$TD$AucImg
-	$TD<SPAN>ˆË—ŠŠ‚Ìó•t</SPAN><br>
-	‚±‚ê‚¾‚¯‚ÌˆË—Š‚ªo‚Ä‚¢‚é‚ºB$TRE$TBE<br>
+	$TD<SPAN>ä¾é ¼æ‰€ã®å—ä»˜</SPAN><br>
+	ã“ã‚Œã ã‘ã®ä¾é ¼ãŒå‡ºã¦ã„ã‚‹ãœã€‚$TRE$TBE<br>
 $TB$TR
-$TDBˆË—Š•i
-$TDB•ñV•i
-$TDBˆË—ŠÒ
-$TDBó‘Ô
-$TDBŠúŒÀ
+$TDBä¾é ¼å“
+$TDBå ±é…¬å“
+$TDBä¾é ¼è€…
+$TDBçŠ¶æ…‹
+$TDBæœŸé™
 $TRE
 STR
 
@@ -63,28 +63,28 @@ foreach my $i(0..$Scount)
 		{
 		$disp.=GetTagImgItemType($prn).$ITEM[$prn]->{name}.' '.$pr.$ITEM[$prn]->{scale};
 		$disp.=    "</a>" if (!$GUEST_USER);
-		$disp.='<br><small>(’è‰¿ '.GetMoneyString($ITEM[$prn]->{price} * $pr).')</small>';
+		$disp.='<br><small>(å®šä¾¡ '.GetMoneyString($ITEM[$prn]->{price} * $pr).')</small>';
 		}
 		else
 		{
-		$disp.='‘‹à '.GetMoneyString($pr);
+		$disp.='è³‡é‡‘ '.GetMoneyString($pr);
 		$disp.=    "</a>" if (!$GUEST_USER);
 		}
 	$disp.=$TD;
 	if ($itemno > 0)
 		{
 		$disp.=GetTagImgItemType($itemno).$ITEM[$itemno]->{name}.' '.$num.$ITEM[$itemno]->{scale};
-		$disp.='<br><small>(’è‰¿ '.GetMoneyString($ITEM[$itemno]->{price} * $num).')</small>';
+		$disp.='<br><small>(å®šä¾¡ '.GetMoneyString($ITEM[$itemno]->{price} * $num).')</small>';
 		}
 		else
 		{
-		$disp.='‘‹à '.GetMoneyString($num);
+		$disp.='è³‡é‡‘ '.GetMoneyString($num);
 		}
 	$disp.=($DT->{id} == $REQ[$i]->{id}) ? $TDB : $TD;
-	$disp.=defined($id2idx{$id}) ? ($DT[$id2idx{$id}]->{shopname}) : '‚È‚µ';
-	$disp.=defined($id2idx{$mode}) ? "$TD<SPAN>’B¬</b></SPAN>" : "$TD ";
-	$disp.="$TD‚ ‚Æ".GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME);
-	$enum++ if ($id == $DT->{id});	#o•i”‚ğƒJƒEƒ“ƒg
+	$disp.=defined($id2idx{$id}) ? ($DT[$id2idx{$id}]->{shopname}) : 'ãªã—';
+	$disp.=defined($id2idx{$mode}) ? "$TD<SPAN>é”æˆ</b></SPAN>" : "$TD ";
+	$disp.="$TDã‚ã¨".GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME);
+	$enum++ if ($id == $DT->{id});	#å‡ºå“æ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆ
 	}
 $disp.=$TRE.$TBE;
 }

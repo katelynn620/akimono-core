@@ -1,4 +1,4 @@
-# ¤“Xˆê—— 2005/03/30 —R˜Ò
+# å•†åº—ä¸€è¦§ 2005/03/30 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
@@ -53,22 +53,22 @@ if($tp || !$MOBILE)
 	$itemlist.="</select>";
 }
 
-#“X•Ê‚ğ’Ç‰Á
+#åº—åˆ¥ã‚’è¿½åŠ 
 my $shoplist="";
-$shoplist="<select name=ds><option value=\"\">‚·‚×‚Ä";
+$shoplist="<select name=ds><option value=\"\">ã™ã¹ã¦";
 foreach (@DT)
 {
 	$shoplist.="<OPTION VALUE=\"$_->{id}\"".($Q{senditem}==$_->{id}?' SELECTED':'').">$_->{shopname}" if $DT->{id}!=$_->{id};
 }
 	$shoplist.="</select>";
-#‚±‚±‚Ü‚Å
+#ã“ã“ã¾ã§
 
 my($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$LIST_PAGE_ROWS,$#itemlist+1);
 
-$disp.="<BIG>œ¤“X’Ê‚èF¤•i•Ê•\\¦</BIG><br><br>";
+$disp.="<BIG>â—å•†åº—é€šã‚Šï¼šå•†å“åˆ¥è¡¨\ç¤º</BIG><br><br>";
 
-#“X•Ê’Ç‰Áƒo[ƒWƒ‡ƒ“
+#åº—åˆ¥è¿½åŠ ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 $disp.=<<"HTML";
 $TBT$TRT
 <td valign="bottom">
@@ -77,20 +77,20 @@ $TBT$TRT
 $USERPASSFORM
 <input type=hidden name=tp value=\"$tp\">
 $itemlist
-<input type=submit value="¤•i‚ÅŒŸõ"> 
+<input type=submit value="å•†å“ã§æ¤œç´¢"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-b">
 $USERPASSFORM
 $shoplist
-<input type=submit value="“X–¼‚ÅŒŸõ"> 
+<input type=submit value="åº—åã§æ¤œç´¢"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-c">
 $USERPASSFORM
-<input type=submit value="‘Šê‚ğ’²¸">
+<input type=submit value="ç›¸å ´ã‚’èª¿æŸ»">
 </form>
 $TRE$TBE
 <br>
@@ -117,7 +117,7 @@ foreach my $item (@itemlist[$pagestart..$pageend])
 	my($shopid,$shopname,$showcase,$itemno,$price,$stock,$rank)=@{$item};
 
 	my $ITEM=$ITEM[$itemno];
-	my $msg=$stock ? "c".$stock.$ITEM->{scale} : "”„‚èØ‚ê";
+	my $msg=$stock ? "æ®‹".$stock.$ITEM->{scale} : "å£²ã‚Šåˆ‡ã‚Œ";
 	
 	$disp.=$TR.$TD;
 	$disp.="<A HREF=\"action.cgi?key=buy&buy=$shopid!$showcase!$itemno&bk=p2!$page!$itn&$USERPASSURL\">" if $stock && !$GUEST_USER;

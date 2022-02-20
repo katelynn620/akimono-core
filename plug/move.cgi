@@ -1,4 +1,4 @@
-# move プラグイン 2003/07/19 由來
+# move 繝励Λ繧ｰ繧､繝ｳ 2003/07/19 逕ｱ萓�
 
 sub GetHash
 {
@@ -33,7 +33,7 @@ sub CheckHash
 	return 0 if $hash eq '';
 	my $len=substr($hash,-2,2);
 	my $time=substr($hash,-($len+2),$len);
-	return 0 if $time<time()-$PASSWORD_HASH_EXPIRE_TIME; #$PASSWORD_HASH_EXPIRE_TIME秒以上前のHashは無効
+	return 0 if $time<time()-$PASSWORD_HASH_EXPIRE_TIME; #$PASSWORD_HASH_EXPIRE_TIME遘剃ｻ･荳雁燕縺ｮHash縺ｯ辟｡蜉ｹ
 	return GetHash($time,$plain) eq $hash;
 }
 1;

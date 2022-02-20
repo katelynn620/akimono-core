@@ -1,4 +1,4 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ƒŒ[ƒX•\¦ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ãƒ¬ãƒ¼ã‚¹è¡¨ç¤º 2005/03/30 ç”±ä¾†
 
 my $rcode=$Q{code};
 $rcode||=0;
@@ -6,34 +6,34 @@ ReadRace($rcode);
 my @MYRACE=@{$RACE[$rcode]};
 my @R=@{$MYRACE[$RDS[1]]};
 undef @RACE;
-undef @MYRACE;	#•s•K—v‚È”z—ñ‚Í‰ğ•ú
+undef @MYRACE;	#ä¸å¿…è¦ãªé…åˆ—ã¯è§£æ”¾
 
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF".$RACETERM[$rcode]."</BIG><br><br>";
-$disp.="$TB$TR$TD".GetTagImgKao("ƒŒ[ƒXó•t","slime2").$TD;
-$disp.="<SPAN>ƒŒ[ƒXó•t</SPAN>F";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼š".$RACETERM[$rcode]."</BIG><br><br>";
+$disp.="$TB$TR$TD".GetTagImgKao("ãƒ¬ãƒ¼ã‚¹å—ä»˜","slime2").$TD;
+$disp.="<SPAN>ãƒ¬ãƒ¼ã‚¹å—ä»˜</SPAN>ï¼š";
 
 if ($RDS[0]>1) {
-$disp.="‚½‚¾‚¢‚ÜƒŒ[ƒX‚ªs‚í‚ê‚Ä‚¢‚Ü‚·B<br>";
-$disp.="Ÿ‚ÌÀ‹µ•ú‘—‚Í ".GetTime2FormatTime($DRTIME[$rcode + 1])." ‚Å‚·B";
+$disp.="ãŸã ã„ã¾ãƒ¬ãƒ¼ã‚¹ãŒè¡Œã‚ã‚Œã¦ã„ã¾ã™ã€‚<br>";
+$disp.="æ¬¡ã®å®Ÿæ³æ”¾é€ã¯ ".GetTime2FormatTime($DRTIME[$rcode + 1])." ã§ã™ã€‚";
 	}
 elsif ($RDS[0]==1) {
-$disp.="o‘–ƒhƒ‰ƒSƒ“‚ÍˆÈ‰º‚Ì‚Æ‚¨‚èŒˆ’è‚¢‚½‚µ‚Ü‚µ‚½B<br>";
-$disp.="ƒŒ[ƒXŠJn‚Í ".GetTime2FormatTime($DRTIME[$rcode + 1])." ‚Å‚·B";
+$disp.="å‡ºèµ°ãƒ‰ãƒ©ã‚´ãƒ³ã¯ä»¥ä¸‹ã®ã¨ãŠã‚Šæ±ºå®šã„ãŸã—ã¾ã—ãŸã€‚<br>";
+$disp.="ãƒ¬ãƒ¼ã‚¹é–‹å§‹æ™‚åˆ»ã¯ ".GetTime2FormatTime($DRTIME[$rcode + 1])." ã§ã™ã€‚";
 	}
 else {
-$disp.="‚½‚¾‚¢‚Üo‘–“o˜^‚ğó•t’†‚Å‚·B<br>";
-$disp.="“o˜^’÷‚ßØ‚è‚Í ".GetTime2FormatTime($DRTIME[$rcode + 1])." ‚Å‚·B";
+$disp.="ãŸã ã„ã¾å‡ºèµ°ç™»éŒ²ã‚’å—ä»˜ä¸­ã§ã™ã€‚<br>";
+$disp.="ç™»éŒ²ç· ã‚åˆ‡ã‚Šã¯ ".GetTime2FormatTime($DRTIME[$rcode + 1])." ã§ã™ã€‚";
 	}
 
 $disp.=$TRE.$TBE."<br>";
 $disp.="<b>".$R[0]."</b> (".$RACERANK[$R[1]].") ".$FIELDTYPE[$R[3]].$R[5]."km";
 $disp.='<IMG class="i" SRC="'.$IMAGE_URL.'/dragonw'.($RDS[2] + 1).$IMAGE_EXT.'"> ';
-$disp.="’èˆõ ".$R[9]." ƒnƒ“ƒf";
-$disp.=($R[2] ? "$R[2]–œ–ˆ" : "‚È‚µ");
+$disp.="å®šå“¡ ".$R[9]." ãƒãƒ³ãƒ‡";
+$disp.=($R[2] ? "$R[2]ä¸‡æ¯" : "ãªã—");
 $disp.=qq|<br><IMG class="i" SRC="$IMAGE_URL/guildprize$IMAGE_EXT">|;
-$disp.="Ü‹à ".$R[6]."–œ - ".$R[7]."–œ - ".$R[8]."–œ";
-$disp.=qq| <input type="button" value="o‘–—³Ú×" onclick="javascript:window.open('action.cgi?key=slime-l&mode=rd&rcode=$rcode','_blank','width=760,height=580,scrollbars')">|;
-$disp.="<br><br>$TB$TR$TDB˜g”Ô$TDB–¼‘O$TDB”N—î$TDB«•Ê$TDBƒnƒ“ƒf$TDB–qê$TDB‰XÉ$TDB‹Rè$TDB‘Ü‹à$TDB‹r¿$TDBl‹C$TDB’Ê‰ßƒ^ƒCƒ€$TRE";
+$disp.="è³é‡‘ ".$R[6]."ä¸‡ - ".$R[7]."ä¸‡ - ".$R[8]."ä¸‡";
+$disp.=qq| <input type="button" value="å‡ºèµ°ç«œè©³ç´°" onclick="javascript:window.open('action.cgi?key=slime-l&mode=rd&rcode=$rcode','_blank','width=760,height=580,scrollbars')">|;
+$disp.="<br><br>$TB$TR$TDBæ ç•ª$TDBåå‰$TDBå¹´é½¢$TDBæ€§åˆ¥$TDBãƒãƒ³ãƒ‡$TDBç‰§å ´$TDBå©èˆ$TDBé¨æ‰‹$TDBç·è³é‡‘$TDBè„šè³ª$TDBäººæ°—$TDBé€šéã‚¿ã‚¤ãƒ $TRE";
 
 foreach (0..$#RD)
 	{
@@ -47,7 +47,7 @@ foreach (0..$#RD)
 	$disp.=$TD.$RD[$_]->{rcname};
 	$disp.=$TD.$RD[$_]->{stname};
 	$disp.=$TD.$RD[$_]->{jkname};
-	$disp.=$TD.($RD[$_]->{prize} + 0)."–œ";
+	$disp.=$TD.($RD[$_]->{prize} + 0)."ä¸‡";
 	$disp.=$TD.$STRATE[ $RD[$_]->{strate} ];
 	$disp.=$TD.$RD[$_]->{pop};
 	$disp.=$TD.GetRaceTime($RD[$_]->{time});
@@ -56,7 +56,7 @@ foreach (0..$#RD)
 $disp.=$TBE."<br>";
 
 ReadRaceLog($rcode);
-$disp.=$TB.$TR.$TD.GetTagImgKao("ƒŒ[ƒXó•t","slime6","align=left ")."<SPAN>À‹µƒAƒiƒEƒ“ƒT[</SPAN><br>".$RACELOG.$TRE.$TBE if ($RACELOG);
+$disp.=$TB.$TR.$TD.GetTagImgKao("ãƒ¬ãƒ¼ã‚¹å—ä»˜","slime6","align=left ")."<SPAN>å®Ÿæ³ã‚¢ãƒŠã‚¦ãƒ³ã‚µãƒ¼</SPAN><br>".$RACELOG.$TRE.$TBE if ($RACELOG);
 1;
 
 sub ReadRaceLog

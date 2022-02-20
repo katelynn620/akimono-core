@@ -1,25 +1,25 @@
-# �h���S�����[�X �R�胁�j���[�\�� 2005/03/30 �R��
+# ドラゴンレース 騎手メニュー表示 2005/03/30 由來
 
 ReadJock();
-$disp.="<BIG>���h���S�����[�X�F�R��</BIG><br><br>";
+$disp.="<BIG>●ドラゴンレース：騎手</BIG><br><br>";
 
 if ($MYJK==-1)
 {
-$disp.="$TB$TR$TD".GetTagImgKao("�R�蒇��","slime5").$TD;
-$disp.="<SPAN>�R�蒇��</SPAN>�F�R����ق��Ă��Ȃ��񂾂ȁB<br>";
-$disp.="�R����ق��΁C�����⑼�l�̃h���S���̗͂����[�X�ň����o����B".$TRE.$TBE."<br>";
+$disp.="$TB$TR$TD".GetTagImgKao("騎手仲間","slime5").$TD;
+$disp.="<SPAN>騎手仲間</SPAN>：騎手を雇っていないんだな。<br>";
+$disp.="騎手を雇えば，自分や他人のドラゴンの力をレースで引き出せる。".$TRE.$TBE."<br>";
 if (scalar @JK < $JKmax)
 	{
 	FormJock();
 	}
 	else
 	{
-	$disp.="<BIG>���R��ٗp</BIG>�F ����ɒB���Ă��邽�߁C����ȏ�ٗp�ł��܂���B";
+	$disp.="<BIG>●騎手雇用</BIG>： 定員に達しているため，これ以上雇用できません。";
 	}
 }
 else
 {
-$disp.="$TB$TR$TDB���O$TDB�Α�$TDB����$TDB����$TDB����$TDB����\\��$TDB�o��$TRE";
+$disp.="$TB$TR$TDB名前$TDB勤続$TDB逃先$TDB差追$TDB成績$TDB特殊能\力$TDB出走$TRE";
 $disp.=$TR;
 $disp.=$TD.$JK[$MYJK]->{name};
 $disp.=$TD.GetTime2found($NOW_TIME-$JK[$MYJK]->{birth});
@@ -42,13 +42,13 @@ $disp.=<<STR;
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="jkedit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="new">
-<BIG>���R��ٗp</BIG>�F <INPUT TYPE=TEXT NAME=name SIZE=20> �Ɩ��t���� 
-<INPUT TYPE=SUBMIT VALUE='�ٗp'>
+<BIG>●騎手雇用</BIG>： <INPUT TYPE=TEXT NAME=name SIZE=20> と名付けて 
+<INPUT TYPE=SUBMIT VALUE='雇用'>
 </FORM>
 <br>
 $TB$TR$TD
-�E�R����ٗp����ɂ́C����<b>$estmsg</b>��������܂��B<br>
-�E�R��͑S�̂� <b>$JKmax</b>�l�̒��������C�����ɂȂ�ƌٗp�ł��܂���B
+・騎手を雇用するには，資金<b>$estmsg</b>がかかります。<br>
+・騎手は全体で <b>$JKmax</b>人の定員があり，満員になると雇用できません。
 $TBE
 STR
 }

@@ -1,4 +1,4 @@
-# ŒˆZˆ— 2005/03/30 —R˜Ò
+# æ±ºç®—å‡¦ç† 2005/03/30 ç”±ä¾†
 
 	foreach(keys(%GUILD))
 	{
@@ -10,30 +10,30 @@
 	
 	if(defined($DT[0]))
 	{
-		#‚»‚Ì“_‚Å‚Ìƒgƒbƒv‚Ì“X‚ÌTOPƒJƒEƒ“ƒ^‚ğ+1
+		#ãã®æ™‚ç‚¹ã§ã®ãƒˆãƒƒãƒ—ã®åº—ã®TOPã‚«ã‚¦ãƒ³ã‚¿ã‚’+1
 		$DT[0]->{rankingcount}++;
 		
-		#—DŸÒ”­•\
+		#å„ªå‹è€…ç™ºè¡¨
 		my $DT=$DT[0];
-		my $count=$DT->{rankingcount}==1 ? "‰—DŸ" : $DT->{rankingcount}."“x–Ú‚Ì—DŸ";
-		my $msg="u¡Šú‚Ì—DŸ“X‚Í".$DT->{shopname}."‚³‚ñ‚Å‚µ‚½B".$count."‚¨‚ß‚Å‚Æ‚¤‚²‚´‚¢‚Ü‚·v";
+		my $count=$DT->{rankingcount}==1 ? "åˆå„ªå‹" : $DT->{rankingcount}."åº¦ç›®ã®å„ªå‹";
+		my $msg="ã€Œä»ŠæœŸã®å„ªå‹åº—ã¯".$DT->{shopname}."ã•ã‚“ã§ã—ãŸã€‚".$count."ãŠã‚ã§ã¨ã†ã”ã–ã„ã¾ã™ã€";
 		PushLog(1,0,$msg);
 		
-		$msg="u“_”‚Í".$DT->{point}."“_";
-		$msg.="‚ÅA2ˆÊ‚Æ‚Ì·‚Í".($DT->{point}-$DT[1]->{point})."“_" if defined($DT[1]);
-		$msg.="‚Å‚µ‚½v";
+		$msg="ã€Œç‚¹æ•°ã¯".$DT->{point}."ç‚¹";
+		$msg.="ã§ã€2ä½ã¨ã®å·®ã¯".($DT->{point}-$DT[1]->{point})."ç‚¹" if defined($DT[1]);
+		$msg.="ã§ã—ãŸã€";
 		PushLog(1,0,$msg);
 	}
 	
 	require "$ITEM_DIR/funcupdate.cgi" if $DEFINE_FUNCUPDATE;
 	
-	#ŒˆZ‚Ìƒhƒ‰ƒSƒ“ƒŒ[ƒXûxˆ—
+	#æ±ºç®—æ™‚ã®ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹åæ”¯å‡¦ç†
 	DragonBalance();
 
-	#ŒˆZ‚ÌƒJƒXƒ^ƒ€ˆ—
+	#æ±ºç®—æ™‚ã®ã‚«ã‚¹ã‚¿ãƒ å‡¦ç†
 	UpdateResetBefore() if defined(&UpdateResetBefore);
 
-	#‘dÅŠzƒŠƒZƒbƒgi—Ìå§j
+	#ç§Ÿç¨é¡ãƒªã‚»ãƒƒãƒˆï¼ˆé ˜ä¸»åˆ¶ï¼‰
 	my $taxin=0;
 
 	my $dtcount=0;
@@ -41,27 +41,27 @@
 	{
 		$dtcount++;
 		
-		#Œo‰cÒ•sİ
+		#çµŒå–¶è€…ä¸åœ¨
 		if ($NOW_TIME-$DT->{foundation} > 43200 && $DT->{blocklogin} ne 'stop')
 		{
 			if ($DT->{lastlogin}+$EXPIRE_TIME<$NOW_TIME)
 			{
-			CloseShop($DT->{id},'Œo‰cÒ•sİ');
-			PushLog(1,0,$DT->{shopname}."‚ªŒo‰cÒ•sİ‚Ì‚½‚ß•Â“X‚µ‚Ü‚µ‚½B");
+			CloseShop($DT->{id},'çµŒå–¶è€…ä¸åœ¨');
+			PushLog(1,0,$DT->{shopname}."ãŒçµŒå–¶è€…ä¸åœ¨ã®ãŸã‚é–‰åº—ã—ã¾ã—ãŸã€‚");
 			}
 		}
 
-		#ƒhƒ‰ƒSƒ“ƒŒ[ƒX´Z
+		#ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹æ¸…ç®—
 		if ($DT->{dragon})
 			{
-			PushLog(0,$DT->{id},"ƒhƒ‰ƒSƒ“ƒŒ[ƒX‚Ìûx ".GetMoneyString($DT->{dragon}));
+			PushLog(0,$DT->{id},"ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ã®åæ”¯ ".GetMoneyString($DT->{dragon}));
 			$DT->{money}+=$DT->{dragon};
 			$DT->{drmoney}+=$DT->{dragon};
 			$DT->{saletoday}+=$DT->{dragon} if ($DT->{dragon} > 0);
 			$DT->{paytoday}-=$DT->{dragon} if ($DT->{dragon} < 0);
 			}
 
-		#‘OŠú‚Ìî•ñ‚ğ•Û‘¶
+		#å‰æœŸã®æƒ…å ±ã‚’ä¿å­˜
 		$DT->{rankingyesterday}=$dtcount;
 		$DT->{profitstock}=int(($DT->{profitstock}*$PROFIT_DAY_COUNT+$DT->{saletoday}-$DT->{paytoday})/($PROFIT_DAY_COUNT+1));
 		$DT->{saleyesterday}=$DT->{saletoday};
@@ -73,29 +73,29 @@
 		$DT->{taxyesterday}=$DT->{taxtoday};
 		$DT->{taxtoday}=0;
 		
-		#Š”ƒI[ƒo[ƒ`ƒFƒbƒN••s³’lC³
+		#æ‰€æŒæ•°ã‚ªãƒ¼ãƒãƒ¼ãƒã‚§ãƒƒã‚¯ï¼†ä¸æ­£å€¤ä¿®æ­£
 		foreach my $cnt (1..$MAX_ITEM)
 		{
 			$DT->{item}[$cnt-1]=$ITEM[$cnt]->{limit} if $DT->{item}[$cnt-1]>$ITEM[$cnt]->{limit};
 			$DT->{item}[$cnt-1]=int($DT->{item}[$cnt-1]);
 		}
 		
-		#ˆÛ”ï’¥ûˆ—
+		#ç¶­æŒè²»å¾´åå‡¦ç†
 		my $cost=int($DT->{costtoday});
 		$cost+=$SHOWCASE_COST[$DT->{showcasecount}-1];
 		$DT->{money}-=$cost;
 		$DT->{paytoday}+=$cost;
 		
-		#‘dÅû“üi—Ìå§j
+		#ç§Ÿç¨åå…¥ï¼ˆé ˜ä¸»åˆ¶ï¼‰
 		$taxin+=$DT->{taxyesterday};
 
-		#ƒMƒ‹ƒh‰ï”ï
+		#ã‚®ãƒ«ãƒ‰ä¼šè²»
 		if($DT->{guild} ne '')
 		{
 			my $money=int($DT->{saleyesterday}*$GUILD{$DT->{guild}}->[$GUILDIDX_feerate]/1000);
 			EditGuildMoney($DT->{guild},$money);
 			$DT->{money}-=$money;
-						# ƒMƒ‹ƒhU–h©‘R•Ï“®
+						# ã‚®ãƒ«ãƒ‰æ”»é˜²è‡ªç„¶å¤‰å‹•
 			$GUILD_DATA{$DT->{guild}}->{atk}=int($GUILD_DATA{$DT->{guild}}->{atk} *24 /25);
 			$GUILD_DATA{$DT->{guild}}->{def}=int($GUILD_DATA{$DT->{guild}}->{def} *9 /10);
 			$GUILD_DATA{$DT->{guild}}->{def}+=int($money/800);
@@ -105,7 +105,7 @@
 		$DT->{costyesterday}=$cost;
 		$DT->{costtoday}=0;
 		
-		#n—û“x©‘RŒ¸­
+		#ç†Ÿç·´åº¦è‡ªç„¶æ¸›å°‘
 		foreach my $key (keys(%{$DT->{exp}}))
 		{
 			$DT->{exp}{$key}-=int($DT->{exp}{$key}*$EXP_DOWN_RATE/1000) if $EXP_DOWN_RATE;
@@ -113,7 +113,7 @@
 			delete $DT->{exp}{$key} if $DT->{exp}{$key}<=0;
 		}
 
-		#İˆÊƒ|ƒCƒ“ƒg©‘RŒ¸­
+		#çˆµä½ãƒã‚¤ãƒ³ãƒˆè‡ªç„¶æ¸›å°‘
 		if ($DT->{dignity} && rand(100) < 25)
 		{
 			my $i=int( ($DT->{dignity}) / 12) + 1;
@@ -122,19 +122,19 @@
 	}
 	SortDT();
 	
-	#—Ì“yƒf[ƒ^’²®
-	$STATE->{people}=$DTpeople;	#‘OŠúlŒû‚ğ•Û‘¶B
-	$DTpeople=(24000 * $DTusercount) + 100000 + ($STATE->{develop} * 30) + ($STATE->{safety} * 20);	#‘OŠúó‘Ô‚ÅlŒûŒˆ’èB
+	#é ˜åœŸãƒ‡ãƒ¼ã‚¿èª¿æ•´
+	$STATE->{people}=$DTpeople;	#å‰æœŸäººå£ã‚’ä¿å­˜ã€‚
+	$DTpeople=(24000 * $DTusercount) + 100000 + ($STATE->{develop} * 30) + ($STATE->{safety} * 20);	#å‰æœŸçŠ¶æ…‹ã§äººå£æ±ºå®šã€‚
 	$STATE->{money}+=$taxin;
 	$STATE->{in}=$taxin;
-	$STATE->{develop}+=int(($STATE->{devem} / $STATE->{people} * 200) - ($STATE->{develop}/10) - rand(200));	#500–œ‰~‚ª•W€i20–œlj
-	$STATE->{safety}+=int(($STATE->{safem} / $STATE->{people} * 200) - ($STATE->{safety}/10) - rand(200));	#500–œ‰~‚ª•W€i20–œlj
+	$STATE->{develop}+=int(($STATE->{devem} / $STATE->{people} * 200) - ($STATE->{develop}/10) - rand(200));	#500ä¸‡å††ãŒæ¨™æº–ï¼ˆ20ä¸‡äººï¼‰
+	$STATE->{safety}+=int(($STATE->{safem} / $STATE->{people} * 200) - ($STATE->{safety}/10) - rand(200));	#500ä¸‡å††ãŒæ¨™æº–ï¼ˆ20ä¸‡äººï¼‰
 
 	if ($STATE->{army} + $STATE->{robina}< 10000)
 		{
-		#•ºm‚ª­‚È‚¢ê‡‚Ìƒyƒiƒ‹ƒeƒB
+		#å…µå£«ãŒå°‘ãªã„å ´åˆã®ãƒšãƒŠãƒ«ãƒ†ã‚£
 		$STATE->{safety}-=int( (10000 - $STATE->{army}- $STATE->{robina}) / 20);
-		PushLog(2,0,"ŠX‚ÌŒì‰qŒR‚ª­‚È‚¢‚½‚ßC¡ˆÀ‚ªˆ«‰»‚µ‚Ä‚¢‚Ü‚·B");
+		PushLog(2,0,"è¡—ã®è­·è¡›è»ãŒå°‘ãªã„ãŸã‚ï¼Œæ²»å®‰ãŒæ‚ªåŒ–ã—ã¦ã„ã¾ã™ã€‚");
 		}
 	$STATE->{develop}=1000 if $STATE->{develop} < 1000;
 	$STATE->{safety}=1000 if $STATE->{safety} < 1000;
@@ -149,11 +149,11 @@
 		{
 		RebelRobin();
 		}
-	$STATE->{army}+=$STATE->{robina};	# ‹`—EŒR‚ğ³‹KŒR‚ÉB
+	$STATE->{army}+=$STATE->{robina};	# ç¾©å‹‡è»ã‚’æ­£è¦è»ã«ã€‚
 	if ($STATE->{money} < 0)
 	{
-		#‹‹—¿‚ğ•¥‚¦‚È‚¢
-		PushLog(2,0,"ŠX‘‹à‚ª’ê‚ğ‚Â‚«CŠX‚ÌŒì‰qŒR‚É‹‹—¿‚ğx•¥‚¦‚È‚¢‚æ‚¤‚Å‚·B");
+		#çµ¦æ–™ã‚’æ‰•ãˆãªã„
+		PushLog(2,0,"è¡—è³‡é‡‘ãŒåº•ã‚’ã¤ãï¼Œè¡—ã®è­·è¡›è»ã«çµ¦æ–™ã‚’æ”¯æ‰•ãˆãªã„ã‚ˆã†ã§ã™ã€‚");
 		$STATE->{army}=int($STATE->{army} / 3);
 		$STATE->{money}=0;
 	}
@@ -167,10 +167,10 @@
 	$STATE->{army}=0;
 	}
 
-	#ŒˆZ‚ÌƒJƒXƒ^ƒ€ˆ—iƒŠƒZƒbƒgŒãj
+	#æ±ºç®—æ™‚ã®ã‚«ã‚¹ã‚¿ãƒ å‡¦ç†ï¼ˆãƒªã‚»ãƒƒãƒˆå¾Œï¼‰
 	UpdateResetAfter() if defined(&UpdateResetAfter);
 	
-	#ƒf[ƒ^ƒoƒbƒNƒAƒbƒv($BACKUP¢‘ãà$BACKUPŠú)
+	#ãƒ‡ãƒ¼ã‚¿ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—($BACKUPä¸–ä»£â‰’$BACKUPæœŸ)
 	mkdir($BACKUP_DIR.$BACKUP,$DIR_PERMISSION) if !(-e $BACKUP_DIR.$BACKUP);
 	rename($BACKUP_DIR.$BACKUP,$BACKUP_DIR."_work");
 	foreach my $count (reverse(1..$BACKUP-1))
@@ -189,14 +189,14 @@
 		close(IN);
 	}
 	
-	#–³Œø‚ÈƒZƒbƒVƒ‡ƒ“ƒf[ƒ^(ŠúŒÀØ‚ê)‚ğíœ
+	#ç„¡åŠ¹ãªã‚»ãƒƒã‚·ãƒ§ãƒ³ãƒ‡ãƒ¼ã‚¿(æœŸé™åˆ‡ã‚Œ)ã‚’å‰Šé™¤
 	opendir(SESS,$SESSION_DIR);
 	my @dir=readdir(SESS);
 	closedir(SESS);
 	my $sessiontimeout=$NOW_TIME-$EXPIRE_TIME;
 	foreach(map{"$SESSION_DIR/$_"}grep(/^.+\.cgi$/,@dir))
 	{
-		unlink $_ if (stat($_))[9]<$sessiontimeout; # $EXPIRE_TIMEg‚í‚ê‚È‚¯‚ê‚ÎÁ‹
+		unlink $_ if (stat($_))[9]<$sessiontimeout; # $EXPIRE_TIMEä½¿ã‚ã‚Œãªã‘ã‚Œã°æ¶ˆå»
 	}
 	MakeGuildFile();
 1;
@@ -208,16 +208,16 @@ return if !defined($id2idx{$STATE->{leader}});
 my $i=int(15000 - $STATE->{develop} - $STATE->{safety} - rand(2500));
 my $ii=int(50000000 - $STATE->{money} - rand(5000000));
 return if ($i > 1000)&&($ii > 5000000);
-PushLog(2,0,"$BAL_JOB$BAL_NAME‚ª•s‰¸‚È“®‚«‚ğŒ©‚¹‚Ä‚¢‚Ü‚·B"),return if ($i > 0) && ($ii > 0);
+PushLog(2,0,"$BAL_JOB$BAL_NAMEãŒä¸ç©ãªå‹•ãã‚’è¦‹ã›ã¦ã„ã¾ã™ã€‚"),return if ($i > 0) && ($ii > 0);
 if (rand(100) < 30)
 	{
 	$DTevent{rebel}=$NOW_TIME+86400*3;
 	$STATE->{robinb}=10000;
-	PushLog(2,0,"$BAL_JOB$BAL_NAME‚ªŠX‚ÉU‚ß‚İC”½—‚ğ‹N‚±‚µ‚Ü‚µ‚½I");
+	PushLog(2,0,"$BAL_JOB$BAL_NAMEãŒè¡—ã«æ”»ã‚è¾¼ã¿ï¼Œåä¹±ã‚’èµ·ã“ã—ã¾ã—ãŸï¼");
 	}
 	else
 	{
-	PushLog(2,0,"$BAL_JOB$BAL_NAME‚ªU‚ß‚é‹@‚ğ‚¤‚©‚ª‚Á‚Ä‚¢‚é‚æ‚¤‚Å‚·B");
+	PushLog(2,0,"$BAL_JOB$BAL_NAMEãŒæ”»ã‚ã‚‹æ™‚æ©Ÿã‚’ã†ã‹ãŒã£ã¦ã„ã‚‹ã‚ˆã†ã§ã™ã€‚");
 	}
 }
 

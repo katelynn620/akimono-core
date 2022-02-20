@@ -1,19 +1,19 @@
-# —X•Ö 2004/01/20 —R˜Ò
+# éƒµä¾¿ 2004/01/20 ç”±ä¾†
 
-$Q{mode}='new',  if ($Q{form} eq "make")&&($Q{ok}); 	# ‘—Mƒ‚[ƒhØ‘Ö
+$Q{mode}='new',  if ($Q{form} eq "make")&&($Q{ok}); 	# é€ä¿¡ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿
 CoLock() if $Q{mode};
 
 $NOITEM=1;
 DataRead();
 CheckUserPass();
 
-$image[0]=GetTagImgKao("‚¨è“`‚¢","help");
-$WriteFlag=0;						# XVƒtƒ‰ƒOB
+$image[0]=GetTagImgKao("ãŠæ‰‹ä¼ã„","help");
+$WriteFlag=0;						# æ›´æ–°ãƒ•ãƒ©ã‚°ã€‚
 
 ReadLetterName();
 ReadLetter();
 
-RequireFile('inc-letter-edit.cgi') if ($Q{mode});	# Šeíˆ—
+RequireFile('inc-letter-edit.cgi') if ($Q{mode});	# å„ç¨®å‡¦ç†
 
 if ($Q{form})
 {

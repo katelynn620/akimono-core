@@ -1,11 +1,11 @@
-# ‘‘‰€ 2005/03/30 —R˜Ò
+# è˜åœ’ 2005/03/30 ç”±ä¾†
 
 $NOITEM=1;
 DataRead();
 CheckUserPass();
 RequireFile('inc-manor.cgi');
 
-$disp.="<BIG>œ—Ìåî•ñ</BIG><br><br>";
+$disp.="<BIG>â—é ˜ä¸»æƒ…å ±</BIG><br><br>";
 
 my $MANORLORD;
 
@@ -13,20 +13,20 @@ if (defined($id2idx{$STATE->{leader}}))
 	{
 	my $i=$id2idx{$STATE->{leader}};
 	$disp.=$TB.$TR.$TD.GetTagImgKao($DT[$i]->{name},$DT[$i]->{icon});
-	$disp.=$TD."<SPAN>—Ìå</SPAN> F <b>".$DT[$i]->{name}."</b>";
-	$disp.=DignityDefine($DT[$i]->{dignity})." <small>i".$DT[$i]->{shopname}."j</small><br>";
+	$disp.=$TD."<SPAN>é ˜ä¸»</SPAN> ï¼š <b>".$DT[$i]->{name}."</b>";
+	$disp.=DignityDefine($DT[$i]->{dignity})." <small>ï¼ˆ".$DT[$i]->{shopname}."ï¼‰</small><br>";
 	$disp.=">> ".$DT[$i]->{comment};
 	$disp.=$TRE.$TBE;
 
-	# ‘‘‰€İ’è‚ğæ“¾
+	# è˜åœ’è¨­å®šã‚’å–å¾—
 	ReadDTSub($DT[$i],"lord");
 	$MANORLORD=$DT[$i]->{_lord};
 	}
 	else
 	{
 $disp.=$TB.$TR.$TD.GetTagImgKao($BAL_NAME,"bal");
-$disp.=$TD."—Ìå F <b>$BAL_NAME</b> <small>i$BAL_JOBj</small><br>";
-$disp.=">> ‘‘‰€H ‚ñ‚È‚à‚ñ’m‚é‚©B‚®‚í‚Á‚Í‚Á‚ÍI";
+$disp.=$TD."é ˜ä¸» ï¼š <b>$BAL_NAME</b> <small>ï¼ˆ$BAL_JOBï¼‰</small><br>";
+$disp.=">> è˜åœ’ï¼Ÿ ã‚“ãªã‚‚ã‚“çŸ¥ã‚‹ã‹ã€‚ãã‚ã£ã¯ã£ã¯ï¼";
 $disp.=$TRE.$TBE;
 	}
 
@@ -34,16 +34,16 @@ $disp.=$TRE.$TBE;
 	my $seedlock=0;
 	my $ripeflag=0;
 
-$disp.="<br><BIG>œ‘‘‰€ó‹µ</BIG><br><br>";
+$disp.="<br><BIG>â—è˜åœ’çŠ¶æ³</BIG><br><br>";
 $disp.=$TB.$TR;
-$disp.=$TDB."í".$TDB."”Ì”„İŒÉ".$TDB."”Ì”„‰¿Ši".$TDB."©“X•Û—L".$TD.$TDB."ûŠn•¨".$TDB."”ƒæ‰¿Ši".$TDB."©“X•Û—L".$TRE;
+$disp.=$TDB."ç¨®".$TDB."è²©å£²åœ¨åº«".$TDB."è²©å£²ä¾¡æ ¼".$TDB."è‡ªåº—ä¿æœ‰".$TD.$TDB."åç©«ç‰©".$TDB."è²·å–ä¾¡æ ¼".$TDB."è‡ªåº—ä¿æœ‰".$TRE;
 
 foreach my $i(0..$#MANOR)
 	{
 	my @MYMANOR=@{$MANOR[$i]};
 	if ($DT->{_seed}->{"base$i"} && $DT->{_seed}->{"time$i"} < $NOW_TIME)
 		{
-		#¬n
+		#æˆç†Ÿ
 		$DT->{_seed}->{"ripe$i"}+=$DT->{_seed}->{"base$i"};
 		delete $DT->{_seed}->{"base$i"};
 		delete $DT->{_seed}->{"time$i"};
@@ -53,12 +53,12 @@ foreach my $i(0..$#MANOR)
 	$disp.=($MANORLORD->{"count$i"}) ? "<a href=\"action.cgi?key=manor-m&$USERPASSURL&buy=".$i."&bk=manor\">" : "<b>";
 	$disp.=GetTagImgManor($MYMANOR[1]).$MYMANOR[0];
 	$disp.=($MANORLORD->{"count$i"}) ? "</a>" : "</b>";
-	$disp.=$TD.($MANORLORD->{"count$i"} + 0)." ŒÂ";
+	$disp.=$TD.($MANORLORD->{"count$i"} + 0)." å€‹";
 	$disp.=$TD."@".GetMoneyString($MANORLORD->{"price$i"});
-	$disp.=$TD.($DT->{_seed}->{"base$i"} + 0)." ŒÂ";
-	$disp.=$TD."¨".$TD.GetTagImgManor($MYMANOR[3]).$MYMANOR[2];
+	$disp.=$TD.($DT->{_seed}->{"base$i"} + 0)." å€‹";
+	$disp.=$TD."â†’".$TD.GetTagImgManor($MYMANOR[3]).$MYMANOR[2];
 	$disp.=$TD."@".GetMoneyString($MANORLORD->{"cost$i"});
-	$disp.=$TD.($DT->{_seed}->{"ripe$i"} + 0)." ŒÂ".$TRE;
+	$disp.=$TD.($DT->{_seed}->{"ripe$i"} + 0)." å€‹".$TRE;
 	$ripeflag+=$DT->{_seed}->{"ripe$i"};
 	}
 $disp.=$TBE;
@@ -71,15 +71,15 @@ $disp.=<<"HTML";
 	<INPUT TYPE=HIDDEN NAME=key VALUE="manor-r">
 	<INPUT TYPE=HIDDEN NAME=bk VALUE="manor">
 	$USERPASSFORM
-<BIG>œûŠn•¨”„‹p</BIG>F ûŠn•¨‚ğ—Ìå‚Ì‘‘‰€‚É 
-<INPUT TYPE=SUBMIT VALUE="”ƒ‚¢æ‚Á‚Ä‚à‚ç‚¤">
+<BIG>â—åç©«ç‰©å£²å´</BIG>ï¼š åç©«ç‰©ã‚’é ˜ä¸»ã®è˜åœ’ã« 
+<INPUT TYPE=SUBMIT VALUE="è²·ã„å–ã£ã¦ã‚‚ã‚‰ã†">
 	</FORM>
 HTML
 	}
 
 if ($seedlock)
 	{
-	Lock();		#‘¼l‚Í“¯‚¶ƒtƒ@ƒCƒ‹‚ÉƒAƒNƒZƒX‚µ‚È‚¢‚Ì‚ÅƒƒbƒN‚Í’x‚­‚Ä‚¢‚¢
+	Lock();		#ä»–äººã¯åŒã˜ãƒ•ã‚¡ã‚¤ãƒ«ã«ã‚¢ã‚¯ã‚»ã‚¹ã—ãªã„ã®ã§ãƒ­ãƒƒã‚¯ã¯é…ãã¦ã„ã„
 	WriteDTSub($DT,"seed");
 	DataCommitOrAbort();
 	UnLock();
@@ -93,7 +93,7 @@ if ($STATE->{leader}==$DT->{id})
 	<INPUT TYPE=HIDDEN NAME=key VALUE="manor-f">
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=form VALUE="plus">
-	<INPUT TYPE=SUBMIT VALUE='‘‘‰€‚ğŠÇ—‚·‚é'>
+	<INPUT TYPE=SUBMIT VALUE='è˜åœ’ã‚’ç®¡ç†ã™ã‚‹'>
 	</FORM>
 STR
 	}

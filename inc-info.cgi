@@ -1,12 +1,12 @@
-# “X•Üî•ñ 2005/01/06 —R˜Ò
+# åº—èˆ—æƒ…å ± 2005/01/06 ç”±ä¾†
 
-$disp.="<BIG>œ“X•Üî•ñ</BIG><br><br>";
+$disp.="<BIG>â—åº—èˆ—æƒ…å ±</BIG><br><br>";
 
 my $tm=$NOW_TIME-$DT->{time};
 if($tm<0)
 {
 	$tm=-$tm;
-	$tm='s“®‰Â”\‚Ü‚Å‚ ‚Æ '.GetTime2HMS($tm);
+	$tm='è¡Œå‹•å¯èƒ½ã¾ã§ã‚ã¨ '.GetTime2HMS($tm);
 }else{
 	if($tm>$MAX_STOCK_TIME){$tm=$MAX_STOCK_TIME;}
 	$tm=GetTime2HMS($tm);
@@ -17,7 +17,7 @@ my $expsum=0;
 foreach(values(%{$DT->{exp}})){$expsum+=$_;}
 $expsum=int($expsum/10)."%";
 
-my $job="‚·‚Á‚Ò‚ñ";
+my $job="ã™ã£ã´ã‚“";
 $job=$JOBTYPE{$DT->{job}} if ($DT->{job});
 
 my $level=DignityDefine($DT->{dignity},2);
@@ -25,41 +25,41 @@ $level=$DIGNITY[0] if !$level;
 
 if(!$MOBILE)
 {
-	my @taxmode=('','(–ÆÅ)','(”{Å)');
+	my @taxmode=('','(å…ç¨)','(å€ç¨)');
 	$disp.=$TB;
 	$disp.=$TR;
 	$disp.="<td width=48 rowspan=2>".GetTagImgKao($DT->{name},$DT->{icon});
-	$disp.="<td align=center colspan=4><SPAN>RANK ".($id2idx{$DT->{id}}+1)."</SPAN> F ".GetTagImgGuild($DT->{guild})."<b>".$DT->{shopname}."</b>";
+	$disp.="<td align=center colspan=4><SPAN>RANK ".($id2idx{$DT->{id}}+1)."</SPAN> ï¼š ".GetTagImgGuild($DT->{guild})."<b>".$DT->{shopname}."</b>";
 	$disp.="<td align=center rowspan=2>".GetTagImgJob($DT->{job},$DT->{icon}).$TRE;
-	$disp.=$TR."<td width=56 class=b>İˆÊ$TD$level <small>(ŒoŒ±’l ".($DT->{dignity}+0)."pt)";
-	$disp.=$TDB.'ƒWƒ‡ƒu<td width=64>'.$job.$TRE;
-	$disp.=$TR."<td colspan=2 class=b>“_”".$TD.$DT->{point}.$TDB."‘‹à";
+	$disp.=$TR."<td width=56 class=b>çˆµä½$TD$level <small>(çµŒé¨“å€¤ ".($DT->{dignity}+0)."pt)";
+	$disp.=$TDB.'ã‚¸ãƒ§ãƒ–<td width=64>'.$job.$TRE;
+	$disp.=$TR."<td colspan=2 class=b>ç‚¹æ•°".$TD.$DT->{point}.$TDB."è³‡é‡‘";
 	$disp.=$DT->{money}>=0 ? "<td colspan=2>".GetMoneyString($DT->{money}).$TRE : "<td colspan=2><font color=\"#cc2266\"><b>-".GetMoneyString(-$DT->{money})."</b></font>".$TRE;
-	$disp.=$TR."<td colspan=2 class=b>‚¿ŠÔ".$TD.$tm.$TDB."‘n‹Æ<td colspan=2>".GetTime2HMS($NOW_TIME-$DT->{foundation}).$TRE;
-	$disp.=$TR."<td colspan=2 class=b>l‹C".$TD.$rankmsg.$TDB."‚²‚İ<td colspan=2>".GetCleanMessage($DT->{trush}).$TRE;
-	$disp.=$TR."<td colspan=2 class=b>¡Šú”„ã".$TD.GetMoneyString($DT->{saletoday}).$TDB."‘OŠú”„ã<td colspan=2>\\".$DT->{saleyesterday}.$TRE;
-	$disp.=$TR."<td colspan=2 class=b>¡Šúx•¥".$TD.GetMoneyString($DT->{paytoday}).$TDB."‘OŠúx•¥<td colspan=2>\\".$DT->{payyesterday}.$TRE;
-	$disp.=$TR."<td colspan=2 class=b>¡ŠúˆÛ”ï<BR><SMALL>(ŒˆZ’¥û)</SMALL>".$TD.GetMoneyString(int($DT->{costtoday}))."+".GetMoneyString($SHOWCASE_COST[$DT->{showcasecount}-1]);
-	$disp.=   $TDB."‘OŠúˆÛ”ï<td colspan=2>\\".$DT->{costyesterday}.$TRE;
-	$disp.=$TR."<td colspan=2 class=b>¡Šú”„‹pÅ".$TD.GetMoneyString($DT->{taxtoday}).$TDB."‘OŠú”„‹pÅ<td colspan=2>\\".($DT->{taxyesterday}+0).$TRE;
-	$disp.=$TR."<td colspan=2 class=b>Šî–{”„‹pÅ—¦".$TD.GetUserTaxRate($DT,$DTTaxrate).'%'.$taxmode[$DT->{taxmode}+0].$TDB."n—û“x‡Œv<td colspan=2>".$expsum.$TRE;
-	$disp.=$TR."<td colspan=2 class=b>—DŸ‰ñ”".$TD.($DT->{rankingcount}+0)."‰ñ ".GetTopCountImage($DT->{rankingcount}+0).$TRE;
-	$disp.=$GUILD{$DT->{guild}} ? $TDB."ƒMƒ‹ƒh‰ï”ï<br><SMALL>(ŒˆZ’¥û)</SMALL><td colspan=2>\\".int($DT->{saletoday}*$GUILD{$DT->{guild}}->[$GUILDIDX_feerate]/1000)."<SMALL>/”„ã‚Ì".($GUILD{$DT->{guild}}->[$GUILDIDX_feerate]/10)."%</SMALL>" : $TD."@<td colspan=2>@";
+	$disp.=$TR."<td colspan=2 class=b>æŒã¡æ™‚é–“".$TD.$tm.$TDB."å‰µæ¥­<td colspan=2>".GetTime2HMS($NOW_TIME-$DT->{foundation}).$TRE;
+	$disp.=$TR."<td colspan=2 class=b>äººæ°—".$TD.$rankmsg.$TDB."ã”ã¿<td colspan=2>".GetCleanMessage($DT->{trush}).$TRE;
+	$disp.=$TR."<td colspan=2 class=b>ä»ŠæœŸå£²ä¸Š".$TD.GetMoneyString($DT->{saletoday}).$TDB."å‰æœŸå£²ä¸Š<td colspan=2>\\".$DT->{saleyesterday}.$TRE;
+	$disp.=$TR."<td colspan=2 class=b>ä»ŠæœŸæ”¯æ‰•".$TD.GetMoneyString($DT->{paytoday}).$TDB."å‰æœŸæ”¯æ‰•<td colspan=2>\\".$DT->{payyesterday}.$TRE;
+	$disp.=$TR."<td colspan=2 class=b>ä»ŠæœŸç¶­æŒè²»<BR><SMALL>(æ±ºç®—æ™‚å¾´å)</SMALL>".$TD.GetMoneyString(int($DT->{costtoday}))."+".GetMoneyString($SHOWCASE_COST[$DT->{showcasecount}-1]);
+	$disp.=   $TDB."å‰æœŸç¶­æŒè²»<td colspan=2>\\".$DT->{costyesterday}.$TRE;
+	$disp.=$TR."<td colspan=2 class=b>ä»ŠæœŸå£²å´ç¨".$TD.GetMoneyString($DT->{taxtoday}).$TDB."å‰æœŸå£²å´ç¨<td colspan=2>\\".($DT->{taxyesterday}+0).$TRE;
+	$disp.=$TR."<td colspan=2 class=b>åŸºæœ¬å£²å´ç¨ç‡".$TD.GetUserTaxRate($DT,$DTTaxrate).'%'.$taxmode[$DT->{taxmode}+0].$TDB."ç†Ÿç·´åº¦åˆè¨ˆ<td colspan=2>".$expsum.$TRE;
+	$disp.=$TR."<td colspan=2 class=b>å„ªå‹å›æ•°".$TD.($DT->{rankingcount}+0)."å› ".GetTopCountImage($DT->{rankingcount}+0).$TRE;
+	$disp.=$GUILD{$DT->{guild}} ? $TDB."ã‚®ãƒ«ãƒ‰ä¼šè²»<br><SMALL>(æ±ºç®—æ™‚å¾´å)</SMALL><td colspan=2>\\".int($DT->{saletoday}*$GUILD{$DT->{guild}}->[$GUILDIDX_feerate]/1000)."<SMALL>/å£²ä¸Šã®".($GUILD{$DT->{guild}}->[$GUILDIDX_feerate]/10)."%</SMALL>" : $TD."ã€€<td colspan=2>ã€€";
 	$disp.=$TRE.$TBE;
 }
 else
 {
-	$disp.="–¼‘O:".$DT->{name}."<BR>";
-	$disp.="“X–¼:".GetTagImgGuild($DT->{guild}).$DT->{shopname}."<BR>";
+	$disp.="åå‰:".$DT->{name}."<BR>";
+	$disp.="åº—å:".GetTagImgGuild($DT->{guild}).$DT->{shopname}."<BR>";
 	$disp.="RANK:".($id2idx{$DT->{id}}+1)."<BR>";
-	$disp.="l‹C:".$rankmsg."<BR>";
-	$disp.="‚²‚İ:".GetCleanMessage($DT->{trush})."<BR>";
-	$disp.="‘‹à:".GetMoneyString($DT->{money})."<BR>";
-	$disp.="¡”„:".GetMoneyString($DT->{saletoday})."<BR>";
-	$disp.="¡•¥:".GetMoneyString($DT->{paytoday})."<BR>";
-	$disp.="¡ˆÛ:".GetMoneyString(int($DT->{costtoday}))."+".GetMoneyString($SHOWCASE_COST[$DT->{showcasecount}-1])."<BR>";
-	$disp.="ŠÔ:".$tm."<BR>";
-	$disp.="“_”:".$DT->{point}."<BR>";
-	$disp.="E‹Æ:".$job."<BR>";
+	$disp.="äººæ°—:".$rankmsg."<BR>";
+	$disp.="ã”ã¿:".GetCleanMessage($DT->{trush})."<BR>";
+	$disp.="è³‡é‡‘:".GetMoneyString($DT->{money})."<BR>";
+	$disp.="ä»Šå£²:".GetMoneyString($DT->{saletoday})."<BR>";
+	$disp.="ä»Šæ‰•:".GetMoneyString($DT->{paytoday})."<BR>";
+	$disp.="ä»Šç¶­:".GetMoneyString(int($DT->{costtoday}))."+".GetMoneyString($SHOWCASE_COST[$DT->{showcasecount}-1])."<BR>";
+	$disp.="æ™‚é–“:".$tm."<BR>";
+	$disp.="ç‚¹æ•°:".$DT->{point}."<BR>";
+	$disp.="è·æ¥­:".$job."<BR>";
 }
 1;

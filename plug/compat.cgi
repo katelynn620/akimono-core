@@ -1,8 +1,8 @@
-# compat �v���O�C�� 2004/01/20 �R��
+# compat プラグイン 2004/01/20 由來
 
 sub Compat
 {
-	OutError("�݊����̂Ȃ��v���O�����̂��߁C���s���邱�Ƃ��ł��܂���");
+	OutError("互換性のないプログラムのため，実行することができません");
 }
 
 sub OutHTML

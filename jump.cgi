@@ -1,4 +1,4 @@
-# URLƒWƒƒƒ“ƒv 2004/01/20 —R˜Ò
+# URLã‚¸ãƒ£ãƒ³ãƒ— 2004/01/20 ç”±ä¾†
 
 $NOITEM=1;
 $NOMENU=1;
@@ -14,9 +14,9 @@ sub JumpGuild
 	my $guild=ReadGuild($code);
 	return if !$guild || $guild->{url} eq '';
 	$disp="";
-	$disp.="ƒMƒ‹ƒh ".GetTagImgGuild($code).$guild->{name}."<br>";
+	$disp.="ã‚®ãƒ«ãƒ‰ ".GetTagImgGuild($code).$guild->{name}."<br>";
 	$disp.="<br>".$guild->{comment}."<br><br>";
-	$disp.=GetTagA($guild->{name}."‚ÖŽ©“®“I‚ÉƒWƒƒƒ“ƒv‚µ‚Ü‚·B‚µ‚È‚¢ê‡‚Í‚±‚ÌƒŠƒ“ƒN‚ð’H‚Á‚Ä‚­‚¾‚³‚¢B",$guild->{url})."<br>";
+	$disp.=GetTagA($guild->{name}."ã¸è‡ªå‹•çš„ã«ã‚¸ãƒ£ãƒ³ãƒ—ã—ã¾ã™ã€‚ã—ãªã„å ´åˆã¯ã“ã®ãƒªãƒ³ã‚¯ã‚’è¾¿ã£ã¦ãã ã•ã„ã€‚",$guild->{url})."<br>";
 	print "Refresh: 1; url=$guild->{url}\n";
 }
 
@@ -27,7 +27,7 @@ sub JumpTown
 	return if !$town || $town->{url} eq '';
 	print "Refresh: 1; url=$town->{url}\n";
 	$disp="";
-	$disp.=GetTagA($town->{name}."‚ÖŽ©“®“I‚ÉƒWƒƒƒ“ƒv‚µ‚Ü‚·B‚µ‚È‚¢ê‡‚Í‚±‚ÌƒŠƒ“ƒN‚ð’H‚Á‚Ä‚­‚¾‚³‚¢B");
+	$disp.=GetTagA($town->{name}."ã¸è‡ªå‹•çš„ã«ã‚¸ãƒ£ãƒ³ãƒ—ã—ã¾ã™ã€‚ã—ãªã„å ´åˆã¯ã“ã®ãƒªãƒ³ã‚¯ã‚’è¾¿ã£ã¦ãã ã•ã„ã€‚");
 }
 
 

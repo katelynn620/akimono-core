@@ -1,18 +1,18 @@
-# Œ‹¥ 2004/01/20 —R˜Ò
+# çµå©š 2004/01/20 ç”±ä¾†
 
 @BRIDEnamelist=qw(
 	no tm mode ida idb stbase ctbase money place reform
 	);
-$image[0]='<IMG ALT="Z‘î" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">‹¤—p‘qŒÉ';
-$image[1]='<IMG ALT="Z‘î" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">ˆêŒËŒš‚Ä';
-$image[2]='<IMG ALT="ƒvƒƒ|[ƒY" WIDTH="16" HEIGHT="16" BORDER="0" SRC="'.$IMAGE_URL.'/house2.png">ƒvƒƒ|[ƒY';
-$image[3]=GetTagImgKao("_•ƒ","father");
+$image[0]='<IMG ALT="ä½å®…" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">å…±ç”¨å€‰åº«';
+$image[1]='<IMG ALT="ä½å®…" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">ä¸€æˆ¸å»ºã¦';
+$image[2]='<IMG ALT="ãƒ—ãƒ­ãƒãƒ¼ã‚º" WIDTH="16" HEIGHT="16" BORDER="0" SRC="'.$IMAGE_URL.'/house2.png">ãƒ—ãƒ­ãƒãƒ¼ã‚º';
+$image[3]=GetTagImgKao("ç¥çˆ¶","father");
 
-Lock() if ($Q{mode});	# ‚Å‚«‚é‚¾‚¯‘‚­ƒƒbƒNB
+Lock() if ($Q{mode});	# ã§ãã‚‹ã ã‘æ—©ããƒ­ãƒƒã‚¯ã€‚
 DataRead();
 CheckUserPass(1);
 ReadBride();
-RequireFile('inc-html-bride-edit.cgi') if ($Q{mode});	# Šeíƒf[ƒ^ˆ—
+RequireFile('inc-html-bride-edit.cgi') if ($Q{mode});	# å„ç¨®ãƒ‡ãƒ¼ã‚¿å‡¦ç†
 
 if ($Q{no})
 {
@@ -20,7 +20,7 @@ RequireFile('inc-html-bride-list.cgi');
 }
 else
 {
-$disp.="<BIG>œ‹³‰ï</BIG><br><br>";
+$disp.="<BIG>â—æ•™ä¼š</BIG><br><br>";
 RequireFile('inc-html-bride.cgi');
 }
 
@@ -40,7 +40,7 @@ sub ReadBride
 		chop $bride[$cnt];
 		my @buf=split(/,/,$bride[$cnt]); my $i=0;
 		foreach (@BRIDEnamelist) { $BRIDE[$cnt]->{$_}=$buf[$i];$i++;}
-		undef $BRIDE[$cnt],next if !defined($id2idx{$BRIDE[$cnt]->{ida}}) || !defined($id2idx{$BRIDE[$cnt]->{idb}});	# •Â“XCˆÚ“]‚É‚æ‚éÁ–ÅB
+		undef $BRIDE[$cnt],next if !defined($id2idx{$BRIDE[$cnt]->{ida}}) || !defined($id2idx{$BRIDE[$cnt]->{idb}});	# é–‰åº—ï¼Œç§»è»¢ã«ã‚ˆã‚‹æ¶ˆæ»…ã€‚
 		@BRIDE[$cnt]->{stock}=[split(/:/,$BRIDE[$cnt]->{stbase})];
 		@BRIDE[$cnt]->{cnt}=[split(/:/,$BRIDE[$cnt]->{ctbase})];
 		$BRIDE[$cnt]->{point}=0;

@@ -1,24 +1,24 @@
-# Œg‘Ñ—pƒƒjƒ…[ 2004/01/20 —R˜Ò
+# æºå¸¯ç”¨ãƒ¡ãƒ‹ãƒ¥ãƒ¼ 2004/01/20 ç”±ä¾†
 
 $NOITEM=1;
 DataRead();
 CheckUserPass(1);
 
-$disp.=$HTML_TITLE.'<A HREF="index.cgi" TARGET=_top>[ƒgƒbƒv]</A> ';
+$disp.=$HTML_TITLE.'<A HREF="index.cgi" TARGET=_top>[ãƒˆãƒƒãƒ—]</A> ';
 my $now=$DTlasttime+$TZ_JST-$DATE_REVISE_TIME;
 my $nextday=$now+$ONE_DAY_TIME-($now % $ONE_DAY_TIME);
-$disp.='[Ÿ‰ñŒˆZ '.GetTime2FormatTime($nextday-$TZ_JST+$DATE_REVISE_TIME).' ‚Ü‚Å‚ ‚Æ'.GetTime2HMS(int(($nextday-$now)/60)*60+59).']<br>';
+$disp.='[æ¬¡å›æ±ºç®— '.GetTime2FormatTime($nextday-$TZ_JST+$DATE_REVISE_TIME).' ã¾ã§ã‚ã¨'.GetTime2HMS(int(($nextday-$now)/60)*60+59).']<br>';
 
-$disp.=GetMenuTag('shop-m',	'[sê]');
-$disp.=GetMenuTag('log',		'[V•·]');
+$disp.=GetMenuTag('shop-m',	'[å¸‚å ´]');
+$disp.=GetMenuTag('log',		'[æ–°è]');
 
 $disp.='<hr width=500 noshade size=1>';
 if($USER && $USER ne 'soldoutadmin')
 {
-	$disp.=GetMenuTag('main',		'[“X’·º]');
-	$disp.=GetMenuTag('stock',		'[‘qŒÉ]');
-	$disp.=GetMenuTag('sc',		'[’Â—ñ’I]');
-	$disp.=GetMenuTag('sweep',		'[‚¨‘|œ]');
+	$disp.=GetMenuTag('main',		'[åº—é•·å®¤]');
+	$disp.=GetMenuTag('stock',		'[å€‰åº«]');
+	$disp.=GetMenuTag('sc',		'[é™³åˆ—æ£š]');
+	$disp.=GetMenuTag('sweep',		'[ãŠæƒé™¤]');
 }
 
 OutSkin();

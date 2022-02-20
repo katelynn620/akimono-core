@@ -1,4 +1,4 @@
-# calc ƒvƒ‰ƒOƒCƒ“ 2005/01/06 —R˜Ò
+# calc ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2005/01/06 ç”±ä¾†
 
 sub CheckCount
 {
@@ -10,7 +10,7 @@ sub CheckCount
 	$cnt=$cnt2 ? $cnt2 : $cnt1;
 	$cnt=$min if $cnt<$min;
 	$cnt=$max if $cnt>$max;
-	OutError('•s³‚È’l‚Å‚·B') if  $cnt =~/(nan|inf)/i;
+	OutError('ä¸æ­£ãªå€¤ã§ã™ã€‚') if  $cnt =~/(nan|inf)/i;
 	return int($cnt);
 }
 
@@ -33,7 +33,7 @@ sub UseTime
 		my $tmp=$NOW_TIME-$DT->{time};
 		$DT->{time}=$NOW_TIME-$MAX_STOCK_TIME if $tmp>$MAX_STOCK_TIME;
 		
-		OutError('ŠÔ‚ª‘«‚è‚Ü‚¹‚ñB') if $tmp<0 && $USER ne '';
+		OutError('æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if $tmp<0 && $USER ne '';
 		
 		$DT->{time}+=$tm;
 	}

@@ -1,4 +1,4 @@
-# custom ƒvƒ‰ƒOƒCƒ“ 2003/10/08 —R˜Ò
+# custom ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/10/08 ç”±ä¾†
 
 sub DignityDefine
 {
@@ -23,9 +23,9 @@ sub GetCleanMessage
 	my($rank,$mode)=@_;
 	my $per=int($rank/50000);
 	$per=100 if $per > 100;
-	my $i="ãY—í";
-	$i="´Œ‰" if $per>=20;$i="•’Ê" if $per>=40;
-	$i="•sŒ‰" if $per>=60;$i="‰˜‰®•~" if $per>=80;
+	my $i="ç¶ºéº—";
+	$i="æ¸…æ½”" if $per>=20;$i="æ™®é€š" if $per>=40;
+	$i="ä¸æ½”" if $per>=60;$i="æ±šå±‹æ•·" if $per>=80;
 	return $i if $MOBILE || $mode;
 	
 	my $bar="";

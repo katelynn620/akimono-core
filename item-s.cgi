@@ -1,4 +1,4 @@
-# ƒAƒCƒeƒ€g—pˆ— 2005/01/06 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ ä½¿ç”¨å‡¦ç† 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 $Q{er}='stock';
@@ -14,10 +14,10 @@ $target=$Q{tg};
 $message=$Q{msg};
 $select=$Q{select};
 CheckItemNo($itemno);
-OutError('•W“I‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ') if $target && !defined($id2idx{$target});
+OutError('æ¨™çš„ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“') if $target && !defined($id2idx{$target});
 
 $itemcode=GetPath($ITEM_DIR,"use",$ITEM[$itemno]->{code});
-OutError('g‚¦‚Ü‚¹‚ñ') if $itemcode eq '' || !(-e $itemcode);
+OutError('ä½¿ãˆã¾ã›ã‚“') if $itemcode eq '' || !(-e $itemcode);
 
 $ITEM=$ITEM[$itemno];
 @item::DT=@DT;
@@ -28,7 +28,7 @@ RequireFile('inc-item.cgi');
 require $itemcode;
 
 $USE=GetUseItem($no);
-OutError('g‚¦‚Ü‚¹‚ñ') if !$USE || !$USE->{useok};
+OutError('ä½¿ãˆã¾ã›ã‚“') if !$USE || !$USE->{useok};
 $item::USE=$USE;
 
 	if($USE->{arg}=~/message(\d*)/)
@@ -36,7 +36,7 @@ $item::USE=$USE;
 		my $limit=$1||80;
 		require $JCODE_FILE;
 		$message=EscapeHTML(jcode::sjis($message,$CHAR_SHIFT_JIS&&'sjis'));
-		OutError('“ü—Í•¶š”‚ª‘½‚·‚¬‚Ü‚· (<>&"‚Í4`6•¶š‚ÉŠ·Z‚³‚ê‚Ü‚·)') if length $message>$limit;
+		OutError('å…¥åŠ›æ–‡å­—æ•°ãŒå¤šã™ãã¾ã™ (<>&"ã¯4ï½6æ–‡å­—ã«æ›ç®—ã•ã‚Œã¾ã™)') if length $message>$limit;
 	}
 	my %select_hash;
 	if($USE->{arg}=~/select/)
@@ -49,7 +49,7 @@ $item::USE=$USE;
 			last if shift @fld eq $select;
 			shift @fld;
 		}
-		OutError('‘I‘ğˆ‚ª•s³‚Å‚·') if !@fld;
+		OutError('é¸æŠè‚¢ãŒä¸æ­£ã§ã™') if !@fld;
 	}
 	$USE->{arg}={};
 	$USE->{arg}->{target}=$target;
@@ -64,19 +64,19 @@ RequireFile('inc-html-ownerinfo.cgi');
 
 my $count=$USE->{result}->{count};
 
-$disp.="<BIG>œŒ‹‰Ê</BIG><br><br>";
+$disp.="<BIG>â—çµæœ</BIG><br><br>";
 
 if(!$count)
 {
-	$disp.="Às‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½";
+	$disp.="å®Ÿè¡Œã§ãã¾ã›ã‚“ã§ã—ãŸ";
 }
 else
 {
 
 	$disp.=$USE->{result}->{function_return}."<BR>" if $USE->{result}->{function_return};
 	$disp.=$USE->{result}->{count}.$USE->{scale}."<BR>";
-	$disp.="”ï—p:".GetMoneyString($USE->{money}*$USE->{result}->{count})."<BR>" if $USE->{money}*$USE->{result}->{count};
-	$disp.="ŠÔ:".GetTime2HMS(GetItemUseTime($USE)*$count)."<BR><BR>";
+	$disp.="è²»ç”¨:".GetMoneyString($USE->{money}*$USE->{result}->{count})."<BR>" if $USE->{money}*$USE->{result}->{count};
+	$disp.="æ™‚é–“:".GetTime2HMS(GetItemUseTime($USE)*$count)."<BR><BR>";
 	
 	foreach my $MESSAGE (@{$USE->{result}->{addmsg}})
 		{$disp.=$MESSAGE."<BR>" if $MESSAGE;}
@@ -89,12 +89,12 @@ else
 		foreach my $MESSAGE (@{$USE->{result}->{trashmsg}})
 			{$disp.=$MESSAGE."<BR>" if $MESSAGE;}
 		
-		$disp.="“üè:";
+		$disp.="å…¥æ‰‹:";
 		foreach my $ADDITEM (@{$USE->{result}->{additem}})
 		{
 			my $no=$ADDITEM->[0];
 			$disp.=$ITEM[$no]->{name};
-			$disp.=" +".$ADDITEM->[1]." (c".$DT->{item}[$no-1].") ";
+			$disp.=" +".$ADDITEM->[1]." (æ®‹".$DT->{item}[$no-1].") ";
 		}
 		$disp.="<BR>";
 	}
@@ -111,12 +111,12 @@ else
 	
 	if($USE->{result}->{useitem}[0])
 	{
-		$disp.="Á”ï:";
+		$disp.="æ¶ˆè²»:";
 		foreach my $USEITEM (@{$USE->{result}->{useitem}})
 		{
 			my $no=$USEITEM->[0];
 			$disp.=$ITEM[$no]->{name};
-			$disp.=" -".$USEITEM->[1]." (c".$DT->{item}[$no-1].") ";
+			$disp.=" -".$USEITEM->[1]." (æ®‹".$DT->{item}[$no-1].") ";
 		}
 		$disp.="<BR>";
 	}

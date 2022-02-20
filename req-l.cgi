@@ -1,14 +1,14 @@
-# ˆË—ŠÚ×•\¦ 2005/01/06 —R˜Ò
+# ä¾é ¼è©³ç´°è¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 DataRead();
 CheckUserPass();
 RequireFile('inc-req.cgi');
 RequireFile('inc-html-ownerinfo.cgi');
 
-$disp.="<BIG>œˆË—ŠŠ</BIG><br><br>";
+$disp.="<BIG>â—ä¾é ¼æ‰€</BIG><br><br>";
 
 $i=SearchReqIndex($Q{no});
-OutError('w’è‚³‚ê‚½ˆË—Š‚Í‘¶İ‚µ‚Ü‚¹‚ñ') if ($i==-1);
+OutError('æŒ‡å®šã•ã‚ŒãŸä¾é ¼ã¯å­˜åœ¨ã—ã¾ã›ã‚“') if ($i==-1);
 my($no,$id,$itemno,$num,$prn,$pr,$mode)=($REQ[$i]->{no},$REQ[$i]->{id},$REQ[$i]->{itemno},$REQ[$i]->{num},$REQ[$i]->{prn},$REQ[$i]->{pr},$REQ[$i]->{mode});
 ReqDataSet();
 ReqEnd() if defined($id2idx{$mode});
@@ -22,46 +22,46 @@ sub ReqDataSet
 {
 $tex=<<STR;
 $TB$TR
-$TDBˆË—Š•i
-$TDB•ñV•i
-$TDBˆË—ŠÒ
-$TDBó‘Ô
-$TDBŠúŒÀ
+$TDBä¾é ¼å“
+$TDBå ±é…¬å“
+$TDBä¾é ¼è€…
+$TDBçŠ¶æ…‹
+$TDBæœŸé™
 $TRE
 STR
 
 	$tex.='<tr><td>';
 	if ($prn > 0) {
 	$tex.=GetTagImgItemType($prn).$ITEM[$prn]->{name}.' '.$pr.$ITEM[$prn]->{scale};
-	$tex.='<br><small>(’è‰¿ '.GetMoneyString($ITEM[$prn]->{price} * $pr).')</small>';
+	$tex.='<br><small>(å®šä¾¡ '.GetMoneyString($ITEM[$prn]->{price} * $pr).')</small>';
 	} else {
-	$tex.='‘‹à '.GetMoneyString($pr);
+	$tex.='è³‡é‡‘ '.GetMoneyString($pr);
 	}
 	$tex.='<td>';
 	if ($itemno > 0) {
 	$tex.=GetTagImgItemType($itemno).$ITEM[$itemno]->{name}.' '.$num.$ITEM[$itemno]->{scale};
-	$tex.='<br><small>(’è‰¿ '.GetMoneyString($ITEM[$itemno]->{price} * $num).')</small>';
+	$tex.='<br><small>(å®šä¾¡ '.GetMoneyString($ITEM[$itemno]->{price} * $num).')</small>';
 	} else {
-	$tex.='‘‹à '.GetMoneyString($num);
+	$tex.='è³‡é‡‘ '.GetMoneyString($num);
 	}
-	$tex.=defined($id2idx{$id}) ?'<td>'.$DT[$id2idx{$id}]->{shopname} : '<td>‚È‚µ';
-	$tex.=defined($id2idx{$mode}) ? "<td><SPAN>’B¬</SPAN>" : '<td> ';
-	$tex.='<td>‚ ‚Æ'.GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME);
+	$tex.=defined($id2idx{$id}) ?'<td>'.$DT[$id2idx{$id}]->{shopname} : '<td>ãªã—';
+	$tex.=defined($id2idx{$mode}) ? "<td><SPAN>é”æˆ</SPAN>" : '<td> ';
+	$tex.='<td>ã‚ã¨'.GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME);
 $tex.=$TRE.$TBE;
 }
 
 sub ReqEnd
 {
-$disp.=$AucImg.'‚±‚Ìæˆø‚Í‚à‚¤’B¬‚³‚ê‚Ä‚é‚ºB‚Ü‚½‚æ‚ë‚µ‚­—Š‚Ş‚ÈB<br><br>'.$tex;
+$disp.=$AucImg.'ã“ã®å–å¼•ã¯ã‚‚ã†é”æˆã•ã‚Œã¦ã‚‹ãœã€‚ã¾ãŸã‚ˆã‚ã—ãé ¼ã‚€ãªã€‚<br><br>'.$tex;
 }
 
 sub ReqLast
 {
 if ($id != $DT->{id}) {
-	# ˆË—Š’B¬ƒtƒH[ƒ€
+	# ä¾é ¼é”æˆãƒ•ã‚©ãƒ¼ãƒ 
 	$disp.=<<STR;
 $AucImg
-‚±‚ÌˆË—Š‚ğ‚¢‚Ü’B¬‚·‚é‚©‚¢H<br><br>
+ã“ã®ä¾é ¼ã‚’ã„ã¾é”æˆã™ã‚‹ã‹ã„ï¼Ÿ<br><br>
 $tex
 <hr width=500 noshade size=1>
 <FORM ACTION="action.cgi" $METHOD>
@@ -70,15 +70,15 @@ $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="plus">
 <INPUT TYPE=HIDDEN NAME=id VALUE="$DT->{id}">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$no">
-<BIG>œˆË—Š’B¬</BIG>F‚±‚ÌˆË—Š‚ğ
- <INPUT TYPE=SUBMIT VALUE='’B¬‚·‚é'>
+<BIG>â—ä¾é ¼é”æˆ</BIG>ï¼šã“ã®ä¾é ¼ã‚’
+ <INPUT TYPE=SUBMIT VALUE='é”æˆã™ã‚‹'>
 </FORM>
 STR
 } else {
-	# æ‚è‰º‚°
+	# å–ã‚Šä¸‹ã’
 	$disp.=<<STR;
 $AucImg
-‚±‚ÌˆË—Š‚Í‚Ü‚¾’B¬‚³‚ê‚Ä‚¢‚È‚¢‚ªæ‚è‰º‚°‚é‚Ì‚©‚¢H<br><br>
+ã“ã®ä¾é ¼ã¯ã¾ã é”æˆã•ã‚Œã¦ã„ãªã„ãŒå–ã‚Šä¸‹ã’ã‚‹ã®ã‹ã„ï¼Ÿ<br><br>
 $tex
 <hr width=500 noshade size=1>
 <FORM ACTION="action.cgi" $METHOD>
@@ -87,8 +87,8 @@ $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="end">
 <INPUT TYPE=HIDDEN NAME=id VALUE="$DT->{id}">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$no">
-<BIG>œˆË—Š’†~</BIG>F‚±‚ÌˆË—Š‚ğ
- <INPUT TYPE=SUBMIT VALUE='æ‚è‰º‚°‚é'>
+<BIG>â—ä¾é ¼ä¸­æ­¢</BIG>ï¼šã“ã®ä¾é ¼ã‚’
+ <INPUT TYPE=SUBMIT VALUE='å–ã‚Šä¸‹ã’ã‚‹'>
 </FORM>
 STR
 	}

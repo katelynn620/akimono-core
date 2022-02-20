@@ -1,7 +1,7 @@
-# �X�N���v�g�o�[�W�����\�L
+# スクリプトバージョン表記
 
-# �T�|�[�g�E�X�V�ňē��̂��߂̕\�L�Ȃ̂ň�؏C�����Ȃ��ł��������B
-# �Ǝ��̉������{�����Ƃ��Ă��Cinc-item-data���̃o�[�W������ύX���邾���ɂ��Ă��������B
+# サポート・更新版案内のための表記なので一切修正しないでください。
+# 独自の改造を施したとしても，inc-item-data内のバージョンを変更するだけにしてください。
 
 $BASE_VERSION="05-03-30";
-$VERSION="���l���� ".$BASE_VERSION;
+$VERSION="商人物語 ".$BASE_VERSION;

@@ -1,4 +1,4 @@
-# d“ü‚êÚ× 2005/01/06 —R˜Ò
+# ä»•å…¥ã‚Œè©³ç´° 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 DataRead();
@@ -10,20 +10,20 @@ $showcase=int($showcase+0);
 
 if($id==0)
 {
-	# sê
+	# å¸‚å ´
 	$DTS=GetWholeStore();
 }
 else
 {
-	# ˆê”Ê“X
+	# ä¸€èˆ¬åº—
 	$DTS=$DT[(CheckUserID($id))[1]];
 }
 
 $showcase=CheckShowCaseNumber($DTS,$showcase);
 ($itemno,$price,$stock)=CheckShowCaseItem($DTS,$showcase);
 
-OutError("’Â—ñ’I‚É‚Í‰½‚à‚ ‚è‚Ü‚¹‚ñ") if !$itemno || !$stock;
-OutError("’Â—ñ‚ª•Ï‰»‚µ‚½‚æ‚¤‚Å‚·") if $itemno!=$mstno;
+OutError("é™³åˆ—æ£šã«ã¯ä½•ã‚‚ã‚ã‚Šã¾ã›ã‚“") if !$itemno || !$stock;
+OutError("é™³åˆ—ãŒå¤‰åŒ–ã—ãŸã‚ˆã†ã§ã™") if $itemno!=$mstno;
 
 RequireFile('inc-html-ownerinfo.cgi');
 
@@ -35,34 +35,34 @@ my($guild,$guildrate,$guildmargin)=CheckGuild($DT,$DTS,$baseprice);
 my $saleprice=$baseprice+($guild==1 ? -$guildmargin : $guildmargin);
 $price=$saleprice;
 
-$disp.="<BIG>œw“ü</BIG><br><br>";
+$disp.="<BIG>â—è³¼å…¥</BIG><br><br>";
 
 my $ITEM=$ITEM[$itemno];
 
-$disp.=$TB.$TR.$TDB."“X–¼".$TD.GetTagImgGuild($DTS->{guild}).$DTS->{shopname}.$TRE;
+$disp.=$TB.$TR.$TDB."åº—å".$TD.GetTagImgGuild($DTS->{guild}).$DTS->{shopname}.$TRE;
 $disp.=$TR.$TDB;
-$disp.=(($ITEM->{flag}=~/h/)? "–¼‘O" : "¤•i");
+$disp.=(($ITEM->{flag}=~/h/)? "åå‰" : "å•†å“");
 $disp.=$TD.GetTagImgItemType($itemno).$ITEM->{name}.$TRE;
 $disp.=$TR.$TDB.$TD.$ITEM->{info}.$TRE;
-$disp.=$TR.$TDB."‰¿Ši".$TD.'@'.GetMoneyString($baseprice).$TRE;
-$disp.=$TR.$TDB.("ƒMƒ‹ƒh“àŠ„ˆø‰¿Ši","ƒMƒ‹ƒhŠÔŠ„‘‰¿Ši")[$guild-1].$TD.'@'.GetMoneyString($saleprice).$TRE if $guild>0;
-$disp.=$TR.$TDB."ƒMƒ‹ƒh‘‹à•s‘«".$TD."ƒMƒ‹ƒh“àŠ„ˆø•â•‚Í‚ ‚è‚Ü‚¹‚ñ".$TRE if $guild==-1;
-$disp.=$TR.$TDB."”Ì”„İŒÉ”".$TD.$stock.$ITEM->{scale}.$TRE;
-$disp.=$TR.$TDB.'©“X•Û—L”'.$TD.($DT->{item}[$itemno-1]+0).$ITEM->{scale}.$TRE;
+$disp.=$TR.$TDB."ä¾¡æ ¼".$TD.'@'.GetMoneyString($baseprice).$TRE;
+$disp.=$TR.$TDB.("ã‚®ãƒ«ãƒ‰å†…å‰²å¼•ä¾¡æ ¼","ã‚®ãƒ«ãƒ‰é–“å‰²å¢—ä¾¡æ ¼")[$guild-1].$TD.'@'.GetMoneyString($saleprice).$TRE if $guild>0;
+$disp.=$TR.$TDB."ã‚®ãƒ«ãƒ‰è³‡é‡‘ä¸è¶³".$TD."ã‚®ãƒ«ãƒ‰å†…å‰²å¼•è£œåŠ©ã¯ã‚ã‚Šã¾ã›ã‚“".$TRE if $guild==-1;
+$disp.=$TR.$TDB."è²©å£²åœ¨åº«æ•°".$TD.$stock.$ITEM->{scale}.$TRE;
+$disp.=$TR.$TDB.'è‡ªåº—ä¿æœ‰æ•°'.$TD.($DT->{item}[$itemno-1]+0).$ITEM->{scale}.$TRE;
 $disp.=$TBE;
 
-if ($ITEM->{flag}!~/s/) {		# s ’Â—ñ•s‰Â
-	$disp.="<SPAN>¦‚±‚Ì¤•i‚Í’Â—ñ‚µ‚Ä‚à”„‚ê‚Ü‚¹‚ñ</SPAN><br>" if ($ITEM->{popular}==0);
-	$disp.="<SPAN>¦‚±‚Ì¤•i‚Í’Â—ñ‚µ‚Ä‚à‚Ù‚Æ‚ñ‚Ç”„‚ê‚Ü‚¹‚ñ</SPAN><br>" if ($ITEM->{popular} > 800000);
+if ($ITEM->{flag}!~/s/) {		# s é™³åˆ—ä¸å¯
+	$disp.="<SPAN>â€»ã“ã®å•†å“ã¯é™³åˆ—ã—ã¦ã‚‚å£²ã‚Œã¾ã›ã‚“</SPAN><br>" if ($ITEM->{popular}==0);
+	$disp.="<SPAN>â€»ã“ã®å•†å“ã¯é™³åˆ—ã—ã¦ã‚‚ã»ã¨ã‚“ã©å£²ã‚Œã¾ã›ã‚“</SPAN><br>" if ($ITEM->{popular} > 800000);
 	}
 $disp.="<hr width=500 noshade size=1>";
 
 if($DT->{item}[$itemno-1]>=$ITEM->{limit})
-	{$disp.='<BR>‚à‚¤‘qŒÉ‚Í'.$ITEM->{name}.'‚ªˆê”t‚Å‚·<BR>';}
+	{$disp.='<BR>ã‚‚ã†å€‰åº«ã¯'.$ITEM->{name}.'ãŒä¸€æ¯ã§ã™<BR>';}
 elsif($DT->{money}<$price && $price > 0)
-	{$disp.='<BR>‘‹à‚ª‘«‚è‚Ü‚¹‚ñ<BR>';}
+	{$disp.='<BR>è³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“<BR>';}
 elsif(GetStockTime($DT->{time})<$usetime)
-	{$disp.='<BR>ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>';}
+	{$disp.='<BR>æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>';}
 else
 {
 	$disp.="<FORM ACTION=\"action.cgi\" $METHOD>";
@@ -73,7 +73,7 @@ else
 	$disp.="<INPUT TYPE=HIDDEN NAME=pr VALUE=\"$price\">";
 	$disp.="<INPUT TYPE=HIDDEN NAME=sc VALUE=\"$showcase\">";
 	$disp.="<INPUT TYPE=HIDDEN NAME=it VALUE=\"$itemno\">";
-	$disp.="ã‹L‚ğ ";
+	$disp.="ä¸Šè¨˜ã‚’ ";
 	$limit=$ITEM[$itemno]->{limit}-$DT->{item}[$itemno-1];
 	my $money=$MAX_MONEY;
 	$money=int($DT->{money}/$price) if $price;
@@ -82,9 +82,9 @@ else
 	$msg{100}=100;
 	$msg{1000}=1000;
 	$msg{10000}=10000;
-	$msg{$stock}="$stock(‘S•”)";
-	$msg{$limit}="$limit(‘qŒÉÅ‘å)";
-	$msg{$money}="$money(‘‹àÅ‘å)";
+	$msg{$stock}="$stock(å…¨éƒ¨)";
+	$msg{$limit}="$limit(å€‰åº«æœ€å¤§)";
+	$msg{$money}="$money(è³‡é‡‘æœ€å¤§)";
 	$disp.="<SELECT NAME=num1 SIZE=1>";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1,10,100,1000,10000,$stock,$limit,$money))
@@ -94,13 +94,13 @@ else
 		$disp.="<OPTION VALUE=\"$cnt\">$msg{$cnt}";
 		$oldcnt=$cnt;
 	}
-	$disp.="</SELECT> $ITEM[$itemno]->{scale}A‚à‚µ‚­‚Í ";
+	$disp.="</SELECT> $ITEM[$itemno]->{scale}ã€ã‚‚ã—ãã¯ ";
 	$disp.="<INPUT TYPE=TEXT NAME=num2 SIZE=5> $ITEM[$itemno]->{scale} ";
 
-  if ($ITEM->{flag}=~/h/) {  $disp.="<INPUT TYPE=SUBMIT VALUE='ŒÙ‚¤'>";  }
-         else 	{ $disp.="<INPUT TYPE=SUBMIT VALUE='”ƒ‚¤'>"; }
+  if ($ITEM->{flag}=~/h/) {  $disp.="<INPUT TYPE=SUBMIT VALUE='é›‡ã†'>";  }
+         else 	{ $disp.="<INPUT TYPE=SUBMIT VALUE='è²·ã†'>"; }
 
-	$disp.="<br>(Á”ïŠÔ:".GetTime2HMS($usetime).")";
+	$disp.="<br>(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")";
 	$disp.="</FORM>";
 }
 

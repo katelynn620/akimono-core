@@ -1,4 +1,4 @@
-# write ƒvƒ‰ƒOƒCƒ“ 2004/02/28 —R˜Ò
+# write ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2004/02/28 ç”±ä¾†
 
 sub DataCommitOrAbort
 {
@@ -38,7 +38,7 @@ sub CheckLockStatus
 	return if $LOCKED eq '' || -e $LOCKED;
 	
 	WriteErrorLog("write lock check error ",$LOG_ERROR_FILE);
-	OutError("ˆÙíˆ—‚Å‚·BÅ‰‚©‚ç‚â‚è’¼‚µ‚Ä‚İ‚Ä‚­‚¾‚³‚¢B");
+	OutError("ç•°å¸¸å‡¦ç†ã§ã™ã€‚æœ€åˆã‹ã‚‰ã‚„ã‚Šç›´ã—ã¦ã¿ã¦ãã ã•ã„ã€‚");
 }
 
 sub DataWrite
@@ -47,7 +47,7 @@ sub DataWrite
 	
 	CheckLockStatus();
 	
-	DataFilesBackup() if (stat(GetPath($BACKUP_DIR,$DATA_FILE)))[9]<$NOW_TIME-$BACKUP_TIME; #$BACKUP_TIME•bŒo‚Á‚½‚çƒoƒbƒNƒAƒbƒv
+	DataFilesBackup() if (stat(GetPath($BACKUP_DIR,$DATA_FILE)))[9]<$NOW_TIME-$BACKUP_TIME; #$BACKUP_TIMEç§’çµŒã£ãŸã‚‰ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—
 	
 	utime($DTlasttime,$DTlasttime,GetPath($LASTTIME_FILE));
 	

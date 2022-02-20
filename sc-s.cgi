@@ -1,8 +1,8 @@
-# ’Â—ñ’Iˆ— 2005/01/06 —R˜Ò
+# é™³åˆ—æ£šå‡¦ç† 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 $Q{er}=(($Q{bk} eq "sc")?'main':'stock');
-OutError('•s³‚ÈŒÄ‚Ño‚µ‚Å‚·') if $Q{no}eq'';
+OutError('ä¸æ­£ãªå‘¼ã³å‡ºã—ã§ã™') if $Q{no}eq'';
 
 Lock();
 DataRead();
@@ -23,27 +23,27 @@ if($no<0 || $no>=$DT->{showcasecount}
 || $ITEM[$itemno]->{flag}=~/s/
 )
 {
-	OutError('•s³‚È—v‹‚Å‚·');
+	OutError('ä¸æ­£ãªè¦æ±‚ã§ã™');
 }
 
 $price=0;
 if($itemno>0)
 {
-	OutError('‚»‚ÌƒAƒCƒeƒ€‚ÍİŒÉ–³‚µ‚Å‚·') if !$DT->{item}[$itemno-1];
+	OutError('ãã®ã‚¢ã‚¤ãƒ†ãƒ ã¯åœ¨åº«ç„¡ã—ã§ã™') if !$DT->{item}[$itemno-1];
 	$price=$prc!=0 ? $prc : int($ITEM[$itemno]->{price} / 100 * $per);
 }
 $price=$MAX_MONEY if $price>$MAX_MONEY;
 
 if($itemno && $price)
 {
-	$ret="’I".($no+1)."‚É$ITEM[$itemno]->{name}‚ğ".GetMoneyString($price)."‚Å’Â—ñ‚µ‚Ü‚µ‚½B";
+	$ret="æ£š".($no+1)."ã«$ITEM[$itemno]->{name}ã‚’".GetMoneyString($price)."ã§é™³åˆ—ã—ã¾ã—ãŸã€‚";
 	PushLog(0,$DT->{id},$ret);
 }
 else
 {
 	$itemno=0;
 	$price=0;
-	$ret="’I".($no+1)."‚Ö‚Ì’Â—ñ‚ğ‚â‚ß‚Ü‚µ‚½B";
+	$ret="æ£š".($no+1)."ã¸ã®é™³åˆ—ã‚’ã‚„ã‚ã¾ã—ãŸã€‚";
 	PushLog(0,$DT->{id},$ret);
 }
 
@@ -56,8 +56,8 @@ DataCommitOrAbort();
 UnLock();
 
 $disp.=$TBT.$TRT.$TD.GetTagImgJob($DT->{job},$DT->{icon});
-$disp.=$TD.GetMenuTag('stock',	'[‘qŒÉ‚Ös‚­]');
-$disp.=GetMenuTag('main','[“X“à‚É–ß‚é]');
+$disp.=$TD.GetMenuTag('stock',	'[å€‰åº«ã¸è¡Œã]');
+$disp.=GetMenuTag('main','[åº—å†…ã«æˆ»ã‚‹]');
 $disp.=$TRE.$TBE;
 $disp.="<br>".$ret;
 

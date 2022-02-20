@@ -1,4 +1,4 @@
-# d•¡“o˜^ŒŸo 2004/01/20 —R˜Ò
+# é‡è¤‡ç™»éŒ²æ¤œå‡º 2004/01/20 ç”±ä¾†
 
 $NOMENU=1;
 $Q{bk}="none";
@@ -6,7 +6,7 @@ $NOITEM=1;
 DataRead();
 CheckUserPass();
 OutError("") if !$MASTER_USER;
-$disp.="<BIG>œŠXŠÔ‚Ìd•¡“o˜^ó‹µ</BIG><br><br>";
+$disp.="<BIG>â—è¡—é–“ã®é‡è¤‡ç™»éŒ²çŠ¶æ³</BIG><br><br>";
 
 @data=();
 foreach my $i(@OtherDir) {

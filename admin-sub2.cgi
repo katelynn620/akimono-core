@@ -1,4 +1,4 @@
-# ‘S‘ÌŠÇ— 2004/01/20 —R˜Ò
+# å…¨ä½“ç®¡ç† 2004/01/20 ç”±ä¾†
 
 CheckUserPass();
 OutError("") if !$MASTER_USER;
@@ -14,7 +14,7 @@ if($Q{log})
 elsif($Q{mode} eq "delitem")
 {
 	$num=CheckCount($Q{num1},$Q{num2},0,$MAX_MONEY);
-	OutError('Á‹‚·‚éƒAƒCƒeƒ€‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$num;
+	OutError('æ¶ˆå»ã™ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$num;
 
 	Lock();
 	DataRead();
@@ -32,7 +32,7 @@ elsif($Q{mode} eq "delitem")
 	DataWrite();
 	DataCommitOrAbort();
 	UnLock();
-	$disp.="ƒAƒCƒeƒ€No.".$num."‚ğƒvƒŒƒCƒf[ƒ^‚Ì’†‚©‚çÁ‹‚µ‚Ü‚µ‚½B";
+	$disp.="ã‚¢ã‚¤ãƒ†ãƒ No.".$num."ã‚’ãƒ—ãƒ¬ã‚¤ãƒ‡ãƒ¼ã‚¿ã®ä¸­ã‹ã‚‰æ¶ˆå»ã—ã¾ã—ãŸã€‚";
 	OutSkin();
 }
 elsif ($Q{ecode})
@@ -40,17 +40,17 @@ elsif ($Q{ecode})
 	$Q{tlyear}-=1900 if $Q{tlyear}>=2000;
 	$time=0;
 	$time=GetTimeLocal($Q{tlsec},$Q{tlmin},$Q{tlhour},$Q{tlday},$Q{tlmon}-1,$Q{tlyear});
-	OutError('“ú•tİ’è‚ª•s³‚Å‚·B') if !$time;
+	OutError('æ—¥ä»˜æ™‚åˆ»è¨­å®šãŒä¸æ­£ã§ã™ã€‚') if !$time;
 	Lock();
 	DataRead();
 	require (GetPath($ITEM_DIR,"event"));
 	my $key=$Q{ecode};
-	OutError('³‚µ‚¢ƒCƒxƒ“ƒgƒR[ƒh‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !defined($EVENT{$key});
+	OutError('æ­£ã—ã„ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !defined($EVENT{$key});
 	$DTevent{$key}=$time;
 	DataWrite();
 	DataCommitOrAbort();
 	UnLock();
-	$disp.="ƒCƒxƒ“ƒgƒR[ƒh".$Q{ecode}."‚ğ”­¶‚³‚¹‚Ü‚µ‚½B";
+	$disp.="ã‚¤ãƒ™ãƒ³ãƒˆã‚³ãƒ¼ãƒ‰".$Q{ecode}."ã‚’ç™ºç”Ÿã•ã›ã¾ã—ãŸã€‚";
 	OutSkin();
 }
 else
@@ -81,18 +81,18 @@ sub GetLog
 
 	if($Q{log}eq'.')
 	{
-		$disp.="<hr>ã‹Lƒ^ƒu‚æ‚è‰{——‚µ‚½‚¢ƒƒO‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢<br>";
-		$disp.="[$LOG_DELETESHOP_FILE] •Â“X/ˆÚ“]‚µ‚½“X•Ü‚ÌƒƒO<br>";
-		$disp.="[$LOG_ERROR_FILE] ŠeíƒGƒ‰[‚ÌƒƒO<br>";
-		$disp.="[$LOG_MOVESHOP_FILE] ˆÚ“]ó‚¯“ü‚ê‚ÌƒƒO<br>";
-		$disp.="[$LOG_DEBUG_FILE] ƒfƒoƒbƒOƒƒO<br>";
-		$disp.="[$LOG_GLOBAL_MSG_FILE] LˆæŒf¦”ÂƒƒO<br>";
-		$disp.="[$LOG_MARK_FILE] ƒ}[ƒNƒƒO<br>";
-		$disp.="<hr>‚È‚¨A•\\¦‚³‚ê‚é“à—e‚É‚Í¶‚ÌƒpƒXƒ[ƒh‚ªŠÜ‚Ü‚ê‚é‰Â”\\«‚à‚ ‚è‚Ü‚·‚Ì‚ÅA’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B";
+		$disp.="<hr>ä¸Šè¨˜ã‚¿ãƒ–ã‚ˆã‚Šé–²è¦§ã—ãŸã„ãƒ­ã‚°ã‚’é¸æŠã—ã¦ãã ã•ã„<br>";
+		$disp.="[$LOG_DELETESHOP_FILE] é–‰åº—/ç§»è»¢ã—ãŸåº—èˆ—ã®ãƒ­ã‚°<br>";
+		$disp.="[$LOG_ERROR_FILE] å„ç¨®ã‚¨ãƒ©ãƒ¼ã®ãƒ­ã‚°<br>";
+		$disp.="[$LOG_MOVESHOP_FILE] ç§»è»¢å—ã‘å…¥ã‚Œã®ãƒ­ã‚°<br>";
+		$disp.="[$LOG_DEBUG_FILE] ãƒ‡ãƒãƒƒã‚°ãƒ­ã‚°<br>";
+		$disp.="[$LOG_GLOBAL_MSG_FILE] åºƒåŸŸæ²ç¤ºæ¿ãƒ­ã‚°<br>";
+		$disp.="[$LOG_MARK_FILE] ãƒãƒ¼ã‚¯ãƒ­ã‚°<br>";
+		$disp.="<hr>ãªãŠã€è¡¨\ç¤ºã•ã‚Œã‚‹å†…å®¹ã«ã¯ç”Ÿã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒå«ã¾ã‚Œã‚‹å¯èƒ½\æ€§ã‚‚ã‚ã‚Šã¾ã™ã®ã§ã€æ³¨æ„ã—ã¦ãã ã•ã„ã€‚";
 	}
 	else
 	{
-		open(IN,GetPath($LOG_DIR,$Q{log})) or OutError('‘¶İ‚µ‚Ü‚¹‚ñ '.$Q{log});
+		open(IN,GetPath($LOG_DIR,$Q{log})) or OutError('å­˜åœ¨ã—ã¾ã›ã‚“ '.$Q{log});
 		my @data=reverse(<IN>);
 		close(IN);
 
@@ -148,7 +148,7 @@ sub GetMember
 
 	$disp.=$TB;
 	$disp.=$TR;
-	foreach(qw(IP No ID –¼‘O “X–¼ ‘n‹Æ ÅIlogin ‘‹à ‚²‚İ s“®time l‹C ”„ã xo •½‹Ï ’I” “€Œ‹ IPd•¡‹–‰Â))
+	foreach(qw(IP No ID åå‰ åº—å å‰µæ¥­ æœ€çµ‚login è³‡é‡‘ ã”ã¿ è¡Œå‹•time äººæ°— å£²ä¸Š æ”¯å‡º å¹³å‡ æ£šæ•° å‡çµ IPé‡è¤‡è¨±å¯))
 	{
 		$disp.=$TD.$_;
 	}
@@ -208,7 +208,7 @@ sub GetMember
 		$disp.=$TD.$DT->{profitstock};
 		$disp.=$TD.$DT->{showcasecount};
 		$disp.=$TD.$DT->{blocklogin};
-		$disp.=$TD.($DT->{nocheckip} ? 'd•¡‹–‰Â':'');
+		$disp.=$TD.($DT->{nocheckip} ? 'é‡è¤‡è¨±å¯':'');
 		#$disp.=$TD.$DT->{comment};
 		$disp.=$TRE;
 
@@ -225,19 +225,19 @@ sub GetMember
 			my($date,$ip,$agent,$referer,$accept)=split(/\t/);
 			if($sameA{"$ip\t$agent\t$referer\t$accept"}>1 && !$samecount{"$ip\t$agent\t$referer\t$accept"})
 			{
-				$warning.="œIP[$ip]&AGENT&ACCEPT&REFERERd•¡@";
+				$warning.="â—IP[$ip]&AGENT&ACCEPT&REFERERé‡è¤‡ã€€";
 			}
 			elsif($sameB{"$ip\t$agent\t$accept"}>1 && !$samecount{"$ip\t$agent\t$accept"})
 			{
-				$warning.="œIP[$ip]&AGENT&ACCEPTd•¡@";
+				$warning.="â—IP[$ip]&AGENT&ACCEPTé‡è¤‡ã€€";
 			}
 			elsif($sameC{"$ip\t$agent"}>1 && !$samecount{"$ip\t$agent"})
 			{
-				$warning.="œIP[$ip]&AGENTd•¡@";
+				$warning.="â—IP[$ip]&AGENTé‡è¤‡ã€€";
 			}
 			elsif($sameD{"$ip"}>1 && !$samecount{"$ip"})
 			{
-				$warning.="œIP[$ip]d•¡@";
+				$warning.="â—IP[$ip]é‡è¤‡ã€€";
 			}
 			$samecount{"$ip\t$agent\t$referer\t$accept"}++;
 			$samecount{"$ip\t$agent\t$accept"}++;
@@ -246,23 +246,23 @@ sub GetMember
 		}
 		if($count{$DT->{remoteaddr}}>1)
 		{
-			$warning.="œTRUE IP[$DT->{remoteaddr}]d•¡@";
+			$warning.="â—TRUE IP[$DT->{remoteaddr}]é‡è¤‡ã€€";
 		}
 
 		if($warning ne '')
 		{
 			#$list=~s/\t/<br>/g;
-			$disp.=$TR."<td colspan=\"20\"><a href=\"#$DT->{id}\">ª".$warning."</a>";
+			$disp.=$TR."<td colspan=\"20\"><a href=\"#$DT->{id}\">â†‘".$warning."</a>";
 			$disp.="".$TRE;
 		}
 		my $list=join("<br>",grep($_ ne "\n",@{$DT->{clientinfo}}));
-		$detail.="<pre><hr><a name=\"$DT->{id}\">œ$DT->{shopname} $DT->{name}<hr>$list</pre>";
+		$detail.="<pre><hr><a name=\"$DT->{id}\">â—$DT->{shopname} $DT->{name}<hr>$list</pre>";
 	}
 	$disp.=$TBE;
 	$disp.=$detail if (!$Q{only});
 }
 
-# ŠÈˆÕtimelocalŠÖ”i“ú•t=>•b”•ÏŠ·)
+# ç°¡æ˜“timelocalé–¢æ•°ï¼ˆæ—¥ä»˜=>ç§’æ•°å¤‰æ›)
 sub GetTimeLocal {
     my($Sec, $Min, $Hour, $Date, $Mon, $Year) = @_;
     my($sec, $min, $hour, $date, $mon, $year, $day, $yday, $isdst);

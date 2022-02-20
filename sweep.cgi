@@ -1,36 +1,36 @@
-# ‚¨‘|œ 2004/01/20 —R˜Ò
+# ãŠæƒé™¤ 2004/01/20 ç”±ä¾†
 
 DataRead();
 CheckUserPass();
 RequireFile('inc-html-ownerinfo.cgi');
 
-$disp.="<BIG>œ‚¨‘|œ</BIG><br><br>";
+$disp.="<BIG>â—ãŠæƒé™¤</BIG><br><br>";
 
-my $usetime=GetTimeDeal($DT->{trush})-$TIME_SEND_MONEY+3599;	#’[”‚ğØ‚èã‚°
+my $usetime=GetTimeDeal($DT->{trush})-$TIME_SEND_MONEY+3599;	#ç«¯æ•°ã‚’åˆ‡ã‚Šä¸Šã’
 my $time=int($usetime/3600);
 my $stocktime=int(GetStockTime($DT->{time})/3600);
 
 if($DT->{trush} < 10000)
 {
 	$disp.=$TB.$TR;
-	$disp.=$TD.GetTagImgKao("‚¨‘|œƒAƒhƒoƒCƒU","sweep").$TD;
-	$disp.="‚¨‘|œƒAƒhƒoƒCƒUFŒ»İ‚¨“X‚É–Ú—§‚Á‚½‚²‚İ‚Í‚ ‚è‚Ü‚¹‚ñB<br>";
-	$disp.="‚Ü‚½‚²‚İ‚ª‚½‚Ü‚Á‚½‚çC‚±‚Ü‚ß‚É‘|œ‚µ‚Ü‚µ‚å‚¤B";
+	$disp.=$TD.GetTagImgKao("ãŠæƒé™¤ã‚¢ãƒ‰ãƒã‚¤ã‚¶","sweep").$TD;
+	$disp.="ãŠæƒé™¤ã‚¢ãƒ‰ãƒã‚¤ã‚¶ï¼šç¾åœ¨ãŠåº—ã«ç›®ç«‹ã£ãŸã”ã¿ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚<br>";
+	$disp.="ã¾ãŸã”ã¿ãŒãŸã¾ã£ãŸã‚‰ï¼Œã“ã¾ã‚ã«æƒé™¤ã—ã¾ã—ã‚‡ã†ã€‚";
 	$disp.=$TRE.$TBE;
 HTML
 }
 else
 {
 	$disp.=$TB.$TR;
-	$disp.=$TD.GetTagImgKao("‚¨‘|œƒAƒhƒoƒCƒU","sweep").$TD;
-	$disp.="‚¨‘|œƒAƒhƒoƒCƒUFŒ»İ".int($DT->{trush}/10000)."kg‘Š“–‚Ì‚²‚İ‚ª‚ ‚è‚Ü‚·‚ËB<br>";
-	$disp.="‚±‚ê‚ğ‘S•”•Ğ•t‚¯‚é‚É‚Í".GetTime2found($usetime)."‚­‚ç‚¢‚©‚©‚è‚»‚¤‚Å‚·B";
+	$disp.=$TD.GetTagImgKao("ãŠæƒé™¤ã‚¢ãƒ‰ãƒã‚¤ã‚¶","sweep").$TD;
+	$disp.="ãŠæƒé™¤ã‚¢ãƒ‰ãƒã‚¤ã‚¶ï¼šç¾åœ¨".int($DT->{trush}/10000)."kgç›¸å½“ã®ã”ã¿ãŒã‚ã‚Šã¾ã™ã­ã€‚<br>";
+	$disp.="ã“ã‚Œã‚’å…¨éƒ¨ç‰‡ä»˜ã‘ã‚‹ã«ã¯".GetTime2found($usetime)."ãã‚‰ã„ã‹ã‹ã‚Šãã†ã§ã™ã€‚";
 	$disp.=$TRE.$TBE;
 
 	if ($stocktime < 1)
 	{
 	$disp.=<<"HTML";
-	<br><BIG>œŠÔw’èF</BIG>ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ
+	<br><BIG>â—æ™‚é–“æŒ‡å®šï¼š</BIG>æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“
 HTML
 	}
 	else
@@ -39,13 +39,13 @@ HTML
 	<br><FORM ACTION="action.cgi" $METHOD>
 	<INPUT TYPE=HIDDEN NAME=key VALUE=sweep-s>
 	$USERPASSFORM
-	<BIG>œŠÔw’èF</BIG>
+	<BIG>â—æ™‚é–“æŒ‡å®šï¼š</BIG>
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 HTML
 	$msg{1}=1; $msg{2}=2; $msg{3}=3; $msg{5}=5; $msg{10}=10;
-	$msg{$stocktime}="$stocktime(ŠÔÅ‘å)";
-	$msg{$time}="$time(‘|œÅ‘å)";
+	$msg{$stocktime}="$stocktime(æ™‚é–“æœ€å¤§)";
+	$msg{$time}="$time(æƒé™¤æœ€å¤§)";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1,2,3,5,10,$time,$stocktime))
 	{
@@ -55,9 +55,9 @@ HTML
 	}
 	$disp.=<<STR;
 	</SELECT>
-	ŠÔA‚à‚µ‚­‚Í
-	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2>ŠÔ
-	<INPUT TYPE=SUBMIT VALUE="‘|œ‚·‚é"></FORM>
+	æ™‚é–“ã€ã‚‚ã—ãã¯
+	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2>æ™‚é–“
+	<INPUT TYPE=SUBMIT VALUE="æƒé™¤ã™ã‚‹"></FORM>
 STR
 	}
 }

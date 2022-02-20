@@ -1,9 +1,9 @@
-# ˆø‰z‚µƒZƒ“ƒ^[ 2004/01/20 —R˜Ò
+# å¼•è¶Šã—ã‚»ãƒ³ã‚¿ãƒ¼ 2004/01/20 ç”±ä¾†
 
-OutError('ˆÚ“]‚ª•s‰Â‚Éİ’è‚³‚ê‚Ä‚¢‚Ü‚·') if !$MOVETOWN_ENABLE;
-OutError('ŠXƒR[ƒh‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ') if !$TOWN_CODE;
+OutError('ç§»è»¢ãŒä¸å¯ã«è¨­å®šã•ã‚Œã¦ã„ã¾ã™') if !$MOVETOWN_ENABLE;
+OutError('è¡—ã‚³ãƒ¼ãƒ‰ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“') if !$TOWN_CODE;
 my $townmaster=ReadTown($TOWN_CODE,'getown');
-OutError('ˆÚ“]ƒ‹[ƒg‚ª‚Â‚È‚ª‚Á‚Ä‚¢‚Ü‚¹‚ñ') if !$townmaster;
+OutError('ç§»è»¢ãƒ«ãƒ¼ãƒˆãŒã¤ãªãŒã£ã¦ã„ã¾ã›ã‚“') if !$townmaster;
 
 DataRead();
 CheckUserPass();
@@ -16,16 +16,16 @@ OutSkin();
 sub GetTownListHTML
 {
 	my @townlist=ReadTown();
-	return '<b>ˆÚ“]‰Â”\‚ÈŠX‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</b>' if !scalar(@townlist);
+	return '<b>ç§»è»¢å¯èƒ½ãªè¡—ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</b>' if !scalar(@townlist);
 	
 	my $ret;
-	$ret.='<BIG>œ‘¼‚ÌŠX‚Öˆø‰z‚µ</BIG><br><br>';
+	$ret.='<BIG>â—ä»–ã®è¡—ã¸å¼•è¶Šã—</BIG><br><br>';
 	$ret.=$TBT.$TRT.$TD;
 	foreach(@townlist)
 	{
 		$ret.="<SPAN>".$_->{name}."</SPAN><br>";
-		$ret.=GetTagA("[Šm”F]","action.cgi?key=jump&town=$_->{code}",0,"_blank");
-		$ret.=GetTagA("[ˆÚ“]è‘±]","action.cgi?key=move-f&$USERPASSURL&towncode=$_->{code}") if !$GUEST_USER;
+		$ret.=GetTagA("[ç¢ºèª]","action.cgi?key=jump&town=$_->{code}",0,"_blank");
+		$ret.=GetTagA("[ç§»è»¢æ‰‹ç¶š]","action.cgi?key=move-f&$USERPASSURL&towncode=$_->{code}") if !$GUEST_USER;
 		$ret.="<br>".$_->{comment}."<br><br>";
 	}
 	$ret.=$TRE.$TBE;

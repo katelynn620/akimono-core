@@ -1,11 +1,11 @@
-# ƒAƒCƒeƒ€”jŠü‰º¿‚¯ 2004/01/20 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ ç ´æ£„ä¸‹è«‹ã‘ 2004/01/20 ç”±ä¾†
 
-my $msg1="”jŠü";
-my $msg2="‘S•”";
+my $msg1="ç ´æ£„";
+my $msg2="å…¨éƒ¨";
 if ($ITEM[$itemno]->{flag}=~/h/)
 	{
-	$msg1="‰ðŒÙ";
-	$msg2="‘Sˆõ";
+	$msg1="è§£é›‡";
+	$msg2="å…¨å“¡";
 	}
 
 $disp.=<<STR;
@@ -14,7 +14,7 @@ $disp.=<<STR;
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=bk VALUE="$Q{bk}">
 <INPUT TYPE=HIDDEN NAME=item VALUE="$itemno">
-<BIG>œ$msg1F</BIG>
+<BIG>â—$msg1ï¼š</BIG>
 <SELECT NAME=cnt1>
 <OPTION VALUE="0" SELECTED>
 STR
@@ -34,10 +34,10 @@ STR
 	}
 $disp.=<<STR;
 </SELECT>
-$ITEM[$itemno]->{scale}A‚à‚µ‚­‚Í
+$ITEM[$itemno]->{scale}ã€ã‚‚ã—ãã¯
 <INPUT TYPE=TEXT SIZE=5 NAME=cnt2>
 $ITEM[$itemno]->{scale}
-<INPUT TYPE=SUBMIT VALUE="$msg1‚·‚é">(ŽžŠÔÁ”ï–³)
+<INPUT TYPE=SUBMIT VALUE="$msg1ã™ã‚‹">(æ™‚é–“æ¶ˆè²»ç„¡)
 </FORM>
 STR
 1;

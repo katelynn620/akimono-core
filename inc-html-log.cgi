@@ -1,8 +1,8 @@
-# V•·‰º¿‚¯ 2003/07/19 —R˜Ò
+# æ–°èä¸‹è«‹ã‘ 2003/07/19 ç”±ä¾†
 
 my $topic=$Q{key} ne "log";
 
-$disp.=$topic ? "<BIG>".$DT->{shopname}."‚Ìo—ˆ–</BIG><br><br>" : "<BIG>œV•·F‘¬•ñ</BIG><br><br>";
+$disp.=$topic ? "<BIG>".$DT->{shopname}."ã®å‡ºæ¥äº‹</BIG><br><br>" : "<BIG>â—æ–°èï¼šé€Ÿå ±</BIG><br><br>";
 
 my($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax);
 my $pagecontrol="";
@@ -16,7 +16,7 @@ else
 	($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 		=GetPage($Q{lpg},$LIST_PAGE_ROWS,scalar(@MESSAGE));
 	
-	my $formtarget="<OPTION VALUE=\"\"".($Q{tgt}eq""?" SELECTED":"").">‘S";
+	my $formtarget="<OPTION VALUE=\"\"".($Q{tgt}eq""?" SELECTED":"").">å…¨";
 	foreach (@DT)
 	{
 		my $name=$_->{shopname};
@@ -25,7 +25,7 @@ else
 	my $formmode="";
 	foreach (0..3)
 	{
-		my $name=('‘S','d—v','î•ñ','s“®')[$_];
+		my $name=('å…¨','é‡è¦','æƒ…å ±','è¡Œå‹•')[$_];
 		$formmode.="<OPTION VALUE=\"$_\"".($Q{lmd}==$_?" SELECTED":"").">$name";
 	}
 	
@@ -40,7 +40,7 @@ $formtarget
 <select name=lmd>
 $formmode
 </select>
-<input type=submit value="ŒŸõ">
+<input type=submit value="æ¤œç´¢">
 </form>
 HTML
 
@@ -63,7 +63,7 @@ HTML
 $disp.=$TB;
 if (!$topic && defined(@EVENTMSG)) {
 	foreach (sort(@EVENTMSG))
-		{$disp.=$TR.$TDB.'î•ñF'.$_.$TRE;}
+		{$disp.=$TR.$TDB.'æƒ…å ±ï¼š'.$_.$TRE;}
 	}
 $disp.=$TR.$TD;
 foreach my $cnt ($pagestart..$pageend)
@@ -76,26 +76,26 @@ foreach my $cnt ($pagestart..$pageend)
 	if($MOBILE)
 	{
 		if($id==$DT->{id})
-			{$disp.="”é:".$message;}
+			{$disp.="ç§˜:".$message;}
 		elsif($mode==1)
-			{$disp.="šd—v:".$message;}
+			{$disp.="â˜…é‡è¦:".$message;}
 		elsif($mode==2)
-			{$disp.="œî•ñ:".$message;}
+			{$disp.="â—æƒ…å ±:".$message;}
 		elsif($mode==3)
-			{$disp.="›s“®:".$message;}
+			{$disp.="â—‹è¡Œå‹•:".$message;}
 		else
 			{$disp.=$message;}
 	}
 	else
 	{
 		if($id==$DT->{id})
-			{$disp.="<FONT COLOR=\"#666666\">".$message."(”é)</FONT>";}
+			{$disp.="<FONT COLOR=\"#666666\">".$message."(ç§˜)</FONT>";}
 		elsif($mode==1)
-			{$disp.="<small>".GetTime2FormatTime($tm)."</small> <BIG>[d—v]".$message."</BIG>";}
+			{$disp.="<small>".GetTime2FormatTime($tm)."</small> <BIG>[é‡è¦]".$message."</BIG>";}
 		elsif($mode==2)
-			{$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>[î•ñ]".$message."</SPAN>";}
+			{$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>[æƒ…å ±]".$message."</SPAN>";}
 		elsif($mode==3)
-			{$disp.="<small>".GetTime2FormatTime($tm)."</small> [s“®]<B>".$message."</B>";}
+			{$disp.="<small>".GetTime2FormatTime($tm)."</small> [è¡Œå‹•]<B>".$message."</B>";}
 		else
 			{$disp.="<small>".GetTime2FormatTime($tm)."</small> ".$message;}
 	}

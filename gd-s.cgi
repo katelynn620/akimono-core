@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒhƒRƒ}ƒ“ƒhˆ— 2005/01/06 —R˜Ò
+# ã‚®ãƒ«ãƒ‰ã‚³ãƒãƒ³ãƒ‰å‡¦ç† 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 $Q{bk}=$Q{er}="gd";
@@ -7,7 +7,7 @@ my $usetime=3*60*60;
 Lock();
 DataRead();
 CheckUserPass();
-OutError('ƒMƒ‹ƒh‚É“ü‚Á‚Ä‚¢‚Ü‚¹‚ñ') if !$DT->{guild};
+OutError('ã‚®ãƒ«ãƒ‰ã«å…¥ã£ã¦ã„ã¾ã›ã‚“') if !$DT->{guild};
 ReadGuild();
 ReadGuildData();
 
@@ -28,26 +28,26 @@ sub fund
 {
 $count=CheckCount($Q{cnt1},$Q{cnt2},0,$DT->{money});
 
-OutError('Šñ•t‹àŠz‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if !$count;
-OutError('Å’á‚Å‚à'.GetMoneyString(100000).'‚Í©“X‚Éc‚µ‚Ü‚µ‚å‚¤') if ($DT->{money} - $count) < 100000;
+OutError('å¯„ä»˜é‡‘é¡ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if !$count;
+OutError('æœ€ä½ã§ã‚‚'.GetMoneyString(100000).'ã¯è‡ªåº—ã«æ®‹ã—ã¾ã—ã‚‡ã†') if ($DT->{money} - $count) < 100000;
 
-$ret="ƒMƒ‹ƒhu".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."v‚É".GetMoneyString($count)."Šñ•t";
+$ret="ã‚®ãƒ«ãƒ‰ã€Œ".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."ã€ã«".GetMoneyString($count)."å¯„ä»˜";
 EditGuildMoney($DT->{guild} ,$count);
 $DT->{money}-=$count;
 $DT->{paytoday}+=$count;
-PushLog(0,0,$DT->{shopname}."‚ªƒMƒ‹ƒhu".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."v‚É".GetMoneyString($count)."Šñ•t‚µ‚Ü‚µ‚½B");
+PushLog(0,0,$DT->{shopname}."ãŒã‚®ãƒ«ãƒ‰ã€Œ".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."ã€ã«".GetMoneyString($count)."å¯„ä»˜ã—ã¾ã—ãŸã€‚");
 }
 
 sub break
 {
-OutError('Œ¨‘‚«‚ª‚Â‚©‚È‚¢‚ÆÀs‚Å‚«‚Ü‚¹‚ñ') if (!$DT->{user}{_so_e});
-OutError('ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ') if GetStockTime($DT->{time})<$usetime;
+OutError('è‚©æ›¸ããŒã¤ã‹ãªã„ã¨å®Ÿè¡Œã§ãã¾ã›ã‚“') if (!$DT->{user}{_so_e});
+OutError('æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“') if GetStockTime($DT->{time})<$usetime;
 UseTime($usetime);
 my $tg=$Q{tg};
-OutError('•W“I‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if !$tg;
-OutError('‚»‚ÌƒMƒ‹ƒh‚É‘Î‚µ‚ÄUŒ‚‚Í‚Å‚«‚Ü‚¹‚ñ') if ($GUILD_DATA{$tg}->{money} <= $GUILD_DATA{$DT->{guild}}->{money});
+OutError('æ¨™çš„ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if !$tg;
+OutError('ãã®ã‚®ãƒ«ãƒ‰ã«å¯¾ã—ã¦æ”»æ’ƒã¯ã§ãã¾ã›ã‚“') if ($GUILD_DATA{$tg}->{money} <= $GUILD_DATA{$DT->{guild}}->{money});
 
-$ret="ƒMƒ‹ƒhu".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."v‚ÌƒuƒŒƒCƒNB";
+$ret="ã‚®ãƒ«ãƒ‰ã€Œ".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."ã€ã®ãƒ–ãƒ¬ã‚¤ã‚¯ã€‚";
 my $attack=0;
 my $powerdeg=$GUILD_DATA{$DT->{guild}}->{atk} - $GUILD_DATA{$tg}->{def} + int(rand(50));
 $attack= int( ($GUILD_DATA{$tg}->{money} + 1000000) * $powerdeg / 1600) if ($powerdeg > 0);
@@ -55,9 +55,9 @@ $attack= int( ($GUILD_DATA{$tg}->{money} + 1000000) * $powerdeg / 1600) if ($pow
 $GUILD_DATA{$DT->{guild}}->{atk}=int($GUILD_DATA{$DT->{guild}}->{atk} *9 /10);
 $GUILD_DATA{$tg}->{def}=int($GUILD_DATA{$tg}->{def} *4 /5);
 
-$ret.="‚µ‚©‚µu".$GUILD{$tg}->[$GUILDIDX_name]."v‚Í–hŒäI",PushLog(2,0,$ret),return if (!$attack);
+$ret.="ã—ã‹ã—ã€Œ".$GUILD{$tg}->[$GUILDIDX_name]."ã€ã¯é˜²å¾¡ï¼",PushLog(2,0,$ret),return if (!$attack);
 
-$ret.="u".$GUILD{$tg}->[$GUILDIDX_name]."v‚©‚ç".GetMoneyString($attack)."‚ğ’DæI";
+$ret.="ã€Œ".$GUILD{$tg}->[$GUILDIDX_name]."ã€ã‹ã‚‰".GetMoneyString($attack)."ã‚’å¥ªå–ï¼";
 EditGuildMoney($tg ,-$attack);
 PushLog(2,0,$ret);
 
@@ -66,8 +66,8 @@ $attack=int($attack * 9 / 10);
 EditGuildMoney($DT->{guild} ,$attack);
 $DT->{money}+=$income;
 $DT->{saletoday}+=$income;
-PushLog(0,$DT->{id},"ƒuƒŒƒCƒN¬Œ÷‚Ì•ñ§‹à‚Æ‚µ‚Ä".GetMoneyString($income)."“üèB");
-$ret.="<br>ƒuƒŒƒCƒN¬Œ÷‚Ì•ñ§‹à‚Æ‚µ‚Ä".GetMoneyString($income)."“üèB";
+PushLog(0,$DT->{id},"ãƒ–ãƒ¬ã‚¤ã‚¯æˆåŠŸã®å ±å¥¨é‡‘ã¨ã—ã¦".GetMoneyString($income)."å…¥æ‰‹ã€‚");
+$ret.="<br>ãƒ–ãƒ¬ã‚¤ã‚¯æˆåŠŸã®å ±å¥¨é‡‘ã¨ã—ã¦".GetMoneyString($income)."å…¥æ‰‹ã€‚";
 if ($GUILD_DATA{$tg}->{money} < 0)
 	{
 	unlink($COMMON_DIR."/".$tg.".pl") ;
@@ -82,16 +82,16 @@ my $checkok;
 $ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{leadt} eq $MYDIR && $GUILD_DETAIL{$DT->{guild}}->{leader} == $DT->{id});
 $ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{$MYDIR} == $DT->{id});
 OutError('bad request') if (!$ckeckok);
-OutError('Œ¨‘‚«‚ª‚Â‚©‚È‚¢‚ÆÀs‚Å‚«‚Ü‚¹‚ñ') if (!$DT->{user}{_so_e});
-OutError('ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ') if GetStockTime($DT->{time})<$usetime;
+OutError('è‚©æ›¸ããŒã¤ã‹ãªã„ã¨å®Ÿè¡Œã§ãã¾ã›ã‚“') if (!$DT->{user}{_so_e});
+OutError('æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“') if GetStockTime($DT->{time})<$usetime;
 UseTime($usetime);
-OutError('‘‹­‚Ì•K—v‚ª‚ ‚è‚Ü‚¹‚ñ') if ($GUILD_DATA{$DT->{guild}}->{atk} > 990);
+OutError('å¢—å¼·ã®å¿…è¦ãŒã‚ã‚Šã¾ã›ã‚“') if ($GUILD_DATA{$DT->{guild}}->{atk} > 990);
 my $guild=$GUILD_DATA{$DT->{guild}};
 my $cnt=int($guild->{money} / 4);
 $guild->{money} -= $cnt;
 $guild->{atk} += int($cnt/25000);
 $guild->{atk} = 1000 if $guild->{atk} > 1000;
-$ret = "ƒMƒ‹ƒhu".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."v‚ªŒR”õ‚ğ‘‹­‚µ‚Ü‚µ‚½B";
+$ret = "ã‚®ãƒ«ãƒ‰ã€Œ".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."ã€ãŒè»å‚™ã‚’å¢—å¼·ã—ã¾ã—ãŸã€‚";
 PushLog(0,0,$ret);
 }
 

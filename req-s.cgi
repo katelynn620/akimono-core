@@ -1,19 +1,19 @@
-# ˆË—Šˆ— 2005/03/30 —R˜Ò
+# ä¾é ¼å‡¦ç† 2005/03/30 ç”±ä¾†
 
 Lock();
 DataRead();
 CheckUserPass();
 RequireFile('inc-req.cgi');
 
-$disp.="<BIG>œˆË—ŠŠ</BIG><br><br>";
+$disp.="<BIG>â—ä¾é ¼æ‰€</BIG><br><br>";
 
 my $functionname=$Q{mode};
 OutError("bad request") if !defined(&$functionname);
 &$functionname;
 
 $disp.="<br><br>".$TBT.$TRT.$TD.GetTagImgJob($DT->{job},$DT->{icon});
-$disp.=$TD.GetMenuTag('stock',	'[‘qŒÉ‚Ö]');
-$disp.=GetMenuTag('req','[‘±‚¯‚ÄˆË—Š‚ğŒ©‚é]');
+$disp.=$TD.GetMenuTag('stock',	'[å€‰åº«ã¸]');
+$disp.=GetMenuTag('req','[ç¶šã‘ã¦ä¾é ¼ã‚’è¦‹ã‚‹]');
 $disp.=$TRE.$TBE;
 
 WriteAuc();
@@ -33,29 +33,29 @@ sub new
 	$pr=CheckCount($Q{pr},0,0,$MAX_MONEY);
 	$pr=$pr * $num if ($Q{unit})&&($prn < 0);
 	$num=$num * $pr if ($Q{unit})&&($itemno < 0);
-	OutError($AucImg.'ˆË—Š•i‚ÌŒÂ”‚â‰¿Ši‚Ìw’è‚ğ–Y‚ê‚Ä‚é‚İ‚½‚¢‚¾‚ºB') if ($pr < 1) ;
-	OutError($AucImg.'•ñV•i‚ÌŒÂ”‚â‰¿Ši‚Ìw’è‚ğ–Y‚ê‚Ä‚é‚İ‚½‚¢‚¾‚ºB') if ($num < 1) ;
+	OutError($AucImg.'ä¾é ¼å“ã®å€‹æ•°ã‚„ä¾¡æ ¼ã®æŒ‡å®šã‚’å¿˜ã‚Œã¦ã‚‹ã¿ãŸã„ã ãœã€‚') if ($pr < 1) ;
+	OutError($AucImg.'å ±é…¬å“ã®å€‹æ•°ã‚„ä¾¡æ ¼ã®æŒ‡å®šã‚’å¿˜ã‚Œã¦ã‚‹ã¿ãŸã„ã ãœã€‚') if ($num < 1) ;
 	if ($itemno > 0) {
-		OutError($AucImg.'‚¨‚¢‚¨‚¢C‚È‚¢‘³‚ÍU‚ê‚È‚¢‚ºI') if ($DT->{item}[$itemno-1] < $num) ;
-		OutError($AucImg.'‚»‚Ì•i•¨‚ğo•i‚·‚é‚±‚Æ‚Í‚Å‚«‚È‚¢‚ºB') if ($ITEM[$itemno]->{flag}=~/r/) ;	# r ˆË—Š•s‰Â
+		OutError($AucImg.'ãŠã„ãŠã„ï¼Œãªã„è¢–ã¯æŒ¯ã‚Œãªã„ãœï¼') if ($DT->{item}[$itemno-1] < $num) ;
+		OutError($AucImg.'ãã®å“ç‰©ã‚’å‡ºå“ã™ã‚‹ã“ã¨ã¯ã§ããªã„ãœã€‚') if ($ITEM[$itemno]->{flag}=~/r/) ;	# r ä¾é ¼ä¸å¯
 		$numrate=$ITEM[$itemno]->{price} * $num;
 		} else {
-		OutError($AucImg.'‚¨‚¢‚¨‚¢C‚È‚¢‘³‚ÍU‚ê‚È‚¢‚ºI') if ($DT->{money} < $num);
+		OutError($AucImg.'ãŠã„ãŠã„ï¼Œãªã„è¢–ã¯æŒ¯ã‚Œãªã„ãœï¼') if ($DT->{money} < $num);
 		$numrate=$num;
 		}
-	OutError($AucImg.'ˆË—Š•i‚Æ•ñV•i‚ª“¯‚¶‚¶‚á‚ æˆø‚É‚È‚ç‚È‚¢‚ºI') if ($itemno == $prn) ;
+	OutError($AucImg.'ä¾é ¼å“ã¨å ±é…¬å“ãŒåŒã˜ã˜ã‚ƒã‚å–å¼•ã«ãªã‚‰ãªã„ãœï¼') if ($itemno == $prn) ;
 	if ($prn > 0) {
-		OutError($AucImg.'ˆË—Š•i‚ÌŒÂ”‚ª‘½‚·‚¬‚Ä’B¬‚Å‚«‚»‚¤‚à‚È‚¢‚ºB') if ($pr > $ITEM[$prn]->{limit}) ;
-		OutError($AucImg.'‚»‚Ì•i•¨‚ğˆË—Š‚·‚é‚±‚Æ‚Í‚Å‚«‚È‚¢‚ºB') if ($ITEM[$prn]->{flag}=~/r/)||($ITEM[$prn]->{flag}=~/o/);	# o o•i‚Ì‚İ
+		OutError($AucImg.'ä¾é ¼å“ã®å€‹æ•°ãŒå¤šã™ãã¦é”æˆã§ããã†ã‚‚ãªã„ãœã€‚') if ($pr > $ITEM[$prn]->{limit}) ;
+		OutError($AucImg.'ãã®å“ç‰©ã‚’ä¾é ¼ã™ã‚‹ã“ã¨ã¯ã§ããªã„ãœã€‚') if ($ITEM[$prn]->{flag}=~/r/)||($ITEM[$prn]->{flag}=~/o/);	# o å‡ºå“ã®ã¿
 		$prrate=$ITEM[$prn]->{price} * $pr;
 		} else {
 		$prrate=$pr;
 		}
-	OutError($AucImg.'ˆË—Š‚Æ•ñV‚Ì‰¿’l‚ª‚Â‚è‚ ‚Á‚Ä‚¢‚È‚¢‚ºBğŒ‚ğŒ©’¼‚µ‚Ä‚­‚êB') if ($prrate > $numrate * 2) || ($numrate > $prrate * 2);
+	OutError($AucImg.'ä¾é ¼ã¨å ±é…¬ã®ä¾¡å€¤ãŒã¤ã‚Šã‚ã£ã¦ã„ãªã„ãœã€‚æ¡ä»¶ã‚’è¦‹ç›´ã—ã¦ãã‚Œã€‚') if ($prrate > $numrate * 2) || ($numrate > $prrate * 2);
 
 	my @list=map{$_->{id}}@REQ;
 	@list=grep($_ eq $DT->{id},@list);
-	OutError($AucImg.'‚±‚êˆÈãˆË—Š‚ğo‚·‚±‚Æ‚Í‚Å‚«‚È‚¢‚ºI') if (scalar(@list) >= $REQUEST_CAPACITY);
+	OutError($AucImg.'ã“ã‚Œä»¥ä¸Šä¾é ¼ã‚’å‡ºã™ã“ã¨ã¯ã§ããªã„ãœï¼') if (scalar(@list) >= $REQUEST_CAPACITY);
 
 	@REQ=reverse(@REQ);
 	$Scount++;
@@ -73,20 +73,20 @@ sub new
 	my $cost=0;
 	$cost=int($num * $DTTaxrate / 100) if ($itemno < 0);
 	$cost=int($pr * $DTTaxrate / 100) if ($prn < 0);
-	OutError($AucImg.'‚¨‚âC‘‹à‚ª‘«‚è‚È‚­‚ÄÅ‹à‚ğ•¥‚¦‚È‚¢‚İ‚½‚¢‚¾‚ºB') if ($cost > $DT->{money});
+	OutError($AucImg.'ãŠã‚„ï¼Œè³‡é‡‘ãŒè¶³ã‚Šãªãã¦ç¨é‡‘ã‚’æ‰•ãˆãªã„ã¿ãŸã„ã ãœã€‚') if ($cost > $DT->{money});
 	$DT->{taxtoday}+=$cost;
 	$DT->{money}-=$cost;
-	$disp.=$AucImg.'ˆË—Š‚ğì¬‚µ‚½‚ºB‘‚­’B¬‚³‚ê‚é‚Æ‚¢‚¢‚ÈI';
+	$disp.=$AucImg.'ä¾é ¼ã‚’ä½œæˆã—ãŸãœã€‚æ—©ãé”æˆã•ã‚Œã‚‹ã¨ã„ã„ãªï¼';
 }
 
 sub plus
 {
 	$i=SearchReqIndex($Q{idx});
-	OutError('w’è‚³‚ê‚½æˆø‚Í‘¶İ‚µ‚Ü‚¹‚ñ') if ($i==-1);
+	OutError('æŒ‡å®šã•ã‚ŒãŸå–å¼•ã¯å­˜åœ¨ã—ã¾ã›ã‚“') if ($i==-1);
 	my($itemno,$num,$prn,$pr,$mode)=($REQ[$i]->{itemno},$REQ[$i]->{num},$REQ[$i]->{prn},$REQ[$i]->{pr},$REQ[$i]->{mode});
-	OutError($AucImg.'‚±‚Ìæˆø‚Í‚à‚¤’B¬‚³‚ê‚Ä‚é‚ºB‚Ü‚½‚æ‚ë‚µ‚­—Š‚Ş‚ÈB') if defined($id2idx{$mode});
-	OutError($AucImg.'‚¨‚¢‚¨‚¢A‚È‚¢‘³‚ÍU‚ê‚È‚¢‚ºI') if ($prn > 0)&&($DT->{item}[$prn-1] < $pr) ;
-	OutError($AucImg.'‚¨‚¢‚¨‚¢A‚È‚¢‘³‚ÍU‚ê‚È‚¢‚ºI') if ($prn < 0)&&($DT->{money} < $pr) ;
+	OutError($AucImg.'ã“ã®å–å¼•ã¯ã‚‚ã†é”æˆã•ã‚Œã¦ã‚‹ãœã€‚ã¾ãŸã‚ˆã‚ã—ãé ¼ã‚€ãªã€‚') if defined($id2idx{$mode});
+	OutError($AucImg.'ãŠã„ãŠã„ã€ãªã„è¢–ã¯æŒ¯ã‚Œãªã„ãœï¼') if ($prn > 0)&&($DT->{item}[$prn-1] < $pr) ;
+	OutError($AucImg.'ãŠã„ãŠã„ã€ãªã„è¢–ã¯æŒ¯ã‚Œãªã„ãœï¼') if ($prn < 0)&&($DT->{money} < $pr) ;
 
 	$DT->{item}[$prn-1]-=$pr if ($prn > 0);
 	$DT->{money}-=$pr, $DT->{paytoday}+=$pr if ($prn < 0);
@@ -95,14 +95,14 @@ sub plus
 		{
 		$DT->{item}[$itemno-1]+=$num;
 		$DT->{item}[$itemno-1]=$ITEM[$itemno]->{limit} if ($DT->{item}[$itemno-1]>$ITEM[$itemno]->{limit});
-		$disp.=$AucImg.'‚±‚ê‚ª•ñV‚Ì'.$ITEM[$itemno]->{name}.' '.$num.$ITEM[$itemno]->{scale}.'‚¾B‚²‚­‚ë‚¤‚³‚ñI';
+		$disp.=$AucImg.'ã“ã‚ŒãŒå ±é…¬ã®'.$ITEM[$itemno]->{name}.' '.$num.$ITEM[$itemno]->{scale}.'ã ã€‚ã”ãã‚ã†ã•ã‚“ï¼';
 		}
 	else
 		{
 		$DT->{money}+=$num;
 		$DT->{saletoday}+=$num;
 		$DT[$id2idx{$id}]->{paytoday}+=$pr if defined($id2idx{$id});
-		$disp.=$AucImg.'‚±‚ê‚ª•ñV‚Ì'.GetMoneyString($num).'‚¾B‚²‚­‚ë‚¤‚³‚ñI';
+		$disp.=$AucImg.'ã“ã‚ŒãŒå ±é…¬ã®'.GetMoneyString($num).'ã ã€‚ã”ãã‚ã†ã•ã‚“ï¼';
 		}
 	$REQ[$i]->{mode}=$DT->{id};
 }
@@ -110,7 +110,7 @@ sub plus
 sub end
 {
 	$i=SearchReqIndex($Q{idx});
-	OutError('w’è‚³‚ê‚½æˆø‚Í‘¶İ‚µ‚Ü‚¹‚ñ') if ($i==-1);
+	OutError('æŒ‡å®šã•ã‚ŒãŸå–å¼•ã¯å­˜åœ¨ã—ã¾ã›ã‚“') if ($i==-1);
 	my($itemno,$num)=($REQ[$i]->{itemno},$REQ[$i]->{num});
 
 	if ($itemno> 0)
@@ -124,28 +124,28 @@ sub end
 		}
 
 	undef $REQ[$i];
-	$disp.=$AucImg.'¡‰ñ‚ÌˆË—Š‚ğ‘Å‚¿Ø‚Á‚½‚ºB‚Ü‚½‚æ‚ë‚µ‚­—Š‚Ş‚ÈB';
+	$disp.=$AucImg.'ä»Šå›ã®ä¾é ¼ã‚’æ‰“ã¡åˆ‡ã£ãŸãœã€‚ã¾ãŸã‚ˆã‚ã—ãé ¼ã‚€ãªã€‚';
 }
 
 sub thank
 {
 	$i=SearchReqIndex($Q{idx});
-	OutError('w’è‚³‚ê‚½æˆø‚Í‘¶İ‚µ‚Ü‚¹‚ñ') if ($i==-1);
-	OutError('•s³‚È—v‹‚Å‚·') if ($REQ[$i]->{id} != $DT->{id});
+	OutError('æŒ‡å®šã•ã‚ŒãŸå–å¼•ã¯å­˜åœ¨ã—ã¾ã›ã‚“') if ($i==-1);
+	OutError('ä¸æ­£ãªè¦æ±‚ã§ã™') if ($REQ[$i]->{id} != $DT->{id});
 	my($no,$itemno,$num,$prn,$pr,$mode)=($REQ[$i]->{no},$REQ[$i]->{itemno},$REQ[$i]->{num},$REQ[$i]->{prn},$REQ[$i]->{pr},$REQ[$i]->{mode});
 
 	if ($prn > 0) {
 		$DT->{item}[$prn-1]+=$pr;
 		$DT->{item}[$prn-1]=$ITEM[$prn]->{limit} if ($DT->{item}[$prn-1]>$ITEM[$prn]->{limit});
-		$disp.=$AucImg.'‚±‚ê‚ªˆË—Š•i‚Ì'.$ITEM[$prn]->{name}.' '.$pr.$ITEM[$prn]->{scale}.'‚¾B<br>';
-		$disp.=$DT[$id2idx{$mode}]->{shopname}.'‚³‚ñ‚ª“Í‚¯‚Ä‚­‚ê‚½‚ºI';
+		$disp.=$AucImg.'ã“ã‚ŒãŒä¾é ¼å“ã®'.$ITEM[$prn]->{name}.' '.$pr.$ITEM[$prn]->{scale}.'ã ã€‚<br>';
+		$disp.=$DT[$id2idx{$mode}]->{shopname}.'ã•ã‚“ãŒå±Šã‘ã¦ãã‚ŒãŸãœï¼';
 		}
 		else
 		{
 		$DT->{money}+=$pr;
 		$DT->{saletoday}+=$pr;
-		$disp.=$AucImg.'‚±‚ê‚ª‘ã‹à‚Ì'.GetMoneyString($pr).'‚¾B<br>';
-		$disp.=$DT[$id2idx{$mode}]->{shopname}.'‚³‚ñ‚ª•¥‚Á‚Ä‚­‚ê‚½‚ºI';
+		$disp.=$AucImg.'ã“ã‚ŒãŒä»£é‡‘ã®'.GetMoneyString($pr).'ã ã€‚<br>';
+		$disp.=$DT[$id2idx{$mode}]->{shopname}.'ã•ã‚“ãŒæ‰•ã£ã¦ãã‚ŒãŸãœï¼';
 		}
 	undef $REQ[$i];
 }

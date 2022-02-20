@@ -1,16 +1,16 @@
-# “X“à•\¦ 2005/01/06 —R˜Ò
+# åº—å†…è¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 ReadLetter();
 
-# ‰æ‘œ’è‹`
+# ç”»åƒå®šç¾©
 my $space='<IMG class="i" SRC="'.$IMAGE_URL.'/map/dummy.png">';
 my $vspace='<IMG WIDTH="64" HEIGHT="16" SRC="'.$IMAGE_URL.'/map/dummy.png">';
 $gold='<IMG width="24" height="24" SRC="'.$IMAGE_URL.'/map/c-sg.png">';
 $trush='<IMG class="c" SRC="'.$IMAGE_URL.'/map/c-st.png">';
-my $post=GetMenuTag('letter','<acronym title="—X•Ö” "><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-sp.png"></acronym>');
-my $news=GetMenuTag('log','<acronym title="V•·"><IMG width="24" height="26" SRC="'.$IMAGE_URL.'/map/c-sn.png"></acronym>');
-my $stock=GetMenuTag('stock','<acronym title="‘qŒÉ"><IMG WIDTH="90" HEIGHT="42" SRC="'.$IMAGE_URL.'/map/shops.png"></acronym>');
-my $dwarf=GetMenuTag('dwarf','<acronym title="ƒhƒ[ƒt‘î”z•Ö"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-s11.png"></acronym>');
+my $post=GetMenuTag('letter','<acronym title="éƒµä¾¿ç®±"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-sp.png"></acronym>');
+my $news=GetMenuTag('log','<acronym title="æ–°è"><IMG width="24" height="26" SRC="'.$IMAGE_URL.'/map/c-sn.png"></acronym>');
+my $stock=GetMenuTag('stock','<acronym title="å€‰åº«"><IMG WIDTH="90" HEIGHT="42" SRC="'.$IMAGE_URL.'/map/shops.png"></acronym>');
+my $dwarf=GetMenuTag('dwarf','<acronym title="ãƒ‰ãƒ¯ãƒ¼ãƒ•å®…é…ä¾¿"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-s11.png"></acronym>');
 
 $image[0]='<td WIDTH="208" HEIGHT="64" style="background-image : url('.$IMAGE_URL.'/map/shop1a.png)">';
 $image[1]='<td valign=bottom WIDTH="96" style="background-image : url('.$IMAGE_URL.'/map/shop2a.png)">';
@@ -19,7 +19,7 @@ $image[3]='<td style="background-image : url('.$IMAGE_URL.'/map/shop2b.png)">';
 $image[4]='<td HEIGHT="48" align=center valign=top style="background-image : url('.$IMAGE_URL.'/map/shop1c.png)">';
 $image[5]='<td valign=top style="background-image : url('.$IMAGE_URL.'/map/shop2c.png)">';
 
-$disp.="<BIG>œ".$DT->{shopname}."“X“à</BIG><br><br>";
+$disp.="<BIG>â—".$DT->{shopname}."åº—å†…</BIG><br><br>";
 
 DevelopImage();
 HelpMessage();
@@ -59,7 +59,7 @@ sub OwnerInfo
 	if($tm<0)
 	{
 		$tm=-$tm;
-		$tm='s“®‰Â”\‚Ü‚Å‚ ‚Æ '.GetTime2HMS($tm);
+		$tm='è¡Œå‹•å¯èƒ½ã¾ã§ã‚ã¨ '.GetTime2HMS($tm);
 	}
 	else
 	{
@@ -77,12 +77,12 @@ STR
 	$disp.=$TD."<SPAN>RANK</SPAN> ".($id2idx{$DT->{id}}+1).GetTopCountImage($DT->{rankingcount}).DignityDefine($DT->{dignity},1)."<br>";
 	$disp.=GetTagImgGuild($DT->{guild})."<b>".$DT->{shopname}."</b>".$TRE;
 	$disp.=<<STR;
-	$TR$TDB‘‹à$TD$moneymsg$TRE
-	$TR$TDBŠÔ$TD$tm$TRE
-	$TR$TDBl‹C$TD$rankmsg$TRE
-	$TR$TDB‚²‚İ$TD$cleanmsg$TRE
-	$TR$TDBƒRƒƒ“ƒg$TD<INPUT TYPE=TEXT NAME=cmt SIZE=20 VALUE="$DT->{comment}">
-	<INPUT TYPE=SUBMIT VALUE="•ÏX">$TRE$TBE
+	$TR$TDBè³‡é‡‘$TD$moneymsg$TRE
+	$TR$TDBæ™‚é–“$TD$tm$TRE
+	$TR$TDBäººæ°—$TD$rankmsg$TRE
+	$TR$TDBã”ã¿$TD$cleanmsg$TRE
+	$TR$TDBã‚³ãƒ¡ãƒ³ãƒˆ$TD<INPUT TYPE=TEXT NAME=cmt SIZE=20 VALUE="$DT->{comment}">
+	<INPUT TYPE=SUBMIT VALUE="å¤‰æ›´">$TRE$TBE
 STR
 }
 
@@ -107,38 +107,38 @@ $chara="";
 my $i=int($NOW_TIME / 3600) % 3;
 if (!$show)
 	{
-	$helper=TagChara("İŒÉ‚ğØ‚ç‚µ‚¿‚á‚Á‚Ä‚é‚ñ‚Å‚·BƒXƒ~ƒ}ƒZƒ“c","0");
+	$helper=TagChara("åœ¨åº«ã‚’åˆ‡ã‚‰ã—ã¡ã‚ƒã£ã¦ã‚‹ã‚“ã§ã™ã€‚ã‚¹ãƒŸãƒã‚»ãƒ³â€¦","0");
 	if ($i == 0)
 		{
-		$chara=TagChara("‚ ‚è‚á‚è‚áC‰½‚É‚à”„‚Á‚Ä‚È‚¢‚¼B¢‚Á‚½B","1").$vspace;
+		$chara=TagChara("ã‚ã‚Šã‚ƒã‚Šã‚ƒï¼Œä½•ã«ã‚‚å£²ã£ã¦ãªã„ãã€‚å›°ã£ãŸã€‚","1").$vspace;
 		}
 	elsif ($i == 1)
 		{
-		$chara=$vspace.TagChara("‚¹‚Á‚©‚­”ƒ‚¢‚É—ˆ‚½‚Ì‚É‰½‚É‚à‚È‚¢cB‚Ç‚¤‚µ‚æ‚¤H","2").TagChara("‚µ‚å‚¤‚ª‚È‚¢‚ËB‚à‚¤‚¿‚å‚Á‚Æ‘Ò‚Á‚Ä‚İ‚éH","3");
+		$chara=$vspace.TagChara("ã›ã£ã‹ãè²·ã„ã«æ¥ãŸã®ã«ä½•ã«ã‚‚ãªã„â€¦ã€‚ã©ã†ã—ã‚ˆã†ï¼Ÿ","2").TagChara("ã—ã‚‡ã†ãŒãªã„ã­ã€‚ã‚‚ã†ã¡ã‚‡ã£ã¨å¾…ã£ã¦ã¿ã‚‹ï¼Ÿ","3");
 		}
 	else
 		{
-		$chara=TagChara("‚Ë‚¥‚Ë‚¥‚¨o‚¿‚á‚ñC‚È‚ñ‚Å‚±‚±‚É‚Í‰½‚É‚à‚È‚¢‚ÌH","4");
+		$chara=TagChara("ã­ã‡ã­ã‡ãŠå§‰ã¡ã‚ƒã‚“ï¼Œãªã‚“ã§ã“ã“ã«ã¯ä½•ã«ã‚‚ãªã„ã®ï¼Ÿ","4");
 		}
 	}
 else
 	{
-	$helper=TagChara("‚¢‚ç‚Á‚µ‚á‚¢‚Ü‚¹‚Á","0");
+	$helper=TagChara("ã„ã‚‰ã£ã—ã‚ƒã„ã¾ã›ã£","0");
 	if ($i == 0)
 		{
-		$chara=$vspace.TagChara("‚Ç‚ê‚Ç‚êB¡“ú‚Ì”ƒ‚¢‚Ç‚±‚ë‚Íc","5");
+		$chara=$vspace.TagChara("ã©ã‚Œã©ã‚Œã€‚ä»Šæ—¥ã®è²·ã„ã©ã“ã‚ã¯â€¦","5");
 		}
 	elsif ($i == 1)
 		{
-		$chara=TagChara("‚ñ`C‚±‚ê‚­‚¾‚³‚¢‚ÈB","6").$vspace;
+		$chara=TagChara("ã‚“ï½ï¼Œã“ã‚Œãã ã•ã„ãªã€‚","6").$vspace;
 		}
 	elsif ($DT->{rank} < 5500)
 		{
-		$chara=TagChara("‚¤[‚ñC‚»‚±‚»‚±—Ç‚¢“X‚Å‚Í‚ ‚é‚ñ‚¾‚¯‚Ç‚Ëc","7").TagChara("‚à‚¤ˆêº‚Á‚Ä‚¢‚¤Š´‚¶‚È‚Ì‚æ‚Ë‚¥c","8").$vspace;
+		$chara=TagChara("ã†ãƒ¼ã‚“ï¼Œãã“ãã“è‰¯ã„åº—ã§ã¯ã‚ã‚‹ã‚“ã ã‘ã©ã­â€¦","7").TagChara("ã‚‚ã†ä¸€å£°ã£ã¦ã„ã†æ„Ÿã˜ãªã®ã‚ˆã­ã‡â€¦","8").$vspace;
 		}
 	else
 		{
-		$chara=$vspace.TagChara("‚±‚±‚Í‚È‚©‚È‚©—Ç‚¢‚Æ‚±‚ë‚¾‚ÈB","9").TagChara("‚»‚¤‚¶‚á‚ÈB‚í‚µ‚à‚æ‚­Šñ‚é“X‚¶‚áB","10");
+		$chara=$vspace.TagChara("ã“ã“ã¯ãªã‹ãªã‹è‰¯ã„ã¨ã“ã‚ã ãªã€‚","9").TagChara("ãã†ã˜ã‚ƒãªã€‚ã‚ã—ã‚‚ã‚ˆãå¯„ã‚‹åº—ã˜ã‚ƒã€‚","10");
 		}
 	}
 }
@@ -151,42 +151,42 @@ sub TagChara
 
 sub HelpMessage
 {
-$disp.=$TB.$TR.$TD.GetTagImgKao("‚¨è“`‚¢","help").$TD;
+$disp.=$TB.$TR.$TD.GetTagImgKao("ãŠæ‰‹ä¼ã„","help").$TD;
 
  if ($NeverR)
 	{
 $disp.=<<"HTML";
-	<SPAN>‚¨è“`‚¢</SPAN>FV‚µ‚¢è†‚ª $NeverR’Ê“Í‚¢‚Ä‚¨‚è‚Ü‚·B<br>
-	—X•Ö” ‚ğŠJ‚¯‚Ä‚İ‚Ä‚­‚¾‚³‚¢B
+	<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šæ–°ã—ã„æ‰‹ç´™ãŒ $NeverRé€šå±Šã„ã¦ãŠã‚Šã¾ã™ã€‚<br>
+	éƒµä¾¿ç®±ã‚’é–‹ã‘ã¦ã¿ã¦ãã ã•ã„ã€‚
 HTML
 	}
 	elsif ( ($NOW_TIME-$DT->{foundation}) < 3600*3 )
 	{
 $disp.=<<'HTML';
-	<SPAN>‚¨è“`‚¢</SPAN>F‚Í‚¶‚ß‚Ü‚µ‚ÄB„‚ª“X‚Ì‚¨è“`‚¢‚ğ‚³‚¹‚Ä‚à‚ç‚Á‚Ä‚Ü‚·B<br>
-	‚³‚Á‚»‚­‚Å‚·‚ª“X’·‚³‚ÜC<A HREF="action.cgi?key=library&t=1" TARGET=_blank>
-	[ƒQ[ƒ€‚Ì‚â‚è•û]</A>‚Í‚²‘¶’m‚Å‚·‚©H
+	<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šã¯ã˜ã‚ã¾ã—ã¦ã€‚ç§ãŒåº—ã®ãŠæ‰‹ä¼ã„ã‚’ã•ã›ã¦ã‚‚ã‚‰ã£ã¦ã¾ã™ã€‚<br>
+	ã•ã£ããã§ã™ãŒåº—é•·ã•ã¾ï¼Œ<A HREF="action.cgi?key=library&t=1" TARGET=_blank>
+	[ã‚²ãƒ¼ãƒ ã®ã‚„ã‚Šæ–¹]</A>ã¯ã”å­˜çŸ¥ã§ã™ã‹ï¼Ÿ
 HTML
 	}
 	elsif ($DT->{trush} > 4000000)
 	{
 $disp.=<<'HTML';
-	<SPAN>‚¨è“`‚¢</SPAN>F“X’·‚³‚ÜC‚¨‹A‚è‚È‚³‚¢‚Ü‚¹B<br>
-	‚¨“X‚Ì’†‚ª‰˜‚ê‚Ä‚«‚Ä‚¢‚Ü‚·B‚»‚ë‚»‚ë‘|œ‚µ‚½‚ç‚¢‚©‚ª‚Å‚µ‚å‚¤B
+	<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šåº—é•·ã•ã¾ï¼ŒãŠå¸°ã‚Šãªã•ã„ã¾ã›ã€‚<br>
+	ãŠåº—ã®ä¸­ãŒæ±šã‚Œã¦ãã¦ã„ã¾ã™ã€‚ãã‚ãã‚æƒé™¤ã—ãŸã‚‰ã„ã‹ãŒã§ã—ã‚‡ã†ã€‚
 HTML
 	}
 	elsif (!$show)
 	{
 $disp.=<<'HTML';
-	<SPAN>‚¨è“`‚¢</SPAN>F“X’·‚³‚ÜC”„‚é•¨‚ª‚È‚­‚È‚Á‚Ä‚µ‚Ü‚¢‚Ü‚µ‚½B<br>
-	‚·‚®‚ÉİŒÉ‚ğ•â[‚·‚é‚©C‘ã‚í‚è‚Ì‚à‚Ì‚ğ”„‚è‚Éo‚µ‚Ü‚µ‚å‚¤B
+	<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šåº—é•·ã•ã¾ï¼Œå£²ã‚‹ç‰©ãŒãªããªã£ã¦ã—ã¾ã„ã¾ã—ãŸã€‚<br>
+	ã™ãã«åœ¨åº«ã‚’è£œå……ã™ã‚‹ã‹ï¼Œä»£ã‚ã‚Šã®ã‚‚ã®ã‚’å£²ã‚Šã«å‡ºã—ã¾ã—ã‚‡ã†ã€‚
 HTML
 	}
 	else
 	{
 $disp.=<<'HTML';
-	<SPAN>‚¨è“`‚¢</SPAN>F“X’·‚³‚ÜC‚¨‹A‚è‚È‚³‚¢‚Ü‚¹B<br>
-	‚¨“X‚Í‚¢‚Ü‚Ì‚Æ‚±‚ë‡’²‚Å‚·‚æB
+	<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šåº—é•·ã•ã¾ï¼ŒãŠå¸°ã‚Šãªã•ã„ã¾ã›ã€‚<br>
+	ãŠåº—ã¯ã„ã¾ã®ã¨ã“ã‚é †èª¿ã§ã™ã‚ˆã€‚
 HTML
 	}
 $disp.=$TRE.$TBE."<br>";
@@ -219,7 +219,7 @@ if ($i < 1)
 	{
 	$trush x= $i;
 	}
-$trush=GetMenuTag('sweep','<acronym title="‚²‚İ‘Ü">'.$trush.'<acronym>') if $trush;
+$trush=GetMenuTag('sweep','<acronym title="ã”ã¿è¢‹">'.$trush.'<acronym>') if $trush;
 $show="";
 for(my $cnt=0; $cnt<$DT->{showcasecount}; $cnt++)
 {

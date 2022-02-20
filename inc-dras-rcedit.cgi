@@ -1,7 +1,7 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX –qê•ÒW•\Ž¦ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ç‰§å ´ç·¨é›†è¡¨ç¤º 2005/03/30 ç”±ä¾†
 
 ReadRanch();
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF–qê</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç‰§å ´</BIG><br><br>";
 
 my $functionname=$Q{code};
 OutError("bad request") if !defined(&$functionname);
@@ -16,22 +16,22 @@ CoDataCA();
 sub new
 {
 OutError("bad request") if ($MYRC!=-1);
-OutError('Ž‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $RCest);
+OutError('è³‡é‡‘ã®ä½™è£•ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < $RCest);
 
-	# –¼‘O‚Ì³“–«‚ðƒ`ƒFƒbƒN
+	# åå‰ã®æ­£å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯
 	require $JCODE_FILE;
 	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 
 	if(!$Q{name})
 	{
-		OutError('–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B');
+		OutError('åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚');
 	}
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('–¼‘O‚ÉŽg—p‚Å‚«‚È‚¢•¶Žš‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B');
+		OutError('åå‰ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚');
 	}
-	OutError('–¼‘O‚ª’·‚·‚¬‚Ü‚·B') if length($Q{name})>20;
-	OutError('–¼‘O‚ª’Z‚·‚¬‚Ü‚·B') if length($Q{name})<6;
+	OutError('åå‰ãŒé•·ã™ãŽã¾ã™ã€‚') if length($Q{name})>20;
+	OutError('åå‰ãŒçŸ­ã™ãŽã¾ã™ã€‚') if length($Q{name})<6;
 
 	@RC=reverse(@RC);
 	$RCcount++;
@@ -44,7 +44,7 @@ OutError('Ž‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $RCest);
 	@RC=reverse(@RC);
 
 WritePayLog($MYDIR,$DT->{id},-$RCest);
-PushDraLog(0,"V‚µ‚¢–qêu".$Q{name}."v‚ªÝ—§‚³‚ê‚Ü‚µ‚½B");
-$disp.="V‚µ‚¢–qêu<b>".$Q{name}."</b>v‚ðÝ—§‚µ‚Ü‚µ‚½B";
+PushDraLog(0,"æ–°ã—ã„ç‰§å ´ã€Œ".$Q{name}."ã€ãŒè¨­ç«‹ã•ã‚Œã¾ã—ãŸã€‚");
+$disp.="æ–°ã—ã„ç‰§å ´ã€Œ<b>".$Q{name}."</b>ã€ã‚’è¨­ç«‹ã—ã¾ã—ãŸã€‚";
 }
 

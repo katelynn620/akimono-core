@@ -1,18 +1,18 @@
-# ƒMƒ‹ƒh’T’ãº 2004/01/20 —R˜Ò
+# ã‚®ãƒ«ãƒ‰æ¢åµå®¤ 2004/01/20 ç”±ä¾†
 
 $NOITEM=1;
 DataRead();
 CheckUserPass(1);
-OutError('ƒMƒ‹ƒh‚É“ü‚Á‚Ä‚¢‚Ü‚¹‚ñ') if !$DT->{guild};
+OutError('ã‚®ãƒ«ãƒ‰ã«å…¥ã£ã¦ã„ã¾ã›ã‚“') if !$DT->{guild};
 RequireFile('inc-gd.cgi');
 
 my $lv=int( $GUILD_DATA{$DT->{guild}}->{money} / 111000);
 $lv = 1 if ( $lv < 1 ) ;
 $lv = 200 if ( $lv > 200 ) ;
 
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ƒMƒ‹ƒhó•t</SPAN>F".GetTagImgGuild($DT->{guild});
-$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG>‚ªûW‚µ‚½î•ñ‚Å‚·B<br>";
-$disp.="Œ»İ‚Ìî•ñûWƒŒƒxƒ‹‚Í".$lv."‚Å‚·B".$TRE.$TBE."<br>";
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼š".GetTagImgGuild($DT->{guild});
+$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG>ãŒåé›†ã—ãŸæƒ…å ±ã§ã™ã€‚<br>";
+$disp.="ç¾åœ¨ã®æƒ…å ±åé›†ãƒ¬ãƒ™ãƒ«ã¯".$lv."ã§ã™ã€‚".$TRE.$TBE."<br>";
 
 	undef @MESSAGE;
 
@@ -26,7 +26,7 @@ $disp.="Œ»İ‚Ìî•ñûWƒŒƒxƒ‹‚Í".$lv."‚Å‚·B".$TRE.$TBE."<br>";
 		my $id=0;
 		
 		@MESSAGE=grep(/^\d+\t\d+\t(\d+\d)\t/o,@MESSAGE);
-		@MESSAGE=("0,0,0,î•ñ‚Í‚ ‚è‚Ü‚¹‚ñ\n") if !scalar(@MESSAGE);
+		@MESSAGE=("0,0,0,æƒ…å ±ã¯ã‚ã‚Šã¾ã›ã‚“\n") if !scalar(@MESSAGE);
 
 $lv = scalar(@MESSAGE) if ( $lv > scalar(@MESSAGE) ) ;
 
@@ -52,9 +52,9 @@ foreach my $cnt ($pagestart..$pageend)
 	chop($message);
 
 		if ($lv > 20 && defined($id2idx{$id}))	{
-		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>".$DT[$id2idx{$id}]->{shopname}."</SPAN>F".$message;}
+		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>".$DT[$id2idx{$id}]->{shopname}."</SPAN>ï¼š".$message;}
 		else	{
-		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>HHHHHH</SPAN>F".$message;}
+		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ</SPAN>ï¼š".$message;}
 	
 	$disp.="<BR>";
 	}

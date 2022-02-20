@@ -1,7 +1,7 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ‰XÉ•ÒW 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ å©èˆç·¨é›† 2005/03/30 ç”±ä¾†
 
 ReadStable();
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‰XÉ</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šå©èˆ</BIG><br><br>";
 
 my $functionname=$Q{code};
 OutError("bad request") if !defined(&$functionname);
@@ -17,22 +17,22 @@ sub new
 {
 OutError("bad request") if ($MYST!=-1);
 OutError("bad request") if (scalar @ST >= $STmax);
-OutError('‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $STest);
+OutError('è³‡é‡‘ã®ä½™è£•ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < $STest);
 
-	# –¼‘O‚Ì³“–«‚ğƒ`ƒFƒbƒN
+	# åå‰ã®æ­£å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯
 	require $JCODE_FILE;
 	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 
 	if(!$Q{name})
 	{
-		OutError('–¼‘O‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B');
+		OutError('åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚');
 	}
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('–¼‘O‚Ég—p‚Å‚«‚È‚¢•¶š‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B');
+		OutError('åå‰ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚');
 	}
-	OutError('–¼‘O‚ª’·‚·‚¬‚Ü‚·B') if length($Q{name})>20;
-	OutError('–¼‘O‚ª’Z‚·‚¬‚Ü‚·B') if length($Q{name})<6;
+	OutError('åå‰ãŒé•·ã™ãã¾ã™ã€‚') if length($Q{name})>20;
+	OutError('åå‰ãŒçŸ­ã™ãã¾ã™ã€‚') if length($Q{name})<6;
 
 	@ST=reverse(@ST);
 	$STcount++;
@@ -50,14 +50,14 @@ OutError('‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $STest);
 	@ST=reverse(@ST);
 
 WritePayLog($MYDIR,$DT->{id},-$STest);
-PushDraLog(0,"V‚µ‚¢‰XÉu".$Q{name}."v‚ªİ—§‚³‚ê‚Ü‚µ‚½B");
-$disp.="V‚µ‚¢‰XÉu<b>".$Q{name}."</b>v‚ğİ—§‚µ‚Ü‚µ‚½B";
+PushDraLog(0,"æ–°ã—ã„å©èˆã€Œ".$Q{name}."ã€ãŒè¨­ç«‹ã•ã‚Œã¾ã—ãŸã€‚");
+$disp.="æ–°ã—ã„å©èˆã€Œ<b>".$Q{name}."</b>ã€ã‚’è¨­ç«‹ã—ã¾ã—ãŸã€‚";
 }
 
 sub large
 {
 OutError("bad request") if ($MYST==-1);
-OutError('‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $STest);
+OutError('è³‡é‡‘ã®ä½™è£•ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < $STest);
 my $n=int(($NOW_TIME - $ST[$MYST]->{birth})/86400/2) + 1;
 my $cost=($ST[$MYST]->{sp} + $ST[$MYST]->{sr} + $ST[$MYST]->{ag} + $ST[$MYST]->{pw} + $ST[$MYST]->{hl} + $ST[$MYST]->{fl});
 OutError("bad request") if ($n < $cost);
@@ -69,9 +69,9 @@ OutError("bad request") if ($n < $cost);
 	my $lar=$large[$Q{lar}];
 
 	$ST[$MYST]->{$lar}++;
-	OutError('‚±‚êˆÈãC‚±‚Ì{İ‚Í‘’z‚Å‚«‚Ü‚¹‚ñ') if ($ST[$MYST]->{$lar} > 3);
+	OutError('ã“ã‚Œä»¥ä¸Šï¼Œã“ã®æ–½è¨­ã¯å¢—ç¯‰ã§ãã¾ã›ã‚“') if ($ST[$MYST]->{$lar} > 3);
 
 WritePayLog($MYDIR,$DT->{id},-$STest);
-$disp.="‰XÉ‚ğ‘’z‚µ‚Ü‚µ‚½B";
+$disp.="å©èˆã‚’å¢—ç¯‰ã—ã¾ã—ãŸã€‚";
 }
 

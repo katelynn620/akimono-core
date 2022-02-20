@@ -1,7 +1,7 @@
-# ƒhƒ[ƒt‘î”z•Ö 2004/01/20 —R˜Ò
+# ãƒ‰ãƒ¯ãƒ¼ãƒ•å®…é…ä¾¿ 2004/01/20 ç”±ä¾†
 
-$image[0]=GetTagImgKao("Z‚Ýž‚Ýƒhƒ[ƒt","dwarf");
-$Q{mode}='new',  if ($Q{form} eq "make")&&($Q{ok}); 	# ‘—Mƒ‚[ƒhØ‘Ö
+$image[0]=GetTagImgKao("ä½ã¿è¾¼ã¿ãƒ‰ãƒ¯ãƒ¼ãƒ•","dwarf");
+$Q{mode}='new',  if ($Q{form} eq "make")&&($Q{ok}); 	# é€ä¿¡ãƒ¢ãƒ¼ãƒ‰åˆ‡æ›¿
 
 Lock() if $Q{mode};
 CoLock() if $Q{mode}&&$Q{notice};
@@ -13,7 +13,7 @@ CheckUserPass();
 		);
 ReadDwarf() unless ($Q{trade});
 
-RequireFile('inc-dwarf-edit.cgi') if ($Q{mode});	# ŠeŽíˆ—
+RequireFile('inc-dwarf-edit.cgi') if ($Q{mode});	# å„ç¨®å‡¦ç†
 
 if ($Q{form})
 {
@@ -48,7 +48,7 @@ sub ReadDwarf
 		chop $dwf[$cnt];
 		my @buf=split(/,/,$dwf[$cnt]); my $i=0;
 		foreach (@DWFnamelist) { $DWF[$cnt]->{$_}=$buf[$i];$i++;}
-		undef $DWF[$cnt],next if ($DWF[$cnt]->{tm}+$BOX_STOCK_TIME < $NOW_TIME);	# ŠúŒÀØ‚ê‚ðíœB
+		undef $DWF[$cnt],next if ($DWF[$cnt]->{tm}+$BOX_STOCK_TIME < $NOW_TIME);	# æœŸé™åˆ‡ã‚Œã‚’å‰Šé™¤ã€‚
 		if ($DWF[$cnt]->{to}==$DT->{id})
 		{
 		push(@RECDWF, $cnt);

@@ -1,22 +1,22 @@
-# ‘qŒÉ 2005/01/06 —R˜Ò
+# å€‰åº« 2005/01/06 ç”±ä¾†
 
 DataRead();
 CheckUserPass();
 
-$MENUSAY=GetMenuTag('log','[V•·]')
-	.GetMenuTag('shop-a',	'[¤“X’Ê‚è‚Ö]')
-	.GetMenuTag('shop-m',	'[sê‚Ö]')
-	.GetMenuTag('main',	'[“X“à‚É–ß‚é]');
+$MENUSAY=GetMenuTag('log','[æ–°è]')
+	.GetMenuTag('shop-a',	'[å•†åº—é€šã‚Šã¸]')
+	.GetMenuTag('shop-m',	'[å¸‚å ´ã¸]')
+	.GetMenuTag('main',	'[åº—å†…ã«æˆ»ã‚‹]');
 
 RequireFile('inc-html-ownerinfo.cgi');
 
 if ($DT->{trush} > 5000000)
 	{
-	$disp.="<BIG>œ‘qŒÉ</BIG><br><br>";
-	$disp.=$TB.$TR.$TD.GetTagImgKao("‚¨è“`‚¢","help").$TD;
-	$disp.="<SPAN>‚¨è“`‚¢</SPAN>F¤•i‚ª‚²‚İ‚Ì’†‚É‚¤‚¸‚à‚ê‚Ä‚¢‚ÄCŒ©‚Â‚¯‚ç‚ê‚Ü‚¹‚ñB";
-	$disp.="<br>æ‚É‚¨‘|œ‚µ‚ÄC‚²‚İ‚ğ•Ğ•t‚¯‚Ü‚µ‚å‚¤B".$TRE.$TBE;
-	$disp.="<br>".GetMenuTag('sweep','[‚¨‘|œ‚Ö]');
+	$disp.="<BIG>â—å€‰åº«</BIG><br><br>";
+	$disp.=$TB.$TR.$TD.GetTagImgKao("ãŠæ‰‹ä¼ã„","help").$TD;
+	$disp.="<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šå•†å“ãŒã”ã¿ã®ä¸­ã«ã†ãšã‚‚ã‚Œã¦ã„ã¦ï¼Œè¦‹ã¤ã‘ã‚‰ã‚Œã¾ã›ã‚“ã€‚";
+	$disp.="<br>å…ˆã«ãŠæƒé™¤ã—ã¦ï¼Œã”ã¿ã‚’ç‰‡ä»˜ã‘ã¾ã—ã‚‡ã†ã€‚".$TRE.$TBE;
+	$disp.="<br>".GetMenuTag('sweep','[ãŠæƒé™¤ã¸]');
 	OutSkin();
 	exit;
 	}
@@ -33,7 +33,7 @@ foreach my $no(1..$MAX_ITEM)
 {
 	$ITEM=$ITEM[$no];
 	next if (!$DTitem->[$no-1] && !$DTitemtoday->{$no} && !$DTexp->{$no});
-	if ($ITEM->{flag}=~/s/)	# s ’Â—ñ•s‰Â
+	if ($ITEM->{flag}=~/s/)	# s é™³åˆ—ä¸å¯
 	{
 	$itema{$no}=$ITEM;
 	}
@@ -51,30 +51,30 @@ my $itemno;
 foreach(0..$DT->{showcasecount}-1)
 {
 	next if !($itemno=$DT->{showcase}[$_]);
-	$showcase{$itemno}.="’I".($_+1).GetMoneyString($DT->{price}[$_])." ";
+	$showcase{$itemno}.="æ£š".($_+1).GetMoneyString($DT->{price}[$_])." ";
 }
 
 if(%itema)
 {
-	$disp.="<BIG>œ•ÛŠÇ‘qŒÉ</BIG><br><br>";
+	$disp.="<BIG>â—ä¿ç®¡å€‰åº«</BIG><br><br>";
 	$disp.=$TB;
 	if($MOBILE)
 	{
-		$tdh_sp="•W€:";
-		$tdh_cs="ˆÛ:";
-		$tdh_st="İŒÉ:";
-		$tdh_ex="n—û:";
+		$tdh_sp="æ¨™æº–:";
+		$tdh_cs="ç¶­æŒ:";
+		$tdh_st="åœ¨åº«:";
+		$tdh_ex="ç†Ÿç·´:";
 	}
 	else
 	{
 		$disp.=$TR.$TDB.
 			join($TDB,
 				qw(
-					–¼Ì
-					•W€‰¿Ši
-					ˆÛ”ï
-					”—Ê<small>/Å‘å</small>
-					n—û
+					åç§°
+					æ¨™æº–ä¾¡æ ¼
+					ç¶­æŒè²»
+					æ•°é‡<small>/æœ€å¤§</small>
+					ç†Ÿç·´
 				)
 			).$TRE;
 	}
@@ -91,13 +91,13 @@ if(%itema)
 				$tdh_sp.GetMoneyString($ITEM->{price}),
 				$tdh_cs.GetMoneyString($ITEM->{cost}),
 				$tdh_st.$DTitem->[$cnt-1]."<small>/".$ITEM->{limit}."</small>",
-				$tdh_ex.($DTexp->{$cnt} ? int($DTexp->{$cnt}/10)."%" : '@'),
+				$tdh_ex.($DTexp->{$cnt} ? int($DTexp->{$cnt}/10)."%" : 'ã€€'),
 			);
 	}
 	$disp.=$TBE."<hr width=500 noshade size=1>";
 }
 
-$disp.="<BIG>œ”Ì”„‘qŒÉ</BIG><br><br>";
+$disp.="<BIG>â—è²©å£²å€‰åº«</BIG><br><br>";
 foreach my $cnt (0..$#ITEMTYPE)
 {
 	$disp.=$cnt==$tp ? "[" : "<A HREF=\"action.cgi?key=stock&$USERPASSURL&tp=$cnt\">";
@@ -109,35 +109,35 @@ foreach my $cnt (0..$#ITEMTYPE)
 
 if(!%itemb)
 {
-	$disp.="<hr width=500 noshade size=1>İŒÉ‚ª‚ ‚è‚Ü‚¹‚ñ";
+	$disp.="<hr width=500 noshade size=1>åœ¨åº«ãŒã‚ã‚Šã¾ã›ã‚“";
 }
 else
 {
 	$disp.=$TB;
 	if($MOBILE)
 	{
-		$tdh_sp="•W€:";
-		$tdh_cs="ˆÛ:";
-		$tdh_ts="–{ğ”„:";
-		$tdh_ex="n—û:";
-		$tdh_sc="’Â—ñ:";
-		$tdh_mp="‘Šê:";
-		$tdh_mb="ù‹‹:";
+		$tdh_sp="æ¨™æº–:";
+		$tdh_cs="ç¶­æŒ:";
+		$tdh_ts="æœ¬æ˜¨å£²:";
+		$tdh_ex="ç†Ÿç·´:";
+		$tdh_sc="é™³åˆ—:";
+		$tdh_mp="ç›¸å ´:";
+		$tdh_mb="éœ€çµ¦:";
 	}
 	else
 	{
 		$disp.=$TR.$TDB.
 			join($TDB,
 				qw(
-					–¼Ì
-					•W€‰¿Ši
-					ˆÛ”ï
-					”—Ê<small>/Å‘å</small>
-					”„ã”<small>/‘OŠú</small>
-					n—û
-					’Â—ñ
-					”Ì”„‘Šê
-					ù—v‹Ÿ‹‹ƒoƒ‰ƒ“ƒX
+					åç§°
+					æ¨™æº–ä¾¡æ ¼
+					ç¶­æŒè²»
+					æ•°é‡<small>/æœ€å¤§</small>
+					å£²ä¸Šæ•°<small>/å‰æœŸ</small>
+					ç†Ÿç·´
+					é™³åˆ—
+					è²©å£²ç›¸å ´
+					éœ€è¦ä¾›çµ¦ãƒãƒ©ãƒ³ã‚¹
 				)
 			).$TRE;
 	}
@@ -154,10 +154,10 @@ else
 				$tdh_sp.GetMoneyString($ITEM->{price}),
 				$tdh_cs.GetMoneyString($ITEM->{cost}),
 				$tdh_st.$DTitem->[$cnt-1]."<small>/".$ITEM->{limit}."</small>",
-				$tdh_ts.($DTitemtoday->{$cnt} || $DTitemyesterday->{$cnt} ? ($DTitemtoday->{$cnt}||0)."<small>/".($DTitemyesterday->{$cnt}||0)."</small>" : '@'),
-				$tdh_ex.($DTexp->{$cnt} ? int($DTexp->{$cnt}/10)."%" : '@'),
-				$tdh_sc.($showcase{$cnt}||'@'),
-				$tdh_mp.($ITEM->{marketprice} ? GetMoneyString($ITEM->{marketprice}) : '@'),
+				$tdh_ts.($DTitemtoday->{$cnt} || $DTitemyesterday->{$cnt} ? ($DTitemtoday->{$cnt}||0)."<small>/".($DTitemyesterday->{$cnt}||0)."</small>" : 'ã€€'),
+				$tdh_ex.($DTexp->{$cnt} ? int($DTexp->{$cnt}/10)."%" : 'ã€€'),
+				$tdh_sc.($showcase{$cnt}||'ã€€'),
+				$tdh_mp.($ITEM->{marketprice} ? GetMoneyString($ITEM->{marketprice}) : 'ã€€'),
 			);
 		$disp.=$TDNW.$tdh_mb.GetMarketStatusGraph($ITEM->{uppoint}||=10).$TRE;
 	}

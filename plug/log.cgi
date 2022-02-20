@@ -1,4 +1,4 @@
-# log ƒvƒ‰ƒOƒCƒ“ 2003/07/19 —R˜Ò
+# log ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/07/19 ç”±ä¾†
 
 sub ReadLog
 {
@@ -31,7 +31,7 @@ sub ReadLog
 		$target=jcode::sjis($target,$CHAR_SHIFT_JIS&&'sjis');
 		@MESSAGE=grep(/\Q$target\E/o,@MESSAGE);
 	}
-	@MESSAGE=("0\t0\t0\tî•ñ‚Í‚ ‚è‚Ü‚¹‚ñ\n") if !scalar(@MESSAGE);
+	@MESSAGE=("0\t0\t0\tæƒ…å ±ã¯ã‚ã‚Šã¾ã›ã‚“\n") if !scalar(@MESSAGE);
 }
 
 sub PushLog
@@ -40,7 +40,7 @@ sub PushLog
 	unshift(@LOG,"$NOW_TIME\t$mode\t$id\t$msg\n");
 }
 
-# ŒİŠ·«Šm•Û
+# äº’æ›æ€§ç¢ºä¿
 sub WriteLog
 {
 	PushLog($_[0],$_[1],$_[3]);

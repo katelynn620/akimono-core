@@ -1,7 +1,7 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ‹RŽè•ÒW 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ é¨Žæ‰‹ç·¨é›† 2005/03/30 ç”±ä¾†
 
 ReadJock();
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‹RŽè</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šé¨Žæ‰‹</BIG><br><br>";
 
 my $functionname=$Q{code};
 OutError("bad request") if !defined(&$functionname);
@@ -17,22 +17,22 @@ sub new
 {
 OutError("bad request") if ($MYJK!=-1);
 OutError("bad request") if (scalar @JK >= $JKmax);
-OutError('Ž‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $JKest);
+OutError('è³‡é‡‘ã®ä½™è£•ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < $JKest);
 
-	# –¼‘O‚Ì³“–«‚ðƒ`ƒFƒbƒN
+	# åå‰ã®æ­£å½“æ€§ã‚’ãƒã‚§ãƒƒã‚¯
 	require $JCODE_FILE;
 	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 
 	if(!$Q{name})
 	{
-		OutError('–¼‘O‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B');
+		OutError('åå‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚');
 	}
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('–¼‘O‚ÉŽg—p‚Å‚«‚È‚¢•¶Žš‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B');
+		OutError('åå‰ã«ä½¿ç”¨ã§ããªã„æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚');
 	}
-	OutError('–¼‘O‚ª’·‚·‚¬‚Ü‚·B') if length($Q{name})>20;
-	OutError('–¼‘O‚ª’Z‚·‚¬‚Ü‚·B') if length($Q{name})<6;
+	OutError('åå‰ãŒé•·ã™ãŽã¾ã™ã€‚') if length($Q{name})>20;
+	OutError('åå‰ãŒçŸ­ã™ãŽã¾ã™ã€‚') if length($Q{name})<6;
 
 	@JK=reverse(@JK);
 	$JKcount++;
@@ -45,7 +45,7 @@ OutError('Ž‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $JKest);
 	$JK[$i]->{ahead}=int(rand(15));
 	$JK[$i]->{back}=int(rand(15));
 
-	# “Á’¥•t—^
+	# ç‰¹å¾´ä»˜ä¸Ž
 	if ($JK[$i]->{ahead} > $JK[$i]->{back})
 		{
 		$JK[$i]->{ahead}+=15;
@@ -57,7 +57,7 @@ OutError('Ž‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñB') if ($DT->{money} < $JKest);
 	@JK=reverse(@JK);
 
 WritePayLog($MYDIR,$DT->{id},-$JKest);
-PushDraLog(0,"V‚µ‚¢‹RŽèu".$Q{name}."v‚ªƒfƒrƒ…[‚µ‚Ü‚µ‚½B");
-$disp.="V‚µ‚¢‹RŽèu<b>".$Q{name}."</b>v‚ðŒÙ‚¢‚Ü‚µ‚½B";
+PushDraLog(0,"æ–°ã—ã„é¨Žæ‰‹ã€Œ".$Q{name}."ã€ãŒãƒ‡ãƒ“ãƒ¥ãƒ¼ã—ã¾ã—ãŸã€‚");
+$disp.="æ–°ã—ã„é¨Žæ‰‹ã€Œ<b>".$Q{name}."</b>ã€ã‚’é›‡ã„ã¾ã—ãŸã€‚";
 }
 

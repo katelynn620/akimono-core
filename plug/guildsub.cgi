@@ -1,4 +1,4 @@
-# guildsub �v���O�C�� 2003/11/03 �R��
+# guildsub プラグイン 2003/11/03 由來
 
 sub ReadGuild
 {
@@ -12,7 +12,7 @@ sub ReadGuild
 	
 	foreach my $code (@guildlist)
 	{
-		my @data=ReadConfig($COMMON_DIR."/".$code.".pl");	#�M���h�t�@�C���̂݊g���q�ύX
+		my @data=ReadConfig($COMMON_DIR."/".$code.".pl");	#ギルドファイルのみ拡張子変更
 		$GUILD_DETAIL{$code}={'code',$code,@data} if scalar(@data);
 	}
 	
@@ -22,7 +22,7 @@ sub ReadGuild
 sub GetGuildDirFiles
 {
 	opendir(DIR,$COMMON_DIR);
-	my $FILE_PL='.pl';	#�M���h�t�@�C���̂݊g���q�ύX
+	my $FILE_PL='.pl';	#ギルドファイルのみ拡張子変更
 	my @guildlist=sort map{/^(\w+)$FILE_PL$/} grep(/^\w+$FILE_PL$/,readdir(DIR));
 	closedir(DIR);
 	return @guildlist;
@@ -51,7 +51,7 @@ sub MakeGuildFile
 	foreach my $code (grep(!$okguild{$_},keys(%GUILD)))
 	{
 		next if $code eq '';
-		PushLog(1,0,"�M���h�u".$GUILD{$code}->[$GUILDIDX_name]."�v�͖łт܂����B",1);
+		PushLog(1,0,"ギルド「".$GUILD{$code}->[$GUILDIDX_name]."」は滅びました。",1);
 		foreach my $DT (@DT)
 		{
 			$DT->{guild}="",delete $DT->{user}{_so_e} if ($DT->{guild} eq $code);
@@ -60,7 +60,7 @@ sub MakeGuildFile
 	foreach my $code (grep(!$GUILD{$_},keys(%okguild)))
 	{
 		next if $code eq '';
-		PushLog(1,0,"�M���h�u".$GUILD_DETAIL{$code}->{shortname}."�v����������܂����B",1);
+		PushLog(1,0,"ギルド「".$GUILD_DETAIL{$code}->{shortname}."」が結成されました。",1);
 	}
 }
 1;

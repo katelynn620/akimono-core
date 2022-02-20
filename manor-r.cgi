@@ -1,14 +1,14 @@
-# ‘‘‰€Ží”ƒŽæˆ— 2005/03/30 —R˜Ò
+# è˜åœ’ç¨®è²·å–å‡¦ç† 2005/03/30 ç”±ä¾†
 
 $NOITEM=1;
 $NOMENU=1;
 Lock();
 DataRead();
 CheckUserPass();
-OutError("—ÌŽå‚ª‚¢‚È‚¢‚Ì‚Å‘‘‰€§“x‚ª‹@”\‚µ‚Ä‚¢‚Ü‚¹‚ñ") if !defined($id2idx{$STATE->{leader}});
+OutError("é ˜ä¸»ãŒã„ãªã„ã®ã§è˜åœ’åˆ¶åº¦ãŒæ©Ÿèƒ½ã—ã¦ã„ã¾ã›ã‚“") if !defined($id2idx{$STATE->{leader}});
 RequireFile('inc-manor.cgi');
 
-	# ‘‘‰€Ý’è‚ðŽæ“¾
+	# è˜åœ’è¨­å®šã‚’å–å¾—
 	my $id=$id2idx{$STATE->{leader}};
 	ReadDTSub($DT[$id],"lord");
 	my $MANORLORD=$DT[$id]->{_lord};
@@ -31,9 +31,9 @@ foreach my $i(0..$#MANOR)
 	$STATE->{out}+=$stock*$price;
 	$STATE->{develop}+=$stock;
 	$STATE->{develop}=10000 if $STATE->{develop} > 10000;
-	OutError("ŠX‚ÌŽ‘‹à‚ª‘«‚è‚È‚¢‚Ì‚Å”ƒ‚¢Žæ‚ê‚Ü‚¹‚ñ") if ($STATE->{money} < 0);
+	OutError("è¡—ã®è³‡é‡‘ãŒè¶³ã‚Šãªã„ã®ã§è²·ã„å–ã‚Œã¾ã›ã‚“") if ($STATE->{money} < 0);
 
-	my $ret=$MYMANOR[2]."‚ð".$stock.'ŒÂ@'.GetMoneyString($price)."(Œv".GetMoneyString($price*$stock).")‚É‚Ä‘‘‰€‚É”„‹p";
+	my $ret=$MYMANOR[2]."ã‚’".$stock.'å€‹@'.GetMoneyString($price)."(è¨ˆ".GetMoneyString($price*$stock).")ã«ã¦è˜åœ’ã«å£²å´";
 	$disp.=$ret."<br>";
 	PushLog(0,$DT->{id},$ret);
 	}

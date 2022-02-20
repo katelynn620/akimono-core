@@ -1,16 +1,16 @@
-# V‹KŠJ“X 2004/01/20 —R˜Ò
+# æ–°è¦é–‹åº— 2004/01/20 ç”±ä¾†
 
-$image[0]=GetTagImgKao("ˆÄ“àl","guide");
+$image[0]=GetTagImgKao("æ¡ˆå†…äºº","guide");
 require $JCODE_FILE;
 DataRead();
 
 if($Q{admin} ne $MASTER_PASSWORD)
 {
-	OutError('V‹K“X•Ü“o˜^Œ ŒÀ‚ª‚ ‚è‚Ü‚¹‚ñB') if $NEW_SHOP_ADMIN;
-	OutError('‚ ‚È‚½‚Í‚·‚Å‚É“X•Ü‚ðŽ‚Á‚Ä‚¢‚Ü‚·B') if GetIPList(GetTrueIP());
-	OutError('‚ ‚È‚½‚Í‘¼‚ÌŠX‚Å‚·‚Å‚É“X•Ü‚ðŽ‚Á‚Ä‚¢‚Ü‚·B') if $NEW_OTHERTOWN_BLOCK && GetDoubleIP(GetTrueIP());
-	OutError('‚ ‚È‚½‚ÍŒ»Ý“o˜^§ŒÀ‚³‚ê‚Ä‚¢‚Ü‚·B') if $NEW_SHOP_BLOCKIP && GetTrueIP() eq $DTblockip;
-	OutError('o“XƒL[ƒ[ƒh‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñB') if $NEW_SHOP_KEYWORD && $Q{sname} && $Q{newkey} ne $NEW_SHOP_KEYWORD;
+	OutError('æ–°è¦åº—èˆ—ç™»éŒ²æ¨©é™ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if $NEW_SHOP_ADMIN;
+	OutError('ã‚ãªãŸã¯ã™ã§ã«åº—èˆ—ã‚’æŒã£ã¦ã„ã¾ã™ã€‚') if GetIPList(GetTrueIP());
+	OutError('ã‚ãªãŸã¯ä»–ã®è¡—ã§ã™ã§ã«åº—èˆ—ã‚’æŒã£ã¦ã„ã¾ã™ã€‚') if $NEW_OTHERTOWN_BLOCK && GetDoubleIP(GetTrueIP());
+	OutError('ã‚ãªãŸã¯ç¾åœ¨ç™»éŒ²åˆ¶é™ã•ã‚Œã¦ã„ã¾ã™ã€‚') if $NEW_SHOP_BLOCKIP && GetTrueIP() eq $DTblockip;
+	OutError('å‡ºåº—ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ã€‚') if $NEW_SHOP_KEYWORD && $Q{sname} && $Q{newkey} ne $NEW_SHOP_KEYWORD;
 	checkMaxUser();
 }
 
@@ -20,41 +20,41 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 	$Q{sname}=jcode::sjis($Q{sname},$CHAR_SHIFT_JIS&&'sjis');
 
 	if(($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2}) =~ /([,:;\t\r\n<>&])/
-	|| ($Q{pass1}.$Q{pass2}) =~ /([^A-Za-z0-9_\-])/  #.$Q{name}‚ðíœ
+	|| ($Q{pass1}.$Q{pass2}) =~ /([^A-Za-z0-9_\-])/  #.$Q{name}ã‚’å‰Šé™¤
 	|| $Q{name} eq 'soldoutadmin'
 	|| CheckNGName($Q{sname})
-	|| CheckNGName($Q{name})  #–¼‘O‚Ìƒ`ƒFƒbƒN‚ð’Ç‰Á
+	|| CheckNGName($Q{name})  #åå‰ã®ãƒã‚§ãƒƒã‚¯ã‚’è¿½åŠ 
 	)
 	{
-		OutError('–¼‘OE“X–¼EƒpƒXƒ[ƒh‚ÉŽg—p‚Å‚«‚È‚¢'.
-		         '•¶Žš‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·B');
+		OutError('åå‰ãƒ»åº—åãƒ»ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã«ä½¿ç”¨ã§ããªã„'.
+		         'æ–‡å­—ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã€‚');
 	}
 	if(!$Q{sname} || !$Q{name} || !$Q{pass1} || !$Q{pass2})
 	{
-		OutError('–¼‘OE“X–¼EƒpƒXƒ[ƒh‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B');
+		OutError('åå‰ãƒ»åº—åãƒ»ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚');
 	}
 	if($Q{pass1} ne $Q{pass2})
 	{
-		OutError('Šm”FƒpƒXƒ[ƒh‚ªˆá‚Á‚Ä‚¢‚Ü‚·B');
+		OutError('ç¢ºèªãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒé•ã£ã¦ã„ã¾ã™ã€‚');
 	}
 	if(length($Q{sname})<4)
 	{
-		OutError('“X–¼‚Ì•¶Žš”‚ª­‚È‚¢‚Å‚·B');
+		OutError('åº—åã®æ–‡å­—æ•°ãŒå°‘ãªã„ã§ã™ã€‚');
 	}
 	if(length($Q{name})>12 || length($Q{sname})>20
 	|| length($Q{pass1})>12 || length($Q{pass2})>8)
 	{
-		OutError('–¼‘O(‘SŠp6•¶Žš)E“X–¼(‘SŠp10•¶Žš)EƒpƒXƒ[ƒh(8•¶Žš)‚Ì•¶Žš”‚ª‘½‚¢‚Å‚·B');
+		OutError('åå‰(å…¨è§’6æ–‡å­—)ãƒ»åº—å(å…¨è§’10æ–‡å­—)ãƒ»ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰(8æ–‡å­—)ã®æ–‡å­—æ•°ãŒå¤šã„ã§ã™ã€‚');
 	}
 	if( $Q{name} eq $Q{pass1} )
 	{
-		OutError('–¼‘O‚ÆƒpƒXƒ[ƒh‚Í“¯‚¶‚É‚µ‚È‚¢‚Å‚­‚¾‚³‚¢B');
+		OutError('åå‰ã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯åŒã˜ã«ã—ãªã„ã§ãã ã•ã„ã€‚');
 	}
 	
 	Lock();
 	DataRead();
-	OutError('Šù‚É‘¶Ý‚·‚é–¼‘O‚Å‚·B-> '.$Q{name}) if $name2pass{$Q{name}};
-	OutError('Šù‚É‘¶Ý‚·‚é“X–¼‚Å‚·B-> '.$Q{sname}) if GetDoubleName($Q{sname});;
+	OutError('æ—¢ã«å­˜åœ¨ã™ã‚‹åå‰ã§ã™ã€‚-> '.$Q{name}) if $name2pass{$Q{name}};
+	OutError('æ—¢ã«å­˜åœ¨ã™ã‚‹åº—åã§ã™ã€‚-> '.$Q{sname}) if GetDoubleName($Q{sname});;
 	
 	$idx=$DTusercount;
 	$DTlasttime=$NOW_TIME if !$idx;
@@ -98,7 +98,7 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 	$DTblockip=$DT->{remoteaddr};
 
 	require "$ITEM_DIR/funcnew.cgi" if $DEFINE_FUNCNEW;
-	PushLog(1,0,$Q{sname}."‚ªV‘•ŠJ“X‚µ‚Ü‚µ‚½B") if !$DEFINE_FUNCNEW || !$DEFINE_FUNCNEW_NOLOG;
+	PushLog(1,0,$Q{sname}."ãŒæ–°è£…é–‹åº—ã—ã¾ã—ãŸã€‚") if !$DEFINE_FUNCNEW || !$DEFINE_FUNCNEW_NOLOG;
 
 	RenewLog();
 	DataWrite();
@@ -106,21 +106,21 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 	UnLock();
 
 	$disp=<<STR;
-ŠX‚ÉV‚µ‚¢‚¨“X‚ª’a¶‚µ‚Ü‚µ‚½B<br><br>
+è¡—ã«æ–°ã—ã„ãŠåº—ãŒèª•ç”Ÿã—ã¾ã—ãŸã€‚<br><br>
 $TB$TR$TD
-<SPAN>–¼‘O</SPAN>F$Q{name}<BR>
-<SPAN>“X–¼</SPAN>F$Q{sname}<BR>
-<SPAN>ƒpƒXƒ[ƒh</SPAN>F$Q{pass1}
+<SPAN>åå‰</SPAN>ï¼š$Q{name}<BR>
+<SPAN>åº—å</SPAN>ï¼š$Q{sname}<BR>
+<SPAN>ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰</SPAN>ï¼š$Q{pass1}
 $TRE$TBE
-<BR>¦ƒpƒXƒ[ƒh‚Í•K‚¸ƒƒ‚‚ðŽæ‚Á‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢B<BR><BR>
+<BR>â€»ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã¯å¿…ãšãƒ¡ãƒ¢ã‚’å–ã£ã¦ãŠã„ã¦ãã ã•ã„ã€‚<BR><BR>
 $TB$TR
 $TD$image[0]$TD
-ƒXƒ^[ƒg‚µ‚½‚çC‚Ü‚¸<SPAN>[ŒfŽ¦”Â]</SPAN>‚Å‚ ‚¢‚³‚Â‚ð‚·‚é‚Æ—Ç‚¢‚Å‚µ‚å‚¤B<br>
-‚Ü‚½<SPAN>[}‘ŠÙ]</SPAN>‚ÉŒo‰c‚Ìƒqƒ“ƒg‚ª‚ ‚è‚Ü‚·‚Ì‚Åˆê’Ê‚è‚²——‰º‚³‚¢B
+ã‚¹ã‚¿ãƒ¼ãƒˆã—ãŸã‚‰ï¼Œã¾ãš<SPAN>[æŽ²ç¤ºæ¿]</SPAN>ã§ã‚ã„ã•ã¤ã‚’ã™ã‚‹ã¨è‰¯ã„ã§ã—ã‚‡ã†ã€‚<br>
+ã¾ãŸ<SPAN>[å›³æ›¸é¤¨]</SPAN>ã«çµŒå–¶ã®ãƒ’ãƒ³ãƒˆãŒã‚ã‚Šã¾ã™ã®ã§ä¸€é€šã‚Šã”è¦§ä¸‹ã•ã„ã€‚
 $TRE$TBE
 <BR>
-<A HREF=\"index.cgi?u=$Q{name}!$Q{pass1}\">ƒQ[ƒ€ƒXƒ^[ƒg</A><BR><BR>
-ƒƒOƒCƒ“Œã‚É[ô]‚ð‰Ÿ‚·‚ÆBGM‚ð‰‰‘t‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+<A HREF=\"index.cgi?u=$Q{name}!$Q{pass1}\">ã‚²ãƒ¼ãƒ ã‚¹ã‚¿ãƒ¼ãƒˆ</A><BR><BR>
+ãƒ­ã‚°ã‚¤ãƒ³å¾Œã«[â™ª]ã‚’æŠ¼ã™ã¨BGMã‚’æ¼”å¥ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 STR
 	OutSkin();
 	exit;
@@ -132,7 +132,7 @@ OutSkin();
 
 sub checkMaxUser
 {
-	OutError($TB.$TR.$TD.$image[0].$TD.'\‚µ–ó‚ ‚è‚Ü‚¹‚ñ‚ªCŒ»Ý–žˆõ‚Æ‚È‚Á‚Ä‚¨‚è‚Ü‚·B<BR>‹ó‚«‚ªo‚é‚Ì‚ð‚¨‘Ò‚¿‚­‚¾‚³‚¢B'.$TRE.$TBE)
+	OutError($TB.$TR.$TD.$image[0].$TD.'ç”³ã—è¨³ã‚ã‚Šã¾ã›ã‚“ãŒï¼Œç¾åœ¨æº€å“¡ã¨ãªã£ã¦ãŠã‚Šã¾ã™ã€‚<BR>ç©ºããŒå‡ºã‚‹ã®ã‚’ãŠå¾…ã¡ãã ã•ã„ã€‚'.$TRE.$TBE)
 		if $DTusercount>=$MAX_USER;
 }
 

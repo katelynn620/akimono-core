@@ -1,4 +1,4 @@
-# letter ƒvƒ‰ƒOƒCƒ“ 2003/11/03 —R˜Ò
+# letter ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/11/03 ç”±ä¾†
 
 sub WriteLetter
 {
@@ -9,7 +9,7 @@ sub WriteLetter
 		);
 	foreach my $i(0..$Lcount)
 		{
-		next if $LETTER[$i]->{mode}==2;		#íœ‚·‚éè†
+		next if $LETTER[$i]->{mode}==2;		#å‰Šé™¤ã™ã‚‹æ‰‹ç´™
 		$MESSAGE[$i]=join(",",map{$LETTER[$i]->{$_}}@LETTERnamelist)."\n";
 		}
 	OpenAndCheck(GetPath($COTEMP_DIR,$BOX_FILE));
@@ -20,12 +20,12 @@ sub WriteLetter
 sub SearchLetterName
 {
 	my($no,$to)=@_;
-	return '(‘î”z•Ö‚Ì‚¨’m‚ç‚¹)' if $no==1;
+	return '(å®…é…ä¾¿ã®ãŠçŸ¥ã‚‰ã›)' if $no==1;
 	foreach(0..$Ncount{$to})
 		{
 		return $LNAME{$to}[$_] if ($no==$LID{$to}[$_]);
 		}
-	return "(•s–¾)";
+	return "(ä¸æ˜)";
 }
 
 sub ReadLetter
@@ -49,7 +49,7 @@ sub ReadLetter
 	chop $MESSAGE[$cnt];
 	my @buf=split(/,/,$MESSAGE[$cnt]); my $i=0;
 	foreach (@LETTERnamelist) { $LETTER[$cnt]->{$_}=$buf[$i];$i++;}
-	$LETTER[$cnt]->{mode}=2 , next if ($NOW_TIME - $LETTER[$cnt]->{time}) > $BOX_STOCK_TIME;	#ŠúŒÀØ‚ê
+	$LETTER[$cnt]->{mode}=2 , next if ($NOW_TIME - $LETTER[$cnt]->{time}) > $BOX_STOCK_TIME;	#æœŸé™åˆ‡ã‚Œ
 
 	if ($MYDIR eq $LETTER[$cnt]->{tot} && $LETTER[$cnt]->{toid}==$DT->{id})
 		{

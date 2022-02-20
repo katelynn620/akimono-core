@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒhˆê—— 2005/01/06 —R˜Ò
+# ã‚®ãƒ«ãƒ‰ä¸€è¦§ 2005/01/06 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
@@ -9,17 +9,17 @@ if (!$DT->{guild})
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhó•t</SPAN>FŒ»İ‚ ‚éƒMƒ‹ƒh‚Ìˆê——‚Å‚·B<br>
-ƒNƒŠƒbƒN‚·‚é‚ÆÚ‚µ‚¢î•ñ‚ğŒ©‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šç¾åœ¨ã‚ã‚‹ã‚®ãƒ«ãƒ‰ã®ä¸€è¦§ã§ã™ã€‚<br>
+ã‚¯ãƒªãƒƒã‚¯ã™ã‚‹ã¨è©³ã—ã„æƒ…å ±ã‚’è¦‹ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 $TRE$TBE
 HTML
 GuildRanking();
 }
 elsif ($GUILD{$DT->{guild}}->[$GUILDIDX_name])
 {
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ƒMƒ‹ƒhó•t</SPAN>F‚±‚¿‚ç‚Í".GetTagImgGuild($DT->{guild});
-$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG> –{•”‚Å‚·B<br>";
-$disp.="Œ»İ‚ÌƒMƒ‹ƒh‚Ìî¨‚ÍC‚±‚Ì‚æ‚¤‚É‚È‚Á‚Ä‚¨‚è‚Ü‚·B".$TRE.$TBE;
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šã“ã¡ã‚‰ã¯".GetTagImgGuild($DT->{guild});
+$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG> æœ¬éƒ¨ã§ã™ã€‚<br>";
+$disp.="ç¾åœ¨ã®ã‚®ãƒ«ãƒ‰ã®æƒ…å‹¢ã¯ï¼Œã“ã®ã‚ˆã†ã«ãªã£ã¦ãŠã‚Šã¾ã™ã€‚".$TRE.$TBE;
 GuildRanking();
 RequireFile('inc-guild-cmd.cgi');
 }
@@ -28,10 +28,10 @@ else
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhó•t</SPAN>F<b>$DT->{shopname}</b>‚³‚ñ‚ÌƒMƒ‹ƒh‚ÍC‚½‚¾‚¢‚ÜŒ‹¬’†‚Å‚·B<br>
-”•ªŒo‚Á‚½‚ço—ˆã‚ª‚é‚Í‚¸‚Å‚·‚Ì‚ÅC‚µ‚Î‚ç‚­‚¨‘Ò‚¿‚­‚¾‚³‚¢B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼š<b>$DT->{shopname}</b>ã•ã‚“ã®ã‚®ãƒ«ãƒ‰ã¯ï¼ŒãŸã ã„ã¾çµæˆä¸­ã§ã™ã€‚<br>
+æ•°åˆ†çµŒã£ãŸã‚‰å‡ºæ¥ä¸ŠãŒã‚‹ã¯ãšã§ã™ã®ã§ï¼Œã—ã°ã‚‰ããŠå¾…ã¡ãã ã•ã„ã€‚
 $TRE$TBE
-<br>¦Œ‹¬’¼Œã‚ÍCŠñ•t‚È‚Ç‚ğs‚Á‚Ä‚àŒø‰Ê‚ªŒ»‚ê‚È‚¢‚Ì‚Å‚²’ˆÓ‚­‚¾‚³‚¢B
+<br>â€»çµæˆç›´å¾Œã¯ï¼Œå¯„ä»˜ãªã©ã‚’è¡Œã£ã¦ã‚‚åŠ¹æœãŒç¾ã‚Œãªã„ã®ã§ã”æ³¨æ„ãã ã•ã„ã€‚
 HTML
 }
 
@@ -41,7 +41,7 @@ OutSkin();
 
 sub GuildRanking
 {
-$disp.='<br>[<BIG>ƒMƒ‹ƒh‘ÎRí</BIG>I—¹‚Ü‚Å‚ ‚Æ'.GetTime2HMS($DTevent{guildbattle}-$DTlasttime).']' if $DTevent{guildbattle};
+$disp.='<br>[<BIG>ã‚®ãƒ«ãƒ‰å¯¾æŠ—æˆ¦</BIG>çµ‚äº†ã¾ã§ã‚ã¨'.GetTime2HMS($DTevent{guildbattle}-$DTlasttime).']' if $DTevent{guildbattle};
 undef %guildcount;
 foreach(@DT)
 {
@@ -74,15 +74,15 @@ foreach my $guild (@guildlist[$pagestart..$pageend])
 	$disp.=$TDB."No.".$rank++."<td align=right>";
 	$disp.="<A HREF=\"action.cgi?key=gd-o&$USERPASSURL&g=$code\">".GetTagImgGuild($code).$name."</a>";
 	$disp.=qq|<IMG class="i" SRC="$IMAGE_URL/guildprize$IMAGE_EXT">| if ($code eq $Dguild);
-	$disp.="<br><SPAN>‘‹à</SPAN> ".GetMoneyString($guild->{money});
-	$disp.=    "(Ôš)" if $guild->{money}<0;
+	$disp.="<br><SPAN>è³‡é‡‘</SPAN> ".GetMoneyString($guild->{money});
+	$disp.=    "(èµ¤å­—)" if $guild->{money}<0;
 	$disp.=qq|$TD<IMG class="i" SRC="$IMAGE_URL/guild-a$IMAGE_EXT">|.DefTarent($guild->{atk}+0);
 	$disp.=qq|<br><IMG class="i" SRC="$IMAGE_URL/guild-b$IMAGE_EXT">|.DefTarent($guild->{def}+0);
-	$disp.=$TD."<SPAN>û“ü</SPAN> ".GetMoneyString($guild->{in});
-	$disp.="<br><SPAN>xo</SPAN> ".GetMoneyString($guild->{out});
-	$disp.=$TD."<SPAN>Š„ˆø‘—¦</SPAN> ".($dealrate/10)."%";
-	$disp.="<br><SPAN>‰ï”ï—¦</SPAN> ".($feerate/10)."%".$TD;
-	$disp.="<SPAN>".$member."</SPAN> ".($guildcount{$code}+0)."–¼";
+	$disp.=$TD."<SPAN>åå…¥</SPAN> ".GetMoneyString($guild->{in});
+	$disp.="<br><SPAN>æ”¯å‡º</SPAN> ".GetMoneyString($guild->{out});
+	$disp.=$TD."<SPAN>å‰²å¼•å¢—ç‡</SPAN> ".($dealrate/10)."%";
+	$disp.="<br><SPAN>ä¼šè²»ç‡</SPAN> ".($feerate/10)."%".$TD;
+	$disp.="<SPAN>".$member."</SPAN> ".($guildcount{$code}+0)."å";
 	if ($GUILD_DETAIL{$code}->{url})
 		{$disp.=qq| <a target="_blank" href="action.cgi?key=jump&guild=$code">[HP]</a> |;}
 	$disp.="<br>".$comment;

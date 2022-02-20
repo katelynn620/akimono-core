@@ -1,4 +1,4 @@
-# Œf¦”Â‹L–•\¦ 2003/10/08 —R˜Ò
+# æ²ç¤ºæ¿è¨˜äº‹è¡¨ç¤º 2003/10/08 ç”±ä¾†
 
 Msgview() if ($Q{mode} eq "msgview");
 &msg_form;
@@ -29,7 +29,7 @@ sub Msgview
 	}
 	close(IN);
 
-	# ƒŒƒXƒ^ƒCƒgƒ‹
+	# ãƒ¬ã‚¹ã‚¿ã‚¤ãƒˆãƒ«
 	$res_sub = $v_sub;
 	if ($res_sub =~ /^Re\^(\d+)\:(.*)/) {
 		$renum = $1 + 1;
@@ -43,16 +43,16 @@ sub Msgview
 	$date = GetTime2FormatTime($v_tim);
 $disp.=<<HTML;
 <table width=500>
-$TR$TDB¡ $v_sub$TRE
-$TR$TD<SPAN>”­Œ¾Ò</SPAN>F<b> $v_nam</b> $v_eml<br>
-<SPAN>”­Œ¾“ú</SPAN>F $date$TRE
-$TR$TD
+$TR$TDBâ–  $v_sub$TRE
+$TR$TD<SPAN>ç™ºè¨€è€…</SPAN>ï¼š<b> $v_nam</b> $v_eml<br>
+<SPAN>ç™ºè¨€æ—¥</SPAN>ï¼š $date$TRE
+$TR$TDâ—‡
 <blockquote>$v_msg</blockquote>
 </td></tr></table>
 HTML
 
 	if (@new > 1) {
-		$disp.="<hr width=500 size=1><table width=500><tr><td><BIG>¥ŠÖ˜A”­Œ¾</BIG>\n";
+		$disp.="<hr width=500 size=1><table width=500><tr><td><BIG>â–¼é–¢é€£ç™ºè¨€</BIG>\n";
 		$x=0;
 		$disp.="<UL>\n";
 		foreach (@new) {
@@ -63,7 +63,7 @@ HTML
 			if ($lx != 0) {
 				$disp.="<LI><a href=\"action.cgi?key=treebbs&$USERPASSURL&no=$no&reno=$re&oya=$oya&mode=msgview&page=$page\">$sub</a> - <B>$nam</B> $dat ";
 			} else {
-				$disp.="<a href=\"action.cgi?key=treebbs&$USERPASSURL&mode=allread&no=$no&page=$page\">Ÿ</a> - <a href=\"action.cgi?key=treebbs&no=$no&$USERPASSURL&reno=$re&oya=$oya&mode=msgview&page=$page\">$sub</a> - <B>$nam</B> $dat";
+				$disp.="<a href=\"action.cgi?key=treebbs&$USERPASSURL&mode=allread&no=$no&page=$page\">â—†</a> - <a href=\"action.cgi?key=treebbs&no=$no&$USERPASSURL&reno=$re&oya=$oya&mode=msgview&page=$page\">$sub</a> - <B>$nam</B> $dat";
 			}
 
 			if ($Q{no} == $no) {
@@ -80,11 +80,11 @@ HTML
 
 sub msg_form {
 	my($cname, $cmail, $curl, $cpwd, $cpv, $csmail);
-	# •ÔM
+	# è¿”ä¿¡æ™‚
 	if ($mode eq 'msgview') {
 		$disp.=<<STR;
 <hr width=500 noshade size=1>
-<BIG>œ•ÔMƒtƒH[ƒ€</BIG><br><br>
+<BIG>â—è¿”ä¿¡ãƒ•ã‚©ãƒ¼ãƒ </BIG><br><br>
 <FORM ACTION="action.cgi" enctype="multipart/form-data" $METHOD>
 $MYFORM$USERPASSFORM
 <input type=hidden name=mode value="form">
@@ -93,13 +93,13 @@ $MYFORM$USERPASSFORM
 <input type=hidden name=no value="$Q{no}">
 <input type=hidden name=oya value="$Q{oya}">
 STR
-	# V‹K
+	# æ–°è¦æ™‚
 	} else {
-		my $image=GetTagImgKao("ˆÄ“àl","guide");
+		my $image=GetTagImgKao("æ¡ˆå†…äºº","guide");
 		$disp.=<<STR;
 $TB$TR$TD$image
-$TD‘è–¼‚ÍC“à—e‚ª•ª‚©‚é‚æ‚¤‚É‚¨Šè‚¢‚µ‚Ü‚·B<br>
-¿–â‚·‚é‚Æ‚«‚É‚Íæ‚É}‘ŠÙ‚Å’²‚×‚Ü‚µ‚å‚¤B
+$TDâ—‡é¡Œåã¯ï¼Œå†…å®¹ãŒåˆ†ã‹ã‚‹ã‚ˆã†ã«ãŠé¡˜ã„ã—ã¾ã™ã€‚<br>
+â—‡è³ªå•ã™ã‚‹ã¨ãã«ã¯å…ˆã«å›³æ›¸é¤¨ã§èª¿ã¹ã¾ã—ã‚‡ã†ã€‚
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" enctype="multipart/form-data" $METHOD>
 $MYFORM$USERPASSFORM
@@ -113,9 +113,9 @@ $disp.=<<"STR";
 <input type=hidden name=name value="$DT->{shopname}">
 <input type=hidden name=town value="$TOWN_TITLE">
 $TBT$TRT
-<td nowrap><SPAN>ƒ^ƒCƒgƒ‹</SPAN>
+<td nowrap><SPAN>ã‚¿ã‚¤ãƒˆãƒ«</SPAN>
 <td><input type=text name=sub size=38 value=\"$res_sub\"></td></tr>
-$TRT<td nowrap><SPAN>ƒƒbƒZ[ƒW</SPAN><td>
+$TRT<td nowrap><SPAN>ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸</SPAN><td>
 <textarea name=message rows=10 cols=62 wrap=soft></textarea></tr>
 STR
 
@@ -126,10 +126,10 @@ STR
 	}
 
 $disp.=<<"EOM";
-$TRT<td nowrap><SPAN>”­Œ¾í—Ş</SPAN></td><td><select name=smail>
+$TRT<td nowrap><SPAN>ç™ºè¨€ç¨®é¡</SPAN></td><td><select name=smail>
 $select_option
 </select></tr>$TBE
-<input type=submit value=" ‹L–‚ğ“Še‚·‚é ">
+<input type=submit value=" è¨˜äº‹ã‚’æŠ•ç¨¿ã™ã‚‹ ">
 </form>
 EOM
 }

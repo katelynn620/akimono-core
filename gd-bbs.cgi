@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒhŒf¦”Â 2004/02/28 —R˜Ò
+# ã‚®ãƒ«ãƒ‰æ²ç¤ºæ¿ 2004/02/28 ç”±ä¾†
 
 $NOITEM=1;
 DataRead();
@@ -7,11 +7,11 @@ RequireFile('inc-gd.cgi');
 
 my $code = $DT->{guild};
 $code=$Q{code} if $MASTER_USER;
-OutError('g—p•s‰Â‚Å‚·') if !$code;
+OutError('ä½¿ç”¨ä¸å¯ã§ã™') if !$code;
 
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ƒMƒ‹ƒhó•t</SPAN>F‚±‚¿‚ç‚Í".GetTagImgGuild($DT->{guild});
-$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG> ìíº‚Å‚·B<br>";
-$disp.="ƒƒ“ƒo[‚©‚ç‚Ì“`Œ¾‚ÍC‚±‚¿‚ç‚Å‚·B".$TRE.$TBE;
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šã“ã¡ã‚‰ã¯".GetTagImgGuild($DT->{guild});
+$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG> ä½œæˆ¦å®¤ã§ã™ã€‚<br>";
+$disp.="ãƒ¡ãƒ³ãƒãƒ¼ã‹ã‚‰ã®ä¼è¨€ã¯ï¼Œã“ã¡ã‚‰ã§ã™ã€‚".$TRE.$TBE;
 
 $LOG_FILE='bbslog-'.$code;
 if ($Q{msg})
@@ -32,7 +32,7 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=hidden NAME=code VALUE="$code">
 $errormsg
 <INPUT TYPE=TEXT NAME=msg SIZE=50 VALUE="$Q{msg}">
-<INPUT TYPE=SUBMIT VALUE="‘">
+<INPUT TYPE=SUBMIT VALUE="æ›¸è¾¼">
 </FORM>
 STR
 
@@ -49,7 +49,7 @@ foreach(@MESSAGE[$pagestart..$pageend])
 	$tm=GetTime2FormatTime($tm);
 	if(!$to)
 	{
-		$sname="šŠÇ—Ò";
+		$sname="â˜…ç®¡ç†è€…";
 	}
 
 $disp.=$TR;

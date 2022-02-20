@@ -1,39 +1,39 @@
-# Œf¦”Â‘‚«‚İˆ— 2003/09/25 —R˜Ò
+# æ²ç¤ºæ¿æ›¸ãè¾¼ã¿å‡¦ç† 2003/09/25 ç”±ä¾†
 
 if ($Q{message} eq "" || $Q{message} =~ /^(\x81\x40|\s|<br>)+$/)
-	{ OutError("ƒƒbƒZ[ƒW‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
+	{ OutError("ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
 if ($Q{sub} eq "" || $Q{sub} =~ /^(\x81\x40|\s)+$/)
-	{ OutError("ƒ^ƒCƒgƒ‹‚ª“ü—Í‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB"); }
+	{ OutError("ã‚¿ã‚¤ãƒˆãƒ«ãŒå…¥åŠ›ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚"); }
 
-# ŠÇ—Ò”F¯
+# ç®¡ç†è€…èªè­˜
 $Q{name}=$adminname,$Q{town}="" 	if ($MASTER_USER);
 
-# ƒƒOƒtƒ@ƒCƒ‹“Ç‚İ‚İ
+# ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿
 open(IN,$datafile);
 @lines = <IN>;
 close(IN);
 
-# ‹L–no.
+# è¨˜äº‹no.
 $top = shift(@lines);
 ($count,$ip,$tim) = split(/<>/, $top);
 if ($count % 9999) { $count++; } else { $count=1; }
 
-	# e‹L–
+	# è¦ªè¨˜äº‹
 	if ($Q{no} eq 'new') {
 		unshift (@lines,"$count<>no<>0<>$Q{sub}<>$Q{town}<>$Q{name}<>$Q{message}<>$NOW_TIME<>$host<>$count<>$Q{smail}<>0<>\n");
 		@new = @lines;
 	}
-	# ƒŒƒX‹L–
+	# ãƒ¬ã‚¹è¨˜äº‹
 	else {
-		# ƒŒƒX‚Ì‚Â‚¢‚½ƒcƒŠ[‚Æ‚»‚¤‚Å‚È‚¢ƒcƒŠ[‚ğ•ªŠ„
-		@new=();	# ã‚°‚ç‚ê‚éƒcƒŠ[
-		@tmp=();	# c‚éƒcƒŠ[
+		# ãƒ¬ã‚¹ã®ã¤ã„ãŸãƒ„ãƒªãƒ¼ã¨ãã†ã§ãªã„ãƒ„ãƒªãƒ¼ã‚’åˆ†å‰²
+		@new=();	# ä¸Šã’ã‚‰ã‚Œã‚‹ãƒ„ãƒªãƒ¼
+		@tmp=();	# æ®‹ã‚‹ãƒ„ãƒªãƒ¼
 		$flag=0;
 		foreach (@lines) {
 			chop;
 			($no,$reno,$lx,$t,$e,$n,$m,$tm,$h,$OYA,$smail,$res) = split(/<>/);
 			if ($flag == 1 && $lx2 > $lx && $OYA == $Q{oya}) {
-				$flag=2;	#‚»‚Ì‚Ü‚Ü‚­‚Á‚Â‚­
+				$flag=2;	#ãã®ã¾ã¾ãã£ã¤ã
 				push(@new,"$count<>$Q{no}<>$lx2<>$Q{sub}<>$Q{town}<>$Q{name}<>$Q{message}<>$NOW_TIME<>$host<>$Q{oya}<>$Q{smail}<>0<>\n");
 			}
 			if ($no == $Q{no}) {
@@ -48,12 +48,12 @@ if ($count % 9999) { $count++; } else { $count=1; }
 			}
 		}
 		if ($flag != 2) {
-			#ÅŒã‚É‚­‚Á‚Â‚­
+			#æœ€å¾Œã«ãã£ã¤ã
 			push(@new,"$count<>$Q{no}<>$lx2<>$Q{sub}<>$Q{town}<>$Q{name}<>$Q{message}<>$NOW_TIME<>$host<>$Q{oya}<>$Q{smail}<>0<>\n");
 		}
 		push(@new,@tmp);
 	}
-	# Å‘å‹L–”ˆ—
+	# æœ€å¤§è¨˜äº‹æ•°å‡¦ç†
 	if (@new > $max) {
 		foreach (0 .. $#new) {
 			my($p_file) = pop(@new);
@@ -71,5 +71,5 @@ if ($count % 9999) { $count++; } else { $count=1; }
 	CoDataCA();
 	CoUnLock();
 
-	$disp.="‘‚«‚İ‚ğŠ®—¹‚µ‚Ü‚µ‚½B --".GetMenuTag('treebbs','[‹L–ˆê——‚É–ß‚é]');
+	$disp.="æ›¸ãè¾¼ã¿ã‚’å®Œäº†ã—ã¾ã—ãŸã€‚ --".GetMenuTag('treebbs','[è¨˜äº‹ä¸€è¦§ã«æˆ»ã‚‹]');
 1;

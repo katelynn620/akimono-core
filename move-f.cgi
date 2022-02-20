@@ -1,13 +1,13 @@
-# �ړ]�t�H�[�� 2005/01/06 �R��
+# 移転フォーム 2005/01/06 由來
 
-OutError('�g�p�s�ł�') if !$MOVETOWN_ENABLE || !$TOWN_CODE;
+OutError('使用不可です') if !$MOVETOWN_ENABLE || !$TOWN_CODE;
 my $townmaster=ReadTown($TOWN_CODE,'getown');
-OutError('�g�p�s�ł�') if !$townmaster;
+OutError('使用不可です') if !$townmaster;
 
 DataRead();
 CheckUserPass();
 
-OutError('�ړ]�\�ȊX��������܂���') if !$Q{towncode};
+OutError('移転可能な街が見つかりません') if !$Q{towncode};
 $disp.=GetMoveShopForm($Q{towncode});
 OutSkin();
 1;
@@ -17,7 +17,7 @@ sub GetMoveShopForm
 	my($towncode)=@_;
 	
 	my($town)=ReadTown($towncode);
-	return '<b>�ړ]�\�ȊX��������܂���</b>' if !$town;
+	return '<b>移転可能な街が見つかりません</b>' if !$town;
 	
 	my $disp="";
 	
@@ -25,34 +25,34 @@ sub GetMoveShopForm
 	my $movetime=GetMoveTownTime($DT,$townmaster,$town);
 	
 	$disp.=$TB;
-	$disp.="$TR$TDB�ړ]��$TD$town->{name}$TRE";
-	$disp.="$TR$TDB�R�����g$TD$town->{comment}$TRE";
-	$disp.="$TR$TDB����$TD".($dist*80)."m$TRE";
-	$disp.="$TR$TDB�ړ�����$TD".GetTime2HMS($movetime).' �i�\��j'.$TRE;
+	$disp.="$TR$TDB移転先$TD$town->{name}$TRE";
+	$disp.="$TR$TDBコメント$TD$town->{comment}$TRE";
+	$disp.="$TR$TDB距離$TD".($dist*80)."m$TRE";
+	$disp.="$TR$TDB移動時間$TD".GetTime2HMS($movetime).' （予定）'.$TRE;
 	$deny=0;
 	
 	sub GetMarkDeny
 	{
-		$deny=1,return " �������𖞂����Ă��܂���" if ($_[0]);
+		$deny=1,return " ←条件を満たしていません" if ($_[0]);
 		return "";
 	}
 	my @flag=();
-	push(@flag,"�ȑO�̈ړ]���� 10 ���ȏ�".GetMarkDeny($NOW_TIME-GetUserDataEx($DT,'_so_move_in')<864000));	#�ǉ�
-	push(@flag,"���� ".GetMoneyString($town->{allowmoney})." �ȏ�".GetMarkDeny($town->{allowmoney}>$DT->{money}+$DT->{moneystock})) if $town->{allowmoney} ne '';
-	push(@flag,"���� ".GetMoneyString($town->{denymoney})." �ȉ�".GetMarkDeny($town->{denymoney}<$DT->{money}+$DT->{moneystock}))  if $town->{denymoney} ne '';
-	push(@flag,"�M���h ".join("/",map{GetTagImgGuild($_,1,1)}split(/\W/,$town->{allowguild})).($town->{onlyguild} ? '':' ����уM���h������')." �̂�".GetMarkDeny($DT->{guild} ne '' && !scalar(grep($_ eq $DT->{guild},split(/[^\w]+/,$town->{allowguild}))))) if $town->{allowguild} ne '';
-	push(@flag,"�M���h ".join("/",map{GetTagImgGuild($_,1,1)}split(/\W/,$town->{denyguild})).($town->{onlyguild} ? ' ����уM���h������':'')." �ȊO".GetMarkDeny($DT->{guild} ne '' && scalar(grep($_ eq $DT->{guild},split(/[^\w]+/,$town->{denyguild}))))) if $town->{denyguild} ne '';
-	push(@flag,"�g�b�v�l���� $town->{allowtopcount} ��ȏ�".GetMarkDeny($town->{allowtopcount}>$DT->{rankingcount})) if $town->{allowtopcount} ne '';
-	push(@flag,"�g�b�v�l���� $town->{denytopcount} ��ȉ�".GetMarkDeny($town->{denytopcount}<$DT->{rankingcount}))  if $town->{denytopcount} ne '';
-	push(@flag,"�J�Ɗ��� ".GetTime2HMS($town->{allowfoundation})." �ȏ�".GetMarkDeny($town->{allowfoundation}>$NOW_TIME-$DT->{foundation})) if $town->{allowfoundation} ne '';
-	push(@flag,"�J�Ɗ��� ".GetTime2HMS($town->{denyfoundation})." �ȉ�".GetMarkDeny($town->{denyfoundation}<$NOW_TIME-$DT->{foundation}))  if $town->{denyfoundation} ne '';
-	push(@flag,"�M���h�����̂� ".GetMarkDeny($DT->{guild} eq '')) if $town->{onlyguild} ne '';
-	push(@flag,"�M���h�������̂� ".GetMarkDeny($DT->{guild} ne '')) if $town->{noguild} ne '';
-	push(@flag,"�E�� ".join("/",map{$JOBTYPE{$_}}split(/\W+/,$town->{allowjob})).($town->{onlyjob} ? '':' ����ѐE�ƕs��')." �̂�".GetMarkDeny($DT->{job} ne '' && !scalar(grep($_ eq $DT->{job},split(/\W+/,$town->{allowjob}))))) if $town->{allowjob} ne '';
-	push(@flag,"�E�� ".join("/",map{$JOBTYPE{$_}}split(/\W+/,$town->{denyjob})).($town->{onlyjob} ? ' ����ѐE�ƕs��':'')." �ȊO".GetMarkDeny($DT->{job} ne '' && scalar(grep($_ eq $DT->{job},split(/\W+/,$town->{denyjob}))))) if $town->{denyjob} ne '';
-	push(@flag,"�E�ƓX�܂̂� ".GetMarkDeny($DT->{job} eq '')) if $town->{onlyjob} ne '';
-	push(@flag,"�E�ƕs��X�܂̂� ".GetMarkDeny($DT->{job} ne '')) if $town->{nojob} ne '';
-	$disp.="$TR$TDB�ړ]����$TD�E".join("<br>�E",@flag)."$TRE" if scalar(@flag);
+	push(@flag,"以前の移転から 10 日以上".GetMarkDeny($NOW_TIME-GetUserDataEx($DT,'_so_move_in')<864000));	#追加
+	push(@flag,"資金 ".GetMoneyString($town->{allowmoney})." 以上".GetMarkDeny($town->{allowmoney}>$DT->{money}+$DT->{moneystock})) if $town->{allowmoney} ne '';
+	push(@flag,"資金 ".GetMoneyString($town->{denymoney})." 以下".GetMarkDeny($town->{denymoney}<$DT->{money}+$DT->{moneystock}))  if $town->{denymoney} ne '';
+	push(@flag,"ギルド ".join("/",map{GetTagImgGuild($_,1,1)}split(/\W/,$town->{allowguild})).($town->{onlyguild} ? '':' およびギルド無所属')." のみ".GetMarkDeny($DT->{guild} ne '' && !scalar(grep($_ eq $DT->{guild},split(/[^\w]+/,$town->{allowguild}))))) if $town->{allowguild} ne '';
+	push(@flag,"ギルド ".join("/",map{GetTagImgGuild($_,1,1)}split(/\W/,$town->{denyguild})).($town->{onlyguild} ? ' およびギルド無所属':'')." 以外".GetMarkDeny($DT->{guild} ne '' && scalar(grep($_ eq $DT->{guild},split(/[^\w]+/,$town->{denyguild}))))) if $town->{denyguild} ne '';
+	push(@flag,"トップ獲得回数 $town->{allowtopcount} 回以上".GetMarkDeny($town->{allowtopcount}>$DT->{rankingcount})) if $town->{allowtopcount} ne '';
+	push(@flag,"トップ獲得回数 $town->{denytopcount} 回以下".GetMarkDeny($town->{denytopcount}<$DT->{rankingcount}))  if $town->{denytopcount} ne '';
+	push(@flag,"開業期間 ".GetTime2HMS($town->{allowfoundation})." 以上".GetMarkDeny($town->{allowfoundation}>$NOW_TIME-$DT->{foundation})) if $town->{allowfoundation} ne '';
+	push(@flag,"開業期間 ".GetTime2HMS($town->{denyfoundation})." 以下".GetMarkDeny($town->{denyfoundation}<$NOW_TIME-$DT->{foundation}))  if $town->{denyfoundation} ne '';
+	push(@flag,"ギルド所属のみ ".GetMarkDeny($DT->{guild} eq '')) if $town->{onlyguild} ne '';
+	push(@flag,"ギルド無所属のみ ".GetMarkDeny($DT->{guild} ne '')) if $town->{noguild} ne '';
+	push(@flag,"職業 ".join("/",map{$JOBTYPE{$_}}split(/\W+/,$town->{allowjob})).($town->{onlyjob} ? '':' および職業不定')." のみ".GetMarkDeny($DT->{job} ne '' && !scalar(grep($_ eq $DT->{job},split(/\W+/,$town->{allowjob}))))) if $town->{allowjob} ne '';
+	push(@flag,"職業 ".join("/",map{$JOBTYPE{$_}}split(/\W+/,$town->{denyjob})).($town->{onlyjob} ? ' および職業不定':'')." 以外".GetMarkDeny($DT->{job} ne '' && scalar(grep($_ eq $DT->{job},split(/\W+/,$town->{denyjob}))))) if $town->{denyjob} ne '';
+	push(@flag,"職業店舗のみ ".GetMarkDeny($DT->{job} eq '')) if $town->{onlyjob} ne '';
+	push(@flag,"職業不定店舗のみ ".GetMarkDeny($DT->{job} ne '')) if $town->{nojob} ne '';
+	$disp.="$TR$TDB移転条件$TD・".join("<br>・",@flag)."$TRE" if scalar(@flag);
 	$disp.=$TBE;
 	
 	return $disp if $deny;
@@ -63,24 +63,24 @@ sub GetMoveShopForm
 		$USERPASSFORM
 		<input type=hidden name=towncode value="$towncode">
 		$TB$TR
-		$TDB�ړ]��ł̖��O(ID)$TD<input type=text name=name value="$DT->{name}">(���p�S�pOK)$TRE
-		$TR$TDB���݂̃p�X���[�h$TD<input type=password name=pass value="">$TRE$TBE
-		<br><input type=submit value="�ړ]�葱�J�n">
+		$TDB移転先での名前(ID)$TD<input type=text name=name value="$DT->{name}">(半角全角OK)$TRE
+		$TR$TDB現在のパスワード$TD<input type=password name=pass value="">$TRE$TBE
+		<br><input type=submit value="移転手続開始">
 		</form>
 		<hr width=500 noshade size=1>
-		<table><tr><td>�ړ]�ň����p����Ȃ��f�[�^�͉��L�̒ʂ�ł��B����ȊO�͂قڂ��̂܂܈����p����܂��B
+		<table><tr><td>移転で引き継がれないデータは下記の通りです。それ以外はほぼそのまま引き継がれます。
 		<ul>
-		<li>�O���̏��ʏ��
-		<li>�͂��Ă����莆�i�S�Ĕj���j
+		<li>前期の順位情報
+		<li>届いていた手紙（全て破棄）
 		</ul>
-		�ȉ��̏ꍇ�͈ړ]�̍ۓX�܃f�[�^���ꕔ�����܂��B
+		以下の場合は移転の際店舗データが一部失われます。
 		<ul>
-		<li>�V�X�e���������œX�܃f�[�^�Ɍ݊������Ȃ��ꍇ
+		<li>システム改造等で店舗データに互換性がない場合
 		</ul>
-		�ȉ��̏ꍇ�͈ړ]�ł��܂���B
+		以下の場合は移転できません。
 		<ul>
-		<li>�ړ]�悪�����̏ꍇ
-		<li>�ړ]��ɓ������O(ID)��X�ܖ�������ꍇ
+		<li>移転先が満員の場合
+		<li>移転先に同じ名前(ID)や店舗名がある場合
 		</ul></td></tr></table>
 HTML
 	return $disp;

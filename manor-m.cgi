@@ -1,13 +1,13 @@
-# ‘‘‰€íw“ü 2005/03/30 —R˜Ò
+# è˜åœ’ç¨®è³¼å…¥ 2005/03/30 ç”±ä¾†
 
 $NOITEM=1;
 $NOMENU=1;
 DataRead();
 CheckUserPass();
-OutError("—Ìå‚ª‚¢‚È‚¢‚Ì‚Å‘‘‰€§“x‚ª‹@”\‚µ‚Ä‚¢‚Ü‚¹‚ñ") if !defined($id2idx{$STATE->{leader}});
+OutError("é ˜ä¸»ãŒã„ãªã„ã®ã§è˜åœ’åˆ¶åº¦ãŒæ©Ÿèƒ½ã—ã¦ã„ã¾ã›ã‚“") if !defined($id2idx{$STATE->{leader}});
 RequireFile('inc-manor.cgi');
 
-	# ‘‘‰€İ’è‚ğæ“¾
+	# è˜åœ’è¨­å®šã‚’å–å¾—
 	my $i=$id2idx{$STATE->{leader}};
 	ReadDTSub($DT[$i],"lord");
 	$MANORLORD=$DT[$i]->{_lord};
@@ -22,26 +22,26 @@ $price=$MANORLORD->{"price$i"};
 OutError("bad request") if !$price;
 
 $stock=$MANORLORD->{"count$i"};
-OutError("”Ì”„İŒÉ‚ªs‚«‚Ä‚¢‚Ü‚·") if !$stock;
+OutError("è²©å£²åœ¨åº«ãŒå°½ãã¦ã„ã¾ã™") if !$stock;
 
 RequireFile('inc-html-ownerinfo.cgi');
 
-$disp.="<BIG>œw“ü</BIG><br><br>";
+$disp.="<BIG>â—è³¼å…¥</BIG><br><br>";
 
-$disp.=$TB.$TR.$TDB."¤•i".$TD;
+$disp.=$TB.$TR.$TDB."å•†å“".$TD;
 $disp.=GetTagImgManor($MYMANOR[1]).$MYMANOR[0].$TRE;
-$disp.=$TR.$TDB."‰¿Ši".$TD.'@'.GetMoneyString($price).$TRE;
-$disp.=$TR.$TDB."”Ì”„İŒÉ”".$TD.$stock." ŒÂ".$TRE;
-$disp.=$TR.$TDB.'©“X•Û—L”'.$TD.($DT->{_seed}->{"base$i"} + 0)." ŒÂ".$TRE;
+$disp.=$TR.$TDB."ä¾¡æ ¼".$TD.'@'.GetMoneyString($price).$TRE;
+$disp.=$TR.$TDB."è²©å£²åœ¨åº«æ•°".$TD.$stock." å€‹".$TRE;
+$disp.=$TR.$TDB.'è‡ªåº—ä¿æœ‰æ•°'.$TD.($DT->{_seed}->{"base$i"} + 0)." å€‹".$TRE;
 $disp.=$TBE;
 $disp.="<hr width=500 noshade size=1>";
 
 if($DT->{_seed}->{"base$i"}>=$tlimit)
-	{$disp.='<BR>‚±‚êˆÈãw“ü‚Å‚«‚Ü‚¹‚ñ<BR>';}
+	{$disp.='<BR>ã“ã‚Œä»¥ä¸Šè³¼å…¥ã§ãã¾ã›ã‚“<BR>';}
 elsif($DT->{money}<$price)
-	{$disp.='<BR>‘‹à‚ª‘«‚è‚Ü‚¹‚ñ<BR>';}
+	{$disp.='<BR>è³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“<BR>';}
 elsif(GetStockTime($DT->{time})<$usetime)
-	{$disp.='<BR>ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>';}
+	{$disp.='<BR>æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>';}
 else
 {
 	$disp.="<FORM ACTION=\"action.cgi\" $METHOD>";
@@ -49,7 +49,7 @@ else
 	$disp.="$USERPASSFORM";
 	$disp.="<INPUT TYPE=HIDDEN NAME=bk VALUE=\"manor\">";
 	$disp.="<INPUT TYPE=HIDDEN NAME=it VALUE=\"$i\">";
-	$disp.="ã‹L‚ğ ";
+	$disp.="ä¸Šè¨˜ã‚’ ";
 	$limit=$tlimit - $DT->{_seed}->{"base$i"};
 	$money=$MAX_MONEY;
 	$money=int($DT->{money}/$price) if $price;
@@ -58,9 +58,9 @@ else
 	$msg{100}=100;
 	$msg{1000}=1000;
 	$msg{10000}=10000;
-	$msg{$stock}="$stock(İŒÉÅ‘å)";
-	$msg{$limit}="$limit(•Û—LÅ‘å)";
-	$msg{$money}="$money(‘‹àÅ‘å)";
+	$msg{$stock}="$stock(åœ¨åº«æœ€å¤§)";
+	$msg{$limit}="$limit(ä¿æœ‰æœ€å¤§)";
+	$msg{$money}="$money(è³‡é‡‘æœ€å¤§)";
 	$disp.="<SELECT NAME=num1 SIZE=1>";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1,10,50,$stock,$limit,$money))
@@ -70,12 +70,12 @@ else
 		$disp.="<OPTION VALUE=\"$cnt\">$msg{$cnt}";
 		$oldcnt=$cnt;
 	}
-	$disp.="</SELECT> ŒÂA‚à‚µ‚­‚Í ";
-	$disp.="<INPUT TYPE=TEXT NAME=num2 SIZE=5> ŒÂ ";
+	$disp.="</SELECT> å€‹ã€ã‚‚ã—ãã¯ ";
+	$disp.="<INPUT TYPE=TEXT NAME=num2 SIZE=5> å€‹ ";
 
-	$disp.="<INPUT TYPE=SUBMIT VALUE='”ƒ‚¤'>";
+	$disp.="<INPUT TYPE=SUBMIT VALUE='è²·ã†'>";
 
-	$disp.="<br>(Á”ïŠÔ:".GetTime2HMS($usetime).")";
+	$disp.="<br>(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")";
 	$disp.="</FORM>";
 }
 

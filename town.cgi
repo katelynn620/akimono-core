@@ -1,9 +1,9 @@
-# é‰º’¬ 2004/01/20 —R˜Ò
+# åŸä¸‹ç”º 2004/01/20 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
 
-# ‰æ‘œ’è‹`
+# ç”»åƒå®šç¾©
 DevelopImage();
 RequireFile('inc-town.cgi');
 
@@ -18,7 +18,7 @@ foreach(0..$Pnum)
 	$image[$_]=(($link =~ /\./) ? GetTagA($image[$_],$link,0,"_blank") : GetMenuTag($link,$image[$_])) if $link;
 	}
 
-# ‚Ó‚«‚¾‚µŒn
+# ãµãã ã—ç³»
 CharaDefine();
 StyleDefine();
 
@@ -72,8 +72,8 @@ $i[1]=qq|<IMG WIDTH=96 HEIGHT=80 SRC="$IMAGE_URL/map/mapshop.png">|;
 $i[2]=qq|<IMG WIDTH=240 HEIGHT=80 SRC="$IMAGE_URL/map/consul.png">|;
 $i[2]=qq|<IMG WIDTH=240 HEIGHT=80 SRC="$IMAGE_URL/map/consul2.png">| if ($DTevent{rebel});
 $tree=qq|<IMG WIDTH=128 HEIGHT=80 SRC="$IMAGE_URL/map/tree1.png">|;
-$img_ex[0]=GetMenuTag('lord','<acronym title="—Ìå“@">'.$i[2].'</acronym>');
-$img_ex[1]=GetMenuTag('shop-a','<acronym title="¤“X’Ê‚è"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"></acronym>');
+$img_ex[0]=GetMenuTag('lord','<acronym title="é ˜ä¸»é‚¸">'.$i[2].'</acronym>');
+$img_ex[1]=GetMenuTag('shop-a','<acronym title="å•†åº—é€šã‚Š"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"></acronym>');
 
 if ($STATE->{develop} > 4500)
 	{
@@ -116,13 +116,13 @@ my $logmemb="";
 foreach(@DT)
 	{
 	next if ($_->{lastlogin} < $NOW_TIME - 600);
-	$logmemb .= $_->{shopname}."C ";
+	$logmemb .= $_->{shopname}."ï¼Œ ";
 	}
 $logmemb = substr($logmemb,0,(length($logmemb)-3)) if ($logmemb);
-$logmemb = "‚È‚µ" if !$logmemb;
+$logmemb = "ãªã—" if !$logmemb;
 
 $disp.=<<"HTML";
-<table width=256>$TR$TDB<small>Œ»İŠˆ“®’†‚Ì“X</small>$TRE
+<table width=256>$TR$TDB<small>ç¾åœ¨æ´»å‹•ä¸­ã®åº—</small>$TRE
 $TR$TD<small>$logmemb</small>$TRE$TBE
 HTML
 }

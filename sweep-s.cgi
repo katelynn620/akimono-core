@@ -1,4 +1,4 @@
-# ‚¨‘|œ 2005/01/06 —R˜Ò
+# ãŠæƒé™¤ 2005/01/06 ç”±ä¾†
 
 Lock();
 DataRead();
@@ -6,7 +6,7 @@ CheckUserPass();
 
 $time=int(GetStockTime($DT->{time})/ 3600);
 $count=CheckCount($Q{cnt1},$Q{cnt2},0,$time);
-OutError('ŠÔ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if ($count < 1);
+OutError('æ™‚é–“ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if ($count < 1);
 my $usetime=GetTimeDeal($DT->{trush});
 $usetime=$count * 3600 if ($usetime > $count * 3600);
 my $deal=$count * 3600 / $TIME_SEND_MONEY * $TIME_SEND_MONEY_PLUS;
@@ -17,13 +17,13 @@ UseTime($usetime);
 
 RequireFile('inc-html-ownerinfo.cgi');
 
-$disp.="<BIG>œ‚¨‘|œƒŒƒ|[ƒg</BIG><br><br>‚¨‘|œ‚ğs‚¢‚Ü‚µ‚½B<br><br>";
+$disp.="<BIG>â—ãŠæƒé™¤ãƒ¬ãƒãƒ¼ãƒˆ</BIG><br><br>ãŠæƒé™¤ã‚’è¡Œã„ã¾ã—ãŸã€‚<br><br>";
 $disp.=$TB.$TR.$TD;
-$disp.="<SPAN>—\\’èŠ—vŠÔ</SPAN>F".$count."ŠÔ<br>";
-$disp.="<SPAN>ÀÛ‚©‚©‚Á‚½ŠÔ</SPAN>F".GetTime2HMS($usetime)."<br>";
-$disp.="<SPAN>Å‰‚ ‚Á‚½‚²‚İ‚Ì—Ê</SPAN>F".int(($DT->{trush}+$deal)/10000)."kg<br>";
-$disp.="<SPAN>•Ğ•t‚¯‚½‚²‚İ‚Ì—Ê</SPAN>F".int($deal/10000)."kg<br>";
-$disp.="<SPAN>c‚Á‚½‚²‚İ‚Ì—Ê</SPAN>F".int($DT->{trush}/10000)."kg";
+$disp.="<SPAN>äºˆ\å®šæ‰€è¦æ™‚é–“</SPAN>ï¼š".$count."æ™‚é–“<br>";
+$disp.="<SPAN>å®Ÿéš›ã‹ã‹ã£ãŸæ™‚é–“</SPAN>ï¼š".GetTime2HMS($usetime)."<br>";
+$disp.="<SPAN>æœ€åˆã‚ã£ãŸã”ã¿ã®é‡</SPAN>ï¼š".int(($DT->{trush}+$deal)/10000)."kg<br>";
+$disp.="<SPAN>ç‰‡ä»˜ã‘ãŸã”ã¿ã®é‡</SPAN>ï¼š".int($deal/10000)."kg<br>";
+$disp.="<SPAN>æ®‹ã£ãŸã”ã¿ã®é‡</SPAN>ï¼š".int($DT->{trush}/10000)."kg";
 $disp.=$TRE.$TBE;
 
 DataWrite();

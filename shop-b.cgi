@@ -1,9 +1,9 @@
-# “X•Êˆê—— 2005/03/30 —R˜Ò
+# åº—åˆ¥ä¸€è¦§ 2005/03/30 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
 
-#ŒŸõƒtƒH[ƒ€‚ğ’Ç‰Á
+#æ¤œç´¢ãƒ•ã‚©ãƒ¼ãƒ ã‚’è¿½åŠ 
 my @itemlist=();
 my $rank=1;
 my %itempro=();
@@ -39,7 +39,7 @@ foreach($ITEM[0],sort{$a->{sort} <=> $b->{sort}}values(%itemlist))
 $itemlist.="</select>";
 
 my $shoplist="";
-$shoplist="<select name=ds><option value=\"\">‚·‚×‚Ä";
+$shoplist="<select name=ds><option value=\"\">ã™ã¹ã¦";
 foreach (@DT)
 {
 	$shoplist.="<OPTION VALUE=\"$_->{id}\"".($Q{senditem}==$_->{id}?' SELECTED':'').">$_->{shopname}" if $DT->{id}!=$_->{id};
@@ -60,10 +60,10 @@ else
 		GetPage($Q{pg},$SHOP_PAGE_ROWS,$DTusercount);
 }
 
-$disp.="<BIG>œ¤“X’Ê‚èF“X–¼•Ê•\\¦</BIG>";
+$disp.="<BIG>â—å•†åº—é€šã‚Šï¼šåº—ååˆ¥è¡¨\ç¤º</BIG>";
 $disp.="<br><br>";
 
-#“X•Ê’Ç‰Áƒo[ƒWƒ‡ƒ“
+#åº—åˆ¥è¿½åŠ ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 $disp.=<<"HTML";
 $TBT$TRT
 <td valign="bottom">
@@ -72,20 +72,20 @@ $TBT$TRT
 $USERPASSFORM
 <input type=hidden name=tp value=\"$tp\">
 $itemlist
-<input type=submit value="¤•i‚ÅŒŸõ"> 
+<input type=submit value="å•†å“ã§æ¤œç´¢"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-b">
 $USERPASSFORM
 $shoplist
-<input type=submit value="“X–¼‚ÅŒŸõ"> 
+<input type=submit value="åº—åã§æ¤œç´¢"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-c">
 $USERPASSFORM
-<input type=submit value="‘Šê‚ğ’²¸">
+<input type=submit value="ç›¸å ´ã‚’èª¿æŸ»">
 </form>
 $TRE$TBE
 <br>
@@ -111,14 +111,14 @@ foreach my $cnt ($pagestart .. $pageend)
 		{
 			my $ITEM=$ITEM[$itemno];
 			$stock=$DT->{item}[$itemno-1];
-			my $msg=$stock ? "c".$stock.$ITEM->{scale} : "”„‚èØ‚ê";
+			my $msg=$stock ? "æ®‹".$stock.$ITEM->{scale} : "å£²ã‚Šåˆ‡ã‚Œ";
 			$disp.=$TR.$TD;
 			$disp.="<A HREF=\"action.cgi?key=buy&buy=$DT->{id}!$idx!$itemno&bk=p!$page&$USERPASSURL\">" if $stock && !$GUEST_USER;
 			$disp.=GetTagImgItemType($itemno).$ITEM->{name};
 			$disp.="</A>" if $stock && !$GUEST_USER;
 			$disp.=$TD.'@'.GetMoneyString($DT->{price}[$idx]);
 			$disp.=$TD.$msg;
-			$disp.=$TD.($DT->{itemtoday}{$itemno}+0).$ITEM->{scale}."”„ã";
+			$disp.=$TD.($DT->{itemtoday}{$itemno}+0).$ITEM->{scale}."å£²ä¸Š";
 			$disp.=$TRE;
 		}
 	}

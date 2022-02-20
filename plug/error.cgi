@@ -1,4 +1,4 @@
-# error �v���O�C�� 2004/01/20 �R��
+# error プラグイン 2004/01/20 由來
 
 sub OverLoad
 {
@@ -9,12 +9,12 @@ Content-type: text/html
 
 <html>
 <head>
-<title>�ߕ���</title>
+<title>過負荷</title>
 </head>
 <body>
-���݃T�[�o�������׏�Ԃł��B
-�\\���󂠂�܂��񂪂��΂炭�A�N�Z�X�������킹�Ă��������B<br>
-���דx $_[0] CPUs
+現在サーバが高負荷状態です。
+申\し訳ありませんがしばらくアクセスを見合わせてください。<br>
+負荷度 $_[0] CPUs
 </body></html>
 HTML
 	exit;
@@ -27,34 +27,34 @@ sub OutError
 	my %msg=
 	(
 		"not defined function"=>
-			'��`����Ă��Ȃ��֐����Ăяo���܂����B�Ǘ��҂Ɉȉ��̏���A�����Ă��������B<hr>'.
+			'定義されていない関数を呼び出しました。管理者に以下の情報を連絡してください。<hr>'.
 			"not defined function '$_[1]'",
 		"busy"=>
-			'�A�N�Z�X��<SPAN>���G</SPAN>���Ă���܂��B<br>'.
-			'���萔�ł���<SPAN>�K���T�b�ȏ�҂��Ă���</SPAN>�߂��Ă�����x�A�N�Z�X���Ă��������B<br>'.
-			($AUTO_UNLOCK_TIME*2).'�b�ȏ�o���Ă��ڑ��ł��Ȃ��ꍇ��'.
-			'<a href="mailto:'.$ADMIN_EMAIL.'">�Ǘ��l�܂ł��A��</a>���������B',
+			'アクセスが<SPAN>混雑</SPAN>しております。<br>'.
+			'お手数ですが<SPAN>必ず５秒以上待ってから</SPAN>戻ってもう一度アクセスしてください。<br>'.
+			($AUTO_UNLOCK_TIME*2).'秒以上経っても接続できない場合は'.
+			'<a href="mailto:'.$ADMIN_EMAIL.'">管理人までご連絡</a>ください。',
 		"no data"=>
-			'<SPAN>�f�[�^��������܂���ł���</SPAN>�B���萔�ł����߂��Ă�蒼���Ă��������B'.
-			'���̃��b�Z�[�W�������ꍇ��<a href="mailto:'.$ADMIN_EMAIL.'">�Ǘ��l�܂ł��A��</a>���������B',
+			'<SPAN>データが見つかりませんでした</SPAN>。お手数ですが戻ってやり直してください。'.
+			'このメッセージが続く場合は<a href="mailto:'.$ADMIN_EMAIL.'">管理人までご連絡</a>ください。',
 		"stop"=>
-			'���̓X�܂�<SPAN>���x�ݒ�</SPAN>�ł��B'.
-			'�v���C���ĊJ����Ƃ���<a href="mailto:'.$ADMIN_EMAIL.'">�Ǘ��l�܂ł��A��</a>���������B',
+			'この店舗は<SPAN>お休み中</SPAN>です。'.
+			'プレイを再開するときは<a href="mailto:'.$ADMIN_EMAIL.'">管理人までご連絡</a>ください。',
 		"no user"=>
-			'���݂��Ȃ�ID�ł��BID�����m�F���������B��'.$_[1],
+			'存在しないIDです。IDをご確認ください。→'.$_[1],
 		"incorrect"=>
-			'�p�X���[�h���Ԉ���Ă��܂��B���m�F����������'.$_[1],
+			'パスワードが間違っています。ご確認ください→'.$_[1],
 		"error rename"=>
-			'�f�[�^�X�V�Ɏ��s���܂���',
+			'データ更新に失敗しました',
 		"timeout"=>
-			'���O�C�����璷���Ԃ��o�߂�������<SPAN>�^�C���A�E�g</SPAN>���܂����B<br>���萔�ł���������x�g�b�v���烍�O�C���������Ă��������B',
+			'ログインから長時間が経過したため<SPAN>タイムアウト</SPAN>しました。<br>お手数ですがもう一度トップからログインし直してください。',
 		"bad request"=>
-			'<SPAN>�s���ȌĂяo��</SPAN>�ł��B�u���E�U�́u�߂�/�i�ށv���g���Ă���ꍇ�͎g��Ȃ��悤�ɂ��Ă��������B',
+			'<SPAN>不正な呼び出し</SPAN>です。ブラウザの「戻る/進む」を使っている場合は使わないようにしてください。',
 	);
 	my $msg=defined $msg{$_[0]} ? $msg{$_[0]} : $_[0];
 	$NOMENU=0;$Q{bk}="";
 	$disp=<<"HTML";
-	<BIG>���G���[���|�[�g</BIG><br><br>
+	<BIG>●エラーレポート</BIG><br><br>
 	$msg
 HTML
 	OutSkin();
@@ -90,8 +90,8 @@ __function__
 sub OutErrorBlockLogin
 {
 	OutError('
-		���w���ID��<SPAN>'.$_[0].'</SPAN>�̂��߃A�N�Z�X��������Ă��܂��B<br>
-		�v���C���́u�X���v�u���[�U���v�u�X�ܖ��v��Y����<a href="mailto:'.$ADMIN_EMAIL.'">�Ǘ��l�܂ł��A��</a>���������B
+		ご指定のIDは<SPAN>'.$_[0].'</SPAN>のためアクセス制限されています。<br>
+		プレイ中の「街名」「ユーザ名」「店舗名」を添えて<a href="mailto:'.$ADMIN_EMAIL.'">管理人までご連絡</a>ください。
 	');
 }
 1;

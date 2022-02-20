@@ -1,15 +1,15 @@
-# ˆÚ“]ˆ— 2004/01/20 —R˜Ò
+# ç§»è»¢å‡¦ç† 2004/01/20 ç”±ä¾†
 
-OutError('g—p•s‰Â‚Å‚·') if !$MOVETOWN_ENABLE || !$TOWN_CODE;
+OutError('ä½¿ç”¨ä¸å¯ã§ã™') if !$MOVETOWN_ENABLE || !$TOWN_CODE;
 my $townmaster=ReadTown($TOWN_CODE,'getown');
-OutError('g—p•s‰Â‚Å‚·') if !$townmaster;
+OutError('ä½¿ç”¨ä¸å¯ã§ã™') if !$townmaster;
 DataRead();
 CheckUserPass();
 
 OutError('bad request') if  ($Q{towncode} eq '' || $Q{pass} eq '');
-OutError('ƒpƒXƒ[ƒh‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñ') if $Q{pass} ne $MASTER_PASSWORD && !CheckPassword($Q{pass},$DT->{pass});
+OutError('ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“') if $Q{pass} ne $MASTER_PASSWORD && !CheckPassword($Q{pass},$DT->{pass});
 
-#ˆÚ“]ˆ—
+#ç§»è»¢å‡¦ç†
 $disp.=MoveShop($DT,$Q{towncode});
 
 OutSkin();
@@ -20,8 +20,8 @@ sub MoveShop
 	my($DT,$towncode)=@_;
 	
 	my($town)=ReadTown($towncode);
-	return '<b>ˆÚ“]‰Â”\‚ÈŠX‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ</b>' if !$town;
-	return '<b>ˆÚ“]æ‚Å‚Ì–¼‘O‚ª•s³‚Å‚·(12•¶šˆÈ“à)</b>' if $Q{name} eq '' || length $Q{name}>12 || $Q{name}=~ /([,:;\t\r\n<>&])/;
+	return '<b>ç§»è»¢å¯èƒ½ãªè¡—ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“</b>' if !$town;
+	return '<b>ç§»è»¢å…ˆã§ã®åå‰ãŒä¸æ­£ã§ã™(12æ–‡å­—ä»¥å†…)</b>' if $Q{name} eq '' || length $Q{name}>12 || $Q{name}=~ /([,:;\t\r\n<>&])/;
 	
 	$DT->{newname}=$Q{name};
 	$DT->{newpass}=$Q{pass};
@@ -45,8 +45,8 @@ sub MoveShop
 		Lock();
 		DataRead();
 		CheckUserPass();
-		PushLog(1,0,$DT->{shopname}."‚ªˆÚ“]‚µ‚Ä‚¢‚«‚Ü‚µ‚½B");
-		CloseShop($DT->{id},$town->{name}."‚ÖˆÚ“]");
+		PushLog(1,0,$DT->{shopname}."ãŒç§»è»¢ã—ã¦ã„ãã¾ã—ãŸã€‚");
+		CloseShop($DT->{id},$town->{name}."ã¸ç§»è»¢");
 		RenewLog();
 		DataWrite();
 		DataCommitOrAbort();
@@ -58,23 +58,23 @@ sub MoveShop
 			my($code,$name)=split(/!/,shift);
 			my %trashitem=@_; my $val=0;
 			foreach(values(%trashitem)){$val+=$_;}
-			$trash=$name."‚Å•ÛŠÇ‚µ‚Ä‚¢‚½¤•i ".scalar(keys(%trashitem))." í—Ş ".$val." ŒÂ‚ª”jŠü‚³‚ê‚Ü‚µ‚½B";
+			$trash=$name."ã§ä¿ç®¡ã—ã¦ã„ãŸå•†å“ ".scalar(keys(%trashitem))." ç¨®é¡ ".$val." å€‹ãŒç ´æ£„ã•ã‚Œã¾ã—ãŸã€‚";
 		}
-		$MENUSAY='<A HREF="index.cgi" TARGET=_top>[ƒgƒbƒv]</A> ';
+		$MENUSAY='<A HREF="index.cgi" TARGET=_top>[ãƒˆãƒƒãƒ—]</A> ';
 		SetCookieSession();
-		return	$town->{name}."‚ÖˆÚ“]‚µ‚Ü‚µ‚½B<br>".
-				GetTagA($town->{name}."‚ÖˆÚ“®","action.cgi?key=jump&town=$town->{code}")."<br><br>".$trash;
+		return	$town->{name}."ã¸ç§»è»¢ã—ã¾ã—ãŸã€‚<br>".
+				GetTagA($town->{name}."ã¸ç§»å‹•","action.cgi?key=jump&town=$town->{code}")."<br><br>".$trash;
 	}
 	elsif($result eq 'DENY')
 	{
-		return	"ˆÚ“]‚ğ‹‘”Û‚³‚ê‚Ü‚µ‚½BˆÚ“]æ‚Ìó‹µ‚âˆÚ“]ó‚¯“ü‚êğŒ“™‚ğ‚²Šm”F‰º‚³‚¢B<br>".
+		return	"ç§»è»¢ã‚’æ‹’å¦ã•ã‚Œã¾ã—ãŸã€‚ç§»è»¢å…ˆã®çŠ¶æ³ã‚„ç§»è»¢å—ã‘å…¥ã‚Œæ¡ä»¶ç­‰ã‚’ã”ç¢ºèªä¸‹ã•ã„ã€‚<br>".
 				"<b>$GET_DATA{msg}</b><br>".
-				GetTagA($town->{name}."‚ğ–K‚ê‚Ä‚İ‚é","action.cgi?key=jump&town=$town->{code}","","_blank");
+				GetTagA($town->{name}."ã‚’è¨ªã‚Œã¦ã¿ã‚‹","action.cgi?key=jump&town=$town->{code}","","_blank");
 	}
 	elsif($result eq 'ERROR')
 	{
-		return	"ˆÚ“]æ‚ÉÚ‘±o—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½BˆÚ“]æ‚Ìó‹µ‚ğŠm”F‚µA•K—v‚ª‚ ‚ê‚ÎŠeŠÇ—Ò‚Ü‚Å‚²˜A—‰º‚³‚¢B<br>".
-				GetTagA($town->{name}."‚ğŠm”F","action.cgi?key=jump&town=$town->{code}","","_blank");
+		return	"ç§»è»¢å…ˆã«æ¥ç¶šå‡ºæ¥ã¾ã›ã‚“ã§ã—ãŸã€‚ç§»è»¢å…ˆã®çŠ¶æ³ã‚’ç¢ºèªã—ã€å¿…è¦ãŒã‚ã‚Œã°å„ç®¡ç†è€…ã¾ã§ã”é€£çµ¡ä¸‹ã•ã„ã€‚<br>".
+				GetTagA($town->{name}."ã‚’ç¢ºèª","action.cgi?key=jump&town=$town->{code}","","_blank");
 	}
 	else
 	{

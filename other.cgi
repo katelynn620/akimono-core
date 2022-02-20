@@ -1,19 +1,19 @@
-# �e��葱 2005/01/06 �R��
+# 各種手続 2005/01/06 由來
 
 DataRead();
 CheckUserPass();
 RequireFile('inc-html-ownerinfo.cgi');
 
-$disp.="<BIG>���e��葱</BIG><br><br>";
+$disp.="<BIG>●各種手続</BIG><br><br>";
 
 $disp.=<<STR;
 <FORM ACTION="action.cgi" $METHOD>
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=comment>
 $USERPASSFORM
-<SPAN>�R�����g</SPAN>
+<SPAN>コメント</SPAN>
 <INPUT TYPE=TEXT NAME=cmt SIZE=36 VALUE="$DT->{comment}">
-<INPUT TYPE=SUBMIT VALUE="�ύX����">
+<INPUT TYPE=SUBMIT VALUE="変更する">
 </FORM>
 STR
 
@@ -24,20 +24,20 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=icon>
 $USERPASSFORM
-<SPAN>�X���A�C�R���ύX</SPAN>�F
-<input type="button" value="�A�C�R���ꗗ" onclick="javascript:window.open('action.cgi?key=icon','_blank','width=450,height=380,scrollbars')">
+<SPAN>店長アイコン変更</SPAN>：
+<input type="button" value="アイコン一覧" onclick="javascript:window.open('action.cgi?key=icon','_blank','width=450,height=380,scrollbars')">
 <SELECT NAME=icon>
-<OPTION value="$i_rand" selected>�����_��</OPTION>
+<OPTION value="$i_rand" selected>ランダム</OPTION>
 STR
 
 foreach my $i(1..$ICON_NUMBER)
 	{
-	$disp.=qq|<OPTION value="$i">�摜$i</OPTION>|;
+	$disp.=qq|<OPTION value="$i">画像$i</OPTION>|;
 	}
 
 $disp.=<<"STR";
 </SELECT> 
-<INPUT TYPE=SUBMIT VALUE="�ύX����">
+<INPUT TYPE=SUBMIT VALUE="変更する">
 </FORM>
 STR
 
@@ -47,9 +47,9 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=shopname>
 $USERPASSFORM
-<SPAN>�X�ܖ��ύX</SPAN>(������p$term[0]50,000$term[1])
+<SPAN>店舗名変更</SPAN>(改名費用$term[0]50,000$term[1])
 <INPUT TYPE=TEXT NAME=rename SIZE=30 VALUE="">
-<INPUT TYPE=SUBMIT VALUE="��������">
+<INPUT TYPE=SUBMIT VALUE="改名する">
 </FORM>
 STR
 
@@ -59,9 +59,9 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=owname>
 $USERPASSFORM
-<SPAN>�X�����ύX</SPAN>(������p$term[0]50,000$term[1])
+<SPAN>店長名変更</SPAN>(改名費用$term[0]50,000$term[1])
 <INPUT TYPE=TEXT NAME=owname SIZE=20 VALUE="">
-<INPUT TYPE=SUBMIT VALUE="��������">
+<INPUT TYPE=SUBMIT VALUE="改名する">
 </FORM>
 STR
 
@@ -71,10 +71,10 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=repass>
 $USERPASSFORM
-<SPAN>�p�X���[�h�ύX</SPAN> �F 
-<INPUT TYPE=TEXT NAME=pw1 SIZE=10 maxlength=12 VALUE="">�V�p�X 
-<INPUT TYPE=TEXT NAME=pw2 SIZE=10 maxlength=12 VALUE="">�V�p�X�ē��� 
-<INPUT TYPE=SUBMIT VALUE="�ύX����">
+<SPAN>パスワード変更</SPAN> ： 
+<INPUT TYPE=TEXT NAME=pw1 SIZE=10 maxlength=12 VALUE="">新パス 
+<INPUT TYPE=TEXT NAME=pw2 SIZE=10 maxlength=12 VALUE="">新パス再入力 
+<INPUT TYPE=SUBMIT VALUE="変更する">
 </FORM>
 STR
 
@@ -86,16 +86,16 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=restart>
 $USERPASSFORM
-<BIG>���ďo��(��蒼��)</BIG> �F 
-<INPUT TYPE=TEXT NAME=rss SIZE=10 maxlength=12 VALUE="">�m�F�̂��� restart �Ɠ��� 
-<INPUT TYPE=SUBMIT VALUE="��蒼��">
+<BIG>●再出発(やり直し)</BIG> ： 
+<INPUT TYPE=TEXT NAME=rss SIZE=10 maxlength=12 VALUE="">確認のため restart と入力 
+<INPUT TYPE=SUBMIT VALUE="やり直す">
 </FORM>
 STR
 } else {
 $disp.=<<STR;
 <hr width=500 noshade size=1>
-<BIG>���ďo��(��蒼��)</BIG> �F 
-<b>�n�ƌ�3���Ԉȓ��͍ďo���ł��܂���</b>
+<BIG>●再出発(やり直し)</BIG> ： 
+<b>創業後3時間以内は再出発できません</b>
 STR
 }
 
@@ -105,9 +105,9 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=key VALUE=user>
 <INPUT TYPE=HIDDEN NAME=mode VALUE=cls>
 $USERPASSFORM
-<BIG>���X(�ēo�^�s��)</BIG> �F 
-<INPUT TYPE=TEXT NAME=cls SIZE=10 maxlength=12 VALUE="">�m�F�̂��� closeshop �Ɠ��� 
-<INPUT TYPE=SUBMIT VALUE="�X���܂�">
+<BIG>●閉店(再登録不可)</BIG> ： 
+<INPUT TYPE=TEXT NAME=cls SIZE=10 maxlength=12 VALUE="">確認のため closeshop と入力 
+<INPUT TYPE=SUBMIT VALUE="店じまい">
 </FORM>
 STR
 

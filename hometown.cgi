@@ -1,9 +1,9 @@
-# Z‘îŠX 2004/01/20 —R˜Ò
+# ä½å®…è¡— 2004/01/20 ç”±ä¾†
 
 DataRead();
 CheckUserPass();
 
-# ‰æ‘œ’è‹`
+# ç”»åƒå®šç¾©
 DevelopImage();
 RequireFile('inc-hometown.cgi');
 CheckBride();
@@ -16,7 +16,7 @@ foreach(0..$Pnum)
 	$image[$_]=$place[$Pcode[$_]];
 	}
 
-# ‚Ó‚«‚¾‚µŒn
+# ãµãã ã—ç³»
 CharaDefine();
 StyleDefine();
 
@@ -95,7 +95,7 @@ sub CheckBride
 	undef @place;
 	my @buf = sort { $b <=> $a } @Pcode;
 	my $MAXADD=$buf[0];
-	$place[100]=$space.GetMenuTag('bride','<acronym title="‹³‰ï"><IMG WIDTH=112 HEIGHT=80 SRC="'.$IMAGE_URL.'/map/house1d.png"></acronym>');
+	$place[100]=$space.GetMenuTag('bride','<acronym title="æ•™ä¼š"><IMG WIDTH=112 HEIGHT=80 SRC="'.$IMAGE_URL.'/map/house1d.png"></acronym>');
 
 	my @BRIDEnamelist=qw(
 		no tm mode ida idb stbase ctbase money place reform
@@ -109,10 +109,10 @@ sub CheckBride
 		chop $bride[$cnt];
 		my @buf=split(/,/,$bride[$cnt]); my $i=0;
 		foreach (@BRIDEnamelist) { $BRIDE[$cnt]->{$_}=$buf[$i];$i++;}
-		undef $BRIDE[$cnt],next if !defined($id2idx{$BRIDE[$cnt]->{ida}}) || !defined($id2idx{$BRIDE[$cnt]->{idb}});	# •Â“XCˆÚ“]‚É‚æ‚éÁ–ÅB
+		undef $BRIDE[$cnt],next if !defined($id2idx{$BRIDE[$cnt]->{ida}}) || !defined($id2idx{$BRIDE[$cnt]->{idb}});	# é–‰åº—ï¼Œç§»è»¢ã«ã‚ˆã‚‹æ¶ˆæ»…ã€‚
 		if ($BRIDE[$cnt]->{place})
 			{
-			my $n=$DT[$id2idx{$BRIDE[$cnt]->{ida}}]->{name}."&".$DT[$id2idx{$BRIDE[$cnt]->{idb}}]->{name}."‘î";
+			my $n=$DT[$id2idx{$BRIDE[$cnt]->{ida}}]->{name}."&".$DT[$id2idx{$BRIDE[$cnt]->{idb}}]->{name}."å®…";
 			$place[$BRIDE[$cnt]->{place}]=qq|<acronym title="$n"><IMG WIDTH="128" HEIGHT="80" SRC="$IMAGE_URL/map/house2$BRIDE[$cnt]->{reform}.png"></acronym>|;
 			$place[$BRIDE[$cnt]->{place}]=GetMenuTag('bride',$place[$BRIDE[$cnt]->{place}],'&no='.$BRIDE[$cnt]->{no}) if ($DT->{id} == $BRIDE[$cnt]->{ida}) || ($DT->{id} == $BRIDE[$cnt]->{idb});
 			next;
@@ -122,7 +122,7 @@ sub CheckBride
 	foreach(101..$MAXADD)
 		{
 		next if $place[$_];
-		$place[$_]='<acronym title="Z‘î—p’n"><IMG WIDTH="128" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/housez.png"></acronym>';
+		$place[$_]='<acronym title="ä½å®…ç”¨åœ°"><IMG WIDTH="128" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/housez.png"></acronym>';
 		$place[$_]=GetMenuTag('bride',$place[$_],'&form='.$_.'&idx='.$married) if $married;
 		}
 }

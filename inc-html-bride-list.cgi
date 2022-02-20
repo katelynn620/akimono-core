@@ -1,7 +1,7 @@
-# Z‘î‘€ì 2005/01/06 —R˜Ò
+# ä½å®…æ“ä½œ 2005/01/06 ç”±ä¾†
 
 $i=SearchBride($Q{no});
-OutError('Žw’è‚³‚ê‚½î•ñ‚Í‘¶Ý‚µ‚Ü‚¹‚ñ') if ($i==-1);
+OutError('æŒ‡å®šã•ã‚ŒãŸæƒ…å ±ã¯å­˜åœ¨ã—ã¾ã›ã‚“') if ($i==-1);
 ($ida,$idb)=($BRIDE[$i]->{ida},$BRIDE[$i]->{idb});
 
 if (!$BRIDE[$i]->{mode})
@@ -21,59 +21,59 @@ House();
 sub Agree
 {
 if ($idb == $DT->{id}) {
-	# ƒvƒƒ|[ƒY³‘ø
+	# ãƒ—ãƒ­ãƒãƒ¼ã‚ºæ‰¿è«¾
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-_•ƒFƒvƒƒ|[ƒY‚ðŽó‚¯‚Ü‚·‚©H ‚»‚ê‚È‚çŽŸ‚Ì’ˆÓ‚ð‚æ‚­’®‚¢‚Ä‚­‚¾‚³‚¢B<br>
-EŒ‹¥Ž‘‹à‚ª<b>500–œ$term[2]</b>‚©‚©‚è‚Ü‚·B<br>
-EŽ–‘O‚É‚æ‚­˜b‚µ‡‚¢‚È‚³‚¢B‚»‚Ìl‚Æ•‚¯‡‚Á‚Ä‚¢‚¯‚é‚©‚æ‚­l‚¦‚È‚³‚¢B<br>
-Eƒvƒƒ|[ƒY‚ð‚µ‚½‘¤‚ª•v‚Æ‚È‚èCŽó‚¯‚½‘¤‚ªÈ‚É‚È‚è‚Ü‚·B
+ç¥žçˆ¶ï¼šãƒ—ãƒ­ãƒãƒ¼ã‚ºã‚’å—ã‘ã¾ã™ã‹ï¼Ÿ ãã‚Œãªã‚‰æ¬¡ã®æ³¨æ„ã‚’ã‚ˆãè´ã„ã¦ãã ã•ã„ã€‚<br>
+ãƒ»çµå©šè³‡é‡‘ãŒ<b>500ä¸‡$term[2]</b>ã‹ã‹ã‚Šã¾ã™ã€‚<br>
+ãƒ»äº‹å‰ã«ã‚ˆãè©±ã—åˆã„ãªã•ã„ã€‚ãã®äººã¨åŠ©ã‘åˆã£ã¦ã„ã‘ã‚‹ã‹ã‚ˆãè€ƒãˆãªã•ã„ã€‚<br>
+ãƒ»ãƒ—ãƒ­ãƒãƒ¼ã‚ºã‚’ã—ãŸå´ãŒå¤«ã¨ãªã‚Šï¼Œå—ã‘ãŸå´ãŒå¦»ã«ãªã‚Šã¾ã™ã€‚
 $TRE$TBE
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="agree">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
-<BIG>œƒvƒƒ|[ƒY‚ðŽó‚¯‚é</BIG>FŽ„ $DT->{name} ($DT->{shopname})‚Í
-$DT[$id2idx{$ida}]->{name} ($DT[$id2idx{$ida}]->{shopname})‚ð•v‚Æ‚µ<br>
-Œ’‚â‚©‚È‚éŽž‚à•a‚ß‚éŽž‚à‚»‚Ìg‚ð‹¤‚É‚·‚éŽ–‚ð
-<INPUT TYPE=SUBMIT VALUE='¾‚¢‚Ü‚·'>
+<BIG>â—ãƒ—ãƒ­ãƒãƒ¼ã‚ºã‚’å—ã‘ã‚‹</BIG>ï¼šç§ $DT->{name} ($DT->{shopname})ã¯
+$DT[$id2idx{$ida}]->{name} ($DT[$id2idx{$ida}]->{shopname})ã‚’å¤«ã¨ã—<br>
+å¥ã‚„ã‹ãªã‚‹æ™‚ã‚‚ç—…ã‚ã‚‹æ™‚ã‚‚ãã®èº«ã‚’å…±ã«ã™ã‚‹äº‹ã‚’
+<INPUT TYPE=SUBMIT VALUE='èª“ã„ã¾ã™'>
 </FORM>
 <hr width=500 noshade size=1>
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="dis">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
-<BIG>œƒvƒƒ|[ƒY‚ð’f‚é</BIG>F‚»‚ñ‚È‚±‚ÆŒ¾‚í‚ê‚Ä‚à¢‚é‚Ì‚Å
-<INPUT TYPE=SUBMIT VALUE='‚²‚ß‚ñ‚È‚³‚¢'>
+<BIG>â—ãƒ—ãƒ­ãƒãƒ¼ã‚ºã‚’æ–­ã‚‹</BIG>ï¼šãã‚“ãªã“ã¨è¨€ã‚ã‚Œã¦ã‚‚å›°ã‚‹ã®ã§
+<INPUT TYPE=SUBMIT VALUE='ã”ã‚ã‚“ãªã•ã„'>
 </FORM>
 STR
 }
 elsif ($ida == $DT->{id}) {
-	# ƒvƒƒ|[ƒY“P‰ñ
+	# ãƒ—ãƒ­ãƒãƒ¼ã‚ºæ’¤å›ž
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-_•ƒFƒvƒƒ|[ƒY‚ðŽæ‚è‚â‚ß‚é‚Â‚à‚è‚Å‚·‚©B<br>
-­‚µ’p‚¸‚©‚µ‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñ‚ªŽd•û‚ ‚è‚Ü‚¹‚ñ‚ËB
+ç¥žçˆ¶ï¼šãƒ—ãƒ­ãƒãƒ¼ã‚ºã‚’å–ã‚Šã‚„ã‚ã‚‹ã¤ã‚‚ã‚Šã§ã™ã‹ã€‚<br>
+å°‘ã—æ¥ãšã‹ã—ã„ã‹ã‚‚ã—ã‚Œã¾ã›ã‚“ãŒä»•æ–¹ã‚ã‚Šã¾ã›ã‚“ã­ã€‚
 $TRE$TBE
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="end">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
-<BIG>œƒvƒƒ|[ƒY‚ðŽæ‚è‚â‚ß‚é</BIG>F‚â‚Í‚è‚Ü‚¾ˆ¤‚ª‘«‚ç‚È‚©‚Á‚½‚Ì‚Å
-<INPUT TYPE=SUBMIT VALUE='Žæ‚è‚â‚ß‚Ü‚·'>
+<BIG>â—ãƒ—ãƒ­ãƒãƒ¼ã‚ºã‚’å–ã‚Šã‚„ã‚ã‚‹</BIG>ï¼šã‚„ã¯ã‚Šã¾ã æ„›ãŒè¶³ã‚‰ãªã‹ã£ãŸã®ã§
+<INPUT TYPE=SUBMIT VALUE='å–ã‚Šã‚„ã‚ã¾ã™'>
 </FORM>
 STR
 }
 else {
-	# –ìŽŸ”n
+	# é‡Žæ¬¡é¦¬
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-_•ƒF<b>$DT[$id2idx{$ida}]->{name}</b>‚³‚ñ‚Ì
-<b>$DT[$id2idx{$idb}]->{name}</b>‚³‚ñ‚Ö‘z‚¢‚Í^Œ•‚Å‚·B‚½‚Ô‚ñB<br>
-¡‚Í“ñl‚ð‚ ‚½‚½‚©‚­Œ©Žç‚Á‚Ä‚ ‚°‚Ä‚­‚¾‚³‚¢B
+ç¥žçˆ¶ï¼š<b>$DT[$id2idx{$ida}]->{name}</b>ã•ã‚“ã®
+<b>$DT[$id2idx{$idb}]->{name}</b>ã•ã‚“ã¸æƒ³ã„ã¯çœŸå‰£ã§ã™ã€‚ãŸã¶ã‚“ã€‚<br>
+ä»Šã¯äºŒäººã‚’ã‚ãŸãŸã‹ãè¦‹å®ˆã£ã¦ã‚ã’ã¦ãã ã•ã„ã€‚
 $TRE$TBE
 STR
 }
@@ -82,14 +82,14 @@ STR
 sub House
 {
 $disp.=($BRIDE[$i]->{mode}==1)?$image[0]:$image[1];
-$btitle=($BRIDE[$i]->{mode}==1)?"‹³‰ï > ‹¤—p‘qŒÉ":"Z‘î";
-	# –³ŠÖŒW‚Èl
+$btitle=($BRIDE[$i]->{mode}==1)?"æ•™ä¼š > å…±ç”¨å€‰åº«":"ä½å®…";
+	# ç„¡é–¢ä¿‚ãªäºº
 	if ($DT->{id} != $ida && $DT->{id} != $idb) {
 	$disp.=<<STR;
-F<BIG>$DT[$id2idx{$ida}]->{shopname} • $DT[$id2idx{$idb}]->{shopname}</BIG><br><br>
+ï¼š<BIG>$DT[$id2idx{$ida}]->{shopname} ï¼† $DT[$id2idx{$idb}]->{shopname}</BIG><br><br>
 $TB$TR$TD
-Œ‹¥‚·‚é‚ÆCƒ}ƒCƒz[ƒ€‚Æ‚µ‚Ä“ñl‚Ì‹¤—p‘qŒÉ‚ª‚à‚ç‚¦‚Ü‚·B<br>
-Ž‘‹à‚â¤•i‚ð’u‚­‚±‚Æ‚ª‚Å‚«CˆÛŽ”ï‚à‚©‚©‚è‚Ü‚¹‚ñB
+çµå©šã™ã‚‹ã¨ï¼Œãƒžã‚¤ãƒ›ãƒ¼ãƒ ã¨ã—ã¦äºŒäººã®å…±ç”¨å€‰åº«ãŒã‚‚ã‚‰ãˆã¾ã™ã€‚<br>
+è³‡é‡‘ã‚„å•†å“ã‚’ç½®ãã“ã¨ãŒã§ãï¼Œç¶­æŒè²»ã‚‚ã‹ã‹ã‚Šã¾ã›ã‚“ã€‚
 $TRE$TBE
 STR
 	return;
@@ -97,17 +97,17 @@ STR
 	my $moneymes=GetMoneyString($BRIDE[$i]->{money});
 	my $moneymax=GetMoneyString($BRIDE[$i]->{mode}*20000000);
 	$disp.=<<STR;
-F<BIG>$DT[$id2idx{$ida}]->{shopname} • $DT[$id2idx{$idb}]->{shopname}</BIG><br><br>
+ï¼š<BIG>$DT[$id2idx{$ida}]->{shopname} ï¼† $DT[$id2idx{$idb}]->{shopname}</BIG><br><br>
 $TB$TR
-$TDB”õ•i
-$TDB”—Ê<small>/Å‘å</small>
+$TDBå‚™å“
+$TDBæ•°é‡<small>/æœ€å¤§</small>
 $TRE
-$TR$TDŽ‘‹à
+$TR$TDè³‡é‡‘
 $TD$moneymes<small>/$moneymax</small>
 $TRE
 STR
 
-$formstock="<OPTION VALUE=\"-1\">Ž‘‹à(".GetMoneyString($BRIDE[$i]->{money}).")";
+$formstock="<OPTION VALUE=\"-1\">è³‡é‡‘(".GetMoneyString($BRIDE[$i]->{money}).")";
 foreach (0..$BRIDE[$i]->{mode}-1) {
 	my $stock=$BRIDE[$i]->{stock}[$_];
 	my $cnt=$BRIDE[$i]->{cnt}[$_];
@@ -121,11 +121,11 @@ $disp.=$TRE.$TBE."<hr width=500 noshade size=1>";
 	my @sort;
 	foreach(1..$MAX_ITEM){$sort[$_]=$ITEM[$_]->{sort}};
 	my @itemlist=sort { $sort[$a] <=> $sort[$b] } (1..$MAX_ITEM);
-	$formitem="<OPTION VALUE=\"-1\">Ž‘‹à(".GetMoneyString($DT->{money}).")";
+	$formitem="<OPTION VALUE=\"-1\">è³‡é‡‘(".GetMoneyString($DT->{money}).")";
 	foreach(@itemlist)
 	{
 		my $cnt=$DT->{item}[$_-1];
-		$cnt=0 if ($ITEM[$_]->{flag}=~/r/);	# ˆË—Š‚Å‚«‚È‚¢ƒAƒCƒeƒ€‚Í’u‚¯‚È‚¢B
+		$cnt=0 if ($ITEM[$_]->{flag}=~/r/);	# ä¾é ¼ã§ããªã„ã‚¢ã‚¤ãƒ†ãƒ ã¯ç½®ã‘ãªã„ã€‚
 		my $scale=$ITEM[$_]->{scale};
 		$formitem.="<OPTION VALUE=\"$_\">$ITEM[$_]->{name}($cnt$scale)" if $cnt;
 	}
@@ -137,10 +137,10 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="plus">
-<BIG>œ•ÛŠÇ</BIG>FZ‘î‚É <SELECT NAME=it SIZE=1>
+<BIG>â—ä¿ç®¡</BIG>ï¼šä½å®…ã« <SELECT NAME=it SIZE=1>
 $formitem
-</SELECT> ‚ð”—Ê <INPUT TYPE=TEXT NAME=num SIZE=5> (–³‹L“ü‚ÅÅ‘å)
- <INPUT TYPE=SUBMIT VALUE='•ÛŠÇ‚·‚é'>
+</SELECT> ã‚’æ•°é‡ <INPUT TYPE=TEXT NAME=num SIZE=5> (ç„¡è¨˜å…¥ã§æœ€å¤§)
+ <INPUT TYPE=SUBMIT VALUE='ä¿ç®¡ã™ã‚‹'>
 </FORM>
 <hr width=500 noshade size=1>
 <form action="action.cgi" $METHOD>
@@ -149,10 +149,10 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="minus">
-<BIG>œŽæo</BIG>FZ‘î‚©‚ç <SELECT NAME=it SIZE=1>
+<BIG>â—å–å‡º</BIG>ï¼šä½å®…ã‹ã‚‰ <SELECT NAME=it SIZE=1>
 $formstock
-</SELECT> ‚ð”—Ê <INPUT TYPE=TEXT NAME=num SIZE=5> (–³‹L“ü‚ÅÅ‘å)
- <INPUT TYPE=SUBMIT VALUE='Žæ‚èo‚·'>
+</SELECT> ã‚’æ•°é‡ <INPUT TYPE=TEXT NAME=num SIZE=5> (ç„¡è¨˜å…¥ã§æœ€å¤§)
+ <INPUT TYPE=SUBMIT VALUE='å–ã‚Šå‡ºã™'>
 </FORM>
 STR
 
@@ -165,9 +165,9 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=id VALUE="$DT->{id}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=d VALUE="1">
-<SPAN>—£¥</SPAN>F
-<INPUT TYPE=SUBMIT VALUE='—£¥‚·‚é'>
-(”õ•i‚Í‘S‚Ä”jŠü)
+<SPAN>é›¢å©š</SPAN>ï¼š
+<INPUT TYPE=SUBMIT VALUE='é›¢å©šã™ã‚‹'>
+(å‚™å“ã¯å…¨ã¦ç ´æ£„)
 </FORM>
 STR
 }
@@ -184,36 +184,36 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="more">
-<BIG>œ‘’z</BIG>F
-<INPUT TYPE=SUBMIT VALUE='‘’z‚·‚é'>
+<BIG>â—å¢—ç¯‰</BIG>ï¼š
+<INPUT TYPE=SUBMIT VALUE='å¢—ç¯‰ã™ã‚‹'>
 STR
-$disp.="(”ï—p".GetMoneyString($BRIDE[$i]->{mode} * 10000000).")</form>";
+$disp.="(è²»ç”¨".GetMoneyString($BRIDE[$i]->{mode} * 10000000).")</form>";
 	}
 	else
 	{
 $disp.=<<STR;
 <hr width=500 noshade size=1>
-<BIG>œ‘’z</BIG>FŽ‘‹à‚ª‘«‚è‚Ü‚¹‚ñ
+<BIG>â—å¢—ç¯‰</BIG>ï¼šè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“
 STR
 	}
 }
 
 sub DivCheck
 {
-	# —£¥Šm”F
+	# é›¢å©šç¢ºèª
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-_•ƒF–{“–‚É—£¥‚·‚é‚Ì‚Å‚·‚ËH
+ç¥žçˆ¶ï¼šæœ¬å½“ã«é›¢å©šã™ã‚‹ã®ã§ã™ã­ï¼Ÿ
 $TRE$TBE
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=id VALUE="$DT->{id}">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="divorce">
-<SPAN>œ—£¥</SPAN>F
-<INPUT TYPE=SUBMIT VALUE='—£¥‚·‚é'>
-(”õ•i‚Í‘S‚Ä”jŠü)
+<SPAN>â—é›¢å©š</SPAN>ï¼š
+<INPUT TYPE=SUBMIT VALUE='é›¢å©šã™ã‚‹'>
+(å‚™å“ã¯å…¨ã¦ç ´æ£„)
 </FORM>
 STR
 }

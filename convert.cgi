@@ -1,4 +1,4 @@
-# ‹Œ”ÅSOLD OUT‚©‚ç‚Ìƒf[ƒ^•ÏŠ· 2004/01/20 —R˜Ò
+# æ—§ç‰ˆSOLD OUTã‹ã‚‰ã®ãƒ‡ãƒ¼ã‚¿å¤‰æ› 2004/01/20 ç”±ä¾†
 
 GetQuery();
 
@@ -13,7 +13,7 @@ OldLog("2");
 DataWrite();
 DataCommitOrAbort();
 UnLock();
-$disp.="³í‚É•ÏŠ·‚Å‚«‚Ü‚µ‚½B";
+$disp.="æ­£å¸¸ã«å¤‰æ›ã§ãã¾ã—ãŸã€‚";
 
 OutSkin();
 exit;
@@ -69,7 +69,7 @@ sub OldLog
 sub DataReadOld
 {
 	my $datafile=GetPath("data");
-	OutError("Às‚Å‚«‚Ü‚¹‚ñ") unless -e $datafile;
+	OutError("å®Ÿè¡Œã§ãã¾ã›ã‚“") unless -e $datafile;
 	open(IN,$datafile);
 	read(IN,my $buf,-s $datafile);
 	close(IN);

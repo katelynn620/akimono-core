@@ -1,17 +1,17 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ‚ ‚«ƒXƒ|•\¦ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ã‚ãã‚¹ãƒè¡¨ç¤º 2005/03/30 ç”±ä¾†
 
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‚ ‚«ƒXƒ|</BIG><br><br>";
-$disp.="$TB$TR$TD".GetTagImgKao("•ÒW’·","slime4").$TD;
-$disp.="<SPAN>•ÒW’·</SPAN>F‚ ‚«‚ñ‚ÇƒXƒ|[ƒcV•·‚Å‚ÍC‹£—³‚É–ğ—§‚Âî•ñ‚ğ’ñ‹Ÿ‚µ‚Ä‚¢‚éB<br>";
-$disp.="ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚Æ•ÊƒEƒCƒ“ƒhƒE‚ÅŠJ‚­‚Ì‚ÅCî•ñ‚ğQÆ‚µ‚È‚ª‚ç‘€ì‚Å‚«‚é‚ñ‚¾B".$TRE.$TBE;
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šã‚ãã‚¹ãƒ</BIG><br><br>";
+$disp.="$TB$TR$TD".GetTagImgKao("ç·¨é›†é•·","slime4").$TD;
+$disp.="<SPAN>ç·¨é›†é•·</SPAN>ï¼šã‚ãã‚“ã©ã‚¹ãƒãƒ¼ãƒ„æ–°èã§ã¯ï¼Œç«¶ç«œã«å½¹ç«‹ã¤æƒ…å ±ã‚’æä¾›ã—ã¦ã„ã‚‹ã€‚<br>";
+$disp.="ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨åˆ¥ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ã§é–‹ãã®ã§ï¼Œæƒ…å ±ã‚’å‚ç…§ã—ãªãŒã‚‰æ“ä½œã§ãã‚‹ã‚“ã ã€‚".$TRE.$TBE;
 $disp.=<<STR;
 <br><FORM>
-<input type="button" value="ƒXƒPƒWƒ…[ƒ‹" onclick="javascript:window.open('action.cgi?key=slime-l&mode=sche','_blank','width=760,height=580,scrollbars')">
-<input type="button" value="‹£‘ˆ—³ˆê——" onclick="javascript:window.open('action.cgi?key=slime-l&mode=dra','_blank','width=760,height=580,scrollbars')">
-<input type="button" value="‰B‹—³ˆê——" onclick="javascript:window.open('action.cgi?key=slime-l&mode=pr','_blank','width=760,height=580,scrollbars')">
-<input type="button" value="–qêˆê——" onclick="javascript:window.open('action.cgi?key=slime-l&mode=rc','_blank','width=760,height=580,scrollbars')">
-<input type="button" value="‰XÉˆê——" onclick="javascript:window.open('action.cgi?key=slime-l&mode=st','_blank','width=760,height=580,scrollbars')">
-<input type="button" value="‹Rèˆê——" onclick="javascript:window.open('action.cgi?key=slime-l&mode=jk','_blank','width=760,height=580,scrollbars')">
+<input type="button" value="ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«" onclick="javascript:window.open('action.cgi?key=slime-l&mode=sche','_blank','width=760,height=580,scrollbars')">
+<input type="button" value="ç«¶äº‰ç«œä¸€è¦§" onclick="javascript:window.open('action.cgi?key=slime-l&mode=dra','_blank','width=760,height=580,scrollbars')">
+<input type="button" value="éš å±…ç«œä¸€è¦§" onclick="javascript:window.open('action.cgi?key=slime-l&mode=pr','_blank','width=760,height=580,scrollbars')">
+<input type="button" value="ç‰§å ´ä¸€è¦§" onclick="javascript:window.open('action.cgi?key=slime-l&mode=rc','_blank','width=760,height=580,scrollbars')">
+<input type="button" value="å©èˆä¸€è¦§" onclick="javascript:window.open('action.cgi?key=slime-l&mode=st','_blank','width=760,height=580,scrollbars')">
+<input type="button" value="é¨æ‰‹ä¸€è¦§" onclick="javascript:window.open('action.cgi?key=slime-l&mode=jk','_blank','width=760,height=580,scrollbars')">
 </FORM>
 STR
 ReadDraLog();
@@ -36,9 +36,9 @@ foreach my $cnt ($pagestart..$pageend)
 	chop($message);
 
 	if ($mode==1)
-	{$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>[“o—³]".$message."</SPAN>";}
+	{$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>[ç™»ç«œ]".$message."</SPAN>";}
 	elsif ($mode==2)
-	{$disp.="<small>".GetTime2FormatTime($tm)."</small> <BIG>[dÜ]".$message."</BIG>";}
+	{$disp.="<small>".GetTime2FormatTime($tm)."</small> <BIG>[é‡è³]".$message."</BIG>";}
 	else
 	{$disp.="<small>".GetTime2FormatTime($tm)."</small> ".$message;}
 	$disp.="<BR>";
@@ -56,6 +56,6 @@ sub ReadDraLog
 	open(IN,GetPath($COMMON_DIR,"dra-log1"));
 	push(@MESSAGE,<IN>);
 	close(IN);
-	@MESSAGE=("0\t0\tî•ñ‚Í‚ ‚è‚Ü‚¹‚ñ\n") if !scalar(@MESSAGE);
+	@MESSAGE=("0\t0\tæƒ…å ±ã¯ã‚ã‚Šã¾ã›ã‚“\n") if !scalar(@MESSAGE);
 }
 

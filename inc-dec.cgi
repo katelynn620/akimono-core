@@ -1,6 +1,6 @@
-# “ÁêƒfƒR[ƒh 2003/09/25 —R˜Ò
+# ç‰¹æ®Šãƒ‡ã‚³ãƒ¼ãƒ‰ 2003/09/25 ç”±ä¾†
 
-OutError("‘—MƒTƒCƒY‚ª‘å‚«‚·‚¬‚Ü‚·") if ($ENV{'CONTENT_LENGTH'} > 10240);
+OutError("é€ä¿¡ã‚µã‚¤ã‚ºãŒå¤§ãã™ãã¾ã™") if ($ENV{'CONTENT_LENGTH'} > 10240);
 require $JCODE_FILE;
 
 binmode(STDIN);
@@ -9,16 +9,16 @@ $Boundary =~ s/\x0D\x0A//;
 while (<STDIN>) {
 	if (/^\s*Content-Disposition:/i) {
 		my $Name;
-		# ƒtƒH[ƒ€‚Ì€–Ú–¼‚ğ“¾‚é
+		# ãƒ•ã‚©ãƒ¼ãƒ ã®é …ç›®åã‚’å¾—ã‚‹
 		if (/\bname="([^"]+)"/i or /\bname=([^\s:;]+)/i) {
 			$Name = $1;
 		}
-		# ƒtƒ@ƒCƒ‹–¼‚ğæ“¾
+		# ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—
 		if (/\bfilename="([^"]*)"/i or /\bfilename=([^\s:;]*)/i) {
 			$FILENAME{$Name} = $1 || 'unknown';
 		}
-		# ƒwƒbƒ_“à—e‚ğ“Ç‚İæ‚é
-		# ƒwƒbƒ_‚ÌI—¹‚ğ¦‚·‹ós‚ğŒŸo‚µ‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é
+		# ãƒ˜ãƒƒãƒ€å†…å®¹ã‚’èª­ã¿å–ã‚‹
+		# ãƒ˜ãƒƒãƒ€ã®çµ‚äº†ã‚’ç¤ºã™ç©ºè¡Œã‚’æ¤œå‡ºã—ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
 		while (<STDIN>) {
 			last if (not /\w/);
 			if (
@@ -28,22 +28,22 @@ while (<STDIN>) {
 			$MIMETYPE{$Name} = $1;
 			}
 		}
-		# ƒf[ƒ^–{‘Ì‚ğ“Ç‚İæ‚é
-		# ƒf[ƒ^‚ÌI—¹‚ğ¦‚·Boundary‚ğŒŸo‚µ‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é
+		# ãƒ‡ãƒ¼ã‚¿æœ¬ä½“ã‚’èª­ã¿å–ã‚‹
+		# ãƒ‡ãƒ¼ã‚¿ã®çµ‚äº†ã‚’ç¤ºã™Boundaryã‚’æ¤œå‡ºã—ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
 		while (<STDIN>) {
 			last if (/^\Q$Boundary\E/);
 			$Q{$Name} .= $_;
 		}
-		$Q{$Name} =~s /\x0D\x0A$//; # ––”ö‚Ì\r\n‚ğæ‚èœ‚­
+		$Q{$Name} =~s /\x0D\x0A$//; # æœ«å°¾ã®\r\nã‚’å–ã‚Šé™¤ã
 		if ($Q{$Name}) {
-			# ƒtƒ@ƒCƒ‹‚Ìê‡
+			# ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
 			if ($FILENAME{$Name} or $MIMETYPE{$Name}) {
-				# MacBinary‚ğŒŸo‚µ‚Äíœ
+				# MacBinaryã‚’æ¤œå‡ºã—ã¦å‰Šé™¤
 				if (
 					$MIMETYPE{$Name}
 					=~ /^application\/(x-)?macbinary$/i
 				) {
-				# Header‚Æ––”ö‚ÌƒŠƒ\[ƒX‚ğíœ
+				# Headerã¨æœ«å°¾ã®ãƒªã‚½ãƒ¼ã‚¹ã‚’å‰Šé™¤
 					$Q{$Name} = substr(
 						$Q{$Name},
 						128,
@@ -51,7 +51,7 @@ while (<STDIN>) {
 					);
 				}
 			}
-			# ƒtƒ@ƒCƒ‹ˆÈŠO‚Ìê‡
+			# ãƒ•ã‚¡ã‚¤ãƒ«ä»¥å¤–ã®å ´åˆ
 			else {
 				&jcode::convert(\$Q{$Name}, 'sjis');
 				$Q{$Name} =~ s/&/&amp;/g;
@@ -64,7 +64,7 @@ while (<STDIN>) {
 			}
 		}
 	}
-	# Boundary‚ğŒŸo‚µ‚½‚çƒ‹[ƒv‚ğ”²‚¯‚é
+	# Boundaryã‚’æ¤œå‡ºã—ãŸã‚‰ãƒ«ãƒ¼ãƒ—ã‚’æŠœã‘ã‚‹
 	last if (/^\Q$Boundary--\E/);
 }
 	@Q{qw(nm pw ss)}=split(/!/,$Q{u},3) if exists $Q{u};

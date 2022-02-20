@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒh“ü’c 2004/01/20 —R˜Ò
+# ã‚®ãƒ«ãƒ‰å…¥å›£ 2004/01/20 ç”±ä¾†
 
 CoLock() if ($Q{edit});
 Lock() if ($Q{edit} eq "join");
@@ -28,11 +28,11 @@ OutError("bad request") if ($DT->{guild});
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhó•t</SPAN>F“ü’c‚·‚é‚É‚ÍC’c’·‚Ü‚½‚ÍŒRt‚Ì‹–‰Â‚ª•K—v‚Å‚·B<br>
-“ü‚è‚½‚¢ƒMƒ‹ƒh‚Ì“ü’cğŒ‚ğQÆ‚µC–â‚¢‡‚í‚¹‚Ä‚İ‚é‚Æ‚æ‚¢‚Å‚µ‚å‚¤B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šå…¥å›£ã™ã‚‹ã«ã¯ï¼Œå›£é•·ã¾ãŸã¯è»å¸«ã®è¨±å¯ãŒå¿…è¦ã§ã™ã€‚<br>
+å…¥ã‚ŠãŸã„ã‚®ãƒ«ãƒ‰ã®å…¥å›£æ¡ä»¶ã‚’å‚ç…§ã—ï¼Œå•ã„åˆã‚ã›ã¦ã¿ã‚‹ã¨ã‚ˆã„ã§ã—ã‚‡ã†ã€‚
 $TRE$TBE<br>
 HTML
-$disp.="ƒMƒ‹ƒhí’†‚Í“ü’c‚Å‚«‚Ü‚¹‚ñ",return if ($DTevent{guildbattle});
+$disp.="ã‚®ãƒ«ãƒ‰æˆ¦ä¸­ã¯å…¥å›£ã§ãã¾ã›ã‚“",return if ($DTevent{guildbattle});
 my $join="";
 	foreach my $cnt(0..$Ecount)
 		{
@@ -41,14 +41,14 @@ my $join="";
 $join.=<<"HTML";
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
-<BIG>œ$GUILD_DETAIL{$guild}->{shortname}</BIG>F“ü’c‹–‰Â‚ªo‚Ä‚¢‚Ü‚·B 
+<BIG>â—$GUILD_DETAIL{$guild}->{shortname}</BIG>ï¼šå…¥å›£è¨±å¯ãŒå‡ºã¦ã„ã¾ã™ã€‚ 
 <INPUT TYPE=HIDDEN NAME=edit VALUE="join">
 <INPUT TYPE=HIDDEN NAME=guild VALUE="$guild">
-<INPUT TYPE=SUBMIT VALUE="“ü’c‚·‚é">
+<INPUT TYPE=SUBMIT VALUE="å…¥å›£ã™ã‚‹">
 </form><br>
 HTML
 	}
-$disp.=($join) ? $join : "“ü’c‹–‰Â‚ªo‚Ä‚¢‚Ü‚¹‚ñ";
+$disp.=($join) ? $join : "å…¥å›£è¨±å¯ãŒå‡ºã¦ã„ã¾ã›ã‚“";
 }
 
 sub submit
@@ -63,11 +63,11 @@ ReadLetterName();
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhó•t</SPAN>F’N‚Ì“ü’c‚ğ‹–‰Â‚µ‚Ü‚·‚©H<br>
-ˆê“x‹–‰Â‚·‚é‚ÆC“P‰ñ‚Í‚Å‚«‚È‚¢‚Ì‚Å‚²’ˆÓ‚­‚¾‚³‚¢B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šèª°ã®å…¥å›£ã‚’è¨±å¯ã—ã¾ã™ã‹ï¼Ÿ<br>
+ä¸€åº¦è¨±å¯ã™ã‚‹ã¨ï¼Œæ’¤å›ã¯ã§ããªã„ã®ã§ã”æ³¨æ„ãã ã•ã„ã€‚
 $TRE$TBE<br>
 HTML
-$disp.="ƒMƒ‹ƒhí’†‚Í‹–‰Â‚Å‚«‚Ü‚¹‚ñ",return if ($DTevent{guildbattle});
+$disp.="ã‚®ãƒ«ãƒ‰æˆ¦ä¸­ã¯è¨±å¯ã§ãã¾ã›ã‚“",return if ($DTevent{guildbattle});
 EntryList() if scalar(@MYENTRY);
 EntryForm();
 }
@@ -76,9 +76,9 @@ sub EntryList
 {
 	$disp.=<<"HTML";
 $TB$TR
-$TDB“X–¼
-$TDBŠ‘®ŠX
-$TDB—LŒøŠúŒÀ
+$TDBåº—å
+$TDBæ‰€å±è¡—
+$TDBæœ‰åŠ¹æœŸé™
 $TRE
 HTML
 
@@ -88,7 +88,7 @@ foreach my $i(@MYENTRY)
 	my $sname=SearchLetterName($id,$town);
 	$disp.=$TR.$TD.$sname;
 	$disp.=$TD.$Tname{$town};
-	$disp.="$TD‚ ‚Æ".GetTime2HMS($ENTRY[$i]->{tm}-$NOW_TIME);
+	$disp.="$TDã‚ã¨".GetTime2HMS($ENTRY[$i]->{tm}-$NOW_TIME);
 	}
 $disp.=$TRE.$TBE."<br>";
 }
@@ -99,7 +99,7 @@ $disp.=<<"HTML";
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 $TB
-$TR$TDB<b>“ü’c‹–‰Â</b>i‚¢‚¸‚ê‚©‚P‚Âj
+$TR$TDB<b>å…¥å›£è¨±å¯</b>ï¼ˆã„ãšã‚Œã‹ï¼‘ã¤ï¼‰
 HTML
 
 my $r=int(scalar(@OtherDir) / 2 + 0.5);$r||=1;
@@ -107,7 +107,7 @@ foreach(0..$#OtherDir)
 	{
 	my $pg=$OtherDir[$_];
 	$disp.=( ($_ % $r) ? "<br>" : $TD);
-	$disp.="$Tname{$pg} <SELECT NAME=$pg><OPTION VALUE=\"\">‘I‘ğ";
+	$disp.="$Tname{$pg} <SELECT NAME=$pg><OPTION VALUE=\"\">é¸æŠ";
 	foreach my $i(0..$Ncount{$pg})
 		{
 		$disp.="<OPTION VALUE=\"$LID{$pg}[$i]\"".($Q{$pg}==$LID{$pg}[$i] ? ' SELECTED' : '').">$LNAME{$pg}[$i]";
@@ -117,7 +117,7 @@ foreach(0..$#OtherDir)
 $disp.=<<"HTML";
 $TRE$TBE
 <br><INPUT TYPE=HIDDEN NAME=edit VALUE="new">
-<INPUT TYPE=SUBMIT VALUE="“ü’c‚ğ‹–‰Â‚·‚é">
+<INPUT TYPE=SUBMIT VALUE="å…¥å›£ã‚’è¨±å¯ã™ã‚‹">
 </FORM>
 HTML
 }
@@ -127,8 +127,8 @@ sub joind
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ƒMƒ‹ƒhó•t</SPAN>F“ü’cè‘±‚ğŠ®—¹‚µ‚Ü‚µ‚½B<br>
-ƒMƒ‹ƒh‚Ììíº‚È‚Ç‚Å‚ ‚¢‚³‚Â‚µ‚Ä‚¨‚­‚Æ‚æ‚¢‚Å‚µ‚å‚¤B
+<SPAN>ã‚®ãƒ«ãƒ‰å—ä»˜</SPAN>ï¼šå…¥å›£æ‰‹ç¶šã‚’å®Œäº†ã—ã¾ã—ãŸã€‚<br>
+ã‚®ãƒ«ãƒ‰ã®ä½œæˆ¦å®¤ãªã©ã§ã‚ã„ã•ã¤ã—ã¦ãŠãã¨ã‚ˆã„ã§ã—ã‚‡ã†ã€‚
 $TRE$TBE<br>
 HTML
 }
@@ -147,7 +147,7 @@ sub ReadEntry
 		chop $ent[$cnt];
 		my @buf=split(/,/,$ent[$cnt]); my $i=0;
 		foreach (@ENTRYnamelist) { $ENTRY[$cnt]->{$_}=$buf[$i];$i++;}
-		undef $ENTRY[$cnt],next if ($ENTRY[$cnt]->{tm} < $NOW_TIME);	# ŠúŒÀØ‚ê‚ğíœB
+		undef $ENTRY[$cnt],next if ($ENTRY[$cnt]->{tm} < $NOW_TIME);	# æœŸé™åˆ‡ã‚Œã‚’å‰Šé™¤ã€‚
 		push(@MYENTRY, $cnt) if ($ENTRY[$cnt]->{guild} eq $DT->{guild});
 	}
 }

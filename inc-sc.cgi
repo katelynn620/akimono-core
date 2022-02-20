@@ -1,35 +1,35 @@
-# ’Â—ñ’I‰º¿‚¯ 2005/01/06 —R˜Ò
+# é™³åˆ—æ£šä¸‹è«‹ã‘ 2005/01/06 ç”±ä¾†
 
 my $showcasecount=$DT->{showcasecount};
 
-$disp.="<BIG>œ’Â—ñ’IFŒ»İ$showcasecountŒÂFˆÛ”ï ".GetMoneyString($SHOWCASE_COST[$showcasecount-1])."</BIG><br><br>";
+$disp.="<BIG>â—é™³åˆ—æ£šï¼šç¾åœ¨$showcasecountå€‹ï¼šç¶­æŒè²» ".GetMoneyString($SHOWCASE_COST[$showcasecount-1])."</BIG><br><br>";
 
 my $usertaxrate=GetUserTaxRate($DT,$DTTaxrate);
 
 $disp.=$TB;
 if(!$MOBILE)
 {
-	my @taxmode=('','(–ÆÅ)','(”{Å)');
+	my @taxmode=('','(å…ç¨)','(å€ç¨)');
 	$disp.=$TR;
-	$disp.=$TDB."’INo.";
-	$disp.=$TDB."¤•i–¼";
-	$disp.=$TDB."”„’l";
-	$disp.=$TDB."•W€‰¿Ši";
-	$disp.=$TDB."”„‹pÅ".$taxmode[$DT->{taxmode}+0];
-	$disp.=$TDB."İŒÉ”";
-	$disp.=$TDB."¡Šú”„ã”";
-	$disp.=$TDB."‘OŠú”„ã”";
+	$disp.=$TDB."æ£šNo.";
+	$disp.=$TDB."å•†å“å";
+	$disp.=$TDB."å£²å€¤";
+	$disp.=$TDB."æ¨™æº–ä¾¡æ ¼";
+	$disp.=$TDB."å£²å´ç¨".$taxmode[$DT->{taxmode}+0];
+	$disp.=$TDB."åœ¨åº«æ•°";
+	$disp.=$TDB."ä»ŠæœŸå£²ä¸Šæ•°";
+	$disp.=$TDB."å‰æœŸå£²ä¸Šæ•°";
 	$disp.=$TD;
 	$disp.=$TRE;
 }
 else
 {
-	$tdh_pr{$MOBILE}="”„’l:";
-	$tdh_sp{$MOBILE}="•W€:";
-	$tdh_tx{$MOBILE}="”„Å:";
-	$tdh_st{$MOBILE}="İŒÉ:";
-	$tdh_ts{$MOBILE}="–{”„:";
-	$tdh_ys{$MOBILE}="ğ”„:";
+	$tdh_pr{$MOBILE}="å£²å€¤:";
+	$tdh_sp{$MOBILE}="æ¨™æº–:";
+	$tdh_tx{$MOBILE}="å£²ç¨:";
+	$tdh_st{$MOBILE}="åœ¨åº«:";
+	$tdh_ts{$MOBILE}="æœ¬å£²:";
+	$tdh_ys{$MOBILE}="æ˜¨å£²:";
 }
 
 for(my $cnt=0; $cnt<$DT->{showcasecount}; $cnt++)
@@ -39,7 +39,7 @@ for(my $cnt=0; $cnt<$DT->{showcasecount}; $cnt++)
 	my $scale=$ITEM->{scale};
 	my $stock=$itemno ? $DT->{item}[$itemno-1]:0;
 
-	$disp.=$TR.$TD."<SPAN>’I".($cnt+1)."</SPAN>";
+	$disp.=$TR.$TD."<SPAN>æ£š".($cnt+1)."</SPAN>";
 	$disp.=$TD;
 	$disp.="<A HREF=\"action.cgi?key=item&$USERPASSURL&no=$itemno&sc=".($cnt+1)."&pr=".$DT->{price}[$cnt]."&bk=$Q{key}\">" if $stock;
 	$disp.=GetTagImgItemType($itemno).$ITEM->{name};
@@ -50,11 +50,11 @@ for(my $cnt=0; $cnt<$DT->{showcasecount}; $cnt++)
 		my($taxrate,$tax)=GetSaleTax($itemno,1,$DT->{price}[$cnt],$usertaxrate);
 		$disp.=$TD.$tdh_pr{$MOBILE}.GetMoneyString($DT->{price}[$cnt]);
 		$disp.=$TD.$tdh_sp{$MOBILE}.GetMoneyString($ITEM->{price});
-		$disp.=$TD.$tdh_tx{$MOBILE}.GetMoneyString($tax)." (Å—¦".$taxrate."%)";
+		$disp.=$TD.$tdh_tx{$MOBILE}.GetMoneyString($tax)." (ç¨ç‡".$taxrate."%)";
 		$disp.=$TD.$tdh_st{$MOBILE}.$stock.$scale;
 		$disp.=$TD.$tdh_ts{$MOBILE}.($DT->{itemtoday}{$itemno}+0).$scale;
 		$disp.=$TD.$tdh_ys{$MOBILE}.($DT->{itemyesterday}{$itemno}+0).$scale;
-		$disp.=$TD.'<A HREF="action.cgi?key=sc-s&'.$USERPASSURL.'&item=0&no='.$cnt.'&bk=sc">’Â—ñ’†~</A>';
+		$disp.=$TD.'<A HREF="action.cgi?key=sc-s&'.$USERPASSURL.'&item=0&no='.$cnt.'&bk=sc">é™³åˆ—ä¸­æ­¢</A>';
 	}
 	else
 	{

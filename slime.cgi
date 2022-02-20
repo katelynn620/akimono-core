@@ -1,4 +1,4 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ 2005/03/30 ç”±ä¾†
 
 $NOITEM=1;
 RequireFile('inc-dragon.cgi');
@@ -8,14 +8,14 @@ DataRead();
 CheckUserPass(1);
 RequireFile("inc-dr-edit".$drlock.".cgi") if ($drlock);
 
-$disp.=GetMenuTag('slime',		'[‚ ‚«ƒXƒ|]','&mode=info')
-	.GetMenuTag('slime',		'[“o—³ƒŒ[ƒX]','&mode=rd')
-	.GetMenuTag('slime',		'[dÜƒŒ[ƒX]','&mode=rd&code=1');
+$disp.=GetMenuTag('slime',		'[ã‚ãã‚¹ãƒ]','&mode=info')
+	.GetMenuTag('slime',		'[ç™»ç«œãƒ¬ãƒ¼ã‚¹]','&mode=rd')
+	.GetMenuTag('slime',		'[é‡è³ãƒ¬ãƒ¼ã‚¹]','&mode=rd&code=1');
 if (!$GUEST_USER)
 	{
-	$disp.=GetMenuTag('slime',		'[–qê]','&mode=ranch')
-		.GetMenuTag('slime',		'[‰XÉ]','&mode=stable')
-		.GetMenuTag('slime',		'[‹Rè]','&mode=jock');
+	$disp.=GetMenuTag('slime',		'[ç‰§å ´]','&mode=ranch')
+		.GetMenuTag('slime',		'[å©èˆ]','&mode=stable')
+		.GetMenuTag('slime',		'[é¨æ‰‹]','&mode=jock');
 	}
 $disp.="<hr width=500 noshade size=1>";
 $Q{mode}||="info";
@@ -37,7 +37,7 @@ if (-e $fn)
 	}
 	else
 	{
-	#XV‰Šúİ’è
+	#æ›´æ–°æ™‚åˆ»åˆæœŸè¨­å®š
 	CoLock();
 	foreach(0..2) { $DRTIME[$_]=$NOW_TIME + 86400 -(($NOW_TIME + $TZ_JST - $DRTIMESET[$_] * 3600) % 86400); }
 	WriteDrLast();

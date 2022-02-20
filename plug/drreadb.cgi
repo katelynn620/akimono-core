@@ -1,4 +1,4 @@
-# drread ƒvƒ‰ƒOƒCƒ“ 2005/03/30 —R˜Ò
+# drread ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2005/03/30 ç”±ä¾†
 
 sub ReadRanch
 {
@@ -23,7 +23,7 @@ foreach my $cnt(0..$RCcount)
 
 	next if ($MYDIR ne $RC[$cnt]->{town});
 
-	undef $RC[$cnt],next if !defined($id2idx{$RC[$cnt]->{owner}});	# “Ç‚İ”ò‚Î‚µB
+	undef $RC[$cnt],next if !defined($id2idx{$RC[$cnt]->{owner}});	# èª­ã¿é£›ã°ã—ã€‚
 	if ($RC[$cnt]->{owner}==$DT->{id})
 		{
 		$MYRC=$cnt;
@@ -80,7 +80,7 @@ foreach my $cnt(0..$PRcount)
 
 	next if ($MYDIR ne $PR[$cnt]->{town});
 
-	undef $PR[$cnt],next if !defined($id2idx{$PR[$cnt]->{owner}});	# “Ç‚İ”ò‚Î‚µB
+	undef $PR[$cnt],next if !defined($id2idx{$PR[$cnt]->{owner}});	# èª­ã¿é£›ã°ã—ã€‚
 	if ($PR[$cnt]->{owner}==$DT->{id} && $PR[$cnt]->{fm})
 		{
 		push(@MYPR,$cnt);
@@ -106,7 +106,7 @@ sub GetRaceApt
 		$i=$m2-$mode, return $i if ($mode > $m2);
 		return 0;
 		}
-	return "$m1`$m2";
+	return "$m1ï½$m2";
 }
 
 sub GetRaceStrate

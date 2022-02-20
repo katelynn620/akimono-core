@@ -1,4 +1,4 @@
-# ƒ^[ƒ“ˆ— 2004/02/28 —R˜Ò
+# ã‚¿ãƒ¼ãƒ³å‡¦ç† 2004/02/28 ç”±ä¾†
 
 require (GetPath($ITEM_DIR,"event"));
 
@@ -11,7 +11,7 @@ $lasttime=$DTlasttime+$TZ_JST-$DATE_REVISE_TIME;
 
 $temptimenow=$DTlasttime;
 
-	#1span‚²‚Æ‚Éˆ—‚ğŒJ‚è•Ô‚·‚½‚ß‚Ì€”õ
+	#1spanã”ã¨ã«å‡¦ç†ã‚’ç¹°ã‚Šè¿”ã™ãŸã‚ã®æº–å‚™
 	undef @timespan;
 	while(int($lasttime/$ONE_DAY_TIME)<int($now/$ONE_DAY_TIME))
 	{
@@ -25,7 +25,7 @@ $temptimenow=$DTlasttime;
 	$now=$now-$TZ_JST+$DATE_REVISE_TIME;
 	OutError("error:$DTlasttime,$now,".(($DTlasttime-$now)/60)."<HR>$disp") if $DTlasttime!=$now;
 	
-	#ˆ—ŠJn
+	#å‡¦ç†é–‹å§‹
 	foreach $TM (@timespan)
 	{
 		my $dateupdate=$TM->[0];
@@ -33,9 +33,9 @@ $temptimenow=$DTlasttime;
 		
 		$TIMESPAN=$timespan;
 		
-		next if $timespan<=0; # -1‚ª‚ ‚é‚±‚Æ‚ğŠm”F‚µ‚½‚Ì‚ÅBŒ´ˆö‚ª‚í‚©‚ç‚È‚¢‚Ì‚Å‚±‚±‚Å‘Î‰B
+		next if $timespan<=0; # -1ãŒã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã—ãŸã®ã§ã€‚åŸå› ãŒã‚ã‹ã‚‰ãªã„ã®ã§ã“ã“ã§å¯¾å¿œã€‚
 		
-		#“X•ÜE¤•i•Ê—ˆ‹q”ŒvZˆ—
+		#åº—èˆ—ãƒ»å•†å“åˆ¥æ¥å®¢æ•°è¨ˆç®—å‡¦ç†
 		my $itemranksum=0;
 		foreach my $ITEM (@ITEM)
 			{$itemranksum+=$ITEM->{popular};}
@@ -46,13 +46,13 @@ $temptimenow=$DTlasttime;
 			my $group=-1;
 			foreach my $cnt(0..$DT->{showcasecount}-1)
 			{
-				# ê–å“X”»’è
+				# å°‚é–€åº—åˆ¤å®š
 				my $itemno=$DT->{showcase}[$cnt];
 				if($itemno && ($group!=-1 && $group!=$ITEM[$itemno]->{type}))
 					{$group=-1; last}
 				$group=$ITEM[$itemno]->{type} if $itemno;
 
-				#ƒAƒCƒeƒ€•Êw“ül”Zo
+				#ã‚¢ã‚¤ãƒ†ãƒ åˆ¥è³¼å…¥äººæ•°ç®—å‡º
 				my $price=$DT->{price}[$cnt];
 				if($itemno>0 && $price>0 && $DT->{item}[$itemno-1])
 				{
@@ -71,15 +71,15 @@ $temptimenow=$DTlasttime;
 			$ITEM->{buypeople}=$DTpeople*$SALE_SPEED/$ITEM->{popular}*$timespan/86400;
 		}
 		
-		# ù—v/‹Ÿ‹‹ƒoƒ‰ƒ“ƒXæ“¾
+		# éœ€è¦/ä¾›çµ¦ãƒãƒ©ãƒ³ã‚¹å–å¾—
 		GetMarketStatus();
 		
-		#“X•Ü•Ê”„ãˆ—ƒ‹[ƒv
+		#åº—èˆ—åˆ¥å£²ä¸Šå‡¦ç†ãƒ«ãƒ¼ãƒ—
 		my $salesumall=0;
 		my $nowranking=0;
 		my $peopleup=0;
 		my $peopledown=0;
-		my $peopleupsalerate=($DTpeople/100000)**2;	#‚à‚Æ‚à‚Æ1.5
+		my $peopleupsalerate=($DTpeople/100000)**2;	#ã‚‚ã¨ã‚‚ã¨1.5
 		foreach my $DT (@DT)
 		{
 			$nowranking++;
@@ -90,17 +90,17 @@ $temptimenow=$DTlasttime;
 			
 			my %showcaseitemno=();
 			
-			$DT->{_sale_count_}={}; # @@item funcs ì‹Æ—p
+			$DT->{_sale_count_}={}; # @@item funcs ä½œæ¥­ç”¨
 			
 			foreach $cnt (0..$DT->{showcasecount}-1)
 			{
 				$itemno=$DT->{showcase}[$cnt];
 				if($itemno && $DT->{item}[$itemno-1])
 				{
-					#ˆÛ”ïŒvZ—pƒf[ƒ^ƒZƒbƒg
+					#ç¶­æŒè²»è¨ˆç®—ç”¨ãƒ‡ãƒ¼ã‚¿ã‚»ãƒƒãƒˆ
 					$showcaseitemno{$itemno}++;
 					
-					#w”ƒ‹q”ŒvZ
+					#è³¼è²·å®¢æ•°è¨ˆç®—
 					$rank=$DT->{temprank};
 					$rank=99 if $rank<100;
 					my $ichioshi=$cnt==0 ? 4:3;
@@ -109,7 +109,7 @@ $temptimenow=$DTlasttime;
 						/($ITEM[$itemno]->{buypeoplebase}+1);
 					$buypeople=$rank / ($dtranksum/($#DT+1)) * $buypeopletemp;
 					
-					#”„ã”Œˆ’è
+					#å£²ä¸Šæ•°æ±ºå®š
 					my $sale=0;
 					$rank=($ITEM[$itemno]->{price}/$DT->{price}[$cnt]);
 					$rank/=($DT->{price}[$cnt]-$ITEM[$itemno]->{price})/10000 if $rank<1;
@@ -119,43 +119,43 @@ $temptimenow=$DTlasttime;
 						{if(rand(1/$sale)<1){$sale=1;}}
 					$sale=int($sale);
 					
-					#”„ã”1ˆÈã‚Ìê‡‚Ìˆ—
+					#å£²ä¸Šæ•°1ä»¥ä¸Šã®å ´åˆã®å‡¦ç†
 					if($sale>0)
 					{
 						my $itembox=\$DT->{item}[$itemno-1];
-						#Š”‚Å•â³
+						#æ‰€æŒæ•°ã§è£œæ­£
 						if($sale>$$itembox){$sale=$$itembox;}
 						
-						#l‹CUP/DOWN
+						#äººæ°—UP/DOWN
 						my $rankupmulti=((10-($DT->{rank}/1000))**2)/5;
-						#ù—v‹Ÿ‹‹ƒoƒ‰ƒ“ƒX‚æ‚él‹CUP
+						#éœ€è¦ä¾›çµ¦ãƒãƒ©ãƒ³ã‚¹ã‚ˆã‚‹äººæ°—UP
 						my $pricerate=$ITEM[$itemno]->{marketprice}/$DT->{price}[$cnt];
 						$pricerate=2 if $pricerate>2;
 						my $rankupsale=rand($rankupmulti/$ITEM[$itemno]->{uppoint}*$ITEM[$itemno]->{point}/10*$sale*$pricerate);
-						$rankupsale=$timespan/3 if $rankupsale>$timespan/3; # 5•ªŠÔ‚ÅÅ‘å1%ã¸‚ÌƒŠƒ~ƒbƒgˆ—
+						$rankupsale=$timespan/3 if $rankupsale>$timespan/3; # 5åˆ†é–“ã§æœ€å¤§1%ä¸Šæ˜‡ã®ãƒªãƒŸãƒƒãƒˆå‡¦ç†
 						$rankup+=$rankupsale;
 						
-						#”„ãˆ—
+						#å£²ä¸Šå‡¦ç†
 						my $saleprice=$sale*$DT->{price}[$cnt];
 						
 						my($taxrate,$tax)=GetSaleTax($itemno,$sale,$saleprice,GetUserTaxRate($DT,$DTTaxrate));
 						
-						$DT->{money}+=$saleprice-$tax;	#’¼Ú‘‹à‚É•ÏX
-						$DT->{trush}+=$saleprice;	#‚²‚İ
+						$DT->{money}+=$saleprice-$tax;	#ç›´æ¥è³‡é‡‘ã«å¤‰æ›´
+						$DT->{trush}+=$saleprice;	#ã”ã¿
 						$DT->{saletoday}+=$saleprice;
 						$DT->{item}[$itemno-1]-=$sale;
 						$DT->{itemtoday}{$itemno}+=$sale;
 						$DT->{taxtoday}+=$tax;
 						
-						#”„‚èØ‚ê‚Ìl‹CDOWN
+						#å£²ã‚Šåˆ‡ã‚Œæ™‚ã®äººæ°—DOWN
 						if($DT->{item}[$itemno-1]==0)
 						{
-							$rankdown+=($DT->{rank}/100)**3/1000; #l‹C‚É‰‚¶‚Äƒ_ƒEƒ“
+							$rankdown+=($DT->{rank}/100)**3/1000; #äººæ°—ã«å¿œã˜ã¦ãƒ€ã‚¦ãƒ³
 						}
 						
-						#lŒû‘‰Áiíœj
+						#äººå£å¢—åŠ ï¼ˆå‰Šé™¤ï¼‰
 						
-						#@@item funcs ì‹Æ—pˆ—
+						#@@item funcs ä½œæ¥­ç”¨å‡¦ç†
 						my $_sale_count_=$DT->{_sale_count_}{$itemno}||={};
 						$_sale_count_->{count}+=$sale;
 						$_sale_count_->{price}+=$saleprice;
@@ -166,14 +166,14 @@ $temptimenow=$DTlasttime;
 			}
 			$salesumall+=$salesum;
 			
-			#ŠÔŒo‰ß‚É‚æ‚é–³ğŒl‹CDOWN
+			#æ™‚é–“çµŒéã«ã‚ˆã‚‹ç„¡æ¡ä»¶äººæ°—DOWN
 			$rankdown+=sqrt($timespan)*(($DT->{rank}/1000)**$POP_DOWN_RATE)/(5**$POP_DOWN_RATE*20)*$DT->{showcasecount};
-			$rankper=0.75 + ( $DT->{trush} / 10000000 );	#‚²‚İ‚É‚æ‚é•Ï“®
+			$rankper=0.75 + ( $DT->{trush} / 10000000 );	#ã”ã¿ã«ã‚ˆã‚‹å¤‰å‹•
 			$rankdown=$rankdown * $rankper;
 
-			#ŠÔŒo‰ß‚É‚æ‚é–³ğŒlŒûDOWNiíœj
+			#æ™‚é–“çµŒéã«ã‚ˆã‚‹ç„¡æ¡ä»¶äººå£DOWNï¼ˆå‰Šé™¤ï¼‰
 			
-			#$rankdown‚Æ$rankup‚É‚æ‚él‹CUP/DOWNˆ—
+			#$rankdownã¨$rankupã«ã‚ˆã‚‹äººæ°—UP/DOWNå‡¦ç†
 			my $rankupdown=abs($rankup-$rankdown);
 			if($rankupdown<1 && $rankdown>0)
 				{if(rand(1/$rankupdown)<1){$rankupdown=1;}}
@@ -181,7 +181,7 @@ $temptimenow=$DTlasttime;
 			if($DT->{rank}<0){$DT->{rank}=0;}
 			if($DT->{rank}>10000){$DT->{rank}=10000;}
 			
-			#ˆÛ”ïŒvZ•’~Ï
+			#ç¶­æŒè²»è¨ˆç®—ï¼†è“„ç©
 			my $costsum=0;
 			foreach my $idx (1..$MAX_ITEM)
 			{
@@ -191,18 +191,18 @@ $temptimenow=$DTlasttime;
 				$costsum+=$ITEM[$idx]->{cost}*$cnt;
 			}
 			$DT->{costtoday}+=$costsum*$timespan/86400;
-			$DT->{trush}+=int($costsum*$timespan/86400);	#‚²‚İ
+			$DT->{trush}+=int($costsum*$timespan/86400);	#ã”ã¿
 		}
-		#$peopledown‚Æ$peopleup‚É‚æ‚élŒûUP/DOWNˆ—iíœj
+		#$peopledownã¨$peopleupã«ã‚ˆã‚‹äººå£UP/DOWNå‡¦ç†ï¼ˆå‰Šé™¤ï¼‰
 		
-		#@@item ˆ—€”õ
+		#@@item å‡¦ç†æº–å‚™
 		@item::DT=@DT;
 		$item::DT=$DT;
 		@item::ITEM=@ITEM;
 		$item::TIMESPAN=$TIMESPAN;
 		RequireFile('inc-item.cgi');
 		
-		#@@item funct ˆ—
+		#@@item funct å‡¦ç†
 		require "$ITEM_DIR/functurn.cgi" if $DEFINE_FUNCTURN;
 		my @itemt=sort {$a->{no}<=>$b->{no}} grep($_->{functurn},@ITEM);
 		foreach my $item (@itemt)
@@ -223,7 +223,7 @@ $temptimenow=$DTlasttime;
 		undef $item::TURN_ITEM;
 		undef @item::TURN_DT;
 		
-		#@@item funcs ˆ—
+		#@@item funcs å‡¦ç†
 		require "$ITEM_DIR/funcsale.cgi" if $DEFINE_FUNCSALE;
 		my @items=grep($_->{funcsale},@ITEM);
 		foreach my $item (sort @items)
@@ -244,7 +244,7 @@ $temptimenow=$DTlasttime;
 			undef &$func if !$funcexists;
 			delete $INC{$file};
 		}
-		foreach(@DT){delete $_->{_sale_count_}} # @@item funcs ì‹Æ—píœ
+		foreach(@DT){delete $_->{_sale_count_}} # @@item funcs ä½œæ¥­ç”¨å‰Šé™¤
 		undef $item::SALE_ITEMNO;
 		undef $item::SALE_ITEM;
 		undef @item::SALE_DT;
@@ -253,16 +253,16 @@ $temptimenow=$DTlasttime;
 		
 		SortDT();
 		
-		#ŒˆZˆ—
+		#æ±ºç®—å‡¦ç†
 		RequireFile('inc-period.cgi') if $dateupdate && scalar(@DT);
 		
-		#sê¤•i”‚ÌUP/DOWNˆ—
+		#å¸‚å ´å•†å“æ•°ã®UP/DOWNå‡¦ç†
 		foreach my $cnt (1..$MAX_ITEM)
 		{
 			next if !$ITEM[$cnt]->{code};
 			my $ITEM=$ITEM[$cnt];
 			
-			#UP/DOWNˆ—
+			#UP/DOWNå‡¦ç†
 			my $add=0;
 			if($ITEM->{plus}!=0)
 			{
@@ -275,10 +275,10 @@ $temptimenow=$DTlasttime;
 				$DTwholestore[$cnt-1]+=$ITEM->{plus}>0 ? $add : -$add;
 			}
 		}
-		#sêİŒÉãŒÀ‰ºŒÀƒ`ƒFƒbƒN••â³
+		#å¸‚å ´åœ¨åº«ä¸Šé™ä¸‹é™ãƒã‚§ãƒƒã‚¯ï¼†è£œæ­£
 		CheckWholeStore();
 		
-		#ƒCƒxƒ“ƒgI—¹ˆ—
+		#ã‚¤ãƒ™ãƒ³ãƒˆçµ‚äº†å‡¦ç†
 		@event::DT=@DT;
 		@event::ITEM=@ITEM;
 		my %group=();
@@ -316,7 +316,7 @@ $temptimenow=$DTlasttime;
 			}
 		}
 	
-		#ƒCƒxƒ“ƒgŠJnˆ—
+		#ã‚¤ãƒ™ãƒ³ãƒˆé–‹å§‹å‡¦ç†
 		foreach my $key (keys(%EVENT))
 		{
 			my $E=$EVENT{$key};
@@ -363,11 +363,11 @@ $temptimenow=$DTlasttime;
 		$temptimenow+=$timespan;
 	}
 	
-	#ƒMƒ‹ƒh’è‹`ƒtƒ@ƒCƒ‹XV
+	#ã‚®ãƒ«ãƒ‰å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«æ›´æ–°
 	my $guildfilelasttime=0;
 	foreach(GetGuildDirFiles())
 	{
-		my $file=$COMMON_DIR."/".$_.".pl";	#Šg’£q•ÏX
+		my $file=$COMMON_DIR."/".$_.".pl";	#æ‹¡å¼µå­å¤‰æ›´
 		my $time=(stat($file))[9];
 		$guildfilelasttime=$time if $guildfilelasttime<$time;
 	}

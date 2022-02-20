@@ -1,4 +1,4 @@
-# Z‘îƒf[ƒ^•ÒW 2003/10/08 —R˜Ò
+# ä½å®…ãƒ‡ãƒ¼ã‚¿ç·¨é›† 2003/10/08 ç”±ä¾†
 
 if ($Q{mode} eq 'new')
 {
@@ -8,54 +8,54 @@ DataWrite();
 else
 {
 $i=SearchBride($Q{idx});
-OutError('w’è‚³‚ê‚½î•ñ‚Í‘¶İ‚µ‚Ü‚¹‚ñ') if ($i==-1);
+OutError('æŒ‡å®šã•ã‚ŒãŸæƒ…å ±ã¯å­˜åœ¨ã—ã¾ã›ã‚“') if ($i==-1);
 ($ida,$idb)=($BRIDE[$i]->{ida},$BRIDE[$i]->{idb});
 }
 
-$Q{mode}='mplus' if ($Q{mode} eq 'plus')&&($Q{it} == -1);	#ƒ}ƒl[ƒ‚[ƒh‚ÉØ‘Ö
-$Q{mode}='mminus' if ($Q{mode} eq 'minus')&&($Q{it} == -1);	#ƒ}ƒl[ƒ‚[ƒh‚ÉØ‘Ö
+$Q{mode}='mplus' if ($Q{mode} eq 'plus')&&($Q{it} == -1);	#ãƒãƒãƒ¼ãƒ¢ãƒ¼ãƒ‰ã«åˆ‡æ›¿
+$Q{mode}='mminus' if ($Q{mode} eq 'minus')&&($Q{it} == -1);	#ãƒãƒãƒ¼ãƒ¢ãƒ¼ãƒ‰ã«åˆ‡æ›¿
 
 if ($Q{mode} eq 'agree') {
-	OutError($image[3].'Œ‹¥‚É•K—v‚È‘‹à‚ª‘«‚è‚Ü‚¹‚ñB') if ($DT->{money} < 5000000) ;
+	OutError($image[3].'çµå©šã«å¿…è¦ãªè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < 5000000) ;
 	$DT->{money}-=5000000;
 	($BRIDE[$i]->{tm},$BRIDE[$i]->{mode},$BRIDE[$i]->{money})=($NOW_TIME,1,10000000);
-	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')‚Í '.$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')‚ÌŒ‹¥‚Ì\‚µ‚İ‚ğó‚¯‚Ü‚µ‚½B');
-	PushLog(1,0,$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')‚Æ '.$DT->{name}.' ('.$DT->{shopname}.') ‚ªŒ‹¥‚µ‚Ü‚µ‚½B');
+	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')ã¯ '.$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')ã®çµå©šã®ç”³ã—è¾¼ã¿ã‚’å—ã‘ã¾ã—ãŸã€‚');
+	PushLog(1,0,$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')ã¨ '.$DT->{name}.' ('.$DT->{shopname}.') ãŒçµå©šã—ã¾ã—ãŸã€‚');
 	DataWrite();
 }
 if ($Q{mode} eq 'end') {
-	$DT->{money}+=5000000;	#‘‹à‚ğ•Ô‹pB
-	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')‚Í '.$DT[$id2idx{$idb}]->{name}.' ('.$DT[$id2idx{$idb}]->{shopname}.')‚Ö‚ÌŒ‹¥‚Ì\‚µ‚İ‚ğ‚Æ‚è‚â‚ß‚Ü‚µ‚½B');
+	$DT->{money}+=5000000;	#è³‡é‡‘ã‚’è¿”å´ã€‚
+	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')ã¯ '.$DT[$id2idx{$idb}]->{name}.' ('.$DT[$id2idx{$idb}]->{shopname}.')ã¸ã®çµå©šã®ç”³ã—è¾¼ã¿ã‚’ã¨ã‚Šã‚„ã‚ã¾ã—ãŸã€‚');
 	$BRIDE[$i]->{mode}=-1;
 	DataWrite();
 }
 if ($Q{mode} eq 'con') {
-	OutError($image[3].'Z‘îŒšİ‚É•K—v‚È‘‹à‚ª‘«‚è‚Ü‚¹‚ñB') if ($BRIDE[$i]->{money} < 15000000) ;
+	OutError($image[3].'ä½å®…å»ºè¨­ã«å¿…è¦ãªè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if ($BRIDE[$i]->{money} < 15000000) ;
 	my $check=0;
 	foreach (0..$Scount) {
 		$check=1 if ($BRIDE[$_]->{place}==$Q{place});
 		}
-	OutError($image[3].'‚·‚Å‚ÉZ‘î‚ªŒš‚Ä‚ç‚ê‚Ä‚¢‚é‚æ‚¤‚Å‚·B') if ($check || $BRIDE[$i]->{place}) ;
+	OutError($image[3].'ã™ã§ã«ä½å®…ãŒå»ºã¦ã‚‰ã‚Œã¦ã„ã‚‹ã‚ˆã†ã§ã™ã€‚') if ($check || $BRIDE[$i]->{place}) ;
 	$BRIDE[$i]->{money}-=15000000;
 	($BRIDE[$i]->{place},$BRIDE[$i]->{mode},$BRIDE[$i]->{reform})=($Q{place},3,'a');
-	PushLog(2,0,$DT[$id2idx{$ida}]->{name}.'•'.$DT[$id2idx{$idb}]->{name}.'•vÈ‚ªZ‘î‚ğŒš‚Ä‚Ü‚µ‚½B');
+	PushLog(2,0,$DT[$id2idx{$ida}]->{name}.'ï¼†'.$DT[$id2idx{$idb}]->{name}.'å¤«å¦»ãŒä½å®…ã‚’å»ºã¦ã¾ã—ãŸã€‚');
 }
 if ($Q{mode} eq 'more') {
-	OutError('‘’z‚Å‚«‚Ü‚¹‚ñB') if ($BRIDE[$i]->{mode} < 2 || $BRIDE[$i]->{mode} > 7) ;
-	OutError('Z‘î‘’z‚É•K—v‚È‘‹à‚ª‘«‚è‚Ü‚¹‚ñB') if ($BRIDE[$i]->{money} < $BRIDE[$i]->{mode} * 10000000);
+	OutError('å¢—ç¯‰ã§ãã¾ã›ã‚“ã€‚') if ($BRIDE[$i]->{mode} < 2 || $BRIDE[$i]->{mode} > 7) ;
+	OutError('ä½å®…å¢—ç¯‰ã«å¿…è¦ãªè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if ($BRIDE[$i]->{money} < $BRIDE[$i]->{mode} * 10000000);
 	$BRIDE[$i]->{money}-=($BRIDE[$i]->{mode} * 10000000);
 	$BRIDE[$i]->{mode}+=2;
-	PushLog(2,0,$DT[$id2idx{$ida}]->{name}.'•'.$DT[$id2idx{$idb}]->{name}.'•vÈ‚ªZ‘î‚ğ‘’z‚µ‚Ü‚µ‚½B');
+	PushLog(2,0,$DT[$id2idx{$ida}]->{name}.'ï¼†'.$DT[$id2idx{$idb}]->{name}.'å¤«å¦»ãŒä½å®…ã‚’å¢—ç¯‰ã—ã¾ã—ãŸã€‚');
 }
 if ($Q{mode} eq 'plus') {
 	$itemno=$Q{it};
 	my $n=SearchBstock($Q{it});
-	OutError('•ÛŠÇƒXƒy[ƒX‚ª‚ ‚è‚Ü‚¹‚ñB') if ($n == -1) ;
+	OutError('ä¿ç®¡ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($n == -1) ;
 	my $space=$ITEM[$itemno]->{limit}*$HouseMax - $BRIDE[$i]->{cnt}[$n];
-	OutError('•ÛŠÇƒXƒy[ƒX‚ª‚ ‚è‚Ü‚¹‚ñB') if ($space < 1) ;
+	OutError('ä¿ç®¡ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($space < 1) ;
 	$Q{num}=$DT->{item}[$itemno-1] if ($Q{num} > $DT->{item}[$itemno-1]);
 	$num=CheckCount($DT->{item}[$itemno-1],int($Q{num}),0,$space);
-	OutError('–³Œø‚È”’lw’è‚Å‚·B') if !$num;
+	OutError('ç„¡åŠ¹ãªæ•°å€¤æŒ‡å®šã§ã™ã€‚') if !$num;
 	$DT->{item}[$itemno-1]-=$num;
 	$BRIDE[$i]->{stock}[$n]=$itemno;
 	$BRIDE[$i]->{cnt}[$n]+=$num;
@@ -65,10 +65,10 @@ if ($Q{mode} eq 'minus') {
 	my $n=$Q{it};
 	my $itemno=$BRIDE[$i]->{stock}[$n];
 	my $space=$ITEM[$itemno]->{limit} - $DT->{item}[$itemno-1];
-	OutError('‘qŒÉ‚ªˆê”t‚Åæ‚èo‚¹‚Ü‚¹‚ñB') if ($space < 1) ;
+	OutError('å€‰åº«ãŒä¸€æ¯ã§å–ã‚Šå‡ºã›ã¾ã›ã‚“ã€‚') if ($space < 1) ;
 	$Q{num}=$BRIDE[$i]->{cnt}[$n] if ($Q{num} > $BRIDE[$i]->{cnt}[$n]);
 	$num=CheckCount($BRIDE[$i]->{cnt}[$n],int($Q{num}),0,$space);
-	OutError('–³Œø‚È”’lw’è‚Å‚·B') if !$num;
+	OutError('ç„¡åŠ¹ãªæ•°å€¤æŒ‡å®šã§ã™ã€‚') if !$num;
 	$DT->{item}[$itemno-1]+=$num;
 	$BRIDE[$i]->{cnt}[$n]-=$num;
 	$BRIDE[$i]->{stock}[$n]=0 if !($BRIDE[$i]->{cnt}[$n]);
@@ -76,31 +76,31 @@ if ($Q{mode} eq 'minus') {
 }
 if ($Q{mode} eq 'mplus') {
 	my $space=$BRIDE[$i]->{mode}*20000000 - $BRIDE[$i]->{money};
-	OutError('•ÛŠÇƒXƒy[ƒX‚ª‚ ‚è‚Ü‚¹‚ñB') if ($space < 1) ;
+	OutError('ä¿ç®¡ã‚¹ãƒšãƒ¼ã‚¹ãŒã‚ã‚Šã¾ã›ã‚“ã€‚') if ($space < 1) ;
 	$Q{num}=$DT->{money} if ($Q{num} > $DT->{money});
 	$num=CheckCount($DT->{money},int($Q{num}),0,$space);
-	OutError('–³Œø‚È”’lw’è‚Å‚·B') if !$num;
+	OutError('ç„¡åŠ¹ãªæ•°å€¤æŒ‡å®šã§ã™ã€‚') if !$num;
 	$DT->{money}-=$num;
 	$BRIDE[$i]->{money}+=$num;
 	DataWrite();
 }
 if ($Q{mode} eq 'mminus') {
 	my $space=$MAX_MONEY - $DT->{money};
-	OutError('‘qŒÉ‚ªˆê”t‚Åæ‚èo‚¹‚Ü‚¹‚ñB') if ($space < 1) ;
+	OutError('å€‰åº«ãŒä¸€æ¯ã§å–ã‚Šå‡ºã›ã¾ã›ã‚“ã€‚') if ($space < 1) ;
 	$Q{num}=$BRIDE[$i]->{money} if ($Q{num} > $BRIDE[$i]->{money});
 	$num=CheckCount($BRIDE[$i]->{money},int($Q{num}),0,$space);
-	OutError('–³Œø‚È”’lw’è‚Å‚·B') if !$num;
+	OutError('ç„¡åŠ¹ãªæ•°å€¤æŒ‡å®šã§ã™ã€‚') if !$num;
 	$DT->{money}+=$num;
 	$BRIDE[$i]->{money}-=$num;
 	DataWrite();
 }
 if ($Q{mode} eq 'divorce') {
 	$BRIDE[$i]->{mode}=-1;
-	PushLog(1,0,$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')‚Æ '.$DT[$id2idx{$idb}]->{name}.' ('.$DT[$id2idx{$idb}]->{shopname}.') ‚ª—£¥‚µ‚Ü‚µ‚½B');
+	PushLog(1,0,$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')ã¨ '.$DT[$id2idx{$idb}]->{name}.' ('.$DT[$id2idx{$idb}]->{shopname}.') ãŒé›¢å©šã—ã¾ã—ãŸã€‚');
 }
 if ($Q{mode} eq 'dis') {
 	$BRIDE[$i]->{mode}=-1;
-	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')‚Í '.$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')‚ÌŒ‹¥‚Ì\‚µ‚İ‚ğ’f‚è‚Ü‚µ‚½B');
+	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')ã¯ '.$DT[$id2idx{$ida}]->{name}.' ('.$DT[$id2idx{$ida}]->{shopname}.')ã®çµå©šã®ç”³ã—è¾¼ã¿ã‚’æ–­ã‚Šã¾ã—ãŸã€‚');
 }
 WriteBride();
 RenewLog();
@@ -112,16 +112,16 @@ UnLock();
 sub ProposeEdit
 {
 	my $check=0;
-	OutError($image[3].'•‚‹C‚Í‹Ö•¨‚Å‚·‚æB') if ($married) ;
-	OutError($image[3].'Œ‹¥‚É•K—v‚È‘‹à‚ª‘«‚è‚Ü‚¹‚ñB') if ($DT->{money} < 5000000) ;
+	OutError($image[3].'æµ®æ°—ã¯ç¦ç‰©ã§ã™ã‚ˆã€‚') if ($married) ;
+	OutError($image[3].'çµå©šã«å¿…è¦ãªè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if ($DT->{money} < 5000000) ;
 	my $tg=$Q{tg};
-	OutError($image[3].'©•ª‚ÆŒ‹¥‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB') if ($DT->{id} == $tg) ;
+	OutError($image[3].'è‡ªåˆ†ã¨çµå©šã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚') if ($DT->{id} == $tg) ;
 	foreach (0..$Scount) {
 		$check=1 if ($tg==$BRIDE[$_]->{ida}) || ($tg==$BRIDE[$_]->{idb});
 		}
-	OutError($image[3].'‚»‚Ìl‚ğ‘I‚Ô‚±‚Æ‚Í‚à‚¤‚Å‚«‚Ü‚¹‚ñ‚æB') if ($check) ;
+	OutError($image[3].'ãã®äººã‚’é¸ã¶ã“ã¨ã¯ã‚‚ã†ã§ãã¾ã›ã‚“ã‚ˆã€‚') if ($check) ;
 	$DT->{money}-=5000000;
-	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')‚ª '.$DT[$id2idx{$tg}]->{name}.' ('.$DT[$id2idx{$tg}]->{shopname}.')‚ÉŒ‹¥‚ğ\‚µ‚İ‚Ü‚µ‚½B');
+	PushLog(3,0,$DT->{name}.' ('.$DT->{shopname}.')ãŒ '.$DT[$id2idx{$tg}]->{name}.' ('.$DT[$id2idx{$tg}]->{shopname}.')ã«çµå©šã‚’ç”³ã—è¾¼ã¿ã¾ã—ãŸã€‚');
 	@BRIDE=reverse(@BRIDE);
 	$Scount++;
 	my $i=$Scount;
@@ -138,11 +138,11 @@ sub SearchBstock
 	my($no)=@_;
 	foreach(0..$BRIDE[$i]->{mode}-1)
 	{
-		return $_ if($no == $BRIDE[$i]->{stock}[$_]);	# ‚Ü‚¸‚·‚Å‚É•ÛŠÇ‚³‚ê‚Ä‚¢‚é•¨‚Æ“¯‚¶‚©’²‚×‚é
+		return $_ if($no == $BRIDE[$i]->{stock}[$_]);	# ã¾ãšã™ã§ã«ä¿ç®¡ã•ã‚Œã¦ã„ã‚‹ç‰©ã¨åŒã˜ã‹èª¿ã¹ã‚‹
 	}
 	foreach(0..$BRIDE[$i]->{mode}-1)
 	{
-		return $_ if !($BRIDE[$i]->{stock}[$_]);	# Ÿ‚É‹ó‚«‚ª‚ ‚é‚©’²‚×‚é
+		return $_ if !($BRIDE[$i]->{stock}[$_]);	# æ¬¡ã«ç©ºããŒã‚ã‚‹ã‹èª¿ã¹ã‚‹
 	}
 	return -1;
 }

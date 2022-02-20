@@ -1,4 +1,4 @@
-# “Xî•ñ•\Ž¦ 2005/01/06 —R˜Ò
+# åº—æƒ…å ±è¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 if(!$GUEST_USER && !$MOBILE)
 {
@@ -6,7 +6,7 @@ if(!$GUEST_USER && !$MOBILE)
 	if($tm<0)
 	{
 		$tm=-$tm;
-		$tm='s“®‰Â”\‚Ü‚Å‚ ‚Æ '.GetTime2HMS($tm);
+		$tm='è¡Œå‹•å¯èƒ½ã¾ã§ã‚ã¨ '.GetTime2HMS($tm);
 	}
 	else
 	{
@@ -19,10 +19,10 @@ if(!$GUEST_USER && !$MOBILE)
 	$TB$TR
 	$TD
 	<SPAN>RANK</SPAN> ${\($id2idx{$DT->{id}}+1)}$TDE
-	$TD<SPAN>“X–¼F</SPAN>$DT->{shopname}$TDE
-	$TD<SPAN>“_”F</SPAN>$DT->{point}$TDE
-	$TD<SPAN>Ž‘‹àF</SPAN>$moneymsg$TDE
-	$TD<SPAN>ŽžŠÔF</SPAN>$tm$TDE
+	$TD<SPAN>åº—åï¼š</SPAN>$DT->{shopname}$TDE
+	$TD<SPAN>ç‚¹æ•°ï¼š</SPAN>$DT->{point}$TDE
+	$TD<SPAN>è³‡é‡‘ï¼š</SPAN>$moneymsg$TDE
+	$TD<SPAN>æ™‚é–“ï¼š</SPAN>$tm$TDE
 	$TRE$TBE
 <hr width=500 noshade size=1>
 STR

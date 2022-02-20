@@ -1,4 +1,4 @@
-# drread a�v���O�C�� 2005/03/30 �R��
+# drread aプラグイン 2005/03/30 由來
 
 sub ReadStable
 {
@@ -22,7 +22,7 @@ foreach my $cnt(0..$STcount)
 	$id2st{$id}=$cnt;
 
 	next if ($MYDIR ne $ST[$cnt]->{town});
-	undef $ST[$cnt],next if !defined($id2idx{$ST[$cnt]->{owner}});	# �ǂݔ�΂��B
+	undef $ST[$cnt],next if !defined($id2idx{$ST[$cnt]->{owner}});	# 読み飛ばし。
 
 	if ($ST[$cnt]->{owner}==$DT->{id})
 		{
@@ -53,7 +53,7 @@ foreach my $cnt(0..$JKcount)
 	$id2jk{$id}=$cnt;
 
 	next if ($MYDIR ne $JK[$cnt]->{town});
-	undef $JK[$cnt],next if !defined($id2idx{$JK[$cnt]->{owner}});	# �ǂݔ�΂��B
+	undef $JK[$cnt],next if !defined($id2idx{$JK[$cnt]->{owner}});	# 読み飛ばし。
 
 	if ($JK[$cnt]->{owner}==$DT->{id})
 		{

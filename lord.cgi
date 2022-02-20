@@ -1,17 +1,17 @@
-# —Ìå“@ 2005/01/06 —R˜Ò
+# é ˜ä¸»é‚¸ 2005/01/06 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
 ReadArmy();
 
-$disp.="<BIG>œ—Ìåî•ñ</BIG><br><br>";
+$disp.="<BIG>â—é ˜ä¸»æƒ…å ±</BIG><br><br>";
 
-# ŒvZ•”•ª
+# è¨ˆç®—éƒ¨åˆ†
 my %msg; $msg{free}=""; $msg{double}="";
 foreach my $DT (@DT)
 	{
-	$msg{free}.=$DT->{shopname}."C " , next if ($DT->{taxmode}==1);
-	$msg{double}.=$DT->{shopname}."C " if ($DT->{taxmode}==2);
+	$msg{free}.=$DT->{shopname}."ï¼Œ " , next if ($DT->{taxmode}==1);
+	$msg{double}.=$DT->{shopname}."ï¼Œ " if ($DT->{taxmode}==2);
 	}
 
 $msg{free} = substr($msg{free},0,(length($msg{free})-3)) if ($msg{free});
@@ -22,49 +22,49 @@ if (defined($id2idx{$STATE->{leader}}))
 {
 my $i=$id2idx{$STATE->{leader}};
 $disp.=$TB.$TR.$TD.GetTagImgKao($DT[$i]->{name},$DT[$i]->{icon});
-$disp.=$TD."<SPAN>—Ìå</SPAN> F <b>".$DT[$i]->{name}."</b>";
-$disp.=DignityDefine($DT[$i]->{dignity})." <small>i".$DT[$i]->{shopname}."j</small><br>";
+$disp.=$TD."<SPAN>é ˜ä¸»</SPAN> ï¼š <b>".$DT[$i]->{name}."</b>";
+$disp.=DignityDefine($DT[$i]->{dignity})." <small>ï¼ˆ".$DT[$i]->{shopname}."ï¼‰</small><br>";
 $disp.=">> ".$DT[$i]->{comment};
 $disp.=$TRE.$TBE;
 }
 else
 {
 $disp.=$TB.$TR.$TD.GetTagImgKao($BAL_NAME,"bal");
-$disp.=$TD."—Ìå F <b>$BAL_NAME</b> <small>i$BAL_JOBj</small><br>";
-$disp.=">> ‚±‚ÌŠX‚ÍƒIƒŒ‚Ì•¨‚¾B‚®‚í‚Á‚Í‚Á‚ÍI";
+$disp.=$TD."é ˜ä¸» ï¼š <b>$BAL_NAME</b> <small>ï¼ˆ$BAL_JOBï¼‰</small><br>";
+$disp.=">> ã“ã®è¡—ã¯ã‚ªãƒ¬ã®ç‰©ã ã€‚ãã‚ã£ã¯ã£ã¯ï¼";
 $disp.=$TRE.$TBE;
 }
 
 my $armycost=200-int($STATE->{safety} / 100); 	# 100 - 200
-my $purpose="“à­d‹";
-if ($DTTaxrate < 20) { $purpose="l–¯‰ğ•ú"; }
-elsif ($STATE->{army}*$armycost*2 > $STATE->{devem}+$STATE->{safem}) { $purpose="ŒR–d‹"; }
+my $purpose="å†…æ”¿é‡è¦–";
+if ($DTTaxrate < 20) { $purpose="äººæ°‘è§£æ”¾"; }
+elsif ($STATE->{army}*$armycost*2 > $STATE->{devem}+$STATE->{safem}) { $purpose="è»äº‹é‡è¦–"; }
 
-$updown="(ª”­“W)";
+$updown="(â†‘ç™ºå±•)";
 my $peopleud=(24000 * $DTusercount) + 100000 + ($STATE->{develop} * 30) + ($STATE->{safety} * 20);
-if ($DTpeople > $peopleud + 10000) { $updown="(«Š‘Ş)"; }
-elsif ($DTpeople > $peopleud - 10000) { $updown="(¨’â‘Ø)"; }
+if ($DTpeople > $peopleud + 10000) { $updown="(â†“è¡°é€€)"; }
+elsif ($DTpeople > $peopleud - 10000) { $updown="(â†’åœæ»)"; }
 
-$disp.="<br><BIG>œ“à­ó‹µ</BIG><br><br>";
+$disp.="<br><BIG>â—å†…æ”¿çŠ¶æ³</BIG><br><br>";
 $disp.="<table width=480>".$TR;
-$disp.=$TDB."lŒû".$TD.int($DTpeople/10)."l <small>".$updown."</small>";
-$disp.=$TDB."•ûj".$TD.$purpose.$TRE;
-$disp.=$TR.$TDB."ŠX‘‹à".$TD.GetMoneyString($STATE->{money}+0);
-$disp.=$TDB."Å—¦".$TDNW.GetTaxMessage($DTTaxrate+0).$TRE;
-$disp.=$TR.$TDB."‘OŠúÅû".$TD.GetMoneyString($STATE->{in}+0);
-$disp.=$TDB."‘OŠúÎo".$TD.GetMoneyString($STATE->{out}+0).$TRE;
-$disp.=$TR.$TDB."ŠJ‘ñ".$TDNW.GetRankMessage($STATE->{develop}+0) ;
-$disp.=$TDB."ŠJ‘ñ‘Îô”ï".$TD.GetMoneyString($STATE->{devem}+0).$TRE;
-$disp.=$TR.$TDB."¡ˆÀ".$TDNW.GetRankMessage($STATE->{safety}+0) ;
-$disp.=$TDB."¡ˆÀ‘Îô”ï".$TD.GetMoneyString($STATE->{safem}+0).$TRE;
-$disp.=$TR.$TDB."–ÆÅ“X<td colspan=3><small>".$msg{free}."</small>".$TRE;
-$disp.=$TR.$TDB."”{Å“X<td colspan=3><small>".$msg{double}."</small>".$TRE;
+$disp.=$TDB."äººå£".$TD.int($DTpeople/10)."äºº <small>".$updown."</small>";
+$disp.=$TDB."æ–¹é‡".$TD.$purpose.$TRE;
+$disp.=$TR.$TDB."è¡—è³‡é‡‘".$TD.GetMoneyString($STATE->{money}+0);
+$disp.=$TDB."ç¨ç‡".$TDNW.GetTaxMessage($DTTaxrate+0).$TRE;
+$disp.=$TR.$TDB."å‰æœŸç¨å".$TD.GetMoneyString($STATE->{in}+0);
+$disp.=$TDB."å‰æœŸæ­³å‡º".$TD.GetMoneyString($STATE->{out}+0).$TRE;
+$disp.=$TR.$TDB."é–‹æ‹“".$TDNW.GetRankMessage($STATE->{develop}+0) ;
+$disp.=$TDB."é–‹æ‹“å¯¾ç­–è²»".$TD.GetMoneyString($STATE->{devem}+0).$TRE;
+$disp.=$TR.$TDB."æ²»å®‰".$TDNW.GetRankMessage($STATE->{safety}+0) ;
+$disp.=$TDB."æ²»å®‰å¯¾ç­–è²»".$TD.GetMoneyString($STATE->{safem}+0).$TRE;
+$disp.=$TR.$TDB."å…ç¨åº—<td colspan=3><small>".$msg{free}."</small>".$TRE;
+$disp.=$TR.$TDB."å€ç¨åº—<td colspan=3><small>".$msg{double}."</small>".$TRE;
 $disp.=$TBE;
 
-$disp.="<br><BIG>œŒR–ó‹µ</BIG><br><br>";
+$disp.="<br><BIG>â—è»äº‹çŠ¶æ³</BIG><br><br>";
 $disp.=$TB.$TR;
-$disp.=$TDB."Œì‰qŒR".$TD.GetArmyMessage($STATE->{army}+$STATE->{robina}+0,"b");
-$disp.=$TDB."•º—ÍˆÛ”ï".$TD.GetMoneyString($STATE->{army}*$armycost).$TRE;
+$disp.=$TDB."è­·è¡›è»".$TD.GetArmyMessage($STATE->{army}+$STATE->{robina}+0,"b");
+$disp.=$TDB."å…µåŠ›ç¶­æŒè²»".$TD.GetMoneyString($STATE->{army}*$armycost).$TRE;
 
 if ($DTevent{rebel})
 {
@@ -78,27 +78,27 @@ $STATE->{rebel}+=$STATE->{robinb};
 @DTS=sort{$b->{army}<=>$a->{army}}@DT;
 my $rebelid=$DTS[0]->{id};
 $rebelid=$DTS[1]->{id} if ($rebelid == $STATE->{leader});
-$disp.=$TR.$TDB."”½—ŒR".$TD.GetArmyMessage($STATE->{rebel},"r");
-$disp.=$TDB."ó‘Ô".$TD."<SPAN>”½—</SPAN>".$TRE;
+$disp.=$TR.$TDB."åä¹±è»".$TD.GetArmyMessage($STATE->{rebel},"r");
+$disp.=$TDB."çŠ¶æ…‹".$TD."<SPAN>åä¹±</SPAN>".$TRE;
 	if ($STATE->{robinb} > $DT[$id2idx{$rebelid}]->{army})
 	{
 	$disp.=$TR.$TD.GetTagImgKao($BAL_NAME,"bal");
-	$disp.="<td colspan=3><SPAN>”½—ƒŠ[ƒ_[</SPAN> F <b>$BAL_NAME</b> <small>i$BAL_JOBj</small><br>";
-	$disp.=">> —Ìå‚Ìã•º‚È‚Ç‘Šè‚É‚È‚ç‚ñ‚¼I‚®‚í‚Á‚Í‚Á‚ÍI";
+	$disp.="<td colspan=3><SPAN>åä¹±ãƒªãƒ¼ãƒ€ãƒ¼</SPAN> ï¼š <b>$BAL_NAME</b> <small>ï¼ˆ$BAL_JOBï¼‰</small><br>";
+	$disp.=">> é ˜ä¸»ã®å¼±å…µãªã©ç›¸æ‰‹ã«ãªã‚‰ã‚“ãï¼ãã‚ã£ã¯ã£ã¯ï¼";
 	}
 	else
 	{
 	$disp.=$TR.$TD.GetTagImgKao($DT[$id2idx{$rebelid}]->{name},$DT[$id2idx{$rebelid}]->{icon});
-	$disp.="<td colspan=3><SPAN>”½—ƒŠ[ƒ_[</SPAN> F <b>".$DT[$id2idx{$rebelid}]->{name}."</b>";
-	$disp.=DignityDefine($DT[$id2idx{$rebelid}]->{dignity})." <small>i".$DT[$id2idx{$rebelid}]->{shopname}."j</small><br>";
+	$disp.="<td colspan=3><SPAN>åä¹±ãƒªãƒ¼ãƒ€ãƒ¼</SPAN> ï¼š <b>".$DT[$id2idx{$rebelid}]->{name}."</b>";
+	$disp.=DignityDefine($DT[$id2idx{$rebelid}]->{dignity})." <small>ï¼ˆ".$DT[$id2idx{$rebelid}]->{shopname}."ï¼‰</small><br>";
 	$disp.=">> ".$DT[$id2idx{$rebelid}]->{comment};
 	}
 	$disp.=$TRE;
 }
 else
 {
-$disp.=$TR.$TDB."”½—ŒR".$TD."•s–¾";
-$disp.=$TDB."ó‘Ô".$TD."•½‰¸".$TRE;
+$disp.=$TR.$TDB."åä¹±è»".$TD."ä¸æ˜";
+$disp.=$TDB."çŠ¶æ…‹".$TD."å¹³ç©".$TRE;
 }
 $disp.=$TBE;
 
@@ -110,7 +110,7 @@ if (!$GUEST_USER && $STATE->{leader}==$DT->{id})
 	<INPUT TYPE=HIDDEN NAME=key VALUE="lord-f">
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=form VALUE="plus">
-	<INPUT TYPE=SUBMIT VALUE='­–±‚ğ·‚ès‚¤'>
+	<INPUT TYPE=SUBMIT VALUE='æ”¿å‹™ã‚’åŸ·ã‚Šè¡Œã†'>
 	</FORM>
 STR
 	}
@@ -138,7 +138,7 @@ sub GetTaxMessage
 sub GetArmyMessage
 {
 	my($rank,$mode)=@_;
-	return $rank."l" if $MOBILE;
+	return $rank."äºº" if $MOBILE;
 	my $per=int($rank/500);
 	$per=100 if $per>100;
 	
@@ -146,7 +146,7 @@ sub GetArmyMessage
 	$bar ="<nobr>";
 	$bar.=qq|<img src="$IMAGE_URL/$mode.gif" width="|.(    $per).qq|" height="12">| if $per;
 	$bar.=qq|<img src="$IMAGE_URL/t.gif" width="|.(100-$per).qq|" height="12">| if $per!=200;
-	$bar.=" ".$rank."l";
+	$bar.=" ".$rank."äºº";
 	$bar.="</nobr><br>";
 	
 	return $bar;

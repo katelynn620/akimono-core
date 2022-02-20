@@ -1,4 +1,4 @@
-# BGM 2003/09/25 由來
+# BGM 2003/09/25 逕ｱ萓�
 
 $NOMENU=1;
 $Q{bk}="none";
@@ -13,7 +13,7 @@ print <<"EOM";
 <frame name="bgm" src="action.cgi?key=midi&$USERPASSURL" noresize>
 <frame name="game" src="action.cgi?key=$Q{mode}&$USERPASSURL">
 <noframes>
-<body>フレーム非対応のブラウザの方はご利用できません</body>
+<body>繝輔Ξ繝ｼ繝髱槫ｯｾ蠢懊�ｮ繝悶Λ繧ｦ繧ｶ縺ｮ譁ｹ縺ｯ縺泌茜逕ｨ縺ｧ縺阪∪縺帙ｓ</body>
 </noframes>
 </frameset>
 </html>

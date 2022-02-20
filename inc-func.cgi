@@ -1,18 +1,18 @@
-# Šî–{ŠÖ”’è‹` 2005/03/30 —R˜Ò
+# åŸºæœ¬é–¢æ•°å®šç¾© 2005/03/30 ç”±ä¾†
 
 BEGIN{$SIG{__WARN__}=$SIG{__DIE__}=sub{$incdir=$INCLUDE_DIR; $incdir||="../program"; require "$incdir/inc-error.cgi"; die($_[0]);};}
 
-# ‰Šúİ’è
-srand();	#—”ƒZƒbƒg
-$disp="";	# o—Íƒoƒbƒtƒ@‰Šú‰»
-$NOW_TIME=time(); # Œ»İ
-$LOCKED='';	# ƒƒbƒNó‘Ô‰Šú‰»
-@LOG=();	# ƒƒO‰Šú‰»
+# åˆæœŸè¨­å®š
+srand();	#ä¹±æ•°ã‚»ãƒƒãƒˆ
+$disp="";	# å‡ºåŠ›ãƒãƒƒãƒ•ã‚¡åˆæœŸåŒ–
+$NOW_TIME=time(); # ç¾åœ¨æ™‚åˆ»
+$LOCKED='';	# ãƒ­ãƒƒã‚¯çŠ¶æ…‹åˆæœŸåŒ–
+@LOG=();	# ãƒ­ã‚°åˆæœŸåŒ–
 
-($MYDIR,$MYNAME)=($ENV{SCRIPT_NAME}=~/^.*\/([^\/]+)\/([^\/]+)$/); # ©ƒtƒ@ƒCƒ‹–¼/ƒfƒBƒŒƒNƒgƒŠ–¼
+($MYDIR,$MYNAME)=($ENV{SCRIPT_NAME}=~/^.*\/([^\/]+)\/([^\/]+)$/); # è‡ªãƒ•ã‚¡ã‚¤ãƒ«å/ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå
 ($REFERER)=($ENV{HTTP_REFERER}=~/.+\/(.+)$/);                     # HTTP REFERER
 
-RequireFile('inc-mt.cgi') if -e "$DATA_DIR/lock"; # ƒƒ“ƒeƒ‚[ƒh
+RequireFile('inc-mt.cgi') if -e "$DATA_DIR/lock"; # ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰
 
 Lock(),DataCommitOrAbort(1),UnLock() if -e GetPath($COMMIT_FILE);
 
@@ -79,14 +79,14 @@ sub GetPath
 	return join("/",@_).$FILE_EXT;
 }
 
-#Œg‘Ñ’[––Œn‚©‚Ç‚¤‚©‚Ìƒ`ƒFƒbƒN&ƒe[ƒuƒ‹’è‹`
+#æºå¸¯ç«¯æœ«ç³»ã‹ã©ã†ã‹ã®ãƒã‚§ãƒƒã‚¯&ãƒ†ãƒ¼ãƒ–ãƒ«å®šç¾©
 sub CheckMobile
 {
 	my $agent=$ENV{HTTP_USER_AGENT};
 
 	if($agent=~/^(DoCoMo|KDDI|J-PHONE|ASTEL|PDXGW)/ || $DEBUG_MOBILE)
 	{
-		#Œg‘ÑŒn
+		#æºå¸¯ç³»
 		$MOBILE=1;
 		$TB=$TBT=$TR=$TRT=$TDB="";
 		$TBE=$TRE=$TD=$TDNW="<BR>";
@@ -95,7 +95,7 @@ sub CheckMobile
 	}
 	else
 	{
-		#ƒpƒ\ƒRƒ“Œn
+		#ãƒ‘ã‚½ã‚³ãƒ³ç³»
 		$MOBILE=0;
 		$TB	="<TABLE>";
 		$TBT	="<TABLE class=t>";
@@ -143,7 +143,7 @@ sub OutSkin
 	
 	if ($MOBILE)
 		{
-		print GetMenuTag('menu','[ƒƒjƒ…[]'),'<br><br>' if !$NOMENU && $Q{key} ne 'menu';
+		print GetMenuTag('menu','[ãƒ¡ãƒ‹ãƒ¥ãƒ¼]'),'<br><br>' if !$NOMENU && $Q{key} ne 'menu';
 		$DISP{MENU} =~ s/#SKINTITLE#/$HTML_TITLE/;
 		print $DISP{MENU};
 		}
@@ -167,7 +167,7 @@ sub GetTagImgKao
 sub GetTagImgJob
 {
 	my($i,$ii)=@_;
-	return qq|<IMG ALT="‚·‚Á‚Ò‚ñ" class="j" SRC="$IMAGE_URL/job/job.gif">| if !$i;
+	return qq|<IMG ALT="ã™ã£ã´ã‚“" class="j" SRC="$IMAGE_URL/job/job.gif">| if !$i;
 	return qq|<IMG ALT="$JOBTYPE{$i}" class="j" SRC="$IMAGE_URL/job/job$i.gif">|;
 }
 
@@ -290,9 +290,9 @@ sub GetDTPoint
 {
 	my($DT)=@_;
 	my $p=($DT->{profitstock}*3+$DT->{saletoday}-$DT->{taxtoday}-$DT->{paytoday})/500000+1;
-	my $r=0.5 + ( 5 / ($DT->{rankingcount} + 10) );	#—DŸ‰ñ”‚É‚æ‚é•â³
-	$p= 15 - (50 / $p) if ($p > 10);		#‚‚·‚¬‚é“_”‚ğ•â³
-	$p= 1 / (2 - $p) if ($p < 1);			#’á‚·‚¬‚é“_”‚ğ•â³
+	my $r=0.5 + ( 5 / ($DT->{rankingcount} + 10) );	#å„ªå‹å›æ•°ã«ã‚ˆã‚‹è£œæ­£
+	$p= 15 - (50 / $p) if ($p > 10);		#é«˜ã™ãã‚‹ç‚¹æ•°ã‚’è£œæ­£
+	$p= 1 / (2 - $p) if ($p < 1);			#ä½ã™ãã‚‹ç‚¹æ•°ã‚’è£œæ­£
 	return int( $DT->{rank} * $r * $p );
 }
 
@@ -305,7 +305,7 @@ sub CheckUserPass
 	my $password=$Q{pw};
 	my $session=$Q{ss};
 	my($Cname,$Csess,$cookieon)=GetCookieSession();
-	#$disp.="($ENV{HTTP_COOKIE},$Cname,$Csess,$cookieon)"; #ƒfƒoƒbƒO—p
+	#$disp.="($ENV{HTTP_COOKIE},$Cname,$Csess,$cookieon)"; #ãƒ‡ãƒãƒƒã‚°ç”¨
 	if($username eq '' && $Cname ne '')
 		{$username=$Cname;$session=$Csess;}
 	else
@@ -383,15 +383,15 @@ sub GetTime2HMS
 	my($tm,$mode)=@_;
 	
 	my $s=$tm%60;
-	return Get02D($s).'•b' if $tm<60;
+	return Get02D($s).'ç§’' if $tm<60;
 	
 	my $m=($tm-$s)%3600;
-	return ($m/60).'•ª' if $tm<3600;
+	return ($m/60).'åˆ†' if $tm<3600;
 	
 	my $h=($tm-$s-$m)/3600;
-	return $h.'ŠÔ'.($m && !$mode ? Get02D($m/60).'•ª':'') if $h<24*3;
+	return $h.'æ™‚é–“'.($m && !$mode ? Get02D($m/60).'åˆ†':'') if $h<24*3;
 	
-	return int($h/24).'“ú';
+	return int($h/24).'æ—¥';
 }
 
 sub GetTagA

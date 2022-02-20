@@ -1,4 +1,4 @@
-# config �v���O�C�� 2003/07/19 �R��
+# config プラグイン 2003/07/19 由來
 
 sub ReadConfig
 {
@@ -8,7 +8,7 @@ sub ReadConfig
 	{
 		chop;
 		s/#.*$//;
-		#�e��ݒ�t�@�C���ł͊댯����̂��߁u< > "�v�͎g�p�s�u&�v�͎g�p��
+		#各種設定ファイルでは危険回避のため「< > "」は使用不可「&」は使用可
 		#s/&/&amp;/g;
 		s/</&lt;/g;
 		s/>/&gt;/g;

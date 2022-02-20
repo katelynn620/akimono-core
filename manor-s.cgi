@@ -1,14 +1,14 @@
-# ‘‘‰€íw“üˆ— 2005/03/30 —R˜Ò
+# è˜åœ’ç¨®è³¼å…¥å‡¦ç† 2005/03/30 ç”±ä¾†
 
 $NOITEM=1;
 $NOMENU=1;
 Lock();
 DataRead();
 CheckUserPass();
-OutError("—Ìå‚ª‚¢‚È‚¢‚Ì‚Å‘‘‰€§“x‚ª‹@”\‚µ‚Ä‚¢‚Ü‚¹‚ñ") if !defined($id2idx{$STATE->{leader}});
+OutError("é ˜ä¸»ãŒã„ãªã„ã®ã§è˜åœ’åˆ¶åº¦ãŒæ©Ÿèƒ½ã—ã¦ã„ã¾ã›ã‚“") if !defined($id2idx{$STATE->{leader}});
 RequireFile('inc-manor.cgi');
 
-	# ‘‘‰€İ’è‚ğæ“¾
+	# è˜åœ’è¨­å®šã‚’å–å¾—
 	my $id=$id2idx{$STATE->{leader}};
 	ReadDTSub($DT[$id],"lord");
 	my $MANORLORD=$DT[$id]->{_lord};
@@ -23,30 +23,30 @@ $price=$MANORLORD->{"price$i"};
 OutError("bad request") if !$price;
 
 $stock=$MANORLORD->{"count$i"};
-OutError("”Ì”„İŒÉ‚ªs‚«‚Ä‚¢‚Ü‚·") if ($stock < 1);
+OutError("è²©å£²åœ¨åº«ãŒå°½ãã¦ã„ã¾ã™") if ($stock < 1);
 
 $num=CheckCount($Q{num1},$Q{num2},0,$tlimit - $DT->{_seed}->{"base$i"});
 $num=$stock if ($num > $stock);
-OutError('”—Ê‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$num;
+OutError('æ•°é‡ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$num;
 
 $num=int($DT->{money}/$price) if $DT->{money}<$num*$price;
 $num=0 if $num<0;
 
-OutError('—â‚â‚©‚µ‚Å‚·‚©H') if !$num;
+OutError('å†·ã‚„ã‹ã—ã§ã™ã‹ï¼Ÿ') if !$num;
 UseTime($usetime);
 
 $DT->{_seed}->{"base$i"}+=$num;
 $DT->{_seed}->{"time$i"}=$NOW_TIME + $ripetime;
 $DT->{money}-=$num*$price;
 $DT->{paytoday}+=$num*$price;
-OutError("w“ü‚·‚é‘‹à‚ª‚ ‚è‚Ü‚¹‚ñ") if ($DT->{money} < 0);
+OutError("è³¼å…¥ã™ã‚‹è³‡é‡‘ãŒã‚ã‚Šã¾ã›ã‚“") if ($DT->{money} < 0);
 
 $MANORLORD->{"count$i"}-=$num;
 $STATE->{money}+=$num*$price;
 $STATE->{in}+=$num*$price;
 
-my $ret="‘‘‰€‚É‚Ä".$MYMANOR[0]."‚ğ".$num.'ŒÂ@'.GetMoneyString($price)."(Œv".GetMoneyString($price*$num).")‚É‚Äw“ü".
-        "/".GetTime2HMS($usetime)."Á”ï";
+my $ret="è˜åœ’ã«ã¦".$MYMANOR[0]."ã‚’".$num.'å€‹@'.GetMoneyString($price)."(è¨ˆ".GetMoneyString($price*$num).")ã«ã¦è³¼å…¥".
+        "/".GetTime2HMS($usetime)."æ¶ˆè²»";
 PushLog(0,$DT->{id},$ret);
 
 $disp.=$ret;

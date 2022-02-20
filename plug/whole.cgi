@@ -1,10 +1,10 @@
-# whole ƒvƒ‰ƒOƒCƒ“ 2003/07/19 —R˜Ò
+# whole ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/07/19 ç”±ä¾†
 
 sub GetWholeStore
 {
 	my $DT={};
-	$DT->{name}="ƒ}ƒXƒ^[";
-	$DT->{shopname}="Žsê";
+	$DT->{name}="ãƒžã‚¹ã‚¿ãƒ¼";
+	$DT->{shopname}="å¸‚å ´";
 	
 	my $cnt=0;
 	
@@ -48,14 +48,14 @@ sub SetWholeStore
 
 sub CheckWholeStore
 {
-# —X•ÖŠÖŒWˆ—‚ðíœB
+# éƒµä¾¿é–¢ä¿‚å‡¦ç†ã‚’å‰Šé™¤ã€‚
 
 	foreach my $cnt (1..$MAX_ITEM)
 	{
 		next if !$ITEM[$cnt]->{code};
 		my $ITEM=$ITEM[$cnt];
 		
-		#ãŒÀ”ƒ`ƒFƒbƒN
+		#ä¸Šé™æ•°ãƒã‚§ãƒƒã‚¯
 		my $limit=0;
 		foreach my $DT (@DT)
 			{$limit+=$DT->{item}[$cnt-1];}
@@ -68,7 +68,7 @@ sub CheckWholeStore
 			$limit=$limitcount if $limitcount<$limit;
 			$DTwholestore[$cnt-1]=$limitcount-$limit;
 		}
-		#‰ºŒÀ”ƒ`ƒFƒbƒN
+		#ä¸‹é™æ•°ãƒã‚§ãƒƒã‚¯
 		$DTwholestore[$cnt-1]=0 if $DTwholestore[$cnt-1]<0;
 	}
 }

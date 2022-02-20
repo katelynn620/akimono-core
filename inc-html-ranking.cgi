@@ -1,9 +1,9 @@
-# V•·i‡ˆÊj 2005/01/06 —R˜Ò
+# æ–°èï¼ˆé †ä½ï¼‰ 2005/01/06 ç”±ä¾†
 
 my ($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$RANKING_PAGE_ROWS,$DTusercount);
 
-$disp.="<BIG>œV•·F‡ˆÊƒŠƒXƒg</BIG><br><br>";
+$disp.="<BIG>â—æ–°èï¼šé †ä½ãƒªã‚¹ãƒˆ</BIG><br><br>";
 my $pagecontrol=GetPageControl($pageprev,$pagenext,"t=4","",$pagemax,$page);
 $disp.=$pagecontrol."<BR>";
 $disp.=$TB;
@@ -11,42 +11,42 @@ $disp.=$TB;
 if(!$MOBILE)
 {
 	$disp.=$TR;
-	$disp.=$TDB."“_”";
-	$disp.=$TDB."“X’·";
-	$disp.=$TDB."ƒWƒ‡ƒu";
-	$disp.=$TDB."“X–¼@l‹C";
-	$disp.=$TDB."¡Šú”„ã";
-	$disp.=$TDB."‘‹à";
-	$disp.=$TDB."n—û";
-	$disp.=$TDB."¤•i y‘n‹Æz ƒRƒƒ“ƒg";
+	$disp.=$TDB."ç‚¹æ•°";
+	$disp.=$TDB."åº—é•·";
+	$disp.=$TDB."ã‚¸ãƒ§ãƒ–";
+	$disp.=$TDB."åº—åã€€äººæ°—";
+	$disp.=$TDB."ä»ŠæœŸå£²ä¸Š";
+	$disp.=$TDB."è³‡é‡‘";
+	$disp.=$TDB."ç†Ÿç·´";
+	$disp.=$TDB."å•†å“ ã€å‰µæ¥­ã€‘ ã‚³ãƒ¡ãƒ³ãƒˆ";
 	$disp.=$TRE;
 }
 else
 {
 	$tdh_rk="RANK:";
-	$tdh_pt="“_”:";
-	$tdh_nm="“X–¼:";
-	$tdh_pp="l‹C:";
-	$tdh_mo="‘‹à:";
-	$tdh_ts="–{”„:";
-	$tdh_ys="ğ”„:";
-	$tdh_cs="ˆÛ:";
-	$tdh_sc="ˆê‰Ÿ:";
-	$tdh_cm="ˆêŒ¾:";
-	$tdh_tx="ğÅ:";
-	$tdh_ex="n—û:";
-	$tdh_fd="‘n‹Æ:";
+	$tdh_pt="ç‚¹æ•°:";
+	$tdh_nm="åº—å:";
+	$tdh_pp="äººæ°—:";
+	$tdh_mo="è³‡é‡‘:";
+	$tdh_ts="æœ¬å£²:";
+	$tdh_ys="æ˜¨å£²:";
+	$tdh_cs="ç¶­æŒ:";
+	$tdh_sc="ä¸€æŠ¼:";
+	$tdh_cm="ä¸€è¨€:";
+	$tdh_tx="æ˜¨ç¨:";
+	$tdh_ex="ç†Ÿç·´:";
+	$tdh_fd="å‰µæ¥­:";
 }
 
 foreach my $idx ($pagestart..$pageend)
 {
 	my $DT=$DT[$idx];
 	
-	my $rankupdown="(V)";
+	my $rankupdown="(æ–°)";
 	if($DT->{rankingyesterday})
 	{
 		$rankupdown=$DT->{rankingyesterday}-$idx-1;
-		$rankupdown=$rankupdown==0 ? " ¨ ": $rankupdown<0 ? "«".(-$rankupdown) : "ª".$rankupdown;
+		$rankupdown=$rankupdown==0 ? " â†’ ": $rankupdown<0 ? "â†“".(-$rankupdown) : "â†‘".$rankupdown;
 		$rankupdown="<small>($rankupdown)</small>";
 	}
 	my $itemtype=-1;
@@ -89,7 +89,7 @@ foreach my $idx ($pagestart..$pageend)
 	
 	$disp.="<BR>";
 	
-	$disp.=$tdh_fd."y".GetTime2found($NOW_TIME-$DT->{foundation})."z";
+	$disp.=$tdh_fd."ã€".GetTime2found($NOW_TIME-$DT->{foundation})."ã€‘";
 	$disp.=$tdh_cm.$DT->{comment} if $DT->{comment};
 	$disp.=$TRE;
 }

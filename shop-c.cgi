@@ -1,14 +1,14 @@
-# ‘Šê’²¸ 2005/01/06 —R˜Ò
+# ç›¸å ´èª¿æŸ» 2005/01/06 ç”±ä¾†
 
 DataRead();
 CheckUserPass(1);
 
-$disp.="<BIG>œ¤“X’Ê‚èF‘Šê•\\¦</BIG><br><br>";
+$disp.="<BIG>â—å•†åº—é€šã‚Šï¼šç›¸å ´è¡¨\ç¤º</BIG><br><br>";
 
-# ù—v/‹Ÿ‹‹ƒoƒ‰ƒ“ƒXŒvZ
+# éœ€è¦/ä¾›çµ¦ãƒãƒ©ãƒ³ã‚¹è¨ˆç®—
 GetMarketStatus();
 
-#“X•Ê’Ç‰Áƒo[ƒWƒ‡ƒ“
+#åº—åˆ¥è¿½åŠ ãƒãƒ¼ã‚¸ãƒ§ãƒ³
 my $itemlist="";
 $itemlist="<select name=itn>";
 foreach($ITEM[0],grep(!$tp || $_->{type}==$tp,sort{$a->{sort} <=> $b->{sort}}values(%marketitemlist)))
@@ -18,7 +18,7 @@ foreach($ITEM[0],grep(!$tp || $_->{type}==$tp,sort{$a->{sort} <=> $b->{sort}}val
 $itemlist.="</select>";
 
 my $shoplist="";
-$shoplist="<select name=ds><option value=\"\">‚·‚×‚Ä";
+$shoplist="<select name=ds><option value=\"\">ã™ã¹ã¦";
 foreach (@DT)
 {
 	$shoplist.="<OPTION VALUE=\"$_->{id}\"".($Q{senditem}==$_->{id}?' SELECTED':'').">$_->{shopname}" if $DT->{id}!=$_->{id};
@@ -33,20 +33,20 @@ $TBT$TRT
 $USERPASSFORM
 <input type=hidden name=tp value=\"$tp\">
 $itemlist
-<input type=submit value="¤•i‚ÅŒŸõ"> 
+<input type=submit value="å•†å“ã§æ¤œç´¢"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-b">
 $USERPASSFORM
 $shoplist
-<input type=submit value="“X–¼‚ÅŒŸõ"> 
+<input type=submit value="åº—åã§æ¤œç´¢"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-c">
 $USERPASSFORM
-<input type=submit value="‘Šê‚ğ’²¸">
+<input type=submit value="ç›¸å ´ã‚’èª¿æŸ»">
 </form>
 $TRE$TBE
 <br>
@@ -59,13 +59,13 @@ $disp.=GetPageControl($pageprev,$pagenext,"t=3","",$pagemax,$page);
 
 $disp.=$TB;
 $disp.=$TR;
-$disp.=$TDB.'¤•i–¼';
-$disp.=$TDB.'¡Šú<small>/‘OŠú</small><br>‘”„ã”';
-$disp.=$TDB.'ÅˆÀ’l';
-$disp.=$TDB.'Å‚’l';
-$disp.=$TDB.'”Ì”„‘Šê';
-$disp.=$TDB.'•W€‰¿Ši';
-$disp.=$TDB.'ù—v‹Ÿ‹‹ƒoƒ‰ƒ“ƒX';
+$disp.=$TDB.'å•†å“å';
+$disp.=$TDB.'ä»ŠæœŸ<small>/å‰æœŸ</small><br>ç·å£²ä¸Šæ•°';
+$disp.=$TDB.'æœ€å®‰å€¤';
+$disp.=$TDB.'æœ€é«˜å€¤';
+$disp.=$TDB.'è²©å£²ç›¸å ´';
+$disp.=$TDB.'æ¨™æº–ä¾¡æ ¼';
+$disp.=$TDB.'éœ€è¦ä¾›çµ¦ãƒãƒ©ãƒ³ã‚¹';
 $disp.=$TRE;
 foreach my $ITEM ((sort{$a->{sort} <=> $b->{sort}} values(%marketitemlist))[$pagestart..$pageend])
 {

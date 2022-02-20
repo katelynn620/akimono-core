@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒh“ü’cˆ— 2003/11/03 —R˜Ò
+# ã‚®ãƒ«ãƒ‰å…¥å›£å‡¦ç† 2003/11/03 ç”±ä¾†
 
 my $functionname=$Q{edit};
 OutError("bad request") if !defined(&$functionname);
@@ -22,10 +22,10 @@ sub new
 		{
 		$id=$Q{$pg}, $town=$pg if ($Q{$pg})
 		}
-	OutError('‹–‰Â‚·‚é‘Šè‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$id;
+	OutError('è¨±å¯ã™ã‚‹ç›¸æ‰‹ã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$id;
 	foreach my $i(@MYENTRY)
 		{
-		OutError('‚·‚Å‚É‹–‰Â‚µ‚Ä‚¢‚Ü‚·B') if ($ENTRY[$i]->{town} eq $town && $ENTRY[$i]->{id}==$id);
+		OutError('ã™ã§ã«è¨±å¯ã—ã¦ã„ã¾ã™ã€‚') if ($ENTRY[$i]->{town} eq $town && $ENTRY[$i]->{id}==$id);
 		}
 
 	@ENTRY=reverse(@ENTRY);
@@ -43,7 +43,7 @@ sub new
 sub join
 {
 OutError("bad request") if ($DT->{guild});
-OutError("ƒMƒ‹ƒhí’†‚Í“ü’c‚Å‚«‚Ü‚¹‚ñ") if ($DTevent{guildbattle});
+OutError("ã‚®ãƒ«ãƒ‰æˆ¦ä¸­ã¯å…¥å›£ã§ãã¾ã›ã‚“") if ($DTevent{guildbattle});
 my $checkok;
 	foreach my $cnt(0..$Ecount)
 		{
@@ -53,10 +53,10 @@ my $checkok;
 		next if ($Q{guild} ne $guild);
 		$checkok=1;
 		}
-OutError("‹–‰Â‚ªo‚Ä‚¢‚Ü‚¹‚ñ") if (!$checkok);
+OutError("è¨±å¯ãŒå‡ºã¦ã„ã¾ã›ã‚“") if (!$checkok);
 	my $name=$GUILD{$Q{guild}}->[$GUILDIDX_name];
 	my $member=$GUILD_DETAIL{$Q{guild}}->{member};
-	PushLog(1,0,$DT->{shopname}."‚ªƒMƒ‹ƒhu".$name."v‚Ì".$member."‚Æ‚È‚è‚Ü‚µ‚½B");
+	PushLog(1,0,$DT->{shopname}."ãŒã‚®ãƒ«ãƒ‰ã€Œ".$name."ã€ã®".$member."ã¨ãªã‚Šã¾ã—ãŸã€‚");
 	$DT->{guild}=$Q{guild};
 RenewLog();
 DataWrite();
@@ -67,7 +67,7 @@ $Q{mode}="joind";
 
 sub WriteEntry
 {
-	undef @MYENTRY;		# •Û‘¶‚ÆÄ’è‹`‚ğ“¯‚É
+	undef @MYENTRY;		# ä¿å­˜ã¨å†å®šç¾©ã‚’åŒæ™‚ã«
 	my @buf;
 	foreach my $i(0..$Ecount)
 		{

@@ -1,4 +1,4 @@
-# use ƒvƒ‰ƒOƒCƒ“ 2004/02/28 —R˜Ò
+# use ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2004/02/28 ç”±ä¾†
 
 sub GetUseItemList
 {
@@ -65,28 +65,28 @@ sub UseItem
 	my($USE,$count)=@_;
 	my $usetime=GetItemUseTime($USE);
 	
-	#n—û“x•s‘«‚Åì‹Æ•s‰Â”\‚©‚Ç‚¤‚©‚ð”»’è(•s‰Â”\‚È‚çcount=0)
+	#ç†Ÿç·´åº¦ä¸è¶³ã§ä½œæ¥­ä¸å¯èƒ½ã‹ã©ã†ã‹ã‚’åˆ¤å®š(ä¸å¯èƒ½ãªã‚‰count=0)
 	$count=0 if $DT->{exp}{$USE->{itemno}}<$USE->{needexp};
 	
-	#•K—vE‹Æ
+	#å¿…è¦è·æ¥­
 	$count=0 if ($USE->{needjob} && ($DT->{job} ne $USE->{needjob}));
 	
-	#•K—v“_”
+	#å¿…è¦ç‚¹æ•°
 	$count=0 if ($USE->{needpoint} && ($DT->{point} < $USE->{needpoint}));
 	
-	#•K—vl‹C
+	#å¿…è¦äººæ°—
 	$count=0 if ($USE->{needpop} && ($DT->{rank} < $USE->{needpop}));
 	
-	#•K—vƒCƒxƒ“ƒg
+	#å¿…è¦ã‚¤ãƒ™ãƒ³ãƒˆ
 	$count=0 if ($USE->{needevent} && !$DTevent{$USE->{needevent}});
 	
-	#”ï—p•s‘«‚Åcount‚ð•â³  ¦ƒ[ƒœŽZ‚ð‰ñ”ðB
+	#è²»ç”¨ä¸è¶³ã§countã‚’è£œæ­£  â€»ã‚¼ãƒ­é™¤ç®—ã‚’å›žé¿ã€‚
 	$count=int($DT->{money}/$USE->{money}) if ($DT->{money}<$USE->{money}*$count)&&($USE->{money});
 	
-	#ŽžŠÔ•s‘«‚Åcount‚ð•â³
+	#æ™‚é–“ä¸è¶³ã§countã‚’è£œæ­£
 	$count=int(($NOW_TIME-$DT->{time})/$usetime) if ($DT->{time}+$usetime* $count)>$NOW_TIME;
 	
-	#Þ—¿•s‘«‚Åcount‚ð•â³
+	#ææ–™ä¸è¶³ã§countã‚’è£œæ­£
 	foreach my $item (@{$USE->{use}})
 	{
 		my $itemno=$item->{no};
@@ -98,20 +98,20 @@ sub UseItem
 		}
 	}
 	
-	#countŠm’è
+	#countç¢ºå®š
 	$USE->{result}->{count}=$count;
-	return if !$count; #count‚ª0‚È‚çŽ¸”s
+	return if !$count; #countãŒ0ãªã‚‰å¤±æ•—
 	
-	#Œ‹‰Ê—p•Ï”‰Šú‰»
+	#çµæžœç”¨å¤‰æ•°åˆæœŸåŒ–
 	$USE->{result}->{useitem}=[];
 	$USE->{result}->{additem}=[];
 	
-	#ŽžŠÔ‚Æ‚¨‹àÁ”ï
+	#æ™‚é–“ã¨ãŠé‡‘æ¶ˆè²»
 	UseTime($usetime*$count);
 	$DT->{money}-=$USE->{money}*$count;
 	$DT->{paytoday}+=$USE->{money}*$count;
 	
-	#ƒAƒCƒeƒ€Á”ï
+	#ã‚¢ã‚¤ãƒ†ãƒ æ¶ˆè²»
 	foreach my $item (@{$USE->{use}})
 	{
 		my $itemno=$item->{no};
@@ -124,7 +124,7 @@ sub UseItem
 		}
 	}
 	
-	#ƒAƒCƒeƒ€Žæ“¾
+	#ã‚¢ã‚¤ãƒ†ãƒ å–å¾—
 	foreach my $item (@{$USE->{result}->{create}})
 	{
 		my $itemno=$item->{no};
@@ -134,7 +134,7 @@ sub UseItem
 			if($itemcount+$DT->{item}[$itemno-1]>$ITEM[$itemno]->{limit})
 			{
 				$itemcount-=$ITEM[$itemno]->{limit}-$DT->{item}[$itemno-1];
-				my $trashitem="‚±‚êˆÈãŽ‚Ä‚È‚¢‚Ì‚Å".$ITEM[$itemno]->{name}."‚ð".($itemcount).$ITEM[$itemno]->{scale}."”jŠü‚µ‚Ü‚µ‚½";
+				my $trashitem="ã“ã‚Œä»¥ä¸ŠæŒã¦ãªã„ã®ã§".$ITEM[$itemno]->{name}."ã‚’".($itemcount).$ITEM[$itemno]->{scale}."ç ´æ£„ã—ã¾ã—ãŸ";
 				$DTwholestore[$itemno-1]+=$itemcount;
 				push(@{$USE->{result}->{trashmsg}},$trashitem);
 				$itemcount=$ITEM[$itemno]->{limit}-$DT->{item}[$itemno-1];
@@ -145,20 +145,20 @@ sub UseItem
 		}
 	}
 	
-	#ŽsêÝŒÉƒ`ƒFƒbƒN••â³
+	#å¸‚å ´åœ¨åº«ãƒã‚§ãƒƒã‚¯ï¼†è£œæ­£
 	CheckWholeStore();
 	
-	#ƒAƒCƒeƒ€•ÊŠÖ”‘¶Ýƒ`ƒFƒbƒN
+	#ã‚¢ã‚¤ãƒ†ãƒ åˆ¥é–¢æ•°å­˜åœ¨ãƒã‚§ãƒƒã‚¯
 	RequireFile('inc-item.cgi');
 	my $itemfunc="item::".$USE->{result}->{function};
 	$itemfunc="" if !defined(&$itemfunc);
 	
-	#ƒAƒCƒeƒ€•ÊŠÖ”ŒÄ‚Ño‚µ
+	#ã‚¢ã‚¤ãƒ†ãƒ åˆ¥é–¢æ•°å‘¼ã³å‡ºã—
 	if($itemfunc ne '')
 	{
-		#•Ï”ƒAƒNƒZƒXŠÈ•Ö‰»
+		#å¤‰æ•°ã‚¢ã‚¯ã‚»ã‚¹ç°¡ä¾¿åŒ–
 		@item::DT=@DT;
-		$item::DTS=$DT[$USE->{arg}->{targetidx}]; #target“X
+		$item::DTS=$DT[$USE->{arg}->{targetidx}]; #targetåº—
 		$item::count=$USE->{result}->{count};
 		$item::USE=$USE;
 		$item::DT=$DT;
@@ -167,23 +167,23 @@ sub UseItem
 		$USE->{result}->{function_return}=&$itemfunc();
 	}
 
-	#n—û“xˆ—
+	#ç†Ÿç·´åº¦å‡¦ç†
 	if($USE->{exp})
 	{
-		#n—û“xƒvƒ‰ƒX
+		#ç†Ÿç·´åº¦ãƒ—ãƒ©ã‚¹
 		my $exp=$DT->{exp}->{$USE->{itemno}};
 		$USE->{result}->{expold}=$exp+0;
 		my $expplus=$USE->{exp}*$USE->{result}->{count};
 		$expplus=1000-$exp if $exp+$expplus>1000;
 		$DT->{exp}->{$USE->{itemno}}+=$expplus;
 		
-		#n—û“x‡Œv’lƒ`ƒFƒbƒN
+		#ç†Ÿç·´åº¦åˆè¨ˆå€¤ãƒã‚§ãƒƒã‚¯
 		my $expsum=0;
 		foreach(values(%{$DT->{exp}}))
 		{
 			$expsum+=$_;
 		}
-		#n—û“xƒI[ƒo[ŽžŒ¸­
+		#ç†Ÿç·´åº¦ã‚ªãƒ¼ãƒãƒ¼æ™‚æ¸›å°‘
 		if($LIMIT_EXP>0 && $expsum>$LIMIT_EXP)
 		{
 			$expsum-=$LIMIT_EXP;
@@ -214,7 +214,7 @@ sub MakeAmount
 		foreach(1..$cnt) { $i++ if rand(1000)<$p; }
 		return $i;
 		}
-	# ³‹K—”
+	# æ­£è¦ä¹±æ•°
 	$p = ($p / 1000);
 	my $ave=$cnt*$p;
 	my $sigma=$ave*(1-$p);
@@ -247,7 +247,7 @@ sub GetBackUrl
 	);
 	my $url=$url{$urltype}; $url||="key=$urltype&$USERPASSURL";
 	
-	return '<A HREF="action.cgi?'.$url.'">[–ß‚é]</A>';
+	return '<A HREF="action.cgi?'.$url.'">[æˆ»ã‚‹]</A>';
 }
 
 1;

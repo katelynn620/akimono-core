@@ -1,4 +1,4 @@
-# óMƒŠƒXƒg•\¦ 2004/01/20 —R˜Ò
+# å—ä¿¡ãƒªã‚¹ãƒˆè¡¨ç¤º 2004/01/20 ç”±ä¾†
 
 if ($Q{old})
 {
@@ -12,9 +12,9 @@ LetterReading();
 
 sub LetterReading
 {
-$disp.="<b>[óM” ]</b> "
-	.GetMenuTag('letter','[‘—M” ]','&old=list')
-	.GetMenuTag('letter',		'[è†‚ğ‘‚­]','&form=make');
+$disp.="<b>[å—ä¿¡ç®±]</b> "
+	.GetMenuTag('letter','[é€ä¿¡ç®±]','&old=list')
+	.GetMenuTag('letter',		'[æ‰‹ç´™ã‚’æ›¸ã]','&form=make');
 $disp.="<hr width=500 noshade size=1>";
 my $cnt=scalar(@RECLETTER);
 my $boxlimit=GetTime2HMS($BOX_STOCK_TIME);
@@ -24,8 +24,8 @@ if (!$cnt)
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>‚¨è“`‚¢</SPAN>FŒ»İ“Í‚¢‚Ä‚¢‚éè†‚Í‚ ‚è‚Ü‚¹‚ñB<br>
-è†‚Í $boxlimit‰ß‚¬‚é‚Æ–³‚­‚È‚è‚Ü‚·‚Ì‚Å‹C‚ğ‚Â‚¯‚Ä‚­‚¾‚³‚¢B
+<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šç¾åœ¨å±Šã„ã¦ã„ã‚‹æ‰‹ç´™ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚<br>
+æ‰‹ç´™ã¯ $boxlimitéãã‚‹ã¨ç„¡ããªã‚Šã¾ã™ã®ã§æ°—ã‚’ã¤ã‘ã¦ãã ã•ã„ã€‚
 $TRE$TBE
 HTML
 return;
@@ -34,8 +34,8 @@ return;
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>‚¨è“`‚¢</SPAN>FŒ»İ $cnt’Ê‚Ìè†‚ª“Í‚¢‚Ä‚¨‚èC‚¤‚¿ $NeverR’Ê‚ª–¢“Ç‚Å‚·B<br>
-è†‚Í $boxlimit‰ß‚¬‚é‚Æ–³‚­‚È‚è‚Ü‚·‚Ì‚Å‹C‚ğ‚Â‚¯‚Ä‚­‚¾‚³‚¢B
+<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šç¾åœ¨ $cnté€šã®æ‰‹ç´™ãŒå±Šã„ã¦ãŠã‚Šï¼Œã†ã¡ $NeverRé€šãŒæœªèª­ã§ã™ã€‚<br>
+æ‰‹ç´™ã¯ $boxlimitéãã‚‹ã¨ç„¡ããªã‚Šã¾ã™ã®ã§æ°—ã‚’ã¤ã‘ã¦ãã ã•ã„ã€‚
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
@@ -46,29 +46,29 @@ foreach my $i(@RECLETTER)
 	{
 	my $sname=SearchLetterName($LETTER[$i]->{fromid},$LETTER[$i]->{fromt});
 	$disp.="<input type=checkbox name=\"del_".$LETTER[$i]->{no}."\" value=\"1\">";
-	$disp.=($LETTER[$i]->{mode}==1) ? "<SPAN>–¢“Ç</SPAN>F" : "óMF";
-	$disp.=GetTime2FormatTime($LETTER[$i]->{time})." c fromF<span>".$sname."</span>";
-	$disp.=" <small>i".$Tname{$LETTER[$i]->{fromt}}."j</small> ";
+	$disp.=($LETTER[$i]->{mode}==1) ? "<SPAN>æœªèª­</SPAN>ï¼š" : "å—ä¿¡ï¼š";
+	$disp.=GetTime2FormatTime($LETTER[$i]->{time})." â€¦ fromï¼š<span>".$sname."</span>";
+	$disp.=" <small>ï¼ˆ".$Tname{$LETTER[$i]->{fromt}}."ï¼‰</small> ";
 	$disp.="<a href=\"action.cgi?key=letter&$USERPASSURL&form=make&";
-	$disp.=$LETTER[$i]->{fromt}."=".$LETTER[$i]->{fromid}."\">[•ÔM]</a><br>";
+	$disp.=$LETTER[$i]->{fromt}."=".$LETTER[$i]->{fromid}."\">[è¿”ä¿¡]</a><br>";
 	$disp.="<table width=60%><tr><td>";
-	$disp.="u".$LETTER[$i]->{title}."v<BR>";
+	$disp.="ã€Œ".$LETTER[$i]->{title}."ã€<BR>";
 	$disp.=$LETTER[$i]->{msg}."<BR>";
 	$disp.="</td></tr></table><hr width=500 noshade size=1>";
-	$LETTER[$i]->{mode}=0, $WriteFlag=1 if ($LETTER[$i]->{mode}==1);	#–¢“Ç‚ğŠù“Ç‚ÉB
-	$LETTER[$i]->{mode}=2 if ($LETTER[$i]->{fromid}==1);			#‘î”z•Ö’Ê’m‚ÍíœB
+	$LETTER[$i]->{mode}=0, $WriteFlag=1 if ($LETTER[$i]->{mode}==1);	#æœªèª­ã‚’æ—¢èª­ã«ã€‚
+	$LETTER[$i]->{mode}=2 if ($LETTER[$i]->{fromid}==1);			#å®…é…ä¾¿é€šçŸ¥ã¯å‰Šé™¤ã€‚
 	}
 $disp.=<<"HTML";
-<INPUT TYPE=SUBMIT VALUE="‘I‘ğ‚µ‚½è†‚ğíœ">
+<INPUT TYPE=SUBMIT VALUE="é¸æŠã—ãŸæ‰‹ç´™ã‚’å‰Šé™¤">
 </FORM>
 HTML
 }
 
 sub LetterSending
 {
-$disp.=GetMenuTag('letter','[óM” ]')
-	."<b>[‘—M” ]</b> "
-	.GetMenuTag('letter',		'[è†‚ğ‘‚­]','&form=make');
+$disp.=GetMenuTag('letter','[å—ä¿¡ç®±]')
+	."<b>[é€ä¿¡ç®±]</b> "
+	.GetMenuTag('letter',		'[æ‰‹ç´™ã‚’æ›¸ã]','&form=make');
 $disp.="<hr width=500 noshade size=1>";
 my $cnt=scalar(@SENLETTER);
 
@@ -77,8 +77,8 @@ if (!$cnt)
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>‚¨è“`‚¢</SPAN>FŒ»İ‘—‚Á‚Ä‚¢‚éè†‚Í‚ ‚è‚Ü‚¹‚ñB<br>
-è†‚Í‡Œv $MAX_BOX’Ê‚Ü‚Å‘—‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šç¾åœ¨é€ã£ã¦ã„ã‚‹æ‰‹ç´™ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚<br>
+æ‰‹ç´™ã¯åˆè¨ˆ $MAX_BOXé€šã¾ã§é€ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
 $TRE$TBE
 HTML
 return;
@@ -87,8 +87,8 @@ return;
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>‚¨è“`‚¢</SPAN>FŒ»İ‚Ü‚Å‘—‚Á‚½è†‚Í $cnt’Ê‚Å‚·B<br>
-‚±‚Ì‚¤‚¿‘Šè‚ª“Ç‚ñ‚Å‚¢‚È‚¢è†‚Í $NeverS’Ê‚ ‚è‚Ü‚·B
+<SPAN>ãŠæ‰‹ä¼ã„</SPAN>ï¼šç¾åœ¨ã¾ã§é€ã£ãŸæ‰‹ç´™ã¯ $cnté€šã§ã™ã€‚<br>
+ã“ã®ã†ã¡ç›¸æ‰‹ãŒèª­ã‚“ã§ã„ãªã„æ‰‹ç´™ã¯ $NeverSé€šã‚ã‚Šã¾ã™ã€‚
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
@@ -99,19 +99,19 @@ HTML
 foreach my $i(@SENLETTER)
 	{
 	my $sname=SearchLetterName($LETTER[$i]->{toid},$LETTER[$i]->{tot});
-	$sname="(•s–¾)" if $sname eq "-1";
+	$sname="(ä¸æ˜)" if $sname eq "-1";
 	$disp.="<input type=checkbox name=\"del_".$LETTER[$i]->{no}."\" value=\"1\">";
-	$disp.=($LETTER[$i]->{mode}==1) ? "<SPAN>–¢“Ç</SPAN>F" : "‘—MF";
-	$disp.=GetTime2FormatTime($LETTER[$i]->{time})." c toF<span>".$sname."</span>";
-	$disp.=" <small>i".$Tname{$LETTER[$i]->{tot}}."j</small><BR>";
+	$disp.=($LETTER[$i]->{mode}==1) ? "<SPAN>æœªèª­</SPAN>ï¼š" : "é€ä¿¡ï¼š";
+	$disp.=GetTime2FormatTime($LETTER[$i]->{time})." â€¦ toï¼š<span>".$sname."</span>";
+	$disp.=" <small>ï¼ˆ".$Tname{$LETTER[$i]->{tot}}."ï¼‰</small><BR>";
 	$disp.="<table width=60%><tr><td>";
-	$disp.="u".$LETTER[$i]->{title}."v<BR>";
+	$disp.="ã€Œ".$LETTER[$i]->{title}."ã€<BR>";
 	$disp.=$LETTER[$i]->{msg}."<BR>";
 	$disp.="</td></tr></table><hr width=500 noshade size=1>";
 	}
 $disp.=<<"HTML";
-<INPUT TYPE=SUBMIT VALUE="‘I‘ğ‚µ‚½è†‚ğíœ">
-<br>i‘Šè‚Ì‚Æ‚±‚ë‚©‚ç‚àíœ‚³‚ê‚Ü‚·j
+<INPUT TYPE=SUBMIT VALUE="é¸æŠã—ãŸæ‰‹ç´™ã‚’å‰Šé™¤">
+<br>ï¼ˆç›¸æ‰‹ã®ã¨ã“ã‚ã‹ã‚‰ã‚‚å‰Šé™¤ã•ã‚Œã¾ã™ï¼‰
 </FORM>
 HTML
 }

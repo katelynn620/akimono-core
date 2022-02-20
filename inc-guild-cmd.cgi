@@ -1,4 +1,4 @@
-# ƒMƒ‹ƒhƒRƒ}ƒ“ƒh 2005/01/06 —R˜Ò
+# ã‚®ãƒ«ãƒ‰ã‚³ãƒãƒ³ãƒ‰ 2005/01/06 ç”±ä¾†
 
 my $usetime=3*60*60;
 $disp.='<hr width=500 noshade size=1>';
@@ -14,13 +14,13 @@ Force() if ($ckeckok);
 sub GuildFundF
 {
 	$stock=($DT->{money} - 100000);
-	$disp.="<BIG>œƒMƒ‹ƒhŠñ•t</BIG>F ‘‹à‚Ì—]—T‚ª‚ ‚è‚Ü‚¹‚ñ",return if ($stock < 100000);
+	$disp.="<BIG>â—ã‚®ãƒ«ãƒ‰å¯„ä»˜</BIG>ï¼š è³‡é‡‘ã®ä½™è£•ãŒã‚ã‚Šã¾ã›ã‚“",return if ($stock < 100000);
 $disp.=<<STR;
 	<form action="action.cgi" $METHOD>
 	<INPUT TYPE=HIDDEN NAME=key VALUE="gd-s">
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=mode VALUE="fund">
-	<BIG>œƒMƒ‹ƒhŠñ•t</BIG>F $term[0]
+	<BIG>â—ã‚®ãƒ«ãƒ‰å¯„ä»˜</BIG>ï¼š $term[0]
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 STR
@@ -28,7 +28,7 @@ STR
 	$msg{10000}=10000;
 	$msg{100000}=100000;
 	$msg{1000000}=1000000;
-	$msg{$stock}="$stock(Å‘åŠz)";
+	$msg{$stock}="$stock(æœ€å¤§é¡)";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1000,10000,100000,1000000,$stock))
 	{
@@ -38,54 +38,54 @@ STR
 	}
 $disp.=<<STR;
 	</SELECT>
-	$term[1]A‚à‚µ‚­‚Í $term[0]
+	$term[1]ã€ã‚‚ã—ãã¯ $term[0]
 	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2>$term[1]
-	<INPUT TYPE=SUBMIT VALUE="Šñ•t‚·‚é">
+	<INPUT TYPE=SUBMIT VALUE="å¯„ä»˜ã™ã‚‹">
 	</FORM>
 STR
 }
 
 sub Break
 {
-	$disp.="<BIG>œƒMƒ‹ƒhƒuƒŒƒCƒN</BIG>F Œ¨‘‚«‚ª‚Â‚©‚È‚¢‚ÆÀs‚Å‚«‚Ü‚¹‚ñ",return if (!$DT->{user}{_so_e});
-	$disp.='<BIG>œƒMƒ‹ƒhƒuƒŒƒCƒN</BIG>F ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ',return if GetStockTime($DT->{time})<$usetime;
+	$disp.="<BIG>â—ã‚®ãƒ«ãƒ‰ãƒ–ãƒ¬ã‚¤ã‚¯</BIG>ï¼š è‚©æ›¸ããŒã¤ã‹ãªã„ã¨å®Ÿè¡Œã§ãã¾ã›ã‚“",return if (!$DT->{user}{_so_e});
+	$disp.='<BIG>â—ã‚®ãƒ«ãƒ‰ãƒ–ãƒ¬ã‚¤ã‚¯</BIG>ï¼š æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“',return if GetStockTime($DT->{time})<$usetime;
 	$target="";
 	foreach (keys(%GUILD))
 	{
 	$target.="<OPTION value=\"$_\">$GUILD{$_}->[$GUILDIDX_name]" if $GUILD_DATA{$_}->{money} > $GUILD_DATA{$DT->{guild}}->{money};
 	}
-	$disp.="<BIG>œƒMƒ‹ƒhƒuƒŒƒCƒN</BIG>F ‘Šè‚ª‚¢‚Ü‚¹‚ñ",return if (!$target);
+	$disp.="<BIG>â—ã‚®ãƒ«ãƒ‰ãƒ–ãƒ¬ã‚¤ã‚¯</BIG>ï¼š ç›¸æ‰‹ãŒã„ã¾ã›ã‚“",return if (!$target);
 $disp.=<<STR;
 <form action="action.cgi" $METHOD>
 <INPUT TYPE=HIDDEN NAME=key VALUE="gd-s">
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="break">
-<BIG>œƒMƒ‹ƒhƒuƒŒƒCƒNF</BIG>
+<BIG>â—ã‚®ãƒ«ãƒ‰ãƒ–ãƒ¬ã‚¤ã‚¯ï¼š</BIG>
 <SELECT NAME=tg>
 <OPTION value="">
 $target
 </SELECT>
-‚É‘Î‚µ‚Ä
-<INPUT TYPE=SUBMIT VALUE="UŒ‚‚·‚é">
+ã«å¯¾ã—ã¦
+<INPUT TYPE=SUBMIT VALUE="æ”»æ’ƒã™ã‚‹">
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 }
 
 sub Force
 {
 	$disp.='<hr width=500 noshade size=1>';
-	$disp.="<BIG>œŒR”õ‘‹­</BIG>F Œ¨‘‚«‚ª‚Â‚©‚È‚¢‚ÆÀs‚Å‚«‚Ü‚¹‚ñ",return if (!$DT->{user}{_so_e});
-	$disp.='<BIG>œŒR”õ‘‹­</BIG>F ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ',return if GetStockTime($DT->{time})<$usetime;
-	$disp.="<BIG>œŒR”õ‘‹­</BIG>F ‘‹­‚Ì•K—v‚ª‚ ‚è‚Ü‚¹‚ñ",return if ($GUILD_DATA{$DT->{guild}}->{atk} > 990);
+	$disp.="<BIG>â—è»å‚™å¢—å¼·</BIG>ï¼š è‚©æ›¸ããŒã¤ã‹ãªã„ã¨å®Ÿè¡Œã§ãã¾ã›ã‚“",return if (!$DT->{user}{_so_e});
+	$disp.='<BIG>â—è»å‚™å¢—å¼·</BIG>ï¼š æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“',return if GetStockTime($DT->{time})<$usetime;
+	$disp.="<BIG>â—è»å‚™å¢—å¼·</BIG>ï¼š å¢—å¼·ã®å¿…è¦ãŒã‚ã‚Šã¾ã›ã‚“",return if ($GUILD_DATA{$DT->{guild}}->{atk} > 990);
 $disp.=<<STR;
 <form action="action.cgi" $METHOD>
 <INPUT TYPE=HIDDEN NAME=key VALUE="gd-s">
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="force">
-<BIG>œŒR”õ‘‹­F</BIG>
-$GUILD{$DT->{guild}}->[$GUILDIDX_name]‚ÌUŒ‚—Í‚ğ
-<INPUT TYPE=SUBMIT VALUE="‹­‰»‚·‚é"> (ƒMƒ‹ƒh‘‹à4•ª‚Ì1Á”ï)
+<BIG>â—è»å‚™å¢—å¼·ï¼š</BIG>
+$GUILD{$DT->{guild}}->[$GUILDIDX_name]ã®æ”»æ’ƒåŠ›ã‚’
+<INPUT TYPE=SUBMIT VALUE="å¼·åŒ–ã™ã‚‹"> (ã‚®ãƒ«ãƒ‰è³‡é‡‘4åˆ†ã®1æ¶ˆè²»)
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 }
 

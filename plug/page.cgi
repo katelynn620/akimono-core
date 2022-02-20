@@ -1,4 +1,4 @@
-# page ƒvƒ‰ƒOƒCƒ“ 2003/07/19 —R˜Ò
+# page ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/07/19 ç”±ä¾†
 
 sub GetPage
 {
@@ -41,16 +41,16 @@ sub GetPageControl
 	}
 	
 	my $url="action.cgi?key=".$Q{key}."&".$USERPASSURL.($addurl?"&".$addurl:"")."&".$pgname."=";
-	$ret.=GetTagA("á",$url."0");
-	$ret.=GetTagA("ƒ",$url.$pageprev,$pageprev<0);
+	$ret.=GetTagA("â‰ª",$url."0");
+	$ret.=GetTagA("ï¼œ",$url.$pageprev,$pageprev<0);
 	foreach($ps..$pe)
 	{
 		my $num=$_+1;
 		$num="[$num]" if $_==$pagenow;
 		$ret.=GetTagA($num,$url.$_,$_==$pagenow);
 	}
-	$ret.=GetTagA("„",$url.$pagenext,$pagenext<=0);
-	$ret.=GetTagA("â",$url.$pagemax);
+	$ret.=GetTagA("ï¼",$url.$pagenext,$pagenext<=0);
+	$ret.=GetTagA("â‰«",$url.$pagemax);
 	
 	return $ret."\n";
 }

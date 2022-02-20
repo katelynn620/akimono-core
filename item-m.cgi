@@ -1,4 +1,4 @@
-# ƒAƒCƒeƒ€g—p‰æ–Ê 2005/01/06 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ ä½¿ç”¨ç”»é¢ 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 DataRead();
@@ -8,7 +8,7 @@ $itemno=$Q{item};
 $no=$Q{no};
 CheckItemNo($itemno);
 $itemcode=GetPath($ITEM_DIR,"use",$ITEM[$itemno]->{code});
-OutError('g‚¦‚Ü‚¹‚ñ') if $itemcode eq '' || !(-e $itemcode);
+OutError('ä½¿ãˆã¾ã›ã‚“') if $itemcode eq '' || !(-e $itemcode);
 
 $ITEM=$ITEM[$itemno];
 @item::DT=@DT;
@@ -19,42 +19,42 @@ RequireFile('inc-item.cgi');
 require $itemcode;
 
 $USE=GetUseItem($no);
-OutError('g‚¦‚Ü‚¹‚ñ') if !$USE || !$USE->{useok};
+OutError('ä½¿ãˆã¾ã›ã‚“') if !$USE || !$USE->{useok};
 $item::USE=$USE;
 
 RequireFile('inc-html-ownerinfo.cgi');
 
 my $MAX_COUNT=9999999999;
-my $scale=$USE->{scale} ? $USE->{scale} : '‰ñ';
-my $action=$USE->{action} ? $USE->{action} : 'g‚¤';
+my $scale=$USE->{scale} ? $USE->{scale} : 'å›';
+my $action=$USE->{action} ? $USE->{action} : 'ä½¿ã†';
 my $scaleone="";
 $scaleone="(1$scale)" if $USE->{arg}!~/nocount/;
 
 $USE->{time}=GetItemUseTime($USE);
 
-$disp.="<BIG>œ".$USE->{name}."</BIG><br><br>";
+$disp.="<BIG>â—".$USE->{name}."</BIG><br><br>";
 $disp.=$TB;
-$disp.=$TR.$TDB."”õl".$TD.$USE->{info}.$TRE;
-$disp.=$TR.$TDB."”ï—p $scaleone$TD".GetMoneyString($USE->{money}).$TRE if $USE->{money};
+$disp.=$TR.$TDB."å‚™è€ƒ".$TD.$USE->{info}.$TRE;
+$disp.=$TR.$TDB."è²»ç”¨ $scaleone$TD".GetMoneyString($USE->{money}).$TRE if $USE->{money};
 my $exp=$DT->{exp}->{$USE->{itemno}};
 
 if($USE->{time} || $exp)
 {
-	$disp.=$TR.$TDB."ŠÔ $scaleone".$TD.GetTime2HMS($USE->{time});
-	$disp.="(n—û“x".int($exp/10)."%)" if $exp;
+	$disp.=$TR.$TDB."æ™‚é–“ $scaleone".$TD.GetTime2HMS($USE->{time});
+	$disp.="(ç†Ÿç·´åº¦".int($exp/10)."%)" if $exp;
 	$disp.=$TRE;
 	
-	$disp.=$TR.$TDB.'•K—vn—û“x'.$TD.int($USE->{needexp}/10).'%'.$TRE if $USE->{needexp};
+	$disp.=$TR.$TDB.'å¿…è¦ç†Ÿç·´åº¦'.$TD.int($USE->{needexp}/10).'%'.$TRE if $USE->{needexp};
 }
 
-$disp.=$TR.$TDB.'•K—vE‹Æ'.$TD.$JOBTYPE{$USE->{needjob}}.$TRE if $USE->{needjob};
-$disp.=$TR.$TDB.'•K—v“_”'.$TD.$USE->{needpoint}.$TRE if $USE->{needpoint};
-$disp.=$TR.$TDB.'•K—vl‹C'.$TD.int($USE->{needpop}/100).'%'.$TRE if $USE->{needpop};
+$disp.=$TR.$TDB.'å¿…è¦è·æ¥­'.$TD.$JOBTYPE{$USE->{needjob}}.$TRE if $USE->{needjob};
+$disp.=$TR.$TDB.'å¿…è¦ç‚¹æ•°'.$TD.$USE->{needpoint}.$TRE if $USE->{needpoint};
+$disp.=$TR.$TDB.'å¿…è¦äººæ°—'.$TD.int($USE->{needpop}/100).'%'.$TRE if $USE->{needpop};
 
 my $count_min=$MAX_COUNT;
 if(defined($USE->{use}[0]))
 {
-	$disp.=$TR.$TDB."g—p $scaleone".$TD;
+	$disp.=$TR.$TDB."ä½¿ç”¨ $scaleone".$TD;
 	$disp.=$TB;
 	foreach my $USEITEM (@{$USE->{use}})
 	{
@@ -63,19 +63,19 @@ if(defined($USE->{use}[0]))
 		
 		$disp.=$TR;
 		$disp.=$TD.$ITEM[$no]->{name};
-		$disp.=$TD.$USEITEM->{count}.$TD."c".$DT->{item}[$no-1];
+		$disp.=$TD.$USEITEM->{count}.$TD."æ®‹".$DT->{item}[$no-1];
 		if($USEITEM->{proba}==0)
 		{
-			$disp.=$TD."Á”ï‚µ‚È‚¢";
+			$disp.=$TD."æ¶ˆè²»ã—ãªã„";
 		}
 		elsif($USEITEM->{proba}==1000)
 		{
-			$disp.=$TD."Á”ï‚·‚é";
+			$disp.=$TD."æ¶ˆè²»ã™ã‚‹";
 			$count_min=$count if $count<$count_min;
 		}
 		else
 		{
-			$disp.=$TD."Á”ïŠm—¦".($USEITEM->{proba}/10)."\%";
+			$disp.=$TD."æ¶ˆè²»ç¢ºç‡".($USEITEM->{proba}/10)."\%";
 			$count_min=$count if $count<$count_min;
 		}
 		$disp.=$TRE;
@@ -95,36 +95,36 @@ if($USE->{arg}!~/nocount/)
 	$msg{1000}=1000; $msg{10000}=10000;
 	if($money<=$time){$count_max=$money;}else{$count_max=$time;}
 	if($count_min<=$count_max){$count_max=$count_min;}
-	$msg{$money}="$money(‘‹àÅ‘å)";
-	$msg{$time}="$time(ŠÔÅ‘å)";
-	$msg{$count_min}="$count_min(Ş—¿Å‘å)";
+	$msg{$money}="$money(è³‡é‡‘æœ€å¤§)";
+	$msg{$time}="$time(æ™‚é–“æœ€å¤§)";
+	$msg{$count_min}="$count_min(ææ–™æœ€å¤§)";
 
 	$disp.=$TR;
-	$disp.=$TDB."Å‘å‰ñ”".$TD.$count_max;
+	$disp.=$TDB."æœ€å¤§å›æ•°".$TD.$count_max;
 	$disp.=$TRE;
 }
 $disp.=$TRE.$TBE."<br>";
 
 if( ($USE->{money}) && ($DT->{money} < $USE->{money}) )
-	{$nonuse=1; $disp.="<B>‘‹à‚ª‘«‚è‚Ü‚¹‚ñ</B><BR>";}
+	{$nonuse=1; $disp.="<B>è³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“</B><BR>";}
 
 if($DT->{time}+$USE->{time}>$NOW_TIME)
-	{$nonuse=1; $disp.="<B>ŠÔ‚ª‘«‚è‚Ü‚¹‚ñ</B><BR>";}
+	{$nonuse=1; $disp.="<B>æ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“</B><BR>";}
 
 if($exp<$USE->{needexp})
-	{$nonuse=1; $disp.="<B>n—û“x‚ª‘«‚è‚Ü‚¹‚ñ</B><BR>";}
+	{$nonuse=1; $disp.="<B>ç†Ÿç·´åº¦ãŒè¶³ã‚Šã¾ã›ã‚“</B><BR>";}
 
 if($USE->{needjob} && ($DT->{job} ne $USE->{needjob}))
-	{$nonuse=1; $disp.="<B>•K—v‚ÈE‹Æ‚ÉA‚¢‚Ä‚¢‚Ü‚¹‚ñ</B><BR>";}
+	{$nonuse=1; $disp.="<B>å¿…è¦ãªè·æ¥­ã«å°±ã„ã¦ã„ã¾ã›ã‚“</B><BR>";}
 
 if($USE->{needpoint} && ($DT->{point} < $USE->{needpoint}))
-	{$nonuse=1; $disp.="<B>“_”‚ª‘«‚è‚Ü‚¹‚ñ</B><BR>";}
+	{$nonuse=1; $disp.="<B>ç‚¹æ•°ãŒè¶³ã‚Šã¾ã›ã‚“</B><BR>";}
 
 if($USE->{needpop} && ($DT->{rank} < $USE->{needpop}))
-	{$nonuse=1; $disp.="<B>l‹C‚ª‘«‚è‚Ü‚¹‚ñ</B><BR>";}
+	{$nonuse=1; $disp.="<B>äººæ°—ãŒè¶³ã‚Šã¾ã›ã‚“</B><BR>";}
 
 if($USE->{needevent} && !$DTevent{$USE->{needevent}})
-	{$nonuse=1; $disp.="<B>‚±‚ÌƒRƒ}ƒ“ƒh‚É‚Í“Á’è‚ÌƒCƒxƒ“ƒg‚Ì”­¶‚ª•K—v‚Å‚·</B><BR>";}
+	{$nonuse=1; $disp.="<B>ã“ã®ã‚³ãƒãƒ³ãƒ‰ã«ã¯ç‰¹å®šã®ã‚¤ãƒ™ãƒ³ãƒˆã®ç™ºç”ŸãŒå¿…è¦ã§ã™</B><BR>";}
 
 $disp.=&{"item::".$USE->{functioninfo}}() if $USE->{functioninfo}; # @@use funci
 
@@ -141,7 +141,7 @@ if(!$nonuse)
 		{
 			$select_target.="<OPTION VALUE='$_->{id}'>$_->{shopname}";
 		}
-		$select_target.="</SELECT>‚É‘Î‚µ‚Ä";
+		$select_target.="</SELECT>ã«å¯¾ã—ã¦";
 	}
 	
 	if($USE->{arg}!~ /nocount/)
@@ -157,7 +157,7 @@ if(!$nonuse)
 			$oldcnt=$cnt;
 		}
 		$select_count.="</SELECT>$scale ";
-		$select_count.="‚Ü‚½‚Í<INPUT TYPE=TEXT NAME=cnt2 SIZE=5>$scale";
+		$select_count.="ã¾ãŸã¯<INPUT TYPE=TEXT NAME=cnt2 SIZE=5>$scale";
 	}
 	else
 	{
@@ -167,15 +167,15 @@ if(!$nonuse)
 	if($USE->{arg}=~ /message(\d*)/)
 	{
 		my $limit=$1||80;
-		my $header=$USE->{argmessage}||'ƒRƒƒ“ƒg';
-		$header.='('.$limit.'šˆÈ“à)';
+		my $header=$USE->{argmessage}||'ã‚³ãƒ¡ãƒ³ãƒˆ';
+		$header.='('.$limit.'å­—ä»¥å†…)';
 		$input_message="$header<BR><INPUT TYPE=TEXT NAME=msg VALUE=\"\" MAXLENGTH=\"$limit\"><BR>";
 	}
 	
 	if($USE->{arg}=~ /select/ && $USE->{argselect})
 	{
 		my @fld=split(/;/,$USE->{argselect});
-		unshift(@fld,'‘I‘ğ') if @fld%2==0;
+		unshift(@fld,'é¸æŠ') if @fld%2==0;
 		my $header=shift @fld;
 		$select_userdata.=qq|$header <select name="select">|;
 		while(@fld)

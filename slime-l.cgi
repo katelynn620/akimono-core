@@ -1,4 +1,4 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX î•ñƒEƒCƒ“ƒhƒE 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ æƒ…å ±ã‚¦ã‚¤ãƒ³ãƒ‰ã‚¦ 2005/03/30 ç”±ä¾†
 
 $NOITEM=1;
 $NOMENU=1;
@@ -21,9 +21,9 @@ sub st
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=st","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‰XÉˆê——</BIG><br><br>
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šå©èˆä¸€è¦§</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB–¼Ì$TDB•ûj$TDB’²‹³$TDB‘Ì’²$TDB‘Ìd$TDBƒR[ƒX$TDB•¹—³$TDBâ˜H$TDBƒ_[ƒg$TDB‰·ò$TDBŒq—{$TDB¬Ñ$TRE
+$TB$TR$TDBåç§°$TDBæ–¹é‡$TDBèª¿æ•™$TDBä½“èª¿$TDBä½“é‡$TDBã‚³ãƒ¼ã‚¹$TDBä½µç«œ$TDBå‚è·¯$TDBãƒ€ãƒ¼ãƒˆ$TDBæ¸©æ³‰$TDBç¹‹é¤Š$TDBæˆç¸¾$TRE
 STR
 
 	foreach my $i($pagestart..$pageend)
@@ -57,9 +57,9 @@ sub dra
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=dra","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‹£‘ˆ—³ˆê——</BIG><br><br>
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç«¶äº‰ç«œä¸€è¦§</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB–¼Ì$TDB”N—î$TDB«•Ê$TDBƒXƒs$TDBŸ•‰$TDBu”­$TDBƒpƒ$TDB‘Ì’²$TDB‘Ìd$TDB‹——£“K«$TDB‘Ü‹à$TDB¬Ñ$TRE
+$TB$TR$TDBåç§°$TDBå¹´é½¢$TDBæ€§åˆ¥$TDBã‚¹ãƒ”$TDBå‹è² $TDBç¬ç™º$TDBãƒ‘ãƒ¯$TDBä½“èª¿$TDBä½“é‡$TDBè·é›¢é©æ€§$TDBç·è³é‡‘$TDBæˆç¸¾$TRE
 STR
 
 	foreach ($pagestart..$pageend)
@@ -76,7 +76,7 @@ STR
 		$disp.=$TD.$EVALUE[int($DR[$_]->{con} /100*4)];
 		$disp.=$TD.$DR[$_]->{wt};
 		$disp.=$TD.GetRaceApt($DR[$_]->{apt},$DR[$_]->{fl});
-		$disp.=$TD.($DR[$_]->{prize} + 0)."–œ";
+		$disp.=$TD.($DR[$_]->{prize} + 0)."ä¸‡";
 		$disp.=$TD.($DR[$_]->{g1win} + 0)." - ".($DR[$_]->{g2win} + 0)." - ".($DR[$_]->{g3win} + 0)." - ".($DR[$_]->{sdwin} + 0);
 		$disp.=$TRE;
 		}
@@ -93,9 +93,9 @@ sub pr
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=pr","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‰B‹—³ˆê——</BIG><br><br>
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šéš å±…ç«œä¸€è¦§</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB–¼Ì$TDB”N—î$TDB«•Ê$TDBƒXƒs$TDBŸ•‰$TDBu”­$TDBƒpƒ$TDBŒ’N$TDB_“î$TDB‹——£“K«$TDBŒ»–ğÜ‹à$TDBŒ»–ğ¬Ñ$TRE
+$TB$TR$TDBåç§°$TDBå¹´é½¢$TDBæ€§åˆ¥$TDBã‚¹ãƒ”$TDBå‹è² $TDBç¬ç™º$TDBãƒ‘ãƒ¯$TDBå¥åº·$TDBæŸ”è»Ÿ$TDBè·é›¢é©æ€§$TDBç¾å½¹è³é‡‘$TDBç¾å½¹æˆç¸¾$TRE
 STR
 
 	foreach ($pagestart..$pageend)
@@ -104,7 +104,7 @@ STR
 		$disp.=$TR;
 		$disp.=$TD.GetTagImgDra($PR[$_]->{fm},$PR[$_]->{color},1).$PR[$_]->{name};
 		$disp.=$TD.GetTime2found($NOW_TIME-$PR[$_]->{birth});
-		$disp.=$TD.($PR[$_]->{fm} ? "”ÉB" : "í").$FM[$PR[$_]->{fm}];
+		$disp.=$TD.($PR[$_]->{fm} ? "ç¹æ®–" : "ç¨®").$FM[$PR[$_]->{fm}];
 		$disp.=$TD.$VALUE[int($PR[$_]->{sp} /100*6)];
 		$disp.=$TD.$VALUE[int($PR[$_]->{sr} /100*6)];
 		$disp.=$TD.$VALUE[int($PR[$_]->{ag} /100*6)];
@@ -112,7 +112,7 @@ STR
 		$disp.=$TD.$VALUE[int($PR[$_]->{hl} /100*6)];
 		$disp.=$TD.$VALUE[int($PR[$_]->{fl} /100*6)];
 		$disp.=$TD.GetRaceApt($PR[$_]->{apt},$PR[$_]->{fl});
-		$disp.=$TD.($PR[$_]->{prize} + 0)."–œ";
+		$disp.=$TD.($PR[$_]->{prize} + 0)."ä¸‡";
 		$disp.=$TD.($PR[$_]->{g1win} + 0)." - ".($PR[$_]->{g2win} + 0)." - ".($PR[$_]->{g3win} + 0)." - ".($PR[$_]->{sdwin} + 0);
 		$disp.=$TRE;
 		}
@@ -128,9 +128,9 @@ sub jk
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=jk","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF‹Rèˆê——</BIG><br><br>
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šé¨æ‰‹ä¸€è¦§</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB–¼‘O$TDB‹Î‘±$TDB“¦æ$TDB·’Ç$TDB¬Ñ$TDB“Áê”\\—Í$TDBo‘–$TRE
+$TB$TR$TDBåå‰$TDBå‹¤ç¶š$TDBé€ƒå…ˆ$TDBå·®è¿½$TDBæˆç¸¾$TDBç‰¹æ®Šèƒ½\åŠ›$TDBå‡ºèµ°$TRE
 STR
 
 	foreach my $i($pagestart..$pageend)
@@ -159,9 +159,9 @@ sub rc
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=rc","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF–qêˆê——</BIG><br><br>
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç‰§å ´ä¸€è¦§</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB–¼Ì$TDBŠ‘®$TDB‘n—§$TDB•½‹ÏÜ‹à$TDB‘Ü‹à$TDB¬Ñ$TRE
+$TB$TR$TDBåç§°$TDBæ‰€å±$TDBå‰µç«‹$TDBå¹³å‡è³é‡‘$TDBç·è³é‡‘$TDBæˆç¸¾$TRE
 STR
 
 	foreach my $i($pagestart..$pageend)
@@ -171,8 +171,8 @@ STR
 		$disp.=$TD.$RC[$i]->{name};
 		$disp.=$TD.$Tname{$RC[$i]->{town}};
 		$disp.=$TD.GetTime2found($NOW_TIME-$RC[$i]->{birth});
-		$disp.=$TD.($RC[$i]->{aprize} + 0)."–œ";
-		$disp.=$TD.($RC[$i]->{prize} + 0)."–œ";
+		$disp.=$TD.($RC[$i]->{aprize} + 0)."ä¸‡";
+		$disp.=$TD.($RC[$i]->{prize} + 0)."ä¸‡";
 		$disp.=$TD.($RC[$i]->{g1win} + 0)." - ".($RC[$i]->{g2win} + 0)." - ".($RC[$i]->{g3win} + 0)." - ".($RC[$i]->{sdwin} + 0);
 		$disp.=$TRE;
 		}
@@ -182,7 +182,7 @@ STR
 
 sub sche
 {
-	$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXFƒXƒPƒWƒ…[ƒ‹</BIG><br><br>";
+	$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«</BIG><br><br>";
 
 	my $fn=GetPath($COMMON_DIR,"dr-last");
 	require $fn if (-e $fn);
@@ -190,7 +190,7 @@ sub sche
 	foreach (0..$#DRTIME)
 		{
 		$disp.=$TR;
-		$disp.=$TDB.($_ ? "Ÿ‚Ì".$RACETERM[($_ - 1)]."•Ï“®" : "Ÿ‚Ì’²‹³");
+		$disp.=$TDB.($_ ? "æ¬¡ã®".$RACETERM[($_ - 1)]."å¤‰å‹•æ™‚åˆ»" : "æ¬¡ã®èª¿æ•™æ™‚åˆ»");
 		$disp.=$TD.GetTime2FormatTime($DRTIME[$_]);
 		$disp.=$TRE;
 		}
@@ -198,8 +198,8 @@ sub sche
 
 	foreach (0..$#RACE)
 		{
-		$disp.="<BIG>œ".$RACETERM[($_)]."ŠJÃ“ú’ö</BIG><br><br>";
-		$disp.="$TB$TR$TDB–¼Ì$TDBƒ‰ƒ“ƒN$TDBƒnƒ“ƒf$TDB”nêí$TDBâ$TDB‹——£$TDB‚P’…Ü‹à$TDB‚Q’…Ü‹à$TDB‚R’…Ü‹à$TDB’èˆõ$TRE";
+		$disp.="<BIG>â—".$RACETERM[($_)]."é–‹å‚¬æ—¥ç¨‹</BIG><br><br>";
+		$disp.="$TB$TR$TDBåç§°$TDBãƒ©ãƒ³ã‚¯$TDBãƒãƒ³ãƒ‡$TDBé¦¬å ´ç¨®$TDBå‚$TDBè·é›¢$TDBï¼‘ç€è³é‡‘$TDBï¼’ç€è³é‡‘$TDBï¼“ç€è³é‡‘$TDBå®šå“¡$TRE";
 		my @MYRACE=@{$RACE[$_]};
 		foreach my $i(0..$#MYRACE)
 			{
@@ -207,13 +207,13 @@ sub sche
 			$disp.=$TR;
 			$disp.=$TD.$R[0];
 			$disp.=$TD.$RACERANK[$R[1]];
-			$disp.=$TD.($R[2] ? "$R[2]–œ–ˆ" : " ");
+			$disp.=$TD.($R[2] ? "$R[2]ä¸‡æ¯" : " ");
 			$disp.=$TD.$FIELDTYPE[$R[3]];
-			$disp.=$TD.($R[4] ? "‚ ‚è" : " ");
+			$disp.=$TD.($R[4] ? "ã‚ã‚Š" : " ");
 			$disp.=$TD.$R[5];
-			$disp.=$TD.$R[6]."–œ";
-			$disp.=$TD.$R[7]."–œ";
-			$disp.=$TD.$R[8]."–œ";
+			$disp.=$TD.$R[6]."ä¸‡";
+			$disp.=$TD.$R[7]."ä¸‡";
+			$disp.=$TD.$R[8]."ä¸‡";
 			$disp.=$TD.$R[9];
 			$disp.=$TRE;
 			}
@@ -229,8 +229,8 @@ sub rd
 	ReadDragon();
 
 	$disp.=<<STR;
-<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF$RACETERM[$rcode]o‘–—³Ú×</BIG><br><br>
-$TB$TR$TDB–¼Ì$TDB”N—î$TDB«•Ê$TDBƒXƒs$TDBŸ•‰$TDBu”­$TDBƒpƒ$TDB‘Ì’²$TDB‘Ìd$TDB‹——£“K«$TRE
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼š$RACETERM[$rcode]å‡ºèµ°ç«œè©³ç´°</BIG><br><br>
+$TB$TR$TDBåç§°$TDBå¹´é½¢$TDBæ€§åˆ¥$TDBã‚¹ãƒ”$TDBå‹è² $TDBç¬ç™º$TDBãƒ‘ãƒ¯$TDBä½“èª¿$TDBä½“é‡$TDBè·é›¢é©æ€§$TRE
 STR
 
 foreach (0..$#RD)

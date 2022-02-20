@@ -1,8 +1,8 @@
-# è†•ÒW 2003/07/19 —R˜Ò
+# æ‰‹ç´™ç·¨é›† 2003/07/19 ç”±ä¾†
 
 if ($Q{mode} eq 'new')
 {
-	$Q{old} = "list";	#‘—MÏ‚İƒgƒŒƒC‚ğ•\¦B
+	$Q{old} = "list";	#é€ä¿¡æ¸ˆã¿ãƒˆãƒ¬ã‚¤ã‚’è¡¨ç¤ºã€‚
 	$Q{form} = "";
 	NewLetter();
 }
@@ -29,7 +29,7 @@ else
 	}
 }
 
-$WriteFlag=1;		# ƒf[ƒ^XV‚ğw¦B
+$WriteFlag=1;		# ãƒ‡ãƒ¼ã‚¿æ›´æ–°ã‚’æŒ‡ç¤ºã€‚
 1;
 
 
@@ -41,7 +41,7 @@ foreach my $pg(@OtherDir)
 	{
 	$sendmail=$Q{$pg}, $sendto=$pg if ($Q{$pg})
 	}
-OutError('ˆ¶æ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$sendto;
+OutError('å®›å…ˆã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚') if !$sendto;
 
 	CheckNewBoxArg();
 
@@ -56,11 +56,11 @@ OutError('ˆ¶æ‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B') if !$sendto;
 	$LETTER[$i]->{toid}=$sendmail;
 	$LETTER[$i]->{title}=$Q{title};
 	$LETTER[$i]->{msg}=$Q{msg};
-	$LETTER[$i]->{mode}=1;	#–¢“Çİ’è
+	$LETTER[$i]->{mode}=1;	#æœªèª­è¨­å®š
 	$LETTER[$i]->{other}=$DT->{shopname};
 	@LETTER=reverse(@LETTER);
 
-	undef @SENLETTER;	# “Ç‚İ’¼‚µ
+	undef @SENLETTER;	# èª­ã¿ç›´ã—
 	$NeverS=0;
 	foreach my $i(0..$Lcount)
 	{
@@ -78,6 +78,6 @@ sub CheckNewBoxArg
 	
 	$Q{msg}=CutStr(jcode::sjis($Q{msg},$CHAR_SHIFT_JIS&&'sjis'),400);
 	$Q{title}=CutStr(jcode::sjis($Q{title},$CHAR_SHIFT_JIS&&'sjis'),40);
-	OutError('“à—e‚ª‚ ‚è‚Ü‚¹‚ñ') if $Q{msg}eq'';
-	$Q{title}="i–³‘èj" if $Q{title}eq'';
+	OutError('å†…å®¹ãŒã‚ã‚Šã¾ã›ã‚“') if $Q{msg}eq'';
+	$Q{title}="ï¼ˆç„¡é¡Œï¼‰" if $Q{title}eq'';
 }

@@ -1,4 +1,4 @@
-# login ƒvƒ‰ƒOƒCƒ“ 2003/10/08 —R˜Ò
+# login ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/10/08 ç”±ä¾†
 
 sub CheckLogin
 {
@@ -72,7 +72,7 @@ sub CheckLogin
 		
 		OutError('stop') if $DT->{blocklogin} eq 'stop';
 		OutErrorBlockLogin($DT->{blocklogin}) if $DT->{blocklogin} ne '' && $DT->{blocklogin} ne 'mark';
-		OutErrorBlockLogin('d•¡“o˜^ŒŸo') if !$MOBILE && $CHECK_IP && !$DT->{nocheckip} && $overlap;
+		OutErrorBlockLogin('é‡è¤‡ç™»éŒ²æ¤œå‡º') if !$MOBILE && $CHECK_IP && !$DT->{nocheckip} && $overlap;
 		
 		if($DT->{blocklogin} eq 'mark')
 		{

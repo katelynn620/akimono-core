@@ -1,13 +1,13 @@
-# V•· 2004/01/20 —R˜Ò
+# æ–°è 2004/01/20 ç”±ä¾†
 
 $NOITEM=1 if ($Q{t}==1);
 DataRead();
 CheckUserPass(1);
 
-$disp.=GetMenuTag('log',	'[‘¬•ñ]')
-	.GetMenuTag('log',	'[“üÜ]','&t=3')
-	.GetMenuTag('log',	'[‡ˆÊ]','&t=4')
-	.GetMenuTag('log',	'[İˆÊ]','&t=5');
+$disp.=GetMenuTag('log',	'[é€Ÿå ±]')
+	.GetMenuTag('log',	'[å…¥è³]','&t=3')
+	.GetMenuTag('log',	'[é †ä½]','&t=4')
+	.GetMenuTag('log',	'[çˆµä½]','&t=5');
 $disp.="<hr width=500 noshade size=1>";
 
 if ($Q{t}==5) {

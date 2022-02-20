@@ -1,8 +1,8 @@
-# �t�H�[���\�� 2004/01/20 �R��
+# フォーム表示 2004/01/20 由來
 
-$disp.=GetMenuTag('letter','[��M��]')
-	.GetMenuTag('letter','[���M��]','&old=list')
-	."<b>[�莆������]</b>";
+$disp.=GetMenuTag('letter','[受信箱]')
+	.GetMenuTag('letter','[送信箱]','&old=list')
+	."<b>[手紙を書く]</b>";
 $disp.="<hr width=500 noshade size=1>";
 my $cnt=$MAX_BOX - scalar(@SENLETTER);
 if ($cnt > 0)
@@ -16,8 +16,8 @@ else
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>����`��</SPAN>�F����ȏ�̎莆�𑗂邱�Ƃ͂ł��܂���B<br>
-���M�ς݂̎莆���폜���Ă��������B
+<SPAN>お手伝い</SPAN>：これ以上の手紙を送ることはできません。<br>
+送信済みの手紙を削除してください。
 $TRE$TBE
 HTML
 
@@ -31,13 +31,13 @@ sub NewLform
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>����`��</SPAN>�F���� $cnt�ʂ܂Ŏ莆�𑗂邱�Ƃ��ł��܂��B<br>
-�}�i�[�����C���炤����̐l�̂��Ƃ��l���ď����܂��傤�B
+<SPAN>お手伝い</SPAN>：あと $cnt通まで手紙を送ることができます。<br>
+マナーを守り，もらう立場の人のことを考えて書きましょう。
 $TRE$TBE<br>$preerror
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 $TB
-$TR$TDB<b>����</b>�i�����ꂩ�P�j
+$TR$TDB<b>宛先</b>（いずれか１つ）
 HTML
 
 my $r=int(scalar(@OtherDir) / 2 + 0.5);$r||=1;
@@ -45,7 +45,7 @@ foreach(0..$#OtherDir)
 	{
 	my $pg=$OtherDir[$_];
 	$disp.=( ($_ % $r) ? "<br>" : $TD);
-	$disp.="$Tname{$pg} <SELECT NAME=$pg><OPTION VALUE=\"-1\">����I��";
+	$disp.="$Tname{$pg} <SELECT NAME=$pg><OPTION VALUE=\"-1\">宛先選択";
 	foreach my $i(0..$Ncount{$pg})
 		{
 		$disp.="<OPTION VALUE=\"$LID{$pg}[$i]\"".($Q{$pg}==$LID{$pg}[$i] ? ' SELECTED' : '').">$LNAME{$pg}[$i]";
@@ -55,13 +55,13 @@ foreach(0..$#OtherDir)
 
 $disp.=<<"HTML";
 $TRE
-$TR$TDB<b>�^�C�g��</b>�i40���ȓ��j
+$TR$TDB<b>タイトル</b>（40字以内）
 <td colspan=2><INPUT TYPE=TEXT NAME=title SIZE=40 VALUE="$Q{title}">$TRE
-$TR$TDB<b>���e</b>�i400���ȓ��j
+$TR$TDB<b>内容</b>（400字以内）
 <td colspan=2><INPUT TYPE=TEXT NAME=msg SIZE=60 VALUE="$Q{msg}">$TRE
 $TBE
 <br><INPUT TYPE=HIDDEN NAME=form VALUE="check">
-<INPUT TYPE=SUBMIT VALUE="���M�m�F">
+<INPUT TYPE=SUBMIT VALUE="送信確認">
 </FORM>
 HTML
 }
@@ -74,24 +74,24 @@ foreach my $pg(@OtherDir)
 	{
 	$sendmail=$Q{$pg}, $sendto=$pg if ($Q{$pg} != -1)
 	}
-$preerror="������w�肵�Ă��������B", return if !$sendto;
+$preerror="宛先を指定してください。", return if !$sendto;
 my $Ln=SearchLetterName($sendmail,$sendto);
-$preerror="���݂��Ȃ��X�܂ł��B", return if ($Ln == -1);
-$preerror="���b�Z�[�W���L�����Ă��������B", return if (!$Q{msg});
-$Q{title}="�i����j" if !$Q{title};
-$preerror='�^�C�g���͔��p40��(�S�p20��)�܂łł��B���ݔ��p'.length($Q{title}).'���ł��B', return if length($Q{title})>40;
-$preerror='���e���͔��p400����(�S�p200����)�܂łł��B���ݔ��p'.length($Q{msg}).'�����ł��B', return if length($Q{msg})>400;
+$preerror="存在しない店舗です。", return if ($Ln == -1);
+$preerror="メッセージを記入してください。", return if (!$Q{msg});
+$Q{title}="（無題）" if !$Q{title};
+$preerror='タイトルは半角40字(全角20字)までです。現在半角'.length($Q{title}).'字です。', return if length($Q{title})>40;
+$preerror='内容文は半角400文字(全角200文字)までです。現在半角'.length($Q{msg}).'文字です。', return if length($Q{msg})>400;
 
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-����`���F�ȉ��̓��e�Ŏ莆�𑗂�܂��B<br>
-����ł�낵�������m�F���������B
+お手伝い：以下の内容で手紙を送ります。<br>
+これでよろしいかご確認ください。
 $TRE$TBE<br>
 <table width=60%>$TR$TD
-<SPAN>����</SPAN>�F$Ln <small>�i$Tname{$sendto}�j</small><br>
-<SPAN>�^�C�g��</SPAN>�F�u$Q{title}�v<br>
-<SPAN>���e</SPAN>�F$Q{msg}<br>
+<SPAN>宛先</SPAN>：$Ln <small>（$Tname{$sendto}）</small><br>
+<SPAN>タイトル</SPAN>：「$Q{title}」<br>
+<SPAN>内容</SPAN>：$Q{msg}<br>
 $TRE$TBE
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
@@ -99,8 +99,8 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=title VALUE="$Q{title}">
 <INPUT TYPE=HIDDEN NAME=msg VALUE="$Q{msg}">
 <INPUT TYPE=HIDDEN NAME=form VALUE="make">
-<INPUT TYPE=SUBMIT NAME=ok VALUE="���M">
-<INPUT TYPE=SUBMIT NAME=ng VALUE="�ĕҏW">
+<INPUT TYPE=SUBMIT NAME=ok VALUE="送信">
+<INPUT TYPE=SUBMIT NAME=ng VALUE="再編集">
 </FORM>
 HTML
 }

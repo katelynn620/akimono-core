@@ -1,9 +1,9 @@
-# —Ìå{­ 2005/01/06 —R˜Ò
+# é ˜ä¸»æ–½æ”¿ 2005/01/06 ç”±ä¾†
 
-$image[0]=GetTagImgKao("‘åb","minister");
+$image[0]=GetTagImgKao("å¤§è‡£","minister");
 DataRead();
 CheckUserPass();
-OutError('­¡‚ğs‚¦‚é‚Ì‚Í—Ìå‚Ì‚İ‚Å‚·') if $STATE->{leader}!=$DT->{id};
+OutError('æ”¿æ²»ã‚’è¡Œãˆã‚‹ã®ã¯é ˜ä¸»ã®ã¿ã§ã™') if $STATE->{leader}!=$DT->{id};
 
 my $shoplist="";
 my $taxsum=0;
@@ -17,64 +17,64 @@ my $ii=($now % $ONE_DAY_TIME);
 $ii=1 if $ii < 1;
 $taxsum=GetMoneyString(int($taxsum * $ONE_DAY_TIME / $ii / 10000) * 10000);
 
-$disp.="<BIG>œ­–±º</BIG><br><br>";
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>‘åb</SPAN>F‚±‚ê‚Í‚±‚ê‚Í—Ìå—lB‚²‹@Œ™‚¤‚é‚í‚µ‚ã‚¤‚²‚´‚¢‚Ü‚·B<br>";
-$disp.="­¡‚Ì‚±‚Æ‚È‚Ç‘åb‚É‚¨”C‚¹‚­‚¾‚³‚ê‚Î‚¢‚¢‚Ì‚ÉC‚²”MS‚Å‚·‚ÈB‚Ó‚ñB".$TRE.$TBE;
+$disp.="<BIG>â—æ”¿å‹™å®¤</BIG><br><br>";
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>å¤§è‡£</SPAN>ï¼šã“ã‚Œã¯ã“ã‚Œã¯é ˜ä¸»æ§˜ã€‚ã”æ©Ÿå«Œã†ã‚‹ã‚ã—ã‚…ã†ã”ã–ã„ã¾ã™ã€‚<br>";
+$disp.="æ”¿æ²»ã®ã“ã¨ãªã©å¤§è‡£ã«ãŠä»»ã›ãã ã•ã‚Œã°ã„ã„ã®ã«ï¼Œã”ç†±å¿ƒã§ã™ãªã€‚ãµã‚“ã€‚".$TRE.$TBE;
 my $money=GetMoneyString($STATE->{money}+0);
 my $army=$STATE->{army} + $STATE->{robina};
 my $armycost=200-int($STATE->{safety} / 100); 	# 100 - 200
 my $armyc=GetMoneyString($STATE->{army} * $armycost);
 
 $disp.=<<"HTML";
-<hr width=500 noshade size=1><BIG>œ“à­İ’è</BIG><br><br>
+<hr width=500 noshade size=1><BIG>â—å†…æ”¿è¨­å®š</BIG><br><br>
 <FORM ACTION="action.cgi" $METHOD>
 <INPUT TYPE=hidden NAME=key VALUE="lord-s">
 $USERPASSFORM
 <INPUT TYPE=hidden NAME=mode VALUE="inside">
-$TB$TDBŠX‘‹à$TDBÅûŒ©‚İ$TDBÅ—¦
-$TDBŠJ‘ñ‘Îô”ï$TDB¡ˆÀ‘Îô”ï$TRE
+$TB$TDBè¡—è³‡é‡‘$TDBç¨åè¦‹è¾¼ã¿$TDBç¨ç‡
+$TDBé–‹æ‹“å¯¾ç­–è²»$TDBæ²»å®‰å¯¾ç­–è²»$TRE
 $TR$TD<b>$money</b>
 $TD$taxsum
-$TD<INPUT TYPE=TEXT NAME=taxrate SIZE=5 VALUE="$DTTaxrate"> %<br><small>(•W€ 20%)</small>
-$TD$term[0]<INPUT TYPE=TEXT NAME=devem SIZE=10 VALUE="$STATE->{devem}">$term[1]<br><small>(•W€ $term[0]5,000,000$term[1])</small>
-$TD$term[0]<INPUT TYPE=TEXT NAME=safem SIZE=10 VALUE="$STATE->{safem}">$term[1]<br><small>(•W€ $term[0]5,000,000$term[1])</small>
+$TD<INPUT TYPE=TEXT NAME=taxrate SIZE=5 VALUE="$DTTaxrate"> %<br><small>(æ¨™æº– 20%)</small>
+$TD$term[0]<INPUT TYPE=TEXT NAME=devem SIZE=10 VALUE="$STATE->{devem}">$term[1]<br><small>(æ¨™æº– $term[0]5,000,000$term[1])</small>
+$TD$term[0]<INPUT TYPE=TEXT NAME=safem SIZE=10 VALUE="$STATE->{safem}">$term[1]<br><small>(æ¨™æº– $term[0]5,000,000$term[1])</small>
 $TRE$TBE
-<br><INPUT TYPE=SUBMIT VALUE="ˆÈã‚Ì“à—e‚ÅŒˆ’è">
+<br><INPUT TYPE=SUBMIT VALUE="ä»¥ä¸Šã®å†…å®¹ã§æ±ºå®š">
 </FORM>
 
-<hr width=500 noshade size=1><BIG>œÜ”±</BIG><br><br>
+<hr width=500 noshade size=1><BIG>â—è³ç½°</BIG><br><br>
 <FORM ACTION="action.cgi" $METHOD>
 <INPUT TYPE=hidden NAME=key VALUE="lord-s">
 $USERPASSFORM
 <INPUT TYPE=hidden NAME=mode VALUE="taxside">
-<BIG>œŒÂ•ÊÅ—¦</BIG>F 
+<BIG>â—å€‹åˆ¥ç¨ç‡</BIG>ï¼š 
 <SELECT NAME=tg>$shoplist</select>
- ‚ÌÅ—¦‚ğ
-<SELECT NAME=md><OPTION VALUE="normal">’Êí
-<OPTION VALUE="free">–Æœ
-<OPTION VALUE="double">‚Q”{
-</select> ‚É <INPUT TYPE=SUBMIT VALUE="İ’è‚·‚é">
+ ã®ç¨ç‡ã‚’
+<SELECT NAME=md><OPTION VALUE="normal">é€šå¸¸
+<OPTION VALUE="free">å…é™¤
+<OPTION VALUE="double">ï¼’å€
+</select> ã« <INPUT TYPE=SUBMIT VALUE="è¨­å®šã™ã‚‹">
 </FORM>
 <FORM ACTION="action.cgi" $METHOD>
 <INPUT TYPE=hidden NAME=key VALUE="lord-s">
 $USERPASSFORM
 <INPUT TYPE=hidden NAME=mode VALUE="treset">
-<BIG>œÅ—¦ƒŠƒZƒbƒg</BIG>F 
-‚·‚×‚Ä‚Ì“X‚ÌÅ—¦‚ğ ’Êí ‚É <INPUT TYPE=SUBMIT VALUE="ƒŠƒZƒbƒg‚·‚é">
+<BIG>â—ç¨ç‡ãƒªã‚»ãƒƒãƒˆ</BIG>ï¼š 
+ã™ã¹ã¦ã®åº—ã®ç¨ç‡ã‚’ é€šå¸¸ ã« <INPUT TYPE=SUBMIT VALUE="ãƒªã‚»ãƒƒãƒˆã™ã‚‹">
 </FORM>
 HTML
 
 if ($DTevent{rebel})
 {
-$disp.="<BIG>œ“X•Üæ‚è’÷‚Ü‚è</BIG>F ”½—’†‚Ì‚½‚ßÀs‚Å‚«‚Ü‚¹‚ñ";
+$disp.="<BIG>â—åº—èˆ—å–ã‚Šç· ã¾ã‚Š</BIG>ï¼š åä¹±ä¸­ã®ãŸã‚å®Ÿè¡Œã§ãã¾ã›ã‚“";
 }
 elsif ($STATE->{army} < 2000)
 {
-$disp.="<BIG>œ“X•Üæ‚è’÷‚Ü‚è</BIG>F æ‚è’÷‚Ü‚è‚É•K—v‚È•ºm”‚ª‘«‚è‚Ü‚¹‚ñ";
+$disp.="<BIG>â—åº—èˆ—å–ã‚Šç· ã¾ã‚Š</BIG>ï¼š å–ã‚Šç· ã¾ã‚Šã«å¿…è¦ãªå…µå£«æ•°ãŒè¶³ã‚Šã¾ã›ã‚“";
 }
 elsif ($STATE->{money} < 1000000)
 {
-$disp.="<BIG>œ“X•Üæ‚è’÷‚Ü‚è</BIG>F ”ï—p‚ª‘«‚è‚Ü‚¹‚ñ";
+$disp.="<BIG>â—åº—èˆ—å–ã‚Šç· ã¾ã‚Š</BIG>ï¼š è²»ç”¨ãŒè¶³ã‚Šã¾ã›ã‚“";
 }
 else
 {
@@ -83,20 +83,20 @@ $disp.=<<"STR";
 <INPUT TYPE=hidden NAME=key VALUE="lord-s">
 $USERPASSFORM
 <INPUT TYPE=hidden NAME=mode VALUE="expose">
-<BIG>œ“X•Üæ‚è’÷‚Ü‚è</BIG>F 
+<BIG>â—åº—èˆ—å–ã‚Šç· ã¾ã‚Š</BIG>ï¼š 
 <SELECT NAME=tg>$shoplist</select>
- ‚ğŒR‘à‚Å 
- <INPUT TYPE=SUBMIT VALUE="æ‚è’÷‚Ü‚é"> (”ï—p$term[0]1,000,000$term[1])
+ ã‚’è»éšŠã§ 
+ <INPUT TYPE=SUBMIT VALUE="å–ã‚Šç· ã¾ã‚‹"> (è²»ç”¨$term[0]1,000,000$term[1])
 </FORM>
 STR
 }
 
 $disp.=<<"HTML";
-<hr width=500 noshade size=1><BIG>œŒR–İ’è</BIG><br><br>
-$TB$TR$TDBŒ»İ‚Ì•º—Í
-$TD<b>$armyl</b><small>i³‹KŒR $STATE->{army}lC‹`—EŒR $STATE->{robina}lj$TRE
-$TR$TDB•º—ÍˆÛ”ï
-$TD<b>$armyc</b><small>i³‹KŒR‚Pl‚É‚Â‚«$term[0]$armycost$term[1]j$TRE
+<hr width=500 noshade size=1><BIG>â—è»äº‹è¨­å®š</BIG><br><br>
+$TB$TR$TDBç¾åœ¨ã®å…µåŠ›
+$TD<b>$armyäºº</b><small>ï¼ˆæ­£è¦è» $STATE->{army}äººï¼Œç¾©å‹‡è» $STATE->{robina}äººï¼‰$TRE
+$TR$TDBå…µåŠ›ç¶­æŒè²»
+$TD<b>$armyc</b><small>ï¼ˆæ­£è¦è»ï¼‘äººã«ã¤ã$term[0]$armycost$term[1]ï¼‰$TRE
 $TBE
 HTML
 
@@ -107,7 +107,7 @@ if ($STATE->{money}>0 && !$DTevent{rebel})
 	<INPUT TYPE=hidden NAME=key VALUE="lord-s">
 	$USERPASSFORM
 	<INPUT TYPE=hidden NAME=mode VALUE="outside">
-	<BIG>œ•º—Í‘‹­</BIG>F •ºm‚ğ 
+	<BIG>â—å…µåŠ›å¢—å¼·</BIG>ï¼š å…µå£«ã‚’ 
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 STR
@@ -116,7 +116,7 @@ STR
 	$msg{5000}=5000;
 	$msg{10000}=10000;
 	$msg{20000}=20000;
-	$msg{$stock}="$stock(‘‹àÅ‘å)";
+	$msg{$stock}="$stock(è³‡é‡‘æœ€å¤§)";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1000,5000,10000,20000,$stock))
 	{
@@ -126,9 +126,9 @@ STR
 	}
 	$disp.=<<STR;
 	</SELECT>
-	 lA‚à‚µ‚­‚Í 
-	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> l
-	<INPUT TYPE=SUBMIT VALUE="‘‹­‚·‚é"> @$term[0]1,200$term[1]
+	 äººã€ã‚‚ã—ãã¯ 
+	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> äºº
+	<INPUT TYPE=SUBMIT VALUE="å¢—å¼·ã™ã‚‹"> @$term[0]1,200$term[1]
 	</FORM>
 STR
 	$disp.=<<STR;
@@ -136,7 +136,7 @@ STR
 	<INPUT TYPE=hidden NAME=key VALUE="lord-s">
 	$USERPASSFORM
 	<INPUT TYPE=hidden NAME=mode VALUE="outdel">
-	<BIG>œ•º—ÍíŒ¸</BIG>F •ºm‚ğ 
+	<BIG>â—å…µåŠ›å‰Šæ¸›</BIG>ï¼š å…µå£«ã‚’ 
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 STR
@@ -145,7 +145,7 @@ STR
 	$msg{5000}=5000;
 	$msg{10000}=10000;
 	$msg{20000}=20000;
-	$msg{$army}="$army(•ºmÅ‘å)";
+	$msg{$army}="$army(å…µå£«æœ€å¤§)";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1000,5000,10000,20000,$army))
 	{
@@ -155,9 +155,9 @@ STR
 	}
 	$disp.=<<STR;
 	</SELECT>
-	 lA‚à‚µ‚­‚Í 
-	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> l
-	<INPUT TYPE=SUBMIT VALUE="‰ğŒÙ‚·‚é"> @$term[0]0$term[1]
+	 äººã€ã‚‚ã—ãã¯ 
+	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> äºº
+	<INPUT TYPE=SUBMIT VALUE="è§£é›‡ã™ã‚‹"> @$term[0]0$term[1]
 	</FORM>
 STR
 }

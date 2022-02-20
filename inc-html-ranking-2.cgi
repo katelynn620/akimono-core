@@ -1,6 +1,6 @@
-# İˆÊƒŠƒXƒg‰º¿‚¯ 2003/07/19 —R˜Ò
+# çˆµä½ãƒªã‚¹ãƒˆä¸‹è«‹ã‘ 2003/07/19 ç”±ä¾†
 
-$disp.="<BIG>œV•·FİˆÊƒŠƒXƒg</BIG><br><br>";
+$disp.="<BIG>â—æ–°èï¼šçˆµä½ãƒªã‚¹ãƒˆ</BIG><br><br>";
 
 my @itemlist=();
 my %msg;
@@ -18,7 +18,7 @@ foreach my $DT (@DT)
 		last if $count<$DIG_POINT[$_];
 		$num++;
 	}
-	$msg{$num}.=$shopname."C ";
+	$msg{$num}.=$shopname."ï¼Œ ";
 }
 
 my $ret;
@@ -26,6 +26,6 @@ foreach (1..$#DIG_POINT) {
 	$msg{$_} = substr($msg{$_},0,(length($msg{$_})-3)) if ($msg{$_});
 	$ret=$TR.$TDB.DignityDefine($DIG_POINT[$_],2).$TD.$msg{$_}.$TRE.$ret;
 }
-$disp.="$TB$TR<td width=50>İˆÊ<td class=b width=570>“X–¼$TRE";
+$disp.="$TB$TR<td width=50>çˆµä½<td class=b width=570>åº—å$TRE";
 $disp.=$ret.$TBE;
 1;

@@ -1,6 +1,6 @@
-# •ºm’““ÔŠ 2005/01/06 —R˜Ò
+# å…µå£«é§å±¯æ‰€ 2005/01/06 ç”±ä¾†
 
-$image[0]=GetTagImgKao("ˆÄ“àl","army");
+$image[0]=GetTagImgKao("æ¡ˆå†…äºº","army");
 DataRead();
 CheckUserPass();
 ReadArmy();
@@ -10,16 +10,16 @@ my $price=($DTevent{rebel}) ? 1500 : 1000;
 my $level=DignityDefine($DT->{dignity},2);
 $level=$DIGNITY[0] if !$level;
 
-$disp.="<BIG>œ—b•ºŠ</BIG><br><br>";
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ˆÄ“àl</SPAN>F‚±‚±‚É‚Íƒhƒ[ƒt•º‚½‚¿‚ªŒÙ‚¢è‚ğ‹‚ß‚ÄW‚Ü‚Á‚Ä‚¢‚Ü‚·B<br>";
-$disp.="”Ş‚ç‚ğW‚ß‚Ä”½—‚ğ‹N‚±‚·‚àC‹t‚É—Ìå‚ğç‚é‚àCŒÙ‚¢åŸ‘æ‚Å‚·B".$TRE.$TBE;
+$disp.="<BIG>â—å‚­å…µæ‰€</BIG><br><br>";
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>æ¡ˆå†…äºº</SPAN>ï¼šã“ã“ã«ã¯ãƒ‰ãƒ¯ãƒ¼ãƒ•å…µãŸã¡ãŒé›‡ã„æ‰‹ã‚’æ±‚ã‚ã¦é›†ã¾ã£ã¦ã„ã¾ã™ã€‚<br>";
+$disp.="å½¼ã‚‰ã‚’é›†ã‚ã¦åä¹±ã‚’èµ·ã“ã™ã‚‚ï¼Œé€†ã«é ˜ä¸»ã‚’å®ˆã‚‹ã‚‚ï¼Œé›‡ã„ä¸»æ¬¡ç¬¬ã§ã™ã€‚".$TRE.$TBE;
 
-$disp.="<hr width=500 noshade size=1><BIG>œ$DT->{shopname}‚ÌŒÙ—pó‹µ</BIG><br><br>";
-$disp.="$TB$TR$TDBİˆÊ$TD$level <small>(ŒoŒ±’l ".($DT->{dignity}+0)."pt)$TRE";
-$disp.="$TR$TDBŒÙ—pÅ‘å”$TD".(($DT->{dignity}+0)*1000)."l$TRE";
-$disp.="$TR$TDBŒÙ—p”ï—p$TD@".GetMoneyString($price)."$TRE";
-$disp.="$TR$TDBŒÙ—p”$TD".($ARMY{$DT->{id}}+0)."l$TRE";
-$disp.="$TR$TDBó‘Ô$TD".($RIOT{$DT->{id}} ? "<SPAN>”½—</SPAN>" : "‘Ò‹@").$TRE;
+$disp.="<hr width=500 noshade size=1><BIG>â—$DT->{shopname}ã®é›‡ç”¨çŠ¶æ³</BIG><br><br>";
+$disp.="$TB$TR$TDBçˆµä½$TD$level <small>(çµŒé¨“å€¤ ".($DT->{dignity}+0)."pt)$TRE";
+$disp.="$TR$TDBé›‡ç”¨æœ€å¤§æ•°$TD".(($DT->{dignity}+0)*1000)."äºº$TRE";
+$disp.="$TR$TDBé›‡ç”¨è²»ç”¨$TD@".GetMoneyString($price)."$TRE";
+$disp.="$TR$TDBé›‡ç”¨æ•°$TD".($ARMY{$DT->{id}}+0)."äºº$TRE";
+$disp.="$TR$TDBçŠ¶æ…‹$TD".($RIOT{$DT->{id}} ? "<SPAN>åä¹±</SPAN>" : "å¾…æ©Ÿ").$TRE;
 $disp.=$TBE;
 
 ArmyBuy();
@@ -38,9 +38,9 @@ sub ArmyBuy
 my $usetime=60*40;
 my $limit= ($DT->{dignity}+0)*1000 - $ARMY{$DT->{id}};
 $disp.="<hr width=500 noshade size=1>";
-$disp.='<BIG>œ•ºmŒÙ—p</BIG>F•ºm‚ğŒÙ‚¤‚É‚ÍİˆÊ‚ğã‚°‚é•K—v‚ª‚ ‚è‚Ü‚·<BR>',return if $limit <= 0;
-$disp.='<BIG>œ•ºmŒÙ—p</BIG>F‘‹à‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if $DT->{money}<$price;
-$disp.='<BIG>œ•ºmŒÙ—p</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT->{time})<$usetime;
+$disp.='<BIG>â—å…µå£«é›‡ç”¨</BIG>ï¼šå…µå£«ã‚’é›‡ã†ã«ã¯çˆµä½ã‚’ä¸Šã’ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™<BR>',return if $limit <= 0;
+$disp.='<BIG>â—å…µå£«é›‡ç”¨</BIG>ï¼šè³‡é‡‘ãŒè¶³ã‚Šã¾ã›ã‚“<BR>',return if $DT->{money}<$price;
+$disp.='<BIG>â—å…µå£«é›‡ç”¨</BIG>ï¼šæ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>',return if GetStockTime($DT->{time})<$usetime;
 
 	$disp.=<<STR;
 	<FORM ACTION="action.cgi" $METHOD>
@@ -48,7 +48,7 @@ $disp.='<BIG>œ•ºmŒÙ—p</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT-
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=bk VALUE="army">
 	<INPUT TYPE=hidden NAME=mode VALUE="plus">
-	<BIG>œ•ºmŒÙ—p</BIG>F •ºm‚ğ 
+	<BIG>â—å…µå£«é›‡ç”¨</BIG>ï¼š å…µå£«ã‚’ 
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 STR
@@ -57,8 +57,8 @@ STR
 	$msg{5000}=5000;
 	$msg{10000}=10000;
 	$msg{20000}=20000;
-	$msg{$limit}="$limit(ŒÙ—pÅ‘å)";
-	$msg{$money}="$money(‘‹àÅ‘å)";
+	$msg{$limit}="$limit(é›‡ç”¨æœ€å¤§)";
+	$msg{$money}="$money(è³‡é‡‘æœ€å¤§)";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1000,5000,10000,20000,$limit,$money))
 	{
@@ -68,11 +68,11 @@ STR
 	}
 	$disp.=<<STR;
 	</SELECT>
-	 lA‚à‚µ‚­‚Í 
-	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> l
-	<INPUT TYPE=SUBMIT VALUE="ŒÙ—p‚·‚é">
+	 äººã€ã‚‚ã—ãã¯ 
+	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> äºº
+	<INPUT TYPE=SUBMIT VALUE="é›‡ç”¨ã™ã‚‹">
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 }
 
 
@@ -81,7 +81,7 @@ sub ArmyFire
 my $usetime=60*10;
 my $stock=($ARMY{$DT->{id}}+0);
 $disp.="<hr width=500 noshade size=1>";
-$disp.='<BIG>œ•ºm‰ğŒÙ</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT->{time})<$usetime;
+$disp.='<BIG>â—å…µå£«è§£é›‡</BIG>ï¼šæ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>',return if GetStockTime($DT->{time})<$usetime;
 
 	$disp.=<<STR;
 	<FORM ACTION="action.cgi" $METHOD>
@@ -89,7 +89,7 @@ $disp.='<BIG>œ•ºm‰ğŒÙ</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT-
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=bk VALUE="army">
 	<INPUT TYPE=hidden NAME=mode VALUE="fire">
-	<BIG>œ•ºm‰ğŒÙ</BIG>F •ºm‚ğ 
+	<BIG>â—å…µå£«è§£é›‡</BIG>ï¼š å…µå£«ã‚’ 
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 STR
@@ -97,7 +97,7 @@ STR
 	$msg{5000}=5000;
 	$msg{10000}=10000;
 	$msg{20000}=20000;
-	$msg{$stock}="$stock(•ºmÅ‘å)";
+	$msg{$stock}="$stock(å…µå£«æœ€å¤§)";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1000,5000,10000,20000,$stock))
 	{
@@ -107,11 +107,11 @@ STR
 	}
 	$disp.=<<STR;
 	</SELECT>
-	 lA‚à‚µ‚­‚Í 
-	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> l
-	<INPUT TYPE=SUBMIT VALUE="‰ğŒÙ‚·‚é">
+	 äººã€ã‚‚ã—ãã¯ 
+	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2> äºº
+	<INPUT TYPE=SUBMIT VALUE="è§£é›‡ã™ã‚‹">
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 }
 
 
@@ -120,8 +120,8 @@ sub ArmyRebel
 return if ($STATE->{leader}==$DT->{id});
 my $usetime=60*30;
 $disp.="<hr width=500 noshade size=1>";
-$disp.='<BIG>œ•‘•–I‹N</BIG>F”½—‚É•K—v‚È•ºm”‚ª‘«‚è‚Ü‚¹‚ñB<BR>',return if ($ARMY{$DT->{id}} < 2500);
-$disp.='<BIG>œ•‘•–I‹N</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT->{time})<$usetime;
+$disp.='<BIG>â—æ­¦è£…èœ‚èµ·</BIG>ï¼šåä¹±ã«å¿…è¦ãªå…µå£«æ•°ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚<BR>',return if ($ARMY{$DT->{id}} < 2500);
+$disp.='<BIG>â—æ­¦è£…èœ‚èµ·</BIG>ï¼šæ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>',return if GetStockTime($DT->{time})<$usetime;
 
 	$disp.=<<STR;
 	<FORM ACTION="action.cgi" $METHOD>
@@ -129,12 +129,12 @@ $disp.='<BIG>œ•‘•–I‹N</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT-
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=bk VALUE="army">
 	<INPUT TYPE=hidden NAME=mode VALUE="rebelon">
-	<BIG>œ•‘•–I‹N</BIG>F 
+	<BIG>â—æ­¦è£…èœ‚èµ·</BIG>ï¼š 
 	<INPUT TYPE=TEXT NAME=cmd SIZE=10 VALUE="">
-	(rebel ‚Æ“ü—Í)
-	”½—‚ğ <INPUT TYPE=SUBMIT VALUE="ŠJn‚·‚é">
+	(rebel ã¨å…¥åŠ›)
+	åä¹±ã‚’ <INPUT TYPE=SUBMIT VALUE="é–‹å§‹ã™ã‚‹">
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 }
 
 
@@ -142,7 +142,7 @@ sub ArmyAction
 {
 my $usetime=60*20;
 $disp.="<hr width=500 noshade size=1>";
-$disp.='<BIG>œ”½—‰Á¨</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT->{time})<$usetime;
+$disp.='<BIG>â—åä¹±åŠ å‹¢</BIG>ï¼šæ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>',return if GetStockTime($DT->{time})<$usetime;
 
 	$disp.=<<STR;
 	<FORM ACTION="action.cgi" $METHOD>
@@ -150,16 +150,16 @@ $disp.='<BIG>œ”½—‰Á¨</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT-
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=bk VALUE="army">
 	<INPUT TYPE=hidden NAME=mode VALUE="rside">
-	<BIG>œ”½—‰Á¨</BIG>F 
+	<BIG>â—åä¹±åŠ å‹¢</BIG>ï¼š 
 	<INPUT TYPE=TEXT NAME=cmd SIZE=10 VALUE="">
-	(rebel ‚Æ“ü—Í)
-	”½—‚É <INPUT TYPE=SUBMIT VALUE="ŒÄ‰‚·‚é">
+	(rebel ã¨å…¥åŠ›)
+	åä¹±ã« <INPUT TYPE=SUBMIT VALUE="å‘¼å¿œã™ã‚‹">
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 
 $usetime=60*20;
 $disp.="<hr width=500 noshade size=1>";
-$disp.='<BIG>œŒì‰q‹¦—Í</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT->{time})<$usetime;
+$disp.='<BIG>â—è­·è¡›å”åŠ›</BIG>ï¼šæ™‚é–“ãŒè¶³ã‚Šã¾ã›ã‚“<BR>',return if GetStockTime($DT->{time})<$usetime;
 
 	$disp.=<<STR;
 	<FORM ACTION="action.cgi" $METHOD>
@@ -167,8 +167,8 @@ $disp.='<BIG>œŒì‰q‹¦—Í</BIG>FŠÔ‚ª‘«‚è‚Ü‚¹‚ñ<BR>',return if GetStockTime($DT-
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=bk VALUE="army">
 	<INPUT TYPE=hidden NAME=mode VALUE="lside">
-	<BIG>œŒì‰q‹¦—Í</BIG>F 
-	•ºm‚ğ—Ìå‚ÌŒì‰qŒR‚É <INPUT TYPE=SUBMIT VALUE="”hŒ­‚·‚é">
+	<BIG>â—è­·è¡›å”åŠ›</BIG>ï¼š 
+	å…µå£«ã‚’é ˜ä¸»ã®è­·è¡›è»ã« <INPUT TYPE=SUBMIT VALUE="æ´¾é£ã™ã‚‹">
 STR
-	$disp.="(Á”ïŠÔ:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(æ¶ˆè²»æ™‚é–“:".GetTime2HMS($usetime).")</FORM>";
 }

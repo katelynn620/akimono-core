@@ -1,6 +1,6 @@
-# —Ìå“@ 2004/01/20 —R˜Ò
+# é ˜ä¸»é‚¸ 2004/01/20 ç”±ä¾†
 
-$image[0]=GetTagImgKao("‘åb","minister");
+$image[0]=GetTagImgKao("å¤§è‡£","minister");
 Lock();
 DataRead();
 CheckUserPass();
@@ -21,23 +21,23 @@ sub inside
 if ($Q{taxrate} =~ /([^0-9])/
 	|| $Q{devem} =~ /([^0-9])/
 	|| $Q{safem} =~ /([^0-9])/
-	) { OutError('g—p‚Å‚«‚é•¶š‚Í”¼Šp”š‚¾‚¯‚Å‚·'); }
-OutError($image[0].'‚¢‚­‚ç‰½‚Å‚à‚»‚ê‚Í‚‚·‚¬‚Æ‚¢‚¤‚à‚Ì‚Å‚·‚¼B') if ($Q{taxrate} > 40) ;
-OutError($image[0].'ˆê“x‚É‚»‚ê‚¾‚¯‘Îô”ï‚ğ‚Â‚¬‚±‚ñ‚Å‚à–³ˆÓ–¡‚Å‚·‚¼B') if ($Q{devem} > 10000000 || $Q{safem} > 10000000) ;
+	) { OutError('ä½¿ç”¨ã§ãã‚‹æ–‡å­—ã¯åŠè§’æ•°å­—ã ã‘ã§ã™'); }
+OutError($image[0].'ã„ãã‚‰ä½•ã§ã‚‚ãã‚Œã¯é«˜ã™ãã¨ã„ã†ã‚‚ã®ã§ã™ãã€‚') if ($Q{taxrate} > 40) ;
+OutError($image[0].'ä¸€åº¦ã«ãã‚Œã ã‘å¯¾ç­–è²»ã‚’ã¤ãã“ã‚“ã§ã‚‚ç„¡æ„å‘³ã§ã™ãã€‚') if ($Q{devem} > 10000000 || $Q{safem} > 10000000) ;
 
 $Q{taxrate}=0 if $Q{taxrate}<0;
 $Q{devem}=0 if $Q{devem}<0;
 $Q{safem}=0 if $Q{safem}<0;
 my $taxrate=int($Q{taxrate});
-$disp.="ŠX‚Ì“à­•ûj‚ğ•ÏX‚µ‚Ü‚µ‚½B";
+$disp.="è¡—ã®å†…æ”¿æ–¹é‡ã‚’å¤‰æ›´ã—ã¾ã—ãŸã€‚";
 
 if ($DTTaxrate != $taxrate )
 	{
-	my $i="ˆø‚«ã‚°‚Ü‚µ‚½";
-	$i="ˆø‚«‰º‚°‚Ü‚µ‚½" if $DTTaxrate > $taxrate;
+	my $i="å¼•ãä¸Šã’ã¾ã—ãŸ";
+	$i="å¼•ãä¸‹ã’ã¾ã—ãŸ" if $DTTaxrate > $taxrate;
 	$DTTaxrate=int($Q{taxrate});
-	PushLog(2,0,"—Ìå".$DT->{name}."‚ÍŠX‚ÌÅ—¦‚ğ$taxrate%‚É$iB");
-	$disp.="<br>ŠX‚ÌÅ—¦‚ğ$taxrate%‚É$iB";
+	PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯è¡—ã®ç¨ç‡ã‚’$taxrate%ã«$iã€‚");
+	$disp.="<br>è¡—ã®ç¨ç‡ã‚’$taxrate%ã«$iã€‚";
 	}
 $STATE->{devem}=int($Q{devem});
 $STATE->{safem}=int($Q{safem});
@@ -45,46 +45,46 @@ $STATE->{safem}=int($Q{safem});
 
 sub outside
 {
-OutError('”½—’†‚Ì‚½‚ßŒÙ—p‚Å‚«‚Ü‚¹‚ñB') if $DTevent{rebel};
+OutError('åä¹±ä¸­ã®ãŸã‚é›‡ç”¨ã§ãã¾ã›ã‚“ã€‚') if $DTevent{rebel};
 my $stock=int($STATE->{money} / 1200);
 $count=CheckCount($Q{cnt1},$Q{cnt2},0,$stock);
-OutError('ŒÙ—pl”‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if !$count;
+OutError('é›‡ç”¨äººæ•°ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if !$count;
 $STATE->{money}-=$count * 1200;
 $STATE->{army}+=$count;
-$disp.="Œì‰qŒR‚ğ$countlŒÙ‚¢‚Ü‚µ‚½B";
+$disp.="è­·è¡›è»ã‚’$countäººé›‡ã„ã¾ã—ãŸã€‚";
 }
 
 sub outdel
 {
-OutError('”½—’†‚Ì‚½‚ß‰ğŒÙ‚Å‚«‚Ü‚¹‚ñB') if $DTevent{rebel};
+OutError('åä¹±ä¸­ã®ãŸã‚è§£é›‡ã§ãã¾ã›ã‚“ã€‚') if $DTevent{rebel};
 $count=CheckCount($Q{cnt1},$Q{cnt2},0,$STATE->{army});
-OutError('‰ğŒÙl”‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢') if !$count;
+OutError('è§£é›‡äººæ•°ã‚’æŒ‡å®šã—ã¦ãã ã•ã„') if !$count;
 $STATE->{army}-=$count;
-$disp.="Œì‰qŒR‚ğ$countl‰ğŒÙ‚µ‚Ü‚µ‚½B";
+$disp.="è­·è¡›è»ã‚’$countäººè§£é›‡ã—ã¾ã—ãŸã€‚";
 }
 
 sub taxside
 {
-OutError('‘ÎÛ“X‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B') if !defined($id2idx{$Q{tg}});
+OutError('å¯¾è±¡åº—ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚') if !defined($id2idx{$Q{tg}});
 my $i=$id2idx{$Q{tg}};
 if ($Q{md} eq "free")
 	{
-	PushLog(2,0,"—Ìå".$DT->{name}."‚Í".$DT[$i]->{shopname}."‚ÌÅ‚ğ–Æœ‚µ‚Ü‚µ‚½B") if ($DT[$i]->{taxmode}!=1);
+	PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯".$DT[$i]->{shopname}."ã®ç¨ã‚’å…é™¤ã—ã¾ã—ãŸã€‚") if ($DT[$i]->{taxmode}!=1);
 	$DT[$i]->{taxmode}=1;
-	$disp.=$DT[$i]->{shopname}."‚ÌÅ‚ğ–Æœ‚µ‚Ü‚µ‚½B";
+	$disp.=$DT[$i]->{shopname}."ã®ç¨ã‚’å…é™¤ã—ã¾ã—ãŸã€‚";
 	}
 elsif ($Q{md} eq "double")
 	{
-	PushLog(2,0,"—Ìå".$DT->{name}."‚Í".$DT[$i]->{shopname}."‚ÌÅ—¦‚ğ”{‚É‚µ‚Ü‚µ‚½B") if ($DT[$i]->{taxmode}!=2);
+	PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯".$DT[$i]->{shopname}."ã®ç¨ç‡ã‚’å€ã«ã—ã¾ã—ãŸã€‚") if ($DT[$i]->{taxmode}!=2);
 	$DT[$i]->{taxmode}=2;
-	$disp.=$DT[$i]->{shopname}."‚ÌÅ—¦‚ğ”{‚É‚µ‚Ü‚µ‚½B";
+	$disp.=$DT[$i]->{shopname}."ã®ç¨ç‡ã‚’å€ã«ã—ã¾ã—ãŸã€‚";
 	}
 	else
 	{
-	PushLog(2,0,"—Ìå".$DT->{name}."‚Í".$DT[$i]->{shopname}."‚Ì–ÆÅ‚ğæ‚è‚â‚ß‚Ü‚µ‚½B") if ($DT[$i]->{taxmode}==1);
-	PushLog(2,0,"—Ìå".$DT->{name}."‚Í".$DT[$i]->{shopname}."‚Ì”{Å‚ğæ‚è‚â‚ß‚Ü‚µ‚½B") if ($DT[$i]->{taxmode}==2);
+	PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯".$DT[$i]->{shopname}."ã®å…ç¨ã‚’å–ã‚Šã‚„ã‚ã¾ã—ãŸã€‚") if ($DT[$i]->{taxmode}==1);
+	PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯".$DT[$i]->{shopname}."ã®å€ç¨ã‚’å–ã‚Šã‚„ã‚ã¾ã—ãŸã€‚") if ($DT[$i]->{taxmode}==2);
 	delete $DT[$i]->{taxmode};
-	$disp.=$DT[$i]->{shopname}."‚ÌÅ‚ğ’Êí‚É–ß‚µ‚Ü‚µ‚½B";
+	$disp.=$DT[$i]->{shopname}."ã®ç¨ã‚’é€šå¸¸ã«æˆ»ã—ã¾ã—ãŸã€‚";
 	}
 }
 
@@ -93,22 +93,22 @@ sub treset
 foreach (@DT) {
 	delete $_->{taxmode};
 }
-PushLog(2,0,"—Ìå".$DT->{name}."‚Í”{Å‚â–ÆÅ‚ğ‚·‚×‚Äæ‚è‚â‚ß‚Ü‚µ‚½B");
-$disp.="‘S‚Ä‚Ì“X‚ÌÅ—¦‚ğ’Êí‚É–ß‚µ‚Ü‚µ‚½B";
+PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯å€ç¨ã‚„å…ç¨ã‚’ã™ã¹ã¦å–ã‚Šã‚„ã‚ã¾ã—ãŸã€‚");
+$disp.="å…¨ã¦ã®åº—ã®ç¨ç‡ã‚’é€šå¸¸ã«æˆ»ã—ã¾ã—ãŸã€‚";
 }
 
 sub expose
 {
-OutError('”½—’†‚Ì‚½‚ßÀs‚Å‚«‚Ü‚¹‚ñB') if $DTevent{rebel};
-OutError('‘ÎÛ“X‚ğ‘I‘ğ‚µ‚Ä‚­‚¾‚³‚¢B') if !defined($id2idx{$Q{tg}});
-OutError('”ï—p‚ª‘«‚è‚Ü‚¹‚ñB') if ($STATE->{money} < 1000000);
+OutError('åä¹±ä¸­ã®ãŸã‚å®Ÿè¡Œã§ãã¾ã›ã‚“ã€‚') if $DTevent{rebel};
+OutError('å¯¾è±¡åº—ã‚’é¸æŠã—ã¦ãã ã•ã„ã€‚') if !defined($id2idx{$Q{tg}});
+OutError('è²»ç”¨ãŒè¶³ã‚Šã¾ã›ã‚“ã€‚') if ($STATE->{money} < 1000000);
 my $i=$id2idx{$Q{tg}};
-OutError($image[0].'‚»‚Ì“X•Ü‚É‘Î‚·‚éæ‚è’÷‚Ü‚è‚Í‚ ‚Ü‚èˆÓ–¡‚ª‚È‚¢‚æ‚¤‚Å‚·‚¼B') if ($DT[$i]->{rank} < 2000) ;
+OutError($image[0].'ãã®åº—èˆ—ã«å¯¾ã™ã‚‹å–ã‚Šç· ã¾ã‚Šã¯ã‚ã¾ã‚Šæ„å‘³ãŒãªã„ã‚ˆã†ã§ã™ãã€‚') if ($DT[$i]->{rank} < 2000) ;
 $STATE->{money}-=1000000;
 $DT[$i]->{rank}=int($DT[$i]->{rank} / 10);
 $STATE->{safety}+=500;
 $STATE->{safety}=10000 if $STATE->{safety} > 10000;
-PushLog(2,0,"—Ìå".$DT->{name}."‚Í".$DT[$i]->{shopname}."‚É‘Î‚µ‚Äæ‚è’÷‚Ü‚è‚ğs‚¢‚Ü‚µ‚½B");
-$disp.=$DT[$i]->{shopname}."‚É‘Î‚µ‚Äæ‚è’÷‚Ü‚è‚ğs‚¢‚Ü‚µ‚½B";
+PushLog(2,0,"é ˜ä¸»".$DT->{name}."ã¯".$DT[$i]->{shopname}."ã«å¯¾ã—ã¦å–ã‚Šç· ã¾ã‚Šã‚’è¡Œã„ã¾ã—ãŸã€‚");
+$disp.=$DT[$i]->{shopname}."ã«å¯¾ã—ã¦å–ã‚Šç· ã¾ã‚Šã‚’è¡Œã„ã¾ã—ãŸã€‚";
 }
 

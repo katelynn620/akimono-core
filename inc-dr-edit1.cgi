@@ -1,4 +1,4 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX ’²‹³ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ èª¿æ•™ 2005/03/30 ç”±ä¾†
 
 my $stflag=0;
 ReadDragon();
@@ -6,37 +6,37 @@ ReadStable();
 ReadRanch();
 foreach(0..$#DR)
 	{
-	$DR[$_]->{race}=0 if ($DR[$_]->{race}==1);	#—‘I‚ğ‘Ò‹@‚É‰ü‚ß‚é
-	next if ($DR[$_]->{race});			#o‘–’†‚Ìƒhƒ‰ƒSƒ“‚Í•Ï‰»‚È‚µ
+	$DR[$_]->{race}=0 if ($DR[$_]->{race}==1);	#è½é¸ã‚’å¾…æ©Ÿã«æ”¹ã‚ã‚‹
+	next if ($DR[$_]->{race});			#å‡ºèµ°ä¸­ã®ãƒ‰ãƒ©ã‚´ãƒ³ã¯å¤‰åŒ–ãªã—
 
 	if ($NOW_TIME-$DR[$_]->{birth} > $DRretire * 4)
 		{
-		# ˆø‘Ş
-		PushDraLog(0,$DR[$_]->{name}."‚Íˆø‘Ş‚µ‚Ü‚µ‚½B");
+		# å¼•é€€
+		PushDraLog(0,$DR[$_]->{name}."ã¯å¼•é€€ã—ã¾ã—ãŸã€‚");
 		undef $DR[$_];
 		next;
 		}
 
-	next if ($NOW_TIME-$DR[$_]->{birth} > ($DRretire * 5 / 2 + $DR[$_]->{hl} * 86400 / 10));	# ‘Ì—Í‚ÌŒÀŠE
+	next if ($NOW_TIME-$DR[$_]->{birth} > ($DRretire * 5 / 2 + $DR[$_]->{hl} * 86400 / 10));	# ä½“åŠ›ã®é™ç•Œ
 
-	$DR[$_]->{wt}+=int(rand(3)) - 1;			#‘Ìd•Ï“®
+	$DR[$_]->{wt}+=int(rand(3)) - 1;			#ä½“é‡å¤‰å‹•
 	$DR[$_]->{wt}=38 if ($DR[$_]->{wt} < 38);
 	$DR[$_]->{wt}=62 if ($DR[$_]->{wt} > 62);
 
-	$DR[$_]->{con}+=int(rand(3) + $DR[$_]->{hl} / 20) + 1;	#‘Ì’²‰ñ•œ
+	$DR[$_]->{con}+=int(rand(3) + $DR[$_]->{hl} / 20) + 1;	#ä½“èª¿å›å¾©
 	$DR[$_]->{con}=100 if ($DR[$_]->{con} > 100);
 
 	my $id=$DR[$_]->{stable};
-	next if (!defined $id2st{$id});			#‰XÉ‚ÉŠ‘®‚µ‚Ä‚¢‚È‚¯‚ê‚Î’²‹³‚È‚µ
+	next if (!defined $id2st{$id});			#å©èˆã«æ‰€å±ã—ã¦ã„ãªã‘ã‚Œã°èª¿æ•™ãªã—
 	my $cnt=$id2st{$id};
 
-	WritePayLog($DR[$_]->{town},$DR[$_]->{owner},-$STcost);	#—a‘õ—¿
+	WritePayLog($DR[$_]->{town},$DR[$_]->{owner},-$STcost);	#é è¨—æ–™
 	WritePayLog($ST[$cnt]->{town},$ST[$cnt]->{owner},$STcost);
 
-	$DR[$_]->{con}+=int($ST[$cnt]->{con} / 25)+1;	#‘Ì’²ŠÇ—
+	$DR[$_]->{con}+=int($ST[$cnt]->{con} / 25)+1;	#ä½“èª¿ç®¡ç†
 	if ($ST[$cnt]->{wt} + 100 > rand(200))
 		{
-		#‘ÌdŠÇ—
+		#ä½“é‡ç®¡ç†
 		$DR[$_]->{wt}+=2 if ($DR[$_]->{wt} < 50);
 		$DR[$_]->{wt}-=2 if ($DR[$_]->{wt} > 50);
 		}
@@ -44,7 +44,7 @@ foreach(0..$#DR)
 	$DR[$_]->{gr}+=int($ST[$cnt]->{tr} / 10 + rand(7) + 23);
 	next if ($DR[$_]->{gr} < 100);
 
-	#¬’·
+	#æˆé•·
 	$DR[$_]->{gr}-=100;
 		
 	my @grow=qw(
@@ -68,8 +68,8 @@ foreach(0..$#ST)
 	{
 	if ($NOW_TIME-$ST[$_]->{birth} > $STtime)
 		{
-		# ˜V‹€‰»
-		PushDraLog(0,$ST[$_]->{name}."‚Í˜V‹€‰»‚É‚æ‚è•Â½‚µ‚Ü‚µ‚½B");
+		# è€æœ½åŒ–
+		PushDraLog(0,$ST[$_]->{name}."ã¯è€æœ½åŒ–ã«ã‚ˆã‚Šé–‰é–ã—ã¾ã—ãŸã€‚");
 		undef $ST[$_];
 		$stflag++;
 		next;

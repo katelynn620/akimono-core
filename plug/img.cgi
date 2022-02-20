@@ -1,4 +1,4 @@
-# img ƒvƒ‰ƒOƒCƒ“ 2003/09/25 —R˜Ò
+# img ãƒ—ãƒ©ã‚°ã‚¤ãƒ³ 2003/09/25 ç”±ä¾†
 
 sub GetTagImgGuild
 {
@@ -6,7 +6,7 @@ sub GetTagImgGuild
 	
 	return "" if $guildcode eq '';
 	my $name=$GUILD{$guildcode}->[$GUILDIDX_name];
-	$name="•s–¾" if $name eq '';
+	$name="ä¸æ˜" if $name eq '';
 	return $name if $MOBILE || $noimage;
 	return qq|<IMG class="s" ALT="$name" SRC="$COMMON_URL/$guildcode.gif"> |;
 }
@@ -36,6 +36,6 @@ sub GetTagImgItemType
 	}
 	
 	return "" if $mode==2;
-	return $ITEMTYPE[$type].($mode==1?'ê–å“X':'').":";
+	return $ITEMTYPE[$type].($mode==1?'å°‚é–€åº—':'').":";
 }
 1;

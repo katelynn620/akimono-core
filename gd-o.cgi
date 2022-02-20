@@ -1,4 +1,4 @@
-# ÉMÉãÉhè⁄ç◊ 2004/01/20 óRò“
+# „ÇÆ„É´„ÉâË©≥Á¥∞ 2004/01/20 Áî±‰æÜ
 
 DataRead();
 CheckUserPass(1);
@@ -12,7 +12,7 @@ foreach(@DT)
 	$idx++;
 	next if ($_->{guild} ne $Q{g});
 	$guildDT[$Gcount]=$_;
-	$guildDT[$Gcount]->{count}=$idx;	#èáà èÓïÒÇéÊìæÇµÇƒÇ®Ç≠
+	$guildDT[$Gcount]->{count}=$idx;	#È†Ü‰ΩçÊÉÖÂ†±„ÇíÂèñÂæó„Åó„Å¶„Åä„Åè
 	$Gcount++;
 }
 
@@ -24,14 +24,14 @@ my $lt=$GUILD_DETAIL{$Q{g}}->{leadt};
 my $staff=$GUILD_DETAIL{$Q{g}}->{$MYDIR};
 
 $disp.="<table width=520>";
-$disp.=$TR.$TDB.'ê≥éÆñºèÃ'.$TD."<b>".GetTagImgGuild($Q{g}).$GUILD_DETAIL{$Q{g}}->{name}."</b>";
+$disp.=$TR.$TDB.'Ê≠£ÂºèÂêçÁß∞'.$TD."<b>".GetTagImgGuild($Q{g}).$GUILD_DETAIL{$Q{g}}->{name}."</b>";
 if ($GUILD_DETAIL{$Q{g}}->{url})
 	{$disp.=qq| <a target="_blank" href="action.cgi?key=jump&guild=$Q{g}">[HP]</a>|;}
 $disp.=$TRE;
-$disp.=$TR.$TDB.'ící∑'.$TD.SearchLetterName($GUILD_DETAIL{$Q{g}}->{leader},$lt)." ($Tname{$lt})".$TRE;
-$disp.=$TR.$TDB.'äXÇÃåRét'.$TD.(defined($id2idx{$staff}) ? $DT[$id2idx{$staff}]->{shopname} : "ïsç›").$TRE;
-$disp.=$TR.$TDB.'äàìÆè–âÓ'.$TD.$GUILD_DETAIL{$Q{g}}->{appeal}.$TRE;
-$disp.=$TR.$TDB.'ì¸ícèåè'.$TD.$GUILD_DETAIL{$Q{g}}->{needed}.$TRE;
+$disp.=$TR.$TDB.'Âõ£Èï∑'.$TD.SearchLetterName($GUILD_DETAIL{$Q{g}}->{leader},$lt)." ($Tname{$lt})".$TRE;
+$disp.=$TR.$TDB.'Ë°ó„ÅÆËªçÂ∏´'.$TD.(defined($id2idx{$staff}) ? $DT[$id2idx{$staff}]->{shopname} : "‰∏çÂú®").$TRE;
+$disp.=$TR.$TDB.'Ê¥ªÂãïÁ¥π‰ªã'.$TD.$GUILD_DETAIL{$Q{g}}->{appeal}.$TRE;
+$disp.=$TR.$TDB.'ÂÖ•Âõ£Êù°‰ª∂'.$TD.$GUILD_DETAIL{$Q{g}}->{needed}.$TRE;
 $disp.=$TBE;
 
 my $pagecontrol=GetPageControl($pageprev,$pagenext,"g=".$Q{g},"",$pagemax,$page);
@@ -40,21 +40,21 @@ $disp.=$pagecontrol."<BR>";
 $disp.=$TB;
 
 	$disp.=$TR;
-	$disp.=$TDB."ì_êî";
-	$disp.=$TDB."ìXí∑";
-	$disp.=$TDB."ÉWÉáÉu";
-	$disp.=$TDB."å®èëÇ´Å@ìXñº";
-	$disp.=$TDB."è§ïi Åyënã∆Åz ÉRÉÅÉìÉg";
+	$disp.=$TDB."ÁÇπÊï∞";
+	$disp.=$TDB."Â∫óÈï∑";
+	$disp.=$TDB."„Ç∏„Éß„Éñ";
+	$disp.=$TDB."ËÇ©Êõ∏„Åç„ÄÄÂ∫óÂêç";
+	$disp.=$TDB."ÂïÜÂìÅ „ÄêÂâµÊ•≠„Äë „Ç≥„É°„É≥„Éà";
 	$disp.=$TRE;
 
 foreach my $idx ($pagestart..$pageend)
 {
 	my $DT=$guildDT[$idx];
-	my $rankupdown="(êV)";
+	my $rankupdown="(Êñ∞)";
 	if($DT->{rankingyesterday})
 	{
 		$rankupdown=$DT->{rankingyesterday}-$DT->{count}-1;
-		$rankupdown=$rankupdown==0 ? " Å® ": $rankupdown<0 ? "Å´".(-$rankupdown) : "Å™".$rankupdown;
+		$rankupdown=$rankupdown==0 ? " ‚Üí ": $rankupdown<0 ? "‚Üì".(-$rankupdown) : "‚Üë".$rankupdown;
 		$rankupdown="<small>($rankupdown)</small>";
 	}
 	my $itemtype=-1;
@@ -83,7 +83,7 @@ foreach my $idx ($pagestart..$pageend)
 	$disp.=DignityDefine($DT->{dignity},1);
 	
 	$disp.=$TD.$tdh_sc.$itempro.$salelist."<BR>";
-	$disp.=$tdh_fd."Åy".GetTime2found($NOW_TIME-$DT->{foundation})."Åz";
+	$disp.=$tdh_fd."„Äê".GetTime2found($NOW_TIME-$DT->{foundation})."„Äë";
 	$disp.=$tdh_cm.$DT->{comment} if $DT->{comment};
 	$disp.=$TRE;
 }

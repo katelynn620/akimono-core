@@ -1,22 +1,22 @@
-# ƒAƒCƒeƒ€ƒŠƒXƒg 2005/03/30 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ ãƒªã‚¹ãƒˆ 2005/03/30 ç”±ä¾†
 
-# -------- Ý’è•”•ª ---------
-# ‰{——Ý’è
-$listcheck=2;		# ƒAƒCƒeƒ€Ð‰î‚Í0:“X•ÜŠ—LŽÒ‚µ‚©Œ©‚ê‚È‚¢C 1:’N‚Å‚àŒ©‚ê‚éC 2:ŠÇ—ŽÒ‚µ‚©Œ©‚ê‚È‚¢i„§jB
+# -------- è¨­å®šéƒ¨åˆ† ---------
+# é–²è¦§è¨­å®š
+$listcheck=2;		# ã‚¢ã‚¤ãƒ†ãƒ ç´¹ä»‹ã¯0:åº—èˆ—æ‰€æœ‰è€…ã—ã‹è¦‹ã‚Œãªã„ï¼Œ 1:èª°ã§ã‚‚è¦‹ã‚Œã‚‹ï¼Œ 2:ç®¡ç†è€…ã—ã‹è¦‹ã‚Œãªã„ï¼ˆæŽ¨å¥¨ï¼‰ã€‚
 
-# ƒvƒŒƒCƒ„[‚É‚ÍŒ©‚¹‚È‚¢ƒAƒCƒeƒ€i”Ô†‚ÅŽw’èj
-# Žw’è—ác $DENYITEM='25,86';  ©No.25‚Æ86‚ð•\Ž¦‚µ‚È‚¢B
+# ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã«ã¯è¦‹ã›ãªã„ã‚¢ã‚¤ãƒ†ãƒ ï¼ˆç•ªå·ã§æŒ‡å®šï¼‰
+# æŒ‡å®šä¾‹â€¦ $DENYITEM='25,86';  â†No.25ã¨86ã‚’è¡¨ç¤ºã—ãªã„ã€‚
 
 $DENYITEM='';
 
-# ƒvƒŒƒCƒ„[‚ªŒ©‚é‚Æ‚«‚Ì•\Ž¦Ý’è
-$design_no=0;		#ƒAƒCƒeƒ€‚m‚‚ð0:•\Ž¦‚µ‚È‚¢i„§jC 1:•\Ž¦‚·‚éB
-$design_sale=0;		#”„‚ês‚«‚ð0:•\Ž¦‚µ‚È‚¢i„§jC 1:•\Ž¦‚·‚éB
-$design_prof=1;		#—˜‰v—¦‚ð0:”’l‚Å•\Ž¦C 1:‚T’iŠK•\Ž¦i„§jB
-$design_rank=1;		#l‹C—¦‚ð0:”’l‚Å•\Ž¦C 1:‚T’iŠK•\Ž¦i„§jB
-$design_plus=1;		#Žsê“ü‰×‚ð0:”’l‚Å•\Ž¦C 1:›~‚Å•\Ž¦i„§jB
+# ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒè¦‹ã‚‹ã¨ãã®è¡¨ç¤ºè¨­å®š
+$design_no=0;		#ã‚¢ã‚¤ãƒ†ãƒ ï¼®ï½ã‚’0:è¡¨ç¤ºã—ãªã„ï¼ˆæŽ¨å¥¨ï¼‰ï¼Œ 1:è¡¨ç¤ºã™ã‚‹ã€‚
+$design_sale=0;		#å£²ã‚Œè¡Œãã‚’0:è¡¨ç¤ºã—ãªã„ï¼ˆæŽ¨å¥¨ï¼‰ï¼Œ 1:è¡¨ç¤ºã™ã‚‹ã€‚
+$design_prof=1;		#åˆ©ç›ŠçŽ‡ã‚’0:æ•°å€¤ã§è¡¨ç¤ºï¼Œ 1:ï¼•æ®µéšŽè¡¨ç¤ºï¼ˆæŽ¨å¥¨ï¼‰ã€‚
+$design_rank=1;		#äººæ°—çŽ‡ã‚’0:æ•°å€¤ã§è¡¨ç¤ºï¼Œ 1:ï¼•æ®µéšŽè¡¨ç¤ºï¼ˆæŽ¨å¥¨ï¼‰ã€‚
+$design_plus=1;		#å¸‚å ´å…¥è·ã‚’0:æ•°å€¤ã§è¡¨ç¤ºï¼Œ 1:â—‹Ã—ã§è¡¨ç¤ºï¼ˆæŽ¨å¥¨ï¼‰ã€‚
 
-# -------- Ý’èŠ®—¹ ---------
+# -------- è¨­å®šå®Œäº† ---------
 
 DataRead();
 CheckUserPass($listcheck);
@@ -31,10 +31,10 @@ $design_sale=1;
 $design_prof=0;
 $design_rank=0;
 $design_plus=0;
-$disp.="<BIG>œƒAƒCƒeƒ€ƒf[ƒ^</BIG><br><br>";
+$disp.="<BIG>â—ã‚¢ã‚¤ãƒ†ãƒ ãƒ‡ãƒ¼ã‚¿</BIG><br><br>";
 } else {
 OutError("bad request") if ($listcheck == 2);
-$disp.="<BIG>œƒAƒCƒeƒ€Ð‰î</BIG><br><br>";
+$disp.="<BIG>â—ã‚¢ã‚¤ãƒ†ãƒ ç´¹ä»‹</BIG><br><br>";
 }
 
 my $tp=int($Q{tp}+0);
@@ -67,14 +67,14 @@ $disp.=GetPageControl($pageprev,$pagenext,"tp=$tp","",$pagemax,$page);
 $disp.=$TB;
 $disp.=$TR;
 $disp.=$TDB.'No.' if $design_no;
-$disp.=$TDB.'¤•i–¼';
-$disp.=$TDB.'•W€‰¿Ši';
-$disp.=$TDB.'ˆÛŽ”ï';
-$disp.=$TDB.'”„s' if $design_sale;
-$disp.=$TDB.'—˜‰v—¦';
-$disp.=$TDB.'l‹C—¦';
-$disp.=$TDB.'“ü‰×';
-$disp.=$TDB.'à–¾';
+$disp.=$TDB.'å•†å“å';
+$disp.=$TDB.'æ¨™æº–ä¾¡æ ¼';
+$disp.=$TDB.'ç¶­æŒè²»';
+$disp.=$TDB.'å£²è¡Œ' if $design_sale;
+$disp.=$TDB.'åˆ©ç›ŠçŽ‡';
+$disp.=$TDB.'äººæ°—çŽ‡';
+$disp.=$TDB.'å…¥è·';
+$disp.=$TDB.'èª¬æ˜Ž';
 $disp.=$TRE;
 foreach my $ITEM ((sort{$a->{sort} <=> $b->{sort}} values(%adminitemlist))[$pagestart..$pageend])
 {
@@ -88,7 +88,7 @@ foreach my $ITEM ((sort{$a->{sort} <=> $b->{sort}} values(%adminitemlist))[$page
 
 	my $admin_item=int($ITEM->{popular}/$SALE_SPEED);
 
-	$disp.=$TDNW.($admin_item ? GetTime2HMS($admin_item) : "~")  if $design_sale;
+	$disp.=$TDNW.($admin_item ? GetTime2HMS($admin_item) : "Ã—")  if $design_sale;
 
 	if ($design_prof) {
 	$disp.=$TDNW.($admin_item ? GetStarRank(int($ITEM->{price} *24*6*6/10 / $admin_item)) : "");
@@ -103,8 +103,8 @@ foreach my $ITEM ((sort{$a->{sort} <=> $b->{sort}} values(%adminitemlist))[$page
 	}
 
 	if ($ITEM->{plus} > 0) { 
-	$disp.=($design_plus ? $TDNW."›" : $TDNW.GetTime2HMS($ITEM->{plus}));
-	} else { $disp.=$TDNW."~" }
+	$disp.=($design_plus ? $TDNW."â—‹" : $TDNW.GetTime2HMS($ITEM->{plus}));
+	} else { $disp.=$TDNW."Ã—" }
 
 	$disp.=$TDNW."<small>".$ITEM->{info}."</small>";
 	$disp.=$TRE;
@@ -114,7 +114,7 @@ $disp.=GetPageControl($pageprev,$pagenext,"tp=$tp","",$pagemax,$page);
 OutSkin();
 1;
 
-sub GetStarRank		#•\Ž¦‚ÌƒJƒXƒ^ƒ}ƒCƒY‰Â”\B
+sub GetStarRank		#è¡¨ç¤ºã®ã‚«ã‚¹ã‚¿ãƒžã‚¤ã‚ºå¯èƒ½ã€‚
 {
 	my($no)=@_;
 	my $flag='<font color="#cccc99">||</font>';

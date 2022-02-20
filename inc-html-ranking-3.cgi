@@ -1,69 +1,69 @@
-# “üÜƒŠƒXƒg•\¦ 2005/01/06 —R˜Ò
+# å…¥è³ãƒªã‚¹ãƒˆè¡¨ç¤º 2005/01/06 ç”±ä¾†
 
-$disp.="<BIG>œV•·F“üÜƒŠƒXƒg</BIG><br><br>";
+$disp.="<BIG>â—æ–°èï¼šå…¥è³ãƒªã‚¹ãƒˆ</BIG><br><br>";
 $disp.=$TB.$TR;
 
 	@DT=sort{$b->{rankingcount}<=>$a->{rankingcount}}@DT;
 
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>Å‘½—DŸ</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>—DŸ‰ñ”<br>".($DT[0]->{rankingcount}+0)."‰ñ";
+$disp.=$TD."<SPAN>æœ€å¤šå„ªå‹</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>å„ªå‹å›æ•°<br>".($DT[0]->{rankingcount}+0)."å›";
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=sort{$b->{taxyesterday}<=>$a->{taxyesterday}}@DT;
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>”[Åƒgƒbƒv</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>‘OŠú”[Å‹à<br>".GetMoneyString($DT[0]->{taxyesterday});
+$disp.=$TD."<SPAN>ç´ç¨ãƒˆãƒƒãƒ—</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>å‰æœŸç´ç¨é‡‘<br>".GetMoneyString($DT[0]->{taxyesterday});
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=sort{$b->{money}<=>$a->{money}}@DT;
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>‘å•x‹</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>‘‹à<br>".GetMoneyString($DT[0]->{money});
+$disp.=$TD."<SPAN>å¤§å¯Œè±ª</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>è³‡é‡‘<br>".GetMoneyString($DT[0]->{money});
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=reverse(@DT);
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>•n–Rƒqƒ}‚È‚µ</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>‘‹à<br>".GetMoneyString($DT[0]->{money});
+$disp.=$TD."<SPAN>è²§ä¹ãƒ’ãƒãªã—</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>è³‡é‡‘<br>".GetMoneyString($DT[0]->{money});
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=sort{$b->{costyesterday}<=>$a->{costyesterday}}@DT;
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>ˆÛ”ï‚©‚©‚è‚·‚¬</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>‘OŠúˆÛ”ï<br>".GetMoneyString($DT[0]->{costyesterday});
+$disp.=$TD."<SPAN>ç¶­æŒè²»ã‹ã‹ã‚Šã™ã</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>å‰æœŸç¶­æŒè²»<br>".GetMoneyString($DT[0]->{costyesterday});
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=sort{$b->{trush}<=>$a->{trush}}@DT;
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>‘|œƒTƒ{‚è‚·‚¬</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>‚²‚İ<br>".GetCleanMessage($DT[0]->{trush});
+$disp.=$TD."<SPAN>æƒé™¤ã‚µãƒœã‚Šã™ã</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>ã”ã¿<br>".GetCleanMessage($DT[0]->{trush});
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=sort{$b->{rank}<=>$a->{rank}}@DT;
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>‚½‚¾‚¢‚Ü‘ål‹C</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>l‹C<br>".GetRankMessage($DT[0]->{rank});
+$disp.=$TD."<SPAN>ãŸã ã„ã¾å¤§äººæ°—</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>äººæ°—<br>".GetRankMessage($DT[0]->{rank});
 $disp.="<td>".$DT[0]->{comment};
 
 	@DT=reverse(@DT);
 
 $disp.=$TRE.$TR;
 $disp.=$TDNW.$tdh_pt.GetTagImgKao($DT[0]->{name},$DT[0]->{icon});
-$disp.=$TD."<SPAN>‚¨‹q‚³‚ñ—ˆ‚Ä‚¥</SPAN><br><b>".$DT[0]->{shopname}."</b>";
-$disp.="<td>l‹C<br>".GetRankMessage($DT[0]->{rank});
+$disp.=$TD."<SPAN>ãŠå®¢ã•ã‚“æ¥ã¦ã‡</SPAN><br><b>".$DT[0]->{shopname}."</b>";
+$disp.="<td>äººæ°—<br>".GetRankMessage($DT[0]->{rank});
 $disp.="<td>".$DT[0]->{comment};
 
 $disp.="</td></tr></table>";

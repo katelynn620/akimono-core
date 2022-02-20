@@ -1,49 +1,49 @@
-# ŠÇ—‹@”\‰º¿‚¯ 2003/09/25 —R˜Ò
+# ç®¡ç†æ©Ÿèƒ½ä¸‹è«‹ã‘ 2003/09/25 ç”±ä¾†
 
 my $functionname=$Q{mode};
-OutError("•s³‚ÈƒŠƒNƒGƒXƒg‚Å‚·") if !defined(&$functionname);
+OutError("ä¸æ­£ãªãƒªã‚¯ã‚¨ã‚¹ãƒˆã§ã™") if !defined(&$functionname);
 &$functionname;
 
 sub menteon
 {
 	if(-d "$DATA_DIR/lock")
-		{push(@log,'Œ»İƒƒ“ƒeƒ‚[ƒh‚Å‚·');}
+		{push(@log,'ç¾åœ¨ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã§ã™');}
 	elsif(mkdir("$DATA_DIR/lock",$DIR_PERMISSION))
-		{push(@log,'ƒƒ“ƒeƒ‚[ƒh‚É“ü‚è‚Ü‚µ‚½');}
+		{push(@log,'ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã‚Šã¾ã—ãŸ');}
 	else
-		{push(@log,'ƒƒ“ƒeƒ‚[ƒh‚ÉˆÚs‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½',$checkdatadir);}
+		{push(@log,'ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã«ç§»è¡Œã§ãã¾ã›ã‚“ã§ã—ãŸ',$checkdatadir);}
 }
 
 sub menteoff
 {
 	if(!-d "$DATA_DIR/lock")
-		{push(@log,'Œ»İƒƒ“ƒeƒ‚[ƒh‚Å‚Í‚ ‚è‚Ü‚¹‚ñ');}
+		{push(@log,'ç¾åœ¨ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã§ã¯ã‚ã‚Šã¾ã›ã‚“');}
 	elsif(rmdir("$DATA_DIR/lock"))
-		{push(@log,'ƒƒ“ƒeƒ‚[ƒh‚ğ‰ğœ‚µ‚Ü‚µ‚½');}
+		{push(@log,'ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã‚’è§£é™¤ã—ã¾ã—ãŸ');}
 	else
-		{push(@log,'ƒƒ“ƒeƒ‚[ƒh‚Ì‰ğœ‚É¸”s‚µ‚Ü‚µ‚½',$checkdatadir);}
+		{push(@log,'ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã®è§£é™¤ã«å¤±æ•—ã—ã¾ã—ãŸ',$checkdatadir);}
 }
 
 sub errdel
 {
 	unlink("$DATA_DIR/error.log");
-	push(@log,'ƒGƒ‰[î•ñ‚ğíœ‚µ‚Ü‚µ‚½B');
+	push(@log,'ã‚¨ãƒ©ãƒ¼æƒ…å ±ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚');
 }
 
 sub init
 {
 	CheckLock();
-	#ŠeíƒfƒBƒŒƒNƒgƒŠ•ƒ_ƒ~[index.html ì¬
+	#å„ç¨®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªï¼†ãƒ€ãƒŸãƒ¼index.html ä½œæˆ
 	foreach my $dir ($COMMON_DIR,$DATA_DIR,$SESSION_DIR,$COTEMP_DIR,$TEMP_DIR,$LOG_DIR,$SUBDATA_DIR,$BACKUP_DIR)
 	{
 		if(!-d $dir)
 		{
 			if(mkdir($dir,$DIR_PERMISSION))
-				{push(@log,'ƒfƒBƒŒƒNƒgƒŠ '.$dir.' ‚ğì¬‚µ‚Ü‚µ‚½');}
+				{push(@log,'ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª '.$dir.' ã‚’ä½œæˆã—ã¾ã—ãŸ');}
 			else
 			{
-				push(@log,'ƒfƒBƒŒƒNƒgƒŠ '.$dir.' ‚Íì¬o—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½');
-				push(@log,' İ’è‚ğŒ©’¼‚·‚©Aè“®‚Åì¬‚µ‚Ä‚­‚¾‚³‚¢');
+				push(@log,'ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª '.$dir.' ã¯ä½œæˆå‡ºæ¥ã¾ã›ã‚“ã§ã—ãŸ');
+				push(@log,' è¨­å®šã‚’è¦‹ç›´ã™ã‹ã€æ‰‹å‹•ã§ä½œæˆã—ã¦ãã ã•ã„');
 			}
 		}
 		if(!-e "$dir/index.html")
@@ -52,65 +52,65 @@ sub init
 			{
 				print OUT "<html></html>";
 				close(OUT);
-				push(@log,'ƒfƒBƒŒƒNƒgƒŠ '.$dir.' ‚Öƒ_ƒ~[‚Ìindex.html‚ğì¬‚µ‚Ü‚µ‚½');
+				push(@log,'ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª '.$dir.' ã¸ãƒ€ãƒŸãƒ¼ã®index.htmlã‚’ä½œæˆã—ã¾ã—ãŸ');
 			}
 			else
 			{
-				push(@log,'ƒfƒBƒŒƒNƒgƒŠ '.$dir.' ‚Ö‚Ìƒ_ƒ~[index.htmlì¬‚É¸”s‚µ‚Ü‚µ‚½');
-				push(@log,' ƒfƒBƒŒƒNƒgƒŠ '.$dir.' ‚Ìƒp[ƒ~ƒbƒVƒ‡ƒ“‚ğŒ©’¼‚µ‚Ä‚­‚¾‚³‚¢');
+				push(@log,'ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª '.$dir.' ã¸ã®ãƒ€ãƒŸãƒ¼index.htmlä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸ');
+				push(@log,' ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª '.$dir.' ã®ãƒ‘ãƒ¼ãƒŸãƒƒã‚·ãƒ§ãƒ³ã‚’è¦‹ç›´ã—ã¦ãã ã•ã„');
 			}
 		}
 	}
 	
-	#ƒƒbƒNƒtƒ@ƒCƒ‹ì¬
+	#ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
 	if(!GetFileList($DATA_DIR,"^$LOCK_FILE"))
 	{
 		if(open(DATA,">$DATA_DIR/$LOCK_FILE"))
 		{
-			print DATA 'ƒƒbƒNƒtƒ@ƒCƒ‹‚Å‚·Bíœ‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñB';
+			print DATA 'ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ã€‚å‰Šé™¤ã—ã¦ã¯ã„ã‘ã¾ã›ã‚“ã€‚';
 			close(DATA);
-			push(@log,'ƒƒbƒNƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚µ‚½');
+			push(@log,'ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã—ãŸ');
 		}
 		else
 		{
-			push(@log,'ƒƒbƒNƒtƒ@ƒCƒ‹‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½');
+			push(@log,'ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸ');
 		}
 	}
 	if(!GetFileList($COMMON_DIR,"^$LOCK_FILE"))
 	{
 		if(open(DATA,">$COMMON_DIR/$LOCK_FILE"))
 		{
-			print DATA 'ƒƒbƒNƒtƒ@ƒCƒ‹‚Å‚·Bíœ‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñB';
+			print DATA 'ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ã€‚å‰Šé™¤ã—ã¦ã¯ã„ã‘ã¾ã›ã‚“ã€‚';
 			close(DATA);
-			push(@log,'‹¤—LƒƒbƒNƒtƒ@ƒCƒ‹‚ğì¬‚µ‚Ü‚µ‚½');
+			push(@log,'å…±æœ‰ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆã—ã¾ã—ãŸ');
 		}
 		else
 		{
-			push(@log,'‹¤—LƒƒbƒNƒtƒ@ƒCƒ‹‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½');
+			push(@log,'å…±æœ‰ãƒ­ãƒƒã‚¯ãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸ');
 		}
 	}
 	
-	#ƒ^ƒEƒ“ƒf[ƒ^ì¬
+	#ã‚¿ã‚¦ãƒ³ãƒ‡ãƒ¼ã‚¿ä½œæˆ
 	MakeTownFile();
 	
-	#V‹KƒQ[ƒ€ƒf[ƒ^ì¬
+	#æ–°è¦ã‚²ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ä½œæˆ
 	if(!-e "$DATA_DIR/$DATA_FILE$FILE_EXT")
 	{
 		if(open(DATA,">$DATA_DIR/$DATA_FILE$FILE_EXT"))
 		{
-			print DATA time()."\n500000,100,,0,0:0:0:0:5001:0:5001:0:0:2000:0\n\n\n//\n"; #‰Šúó‘Ô
+			print DATA time()."\n500000,100,,0,0:0:0:0:5001:0:5001:0:0:2000:0\n\n\n//\n"; #åˆæœŸçŠ¶æ…‹
 			close(DATA);
-			unlink(map{"$DATA_DIR/$_$FILE_EXT"}grep($_ ne $DATA_FILE,@BACKUP_FILES)); #ŠÖ˜Aƒtƒ@ƒCƒ‹‚ğÁ‹‰Šú‰»
-			push(@log,'ƒQ[ƒ€ƒf[ƒ^‚ğV‹Kì¬‚µ‚Ü‚µ‚½');
+			unlink(map{"$DATA_DIR/$_$FILE_EXT"}grep($_ ne $DATA_FILE,@BACKUP_FILES)); #é–¢é€£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¶ˆå»åˆæœŸåŒ–
+			push(@log,'ã‚²ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ã‚’æ–°è¦ä½œæˆã—ã¾ã—ãŸ');
 		}
 		else
-			{push(@log,'ƒQ[ƒ€ƒf[ƒ^‚ÌV‹Kì¬‚É¸”s‚µ‚Ü‚µ‚½',$checkdatadir);}
+			{push(@log,'ã‚²ãƒ¼ãƒ ãƒ‡ãƒ¼ã‚¿ã®æ–°è¦ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸ',$checkdatadir);}
 	}
 	
-	#ÅIXVŒŸ¸—pƒtƒ@ƒCƒ‹ì¬
-	MakeFile("$DATA_DIR/$LASTTIME_FILE$FILE_EXT",'ÅIXVŒŸ¸—pƒtƒ@ƒCƒ‹','');
-	#ƒMƒ‹ƒh’è‹`ƒtƒ@ƒCƒ‹ƒx[ƒXì¬
-	MakeFile("$DATA_DIR/$GUILD_FILE$FILE_EXT",'ƒMƒ‹ƒh’è‹`ƒtƒ@ƒCƒ‹','1;');
+	#æœ€çµ‚æ›´æ–°æ™‚åˆ»æ¤œæŸ»ç”¨ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ
+	MakeFile("$DATA_DIR/$LASTTIME_FILE$FILE_EXT",'æœ€çµ‚æ›´æ–°æ™‚åˆ»æ¤œæŸ»ç”¨ãƒ•ã‚¡ã‚¤ãƒ«','');
+	#ã‚®ãƒ«ãƒ‰å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«ãƒ™ãƒ¼ã‚¹ä½œæˆ
+	MakeFile("$DATA_DIR/$GUILD_FILE$FILE_EXT",'ã‚®ãƒ«ãƒ‰å®šç¾©ãƒ•ã‚¡ã‚¤ãƒ«','1;');
 	
 	sub MakeFile
 	{
@@ -121,20 +121,20 @@ sub init
 				print DATA $_[2];
 				close(DATA);
 				utime(1,1,$_[0]);
-				push(@log,$_[1].'‚ğì¬‚µ‚Ü‚µ‚½');
+				push(@log,$_[1].'ã‚’ä½œæˆã—ã¾ã—ãŸ');
 			}
 			else
-				{push(@log,$_[1].'ì¬‚É¸”s‚µ‚Ü‚µ‚½',$checkdatadir);}
+				{push(@log,$_[1].'ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸ',$checkdatadir);}
 		}
 	}
-	push(@log,'‰Šú‰»/C•œ‚Ì•K—v‚Í‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B') if !scalar(@log);
+	push(@log,'åˆæœŸåŒ–/ä¿®å¾©ã®å¿…è¦ã¯ã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚') if !scalar(@log);
 }
 
 sub delunit
 {
 	CheckLock();
 	delete_dir($DATA_DIR);
-	push(@log,'íœ‚·‚×‚«ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B') if !scalar(@log);
+	push(@log,'å‰Šé™¤ã™ã¹ããƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚') if !scalar(@log);
 }
 
 sub piece
@@ -146,7 +146,7 @@ sub piece
 	delete_dir($SESSION_DIR,1);
 	delete_dir($TEMP_DIR,1);
 	delete_dir($SUBDATA_DIR,1);
-	push(@log,'íœ‚·‚×‚«ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B') if !scalar(@log);
+	push(@log,'å‰Šé™¤ã™ã¹ããƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚') if !scalar(@log);
 }
 
 sub mini
@@ -154,7 +154,7 @@ sub mini
 	CheckLock();
 	delete_evt();
 	delete_dir($ITEM_DIR,1);
-	push(@log,'íœ‚·‚×‚«ƒf[ƒ^‚ª‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B') if !scalar(@log);
+	push(@log,'å‰Šé™¤ã™ã¹ããƒ‡ãƒ¼ã‚¿ãŒã‚ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚') if !scalar(@log);
 }
 
 sub timeedit
@@ -163,7 +163,7 @@ sub timeedit
 	$Q{tlyear}-=1900 if $Q{tlyear}>=2000;
 	$time=0;
 	$time=GetTimeLocal($Q{tlsec},$Q{tlmin},$Q{tlhour},$Q{tlday},$Q{tlmon}-1,$Q{tlyear});
-	if(!$time) { push(@log,'“ú•tİ’è‚ª•s³‚Å‚·');}
+	if(!$time) { push(@log,'æ—¥ä»˜æ™‚åˆ»è¨­å®šãŒä¸æ­£ã§ã™');}
 	elsif(open(IN,"$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	{
 		my @data=<IN>;
@@ -174,25 +174,25 @@ sub timeedit
 		close(OUT);
 		my($s,$min,$h,$d,$m,$y)=gmtime($time+$TZ_JST);
 		my $timestr=sprintf("%04d-%02d-%02d %02d:%02d:%02d",$y+1900,$m+1,$d,$h,$min,$s);
-		push(@log,'ÅIXV‚ğ['.$timestr.']‚Éİ’è‚µ‚Ü‚µ‚½');
+		push(@log,'æœ€çµ‚æ›´æ–°æ™‚åˆ»ã‚’['.$timestr.']ã«è¨­å®šã—ã¾ã—ãŸ');
 	}
 	else
 	{
-		push(@log,'ƒf[ƒ^ƒtƒ@ƒCƒ‹‚ğ•ÏXo—ˆ‚Ü‚¹‚ñ‚Å‚µ‚½');
+		push(@log,'ãƒ‡ãƒ¼ã‚¿ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¤‰æ›´å‡ºæ¥ã¾ã›ã‚“ã§ã—ãŸ');
 	}
 }
 
 sub backup
 {
 	CheckLock();
-	#ƒoƒbƒNƒAƒbƒv‚ğŒ»–ğ‚É•œŒ³
+	#ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ã‚’ç¾å½¹ã«å¾©å…ƒ
 	my @files=map{"$_$FILE_EXT"}@BACKUP_FILES;
 	my @errorfiles=grep(!-e $_,map{"$Q{backup}/$_"}@files);
 	
 	if(scalar(@errorfiles))
 	{
-		push(@log,map{$_.' ‚ª‘¶İ‚µ‚Ü‚¹‚ñ‚Å‚µ‚½'}@errorfiles);
-		push(@log,'ƒoƒbƒNƒAƒbƒvƒf[ƒ^‚ª•sŠ®‘S‚È‚Ì‚Åˆ—‚ğ’†~‚µ‚Ü‚µ‚½');
+		push(@log,map{$_.' ãŒå­˜åœ¨ã—ã¾ã›ã‚“ã§ã—ãŸ'}@errorfiles);
+		push(@log,'ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿ãŒä¸å®Œå…¨ãªã®ã§å‡¦ç†ã‚’ä¸­æ­¢ã—ã¾ã—ãŸ');
 	}
 	else
 	{
@@ -210,23 +210,23 @@ sub backup
 				close(IN);
 				if($file eq $DATA_FILE.$FILE_EXT)
 				{
-					#play.cgi‚Ìê‡‚ÍXV‚ğŒ»İ‚É
+					#play.cgiã®å ´åˆã¯æ›´æ–°æ™‚åˆ»ã‚’ç¾åœ¨ã«
 					$data[0]=time()."\n";
-					push(@log,'ÅIXV‚ğŒ»İ‚Éİ’è‚µ‚Ü‚µ‚½');
+					push(@log,'æœ€çµ‚æ›´æ–°æ™‚åˆ»ã‚’ç¾åœ¨ã«è¨­å®šã—ã¾ã—ãŸ');
 				}
 				if($file eq $LOG_FILE."-s0".$FILE_EXT || $file eq $PERIOD_FILE.$FILE_EXT)
 				{
-					#period.cgi‚Ælog-s0.cgi‚Ìê‡‚ÍƒoƒbƒNƒAƒbƒv•œŒ³ƒAƒiƒEƒ“ƒX‚ğ•t‰Á
-					unshift(@data,time().",1,0,0,ƒoƒbƒNƒAƒbƒvƒf[ƒ^•œŒ³‚Ì‚½‚ß[$timestr]“_‚É–ß‚è‚Ü‚µ‚½\n");
+					#period.cgiã¨log-s0.cgiã®å ´åˆã¯ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—å¾©å…ƒã‚¢ãƒŠã‚¦ãƒ³ã‚¹ã‚’ä»˜åŠ 
+					unshift(@data,time().",1,0,0,ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ã‚¿å¾©å…ƒã®ãŸã‚[$timestr]æ™‚ç‚¹ã«æˆ»ã‚Šã¾ã—ãŸ\n");
 				}
 				print OUT @data;
 				close(OUT);
-				push(@log,$file.' ‚Ì•œŒ³‚É¬Œ÷‚µ‚Ü‚µ‚½');
+				push(@log,$file.' ã®å¾©å…ƒã«æˆåŠŸã—ã¾ã—ãŸ');
 			}
 			else
 			{
 				close(IN) if $inok;
-				push(@log,$file.' ‚Ì•œŒ³‚É¸”s‚µ‚Ü‚µ‚½',' Ä“xˆ—‚ğs‚Á‚Ä‚­‚¾‚³‚¢');
+				push(@log,$file.' ã®å¾©å…ƒã«å¤±æ•—ã—ã¾ã—ãŸ',' å†åº¦å‡¦ç†ã‚’è¡Œã£ã¦ãã ã•ã„');
 			}
 		}
 	}
@@ -241,7 +241,7 @@ sub CheckLock
 		}
 		else
 		{
-		OutError('‚±‚Ì‘€ì‚Íƒƒ“ƒeƒ‚[ƒh‚Å‚µ‚©s‚¦‚Ü‚¹‚ñ','noerror');
+		OutError('ã“ã®æ“ä½œã¯ãƒ¡ãƒ³ãƒ†ãƒ¢ãƒ¼ãƒ‰ã§ã—ã‹è¡Œãˆã¾ã›ã‚“','noerror');
 		}
 }
 
@@ -285,11 +285,11 @@ sub delete_evt
 	open(OUT,">$DATA_DIR/$DATA_FILE$FILE_EXT");
 	print OUT @data;
 	close(OUT);
-	push(@log,$DATA_FILE.$FILE_EXT.'“à‚ÌƒCƒxƒ“ƒgƒf[ƒ^‚ğíœ‚µ‚Ü‚µ‚½');
+	push(@log,$DATA_FILE.$FILE_EXT.'å†…ã®ã‚¤ãƒ™ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’å‰Šé™¤ã—ã¾ã—ãŸ');
 	}
 	else
 	{
-	push(@log,' '.$DATA_FILE.$FILE_EXT.'“àƒCƒxƒ“ƒgƒf[ƒ^íœ‚É¸”s‚µ‚Ü‚µ‚½');
+	push(@log,' '.$DATA_FILE.$FILE_EXT.'å†…ã‚¤ãƒ™ãƒ³ãƒˆãƒ‡ãƒ¼ã‚¿å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸ');
 	}
 }
 
@@ -308,18 +308,18 @@ sub delete_dir
 		if(-f $file)
 		{
 			if(unlink($file))
-				{push(@log,$file.' ‚ğíœ‚µ‚Ü‚µ‚½');}
+				{push(@log,$file.' ã‚’å‰Šé™¤ã—ã¾ã—ãŸ');}
 			else
-				{push(@log,' '.$file.' ‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½');}
+				{push(@log,' '.$file.' ã®å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸ');}
 		}
 		delete_dir($file,1) if -d $file;
 	}
 	if($owndelete)
 	{
 		if(rmdir($dir))
-			{push(@log,'ƒfƒBƒŒƒNƒgƒŠ '.$dir.' ‚ğíœ‚µ‚Ü‚µ‚½');}
+			{push(@log,'ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª '.$dir.' ã‚’å‰Šé™¤ã—ã¾ã—ãŸ');}
 		else
-			{push(@log,' ƒfƒBƒŒƒNƒgƒŠ'.$dir.' ‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½');}
+			{push(@log,' ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª'.$dir.' ã®å‰Šé™¤ã«å¤±æ•—ã—ã¾ã—ãŸ');}
 	}
 }
 
@@ -341,11 +341,11 @@ return if ($Tname{$MYDIR} eq $TOWN_TITLE);
 			print OUT '$Tname{',$_,'}="',$Tname{$_},'";',"\n";
 			}
 			close(OUT);
-			push(@log,'ŠXƒŠƒXƒg‚ğì¬‚µ‚Ü‚µ‚½');
+			push(@log,'è¡—ãƒªã‚¹ãƒˆã‚’ä½œæˆã—ã¾ã—ãŸ');
 		}
 		else
 		{
-			push(@log,'ŠXƒŠƒXƒg‚Ìì¬‚É¸”s‚µ‚Ü‚µ‚½'.$townfile);
+			push(@log,'è¡—ãƒªã‚¹ãƒˆã®ä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸ'.$townfile);
 		}
 }
 1;

@@ -1,10 +1,10 @@
-# ƒMƒ‹ƒhŒf¦”Â‰º¿‚¯ 2003/09/25 —R˜Ò
+# ã‚®ãƒ«ãƒ‰æ²ç¤ºæ¿ä¸‹è«‹ã‘ 2003/09/25 ç”±ä¾†
 
 sub WriteGBBS
 {
 	my($msg,$maxlength)=@_;
 	return ('','') if !$msg;
-	return ($msg,'”­Œ¾‚Í”¼Šp'.$maxlength.'•¶š(‘SŠp'.int($maxlength/2).'•¶š)‚Ü‚Å‚Å‚·BŒ»İ”¼Šp'.length($msg).'•¶š‚Å‚·B<br>')
+	return ($msg,'ç™ºè¨€ã¯åŠè§’'.$maxlength.'æ–‡å­—(å…¨è§’'.int($maxlength/2).'æ–‡å­—)ã¾ã§ã§ã™ã€‚ç¾åœ¨åŠè§’'.length($msg).'æ–‡å­—ã§ã™ã€‚<br>')
 		if length($msg)>$maxlength;
 	
 	require $JCODE_FILE;
@@ -22,12 +22,12 @@ sub WriteGBBS
 		my($tm,$mode,$dummy,$id,$msgline,$no)=split(/,/);
 		($msgline)=split(/\t/,$msgline);
 		next if $DT->{id}!=$id;
-		return ('','d•¡“Še‚Ío—ˆ‚Ü‚¹‚ñB<br>') if $tm>$NOW_TIME-60*15 && $msgline eq $msg;
+		return ('','é‡è¤‡æŠ•ç¨¿ã¯å‡ºæ¥ã¾ã›ã‚“ã€‚<br>') if $tm>$NOW_TIME-60*15 && $msgline eq $msg;
 		$count++,$wait+=3**$count/($NOW_TIME-$tm+1) if $SECURE_MODE_BBS && $count<10;
 		$lasttm||=$tm;
 	}
 	$wait=int($lasttm+$wait-$NOW_TIME);
-	return ('','˜A‘±“Še‚Ío—ˆ‚Ü‚¹‚ñB‚ ‚Æ'.$wait.'•b‚¨‘Ò‚¿‰º‚³‚¢B<br>') if $wait>0;
+	return ('','é€£ç¶šæŠ•ç¨¿ã¯å‡ºæ¥ã¾ã›ã‚“ã€‚ã‚ã¨'.$wait.'ç§’ãŠå¾…ã¡ä¸‹ã•ã„ã€‚<br>') if $wait>0;
 	
 	CoLock();
 	WriteBoard(20,0,0,$msg,1) if $MASTER_USER;

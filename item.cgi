@@ -1,4 +1,4 @@
-# ƒAƒCƒeƒ€Ú×•\¦ 2005/01/06 —R˜Ò
+# ã‚¢ã‚¤ãƒ†ãƒ è©³ç´°è¡¨ç¤º 2005/01/06 ç”±ä¾†
 
 $NOMENU=1;
 Turn();
@@ -13,42 +13,42 @@ RequireFile('inc-html-ownerinfo.cgi');
 
 GetMarketStatus();
 
-$disp.="<BIG>œ‘qŒÉ</BIG><br><br>";
+$disp.="<BIG>â—å€‰åº«</BIG><br><br>";
 
 my $ITEM=$ITEM[$itemno];
 $disp.= GetTagImgItemType($itemno,0,2).$ITEM->{name};
 $disp.= GetTagImgItemType(0,$ITEM[$itemno]->{type})."<br><br>";
 
 $disp.=$TB;
-$disp.="$TR$TDBİŒÉ$TD$DT->{item}[$itemno-1] $ITEM->{scale}$TRE";
-$disp.="$TR$TDB•W€‰¿Ši$TD".GetMoneyString($ITEM->{price}).$TRE;
-$disp.="$TR$TDBˆÛ”ï$TD".GetMoneyString($ITEM->{cost}).$TRE;
-$disp.="$TR$TDBà–¾$TD$ITEM->{info}$TRE";
+$disp.="$TR$TDBåœ¨åº«$TD$DT->{item}[$itemno-1] $ITEM->{scale}$TRE";
+$disp.="$TR$TDBæ¨™æº–ä¾¡æ ¼$TD".GetMoneyString($ITEM->{price}).$TRE;
+$disp.="$TR$TDBç¶­æŒè²»$TD".GetMoneyString($ITEM->{cost}).$TRE;
+$disp.="$TR$TDBèª¬æ˜$TD$ITEM->{info}$TRE";
 
-unless ($ITEM->{flag}=~/s/) {	# ’Â—ñ•s‰Â
+unless ($ITEM->{flag}=~/s/) {	# é™³åˆ—ä¸å¯
 	if($ITEM->{marketprice})
 	{
-	$disp.="$TR$TDB‘Šê$TD".GetMoneyString($ITEM->{marketprice}).$TRE;
-	$disp.="$TR$TDBÅˆÀ’l$TD".GetMoneyString($ITEM->{marketpricelow}).$TRE;
-	$disp.="$TR$TDBÅ‚’l$TD".GetMoneyString($ITEM->{marketpricehigh}).$TRE;
+	$disp.="$TR$TDBç›¸å ´$TD".GetMoneyString($ITEM->{marketprice}).$TRE;
+	$disp.="$TR$TDBæœ€å®‰å€¤$TD".GetMoneyString($ITEM->{marketpricelow}).$TRE;
+	$disp.="$TR$TDBæœ€é«˜å€¤$TD".GetMoneyString($ITEM->{marketpricehigh}).$TRE;
 	}
 	else
 	{
-	$disp.="$TR$TDB‘Šê$TD”Ì”„“X•Ü‚È‚µ$TRE";
+	$disp.="$TR$TDBç›¸å ´$TDè²©å£²åº—èˆ—ãªã—$TRE";
 	}
-	$disp.="$TR$TDBù‹Ÿ$TD".GetMarketStatusGraph($ITEM->{uppoint})."$TRE";
+	$disp.="$TR$TDBéœ€ä¾›$TD".GetMarketStatusGraph($ITEM->{uppoint})."$TRE";
 }
 $disp.=$TBE;
 
 if($ITEM->{flag}=~/s/)
 	{
 	$disp.="<hr width=500 noshade size=1>";
-	$disp.='¦'.$ITEM[$itemno]->{name}.'‚ğ”Ì”„‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñ<br>';
+	$disp.='â€»'.$ITEM[$itemno]->{name}.'ã‚’è²©å£²ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“<br>';
 	}
 	else
 	{
-	$disp.="¦‚±‚Ì¤•i‚Í’Â—ñ‚µ‚Ä‚à”„‚ê‚Ü‚¹‚ñ<br>" if ( $ITEM->{popular}==0);
-	$disp.="¦‚±‚Ì¤•i‚Í’Â—ñ‚µ‚Ä‚à‚Ù‚Æ‚ñ‚Ç”„‚ê‚Ü‚¹‚ñ<br>" if ( $ITEM->{popular} > 800000);
+	$disp.="â€»ã“ã®å•†å“ã¯é™³åˆ—ã—ã¦ã‚‚å£²ã‚Œã¾ã›ã‚“<br>" if ( $ITEM->{popular}==0);
+	$disp.="â€»ã“ã®å•†å“ã¯é™³åˆ—ã—ã¦ã‚‚ã»ã¨ã‚“ã©å£²ã‚Œã¾ã›ã‚“<br>" if ( $ITEM->{popular} > 800000);
 	$disp.="<hr width=500 noshade size=1>";
 	RequireFile('inc-item-show.cgi');
 	}
@@ -56,7 +56,7 @@ if($ITEM->{flag}=~/s/)
 $disp.="<hr width=500 noshade size=1>";
 if($ITEM->{flag}=~/t/)
 	{
-	$disp.='¦'.$ITEM[$itemno]->{name}.'‚ğ'.(($ITEM->{flag}=~/h/)? "‰ğŒÙ" : "”jŠü").'‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñ<br>';
+	$disp.='â€»'.$ITEM[$itemno]->{name}.'ã‚’'.(($ITEM->{flag}=~/h/)? "è§£é›‡" : "ç ´æ£„").'ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“<br>';
 	}
 	else
 	{
@@ -80,9 +80,9 @@ if($itemcode ne '' && -e $itemcode)
 	{
 	foreach my $USE (@USE)
 		{
-	$disp.="œ";
+	$disp.="â—";
 	$disp.=qq|<a href="action.cgi?key=item-m&item=$itemno&no=$USE->{no}&$USERPASSURL&bk=$Q{bk}">| if $USE->{useok};
-	$disp.=($USE->{useok} || $USE->{dispok}) ? $USE->{name} : "HHHHHHHH";
+	$disp.=($USE->{useok} || $USE->{dispok}) ? $USE->{name} : "ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ";
 	$disp.="</a>" if $USE->{useok};
 	$disp.="<br>";
 		}

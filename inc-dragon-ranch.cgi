@@ -1,13 +1,13 @@
-# ƒhƒ‰ƒSƒ“ƒŒ[ƒX –qêƒƒjƒ…[•\Ž¦ 2005/03/30 —R˜Ò
+# ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ ç‰§å ´ãƒ¡ãƒ‹ãƒ¥ãƒ¼è¡¨ç¤º 2005/03/30 ç”±ä¾†
 
 ReadRanch();
-$disp.="<BIG>œƒhƒ‰ƒSƒ“ƒŒ[ƒXF–qê</BIG><br><br>";
+$disp.="<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³ãƒ¬ãƒ¼ã‚¹ï¼šç‰§å ´</BIG><br><br>";
 
 if ($MYRC==-1)
 {
-$disp.="$TB$TR$TD".GetTagImgKao("ƒhƒ‰ƒSƒ“˜VŽt","slime1").$TD;
-$disp.="<SPAN>ƒhƒ‰ƒSƒ“˜VŽt</SPAN>FŽ©•ª‚Ì–qê‚ðŽ‚Á‚Ä‚¢‚È‚¢‚æ‚¤‚¶‚á‚ÈB<br>";
-$disp.="–qê‚ðŽ‚Ä‚ÎCŽ©•ª‚Ìƒhƒ‰ƒSƒ“‚ðˆç‚Ä‚é‚±‚Æ‚ª‚Å‚«‚éB".$TRE.$TBE;
+$disp.="$TB$TR$TD".GetTagImgKao("ãƒ‰ãƒ©ã‚´ãƒ³è€å¸«","slime1").$TD;
+$disp.="<SPAN>ãƒ‰ãƒ©ã‚´ãƒ³è€å¸«</SPAN>ï¼šè‡ªåˆ†ã®ç‰§å ´ã‚’æŒã£ã¦ã„ãªã„ã‚ˆã†ã˜ã‚ƒãªã€‚<br>";
+$disp.="ç‰§å ´ã‚’æŒã¦ã°ï¼Œè‡ªåˆ†ã®ãƒ‰ãƒ©ã‚´ãƒ³ã‚’è‚²ã¦ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚".$TRE.$TBE;
 my $estmsg=GetMoneyString($RCest);
 $disp.=<<STR;
 <br>
@@ -17,35 +17,35 @@ $disp.=<<STR;
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="rcedit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="new">
-<BIG>œ–qêÝ—§</BIG>F <INPUT TYPE=TEXT NAME=name SIZE=20> ‚Æ–¼•t‚¯‚Ä 
-<INPUT TYPE=SUBMIT VALUE='Ý—§'>
+<BIG>â—ç‰§å ´è¨­ç«‹</BIG>ï¼š <INPUT TYPE=TEXT NAME=name SIZE=20> ã¨åä»˜ã‘ã¦ 
+<INPUT TYPE=SUBMIT VALUE='è¨­ç«‹'>
 </FORM>
 <br>
 $TB$TR$TD
-E–qê‚ðÝ—§‚·‚é‚É‚ÍCŽ‘‹à<b>$estmsg</b>‚ª‚©‚©‚è‚Ü‚·B<br>
-Eƒhƒ‰ƒSƒ“‚Ìˆç¬‚É‚Í•Ê“r‚³‚ç‚ÉŽ‘‹à‚ª‚©‚©‚é‚Ì‚ÅC—]—T‚ª‚ ‚é‚©l‚¦‚Ä‚­‚¾‚³‚¢B<br>
+ãƒ»ç‰§å ´ã‚’è¨­ç«‹ã™ã‚‹ã«ã¯ï¼Œè³‡é‡‘<b>$estmsg</b>ãŒã‹ã‹ã‚Šã¾ã™ã€‚<br>
+ãƒ»ãƒ‰ãƒ©ã‚´ãƒ³ã®è‚²æˆã«ã¯åˆ¥é€”ã•ã‚‰ã«è³‡é‡‘ãŒã‹ã‹ã‚‹ã®ã§ï¼Œä½™è£•ãŒã‚ã‚‹ã‹è€ƒãˆã¦ãã ã•ã„ã€‚<br>
 $TBE
 STR
 }
 else
 {
-$disp.="$TB$TR$TDB–¼Ì$TDB‘n—§$TDB•½‹ÏÜ‹à$TDB‘Ü‹à$TDB¬Ñ$TRE";
+$disp.="$TB$TR$TDBåç§°$TDBå‰µç«‹$TDBå¹³å‡è³žé‡‘$TDBç·è³žé‡‘$TDBæˆç¸¾$TRE";
 $disp.=$TR;
 $disp.=$TD.$RC[$MYRC]->{name};
 $disp.=$TD.GetTime2found($NOW_TIME-$RC[$MYRC]->{birth});
-$disp.=$TD.($RC[$MYRC]->{aprize} + 0)."–œ";
-$disp.=$TD.($RC[$MYRC]->{prize} + 0)."–œ";
+$disp.=$TD.($RC[$MYRC]->{aprize} + 0)."ä¸‡";
+$disp.=$TD.($RC[$MYRC]->{prize} + 0)."ä¸‡";
 $disp.=$TD.($RC[$MYRC]->{g1win} + 0)." - ".($RC[$MYRC]->{g2win} + 0)." - ".($RC[$MYRC]->{g3win} + 0)." - ".($RC[$MYRC]->{sdwin} + 0);
 $disp.=$TRE.$TBE;
-$disp.="<br><BIG>œŠ—L‹£‘ˆ—³</BIG><br><br>";
+$disp.="<br><BIG>â—æ‰€æœ‰ç«¶äº‰ç«œ</BIG><br><br>";
 ReadDragon();
 if (!scalar @MYDR)
 	{
-	$disp.="Š—L‚Ì‹£‘ˆ—³‚Í‚ ‚è‚Ü‚¹‚ñ<br><br>";
+	$disp.="æ‰€æœ‰ã®ç«¶äº‰ç«œã¯ã‚ã‚Šã¾ã›ã‚“<br><br>";
 	}
 	else
 	{
-$disp.="$TB$TR$TDB–¼Ì$TDB”N—î$TDB«•Ê$TDBƒXƒs$TDBŸ•‰$TDBu”­$TDBƒpƒ$TDB‘Ì’²$TDB‘Ìd$TDB‹——£“K«$TDB‘Ü‹à$TDB¬Ñ$TRE";
+$disp.="$TB$TR$TDBåç§°$TDBå¹´é½¢$TDBæ€§åˆ¥$TDBã‚¹ãƒ”$TDBå‹è² $TDBçž¬ç™º$TDBãƒ‘ãƒ¯$TDBä½“èª¿$TDBä½“é‡$TDBè·é›¢é©æ€§$TDBç·è³žé‡‘$TDBæˆç¸¾$TRE";
 	foreach (@MYDR)
 		{
 $disp.=$TR;
@@ -60,7 +60,7 @@ $disp.=$TD.$VALUE[int($DR[$_]->{pw} /100*6)];
 $disp.=$TD.$EVALUE[int($DR[$_]->{con} /100*4)];
 $disp.=$TD.$DR[$_]->{wt};
 $disp.=$TD.GetRaceApt($DR[$_]->{apt},$DR[$_]->{fl});
-$disp.=$TD.($DR[$_]->{prize} + 0)."–œ";
+$disp.=$TD.($DR[$_]->{prize} + 0)."ä¸‡";
 $disp.=$TD.($DR[$_]->{g1win} + 0)." - ".($DR[$_]->{g2win} + 0)." - ".($DR[$_]->{g3win} + 0)." - ".($DR[$_]->{sdwin} + 0);
 $disp.=$TRE;
 		}
@@ -71,8 +71,8 @@ ReadParent();
 
 if (scalar @MYPR)
 	{
-	$disp.="<BIG>œŠ—L”ÉB".$FM[1]."—³</BIG><br><br>";
-$disp.="$TB$TR$TDB–¼Ì$TDB”N—î$TDBˆâ“`$TDBƒXƒs$TDBŸ•‰$TDBu”­$TDBƒpƒ$TDBŒ’N$TDB_“î$TDB‹——£“K«$TDBŒ»–ðÜ‹à$TDBŒ»–ð¬Ñ$TRE";
+	$disp.="<BIG>â—æ‰€æœ‰ç¹æ®–".$FM[1]."ç«œ</BIG><br><br>";
+$disp.="$TB$TR$TDBåç§°$TDBå¹´é½¢$TDBéºä¼$TDBã‚¹ãƒ”$TDBå‹è² $TDBçž¬ç™º$TDBãƒ‘ãƒ¯$TDBå¥åº·$TDBæŸ”è»Ÿ$TDBè·é›¢é©æ€§$TDBç¾å½¹è³žé‡‘$TDBç¾å½¹æˆç¸¾$TRE";
 	foreach (@MYPR)
 		{
 $disp.=$TR;
@@ -87,7 +87,7 @@ $disp.=$TD.$VALUE[int($PR[$_]->{pw} /100*6)];
 $disp.=$TD.$VALUE[int($PR[$_]->{hl} /100*6)];
 $disp.=$TD.$VALUE[int($PR[$_]->{fl} /100*6)];
 $disp.=$TD.GetRaceApt($PR[$_]->{apt},$PR[$_]->{fl});
-$disp.=$TD.($PR[$_]->{prize} + 0)."–œ";
+$disp.=$TD.($PR[$_]->{prize} + 0)."ä¸‡";
 $disp.=$TD.($PR[$_]->{g1win} + 0)." - ".($PR[$_]->{g2win} + 0)." - ".($PR[$_]->{g3win} + 0)." - ".($PR[$_]->{sdwin} + 0);
 $disp.=$TRE;
 		}
@@ -98,7 +98,7 @@ $disp.=$TBE."<br>";
 
 if (scalar @MYDR < $MYDRmax)
 	{
-my @dist=('’Z‹——£—³','’†‹——£—³','’·‹——£—³');
+my @dist=('çŸ­è·é›¢ç«œ','ä¸­è·é›¢ç«œ','é•·è·é›¢ç«œ');
 my $formdist="";
 foreach(0..$#dist) {$formdist.=qq|<OPTION VALUE="$_">$dist[$_]|; }
 my $buymsg=GetMoneyString($DRbuy);
@@ -109,19 +109,19 @@ $disp.=<<STR;
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="dredit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="new">
-<BIG>œƒhƒ‰ƒSƒ“w“ü</BIG>F <SELECT NAME=fm SIZE=1>
+<BIG>â—ãƒ‰ãƒ©ã‚´ãƒ³è³¼å…¥</BIG>ï¼š <SELECT NAME=fm SIZE=1>
 <OPTION VALUE="0">$FM[0]<OPTION VALUE="1">$FM[1]
-</SELECT> ‚Ì <SELECT NAME=dist SIZE=1>
+</SELECT> ã® <SELECT NAME=dist SIZE=1>
 $formdist
-</SELECT> ‚ð 
-<INPUT TYPE=TEXT NAME=name SIZE=20> ‚Æ–¼•t‚¯‚Ä 
-<INPUT TYPE=SUBMIT VALUE='w“ü'>
+</SELECT> ã‚’ 
+<INPUT TYPE=TEXT NAME=name SIZE=20> ã¨åä»˜ã‘ã¦ 
+<INPUT TYPE=SUBMIT VALUE='è³¼å…¥'>
 </FORM>
 <br>
 $TB$TR$TD
-E‹£‘ˆ—³‚ÍC<b>$MYDRmax</b>“ª‚Ü‚ÅŽ‚Â‚±‚Æ‚ª‚Å‚«‚Ü‚·B<br>
-Ew“ü‚·‚é‚É‚ÍCŽ‘‹à<b>$buymsg</b>‚ª‚©‚©‚è‚Ü‚·B<br>
-E–¼‘O‚ÍC<b>‘SŠpƒJƒ^ƒJƒi10•¶Žš</b>ˆÈ“à‚Å‚·B
+ãƒ»ç«¶äº‰ç«œã¯ï¼Œ<b>$MYDRmax</b>é ­ã¾ã§æŒã¤ã“ã¨ãŒã§ãã¾ã™ã€‚<br>
+ãƒ»è³¼å…¥ã™ã‚‹ã«ã¯ï¼Œè³‡é‡‘<b>$buymsg</b>ãŒã‹ã‹ã‚Šã¾ã™ã€‚<br>
+ãƒ»åå‰ã¯ï¼Œ<b>å…¨è§’ã‚«ã‚¿ã‚«ãƒŠ10æ–‡å­—</b>ä»¥å†…ã§ã™ã€‚
 $TBE
 STR
 	}
