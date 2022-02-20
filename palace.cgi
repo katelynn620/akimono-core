@@ -1,3 +1,4 @@
+use utf8;
 # 宮殿 2004/01/20 由來
 
 RequireFile("inc-palace.cgi");	#設定ファイル読み込み

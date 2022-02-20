@@ -1,3 +1,4 @@
+use utf8;
 # ターン処理 2004/02/28 由來
 
 require (GetPath($ITEM_DIR,"event"));

@@ -1,3 +1,4 @@
+use utf8;
 # img プラグイン 2003/09/25 由來
 
 sub GetTagImgGuild

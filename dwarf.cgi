@@ -1,3 +1,4 @@
+use utf8;
 # ドワーフ宅配便 2004/01/20 由來
 
 $image[0]=GetTagImgKao("住み込みドワーフ","dwarf");

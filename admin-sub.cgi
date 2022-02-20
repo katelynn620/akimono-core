@@ -1,3 +1,4 @@
+use utf8;
 # 個別ユーザー管理 2005/03/30 由來
 
 require $JCODE_FILE;

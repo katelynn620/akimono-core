@@ -1,3 +1,4 @@
+use utf8;
 # 依頼下請け関数 2003/09/25 由來
 
 $MENUSAY=GetMenuTag('stock',	'[倉庫を確認する]')

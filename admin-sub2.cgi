@@ -1,3 +1,4 @@
+use utf8;
 # 全体管理 2004/01/20 由來
 
 CheckUserPass();

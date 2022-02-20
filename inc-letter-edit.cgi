@@ -1,3 +1,4 @@
+use utf8;
 # 手紙編集 2003/07/19 由來
 
 if ($Q{mode} eq 'new')

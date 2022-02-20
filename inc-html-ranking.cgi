@@ -1,3 +1,4 @@
+use utf8;
 # 新聞（順位） 2005/01/06 由來
 
 my ($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)

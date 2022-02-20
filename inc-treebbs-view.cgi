@@ -1,3 +1,4 @@
+use utf8;
 # 掲示板記事表示 2003/10/08 由來
 
 Msgview() if ($Q{mode} eq "msgview");

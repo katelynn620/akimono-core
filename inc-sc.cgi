@@ -1,3 +1,4 @@
+use utf8;
 # 陳列棚下請け 2005/01/06 由來
 
 my $showcasecount=$DT->{showcasecount};

@@ -1,3 +1,4 @@
+use utf8;
 # login プラグイン 2003/10/08 由來
 
 sub CheckLogin

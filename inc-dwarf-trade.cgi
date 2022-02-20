@@ -1,3 +1,4 @@
+use utf8;
 # 貿易品リスト表示 2005/01/06 由來
 
 OutError("bad request") unless -e "trade.cgi";

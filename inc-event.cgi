@@ -1,3 +1,4 @@
+use utf8;
 # イベント関数 2005/01/06 由來
 
 package event; #変更不可

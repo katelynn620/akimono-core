@@ -1,3 +1,4 @@
+use utf8;
 # detail プラグイン 2005/01/06 由來
 
 sub SortDT

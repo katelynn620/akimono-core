@@ -1,3 +1,4 @@
+use utf8;
 # guild プラグイン 2005/03/30 由來
 
 sub ReadGuildData

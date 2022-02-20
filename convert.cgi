@@ -1,3 +1,4 @@
+use utf8;
 # 旧版SOLD OUTからのデータ変換 2004/01/20 由來
 
 GetQuery();

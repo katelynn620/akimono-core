@@ -1,3 +1,4 @@
+use utf8;
 # ギルド掲示板下請け 2003/09/25 由來
 
 sub WriteGBBS

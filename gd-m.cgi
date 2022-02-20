@@ -1,3 +1,4 @@
+use utf8;
 # ギルド入団 2004/01/20 由來
 
 CoLock() if ($Q{edit});

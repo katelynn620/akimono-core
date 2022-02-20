@@ -1,3 +1,4 @@
+use utf8;
 # 住宅操作 2005/01/06 由來
 
 $i=SearchBride($Q{no});

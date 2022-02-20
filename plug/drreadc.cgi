@@ -1,3 +1,4 @@
+use utf8;
 # drread cプラグイン 2005/03/30 由來
 
 sub ReadRace

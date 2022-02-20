@@ -1,3 +1,4 @@
+use utf8;
 # フォーム表示 2004/01/20 由來
 
 $disp.=GetMenuTag('letter','[受信箱]')

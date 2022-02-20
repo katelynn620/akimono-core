@@ -1,3 +1,4 @@
+use utf8;
 # 管理室画面下請け 2003/09/25 由來
 
 if(-e "$DATA_DIR/$LASTTIME_FILE$FILE_EXT")

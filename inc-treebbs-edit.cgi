@@ -1,3 +1,4 @@
+use utf8;
 # 掲示板書き込み処理 2003/09/25 由來
 
 if ($Q{message} eq "" || $Q{message} =~ /^(\x81\x40|\s|<br>)+$/)

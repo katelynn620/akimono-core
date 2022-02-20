@@ -1,3 +1,4 @@
+use utf8;
 # BGM 2003/09/25 由來
 
 $NOMENU=1;

@@ -1,3 +1,4 @@
+use utf8;
 # ギルド人事 2004/01/20 由來
 
 Lock(), $Q{mode}=$Q{edit} if $Q{edit};

@@ -1,3 +1,4 @@
+use utf8;
 # 新聞下請け 2003/07/19 由來
 
 my $topic=$Q{key} ne "log";

@@ -1,3 +1,4 @@
+use utf8;
 # drread aプラグイン 2005/03/30 由來
 
 sub ReadStable

@@ -1,3 +1,4 @@
+use utf8;
 # 特殊デコード 2003/09/25 由來
 
 OutError("送信サイズが大きすぎます") if ($ENV{'CONTENT_LENGTH'} > 10240);

@@ -1,3 +1,4 @@
+use utf8;
 # lock プラグイン 2003/07/19 由來
 
 sub Lock

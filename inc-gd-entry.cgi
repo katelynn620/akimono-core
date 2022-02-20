@@ -1,3 +1,4 @@
+use utf8;
 # ギルド入団処理 2003/11/03 由來
 
 my $functionname=$Q{edit};

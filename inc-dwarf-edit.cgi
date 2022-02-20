@@ -1,3 +1,4 @@
+use utf8;
 # 宅配便編集 2005/03/30 由來
 
 my $functionname=$Q{mode};

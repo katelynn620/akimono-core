@@ -1,3 +1,4 @@
+use utf8;
 # 店内表示 2005/01/06 由來
 
 ReadLetter();

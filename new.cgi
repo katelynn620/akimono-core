@@ -1,3 +1,4 @@
+use utf8;
 # 新規開店 2004/01/20 由來
 
 $image[0]=GetTagImgKao("案内人","guide");

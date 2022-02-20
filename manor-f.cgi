@@ -1,3 +1,4 @@
+use utf8;
 # 荘園管理 2005/03/30 由來
 
 Lock() if $Q{mode};

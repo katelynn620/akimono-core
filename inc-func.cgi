@@ -1,3 +1,4 @@
+use utf8;
 # 基本関数定義 2005/03/30 由來
 
 BEGIN{$SIG{__WARN__}=$SIG{__DIE__}=sub{$incdir=$INCLUDE_DIR; $incdir||="../program"; require "$incdir/inc-error.cgi"; die($_[0]);};}
@@ -127,7 +128,7 @@ sub OutHeader
 {
 	print "Cache-Control: no-cache, no-store\n";
 	print "Pragma: no-cache\n";
-	print "Content-type: text/html; charset=Shift_JIS\n\n";
+	print "Content-type: text/html; charset=utf-8\n\n";
 }
 
 sub OutSkin

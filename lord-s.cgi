@@ -1,3 +1,4 @@
+use utf8;
 # 領主邸 2004/01/20 由來
 
 $image[0]=GetTagImgKao("大臣","minister");

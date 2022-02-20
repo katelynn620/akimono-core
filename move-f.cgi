@@ -1,3 +1,4 @@
+use utf8;
 # 移転フォーム 2005/01/06 由來
 
 OutError('使用不可です') if !$MOVETOWN_ENABLE || !$TOWN_CODE;

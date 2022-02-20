@@ -1,3 +1,4 @@
+use utf8;
 # 管理機能下請け 2003/09/25 由來
 
 my $functionname=$Q{mode};

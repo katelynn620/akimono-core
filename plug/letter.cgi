@@ -1,3 +1,4 @@
+use utf8;
 # letter プラグイン 2003/11/03 由來
 
 sub WriteLetter

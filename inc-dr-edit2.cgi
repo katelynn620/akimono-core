@@ -1,3 +1,4 @@
+use utf8;
 # ドラゴンレース レース展開 2005/03/30 由來
 
 if ($NOW_TIME > $DRTIME[2]) { $rcode=1; } else { $rcode=0; }

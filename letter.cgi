@@ -1,3 +1,4 @@
+use utf8;
 # 郵便 2004/01/20 由來
 
 $Q{mode}='new',  if ($Q{form} eq "make")&&($Q{ok}); 	# 送信モード切替

@@ -1,3 +1,4 @@
+use utf8;
 # 兵士駐屯所 2005/01/06 由來
 
 $image[0]=GetTagImgKao("案内人","army");

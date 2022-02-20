@@ -1,3 +1,4 @@
+use utf8;
 # wis 2004/02/28 由來
 
 $image[0]=GetTagImgKao("お手伝い","help");

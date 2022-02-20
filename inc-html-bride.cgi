@@ -1,3 +1,4 @@
+use utf8;
 # 住宅一覧表示 2005/03/30 由來
 
 if ($Q{form} eq "pro" && !$GUEST_USER)

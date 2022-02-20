@@ -1,3 +1,4 @@
+use utf8;
 # drlog プラグイン 2005/03/30 由來
 
 sub PushDraLog

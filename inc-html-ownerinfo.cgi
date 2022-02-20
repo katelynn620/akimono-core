@@ -1,3 +1,4 @@
+use utf8;
 # 店情報表示 2005/01/06 由來
 
 if(!$GUEST_USER && !$MOBILE)

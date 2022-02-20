@@ -1,3 +1,4 @@
+use utf8;
 # 領主施政 2005/01/06 由來
 
 $image[0]=GetTagImgKao("大臣","minister");

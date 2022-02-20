@@ -1,3 +1,4 @@
+use utf8;
 # 引越しセンター 2004/01/20 由來
 
 OutError('移転が不可に設定されています') if !$MOVETOWN_ENABLE;

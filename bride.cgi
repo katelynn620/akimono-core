@@ -1,3 +1,4 @@
+use utf8;
 # 結婚 2004/01/20 由來
 
 @BRIDEnamelist=qw(

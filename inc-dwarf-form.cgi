@@ -1,3 +1,4 @@
+use utf8;
 # フォーム表示 2005/03/30 由來
 
 $disp.=GetMenuTag('dwarf','[宅配便リスト]')

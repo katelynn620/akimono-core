@@ -1,3 +1,4 @@
+use utf8;
 # 決算処理 2005/03/30 由來
 
 	foreach(keys(%GUILD))

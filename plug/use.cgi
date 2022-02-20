@@ -1,3 +1,4 @@
+use utf8;
 # use プラグイン 2004/02/28 由來
 
 sub GetUseItemList

@@ -1,3 +1,4 @@
+use utf8;
 # エラー分析と安全な終了 2005/03/30 由來
 
 my($msg)=@_;
@@ -71,7 +72,7 @@ sub PrintErr
 {
 print "Cache-Control: no-cache, no-store\n";
 print "Pragma: no-cache\n";
-print "Content-type: text/html; charset=Shift_JIS\n\n";
+print "Content-type: text/html; charset=utf-8\n\n";
 print <<"STR";
 <HTML><HEAD>
 <Style Type="text/css">

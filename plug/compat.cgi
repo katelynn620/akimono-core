@@ -1,3 +1,4 @@
+use utf8;
 # compat プラグイン 2004/01/20 由來
 
 sub Compat

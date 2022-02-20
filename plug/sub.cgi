@@ -1,3 +1,4 @@
+use utf8;
 # sub プラグイン 2003/07/19 由來
 
 sub CutStr
