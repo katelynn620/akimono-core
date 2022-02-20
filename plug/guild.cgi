@@ -47,7 +47,8 @@ sub CheckGuild
 		my $guildrate=$GUILD{$dt2guild}->[$GUILDIDX_dealrate];
 		$rate+=$type==1 ? -$guildrate : $guildrate;
 		$margin=int($price*$guildrate/1000);
-		ReadGuildData() if !defined(%GUILD_DATA);
+		#修正Perl舊版語法
+		ReadGuildData() if !%GUILD_DATA;
 		if($margin)
 		{
 			$type=-1,$margin=0 if ($type==1 && $GUILD_DATA{$dt1guild}->{money} < 10000);
