@@ -35,8 +35,9 @@ $item::USE=$USE;
 	if($USE->{arg}=~/message(\d*)/)
 	{
 		my $limit=$1||80;
-		require $JCODE_FILE;
-		$message=EscapeHTML(jcode::sjis($message,$CHAR_SHIFT_JIS&&'sjis'));
+		# require $JCODE_FILE;
+		# $message=EscapeHTML(jcode::sjis($message,$CHAR_SHIFT_JIS&&'sjis'));
+		$message=EscapeHTML($message);
 		OutError('入力文字数が多すぎます (<>&"は4～6文字に換算されます)') if length $message>$limit;
 	}
 	my %select_hash;

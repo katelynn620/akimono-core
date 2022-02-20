@@ -19,7 +19,8 @@ $Q{leader}=$DT->{id};
 foreach my $i(0..$#GLIST)
 	{
 	OutError('記入されていない項目があります - '.$GLIST[$i]) if (!$Q{$GLIST[$i]});
-	$Q{$GLIST[$i]}=CutStr(jcode::sjis($Q{$GLIST[$i]},$CHAR_SHIFT_JIS&&'sjis'),$MAX[$i]);
+	# $Q{$GLIST[$i]}=CutStr(jcode::sjis($Q{$GLIST[$i]},$CHAR_SHIFT_JIS&&'sjis'),$MAX[$i]);
+	$Q{$GLIST[$i]}=CutStr($Q{$GLIST[$i]},$MAX[$i]);
 	$Q{$GLIST[$i]}=~s/&/&amp;/g;
 	$Q{$GLIST[$i]}=~s/>/&gt;/g;
 	$Q{$GLIST[$i]}=~s/</&lt;/g;

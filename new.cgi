@@ -2,7 +2,7 @@ use utf8;
 # 新規開店 2004/01/20 由來
 
 $image[0]=GetTagImgKao("案内人","guide");
-require $JCODE_FILE;
+# require $JCODE_FILE;
 DataRead();
 
 if($Q{admin} ne $MASTER_PASSWORD)
@@ -17,8 +17,8 @@ if($Q{admin} ne $MASTER_PASSWORD)
 
 if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 {
-	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
-	$Q{sname}=jcode::sjis($Q{sname},$CHAR_SHIFT_JIS&&'sjis');
+	# $Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
+	# $Q{sname}=jcode::sjis($Q{sname},$CHAR_SHIFT_JIS&&'sjis');
 
 	if(($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2}) =~ /([,:;\t\r\n<>&])/
 	|| ($Q{pass1}.$Q{pass2}) =~ /([^A-Za-z0-9_\-])/  #.$Q{name}を削除

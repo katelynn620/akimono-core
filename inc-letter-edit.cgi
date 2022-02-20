@@ -75,10 +75,12 @@ OutError('宛先を指定してください。') if !$sendto;
 
 sub CheckNewBoxArg
 {
-	require $JCODE_FILE;
+	# require $JCODE_FILE;
 	
-	$Q{msg}=CutStr(jcode::sjis($Q{msg},$CHAR_SHIFT_JIS&&'sjis'),400);
-	$Q{title}=CutStr(jcode::sjis($Q{title},$CHAR_SHIFT_JIS&&'sjis'),40);
+	# $Q{msg}=CutStr(jcode::sjis($Q{msg},$CHAR_SHIFT_JIS&&'sjis'),400);
+	# $Q{title}=CutStr(jcode::sjis($Q{title},$CHAR_SHIFT_JIS&&'sjis'),40);
+	$Q{msg}=CutStr($Q{msg},400);
+	$Q{title}=CutStr($Q{title},40);
 	OutError('内容がありません') if $Q{msg}eq'';
 	$Q{title}="（無題）" if $Q{title}eq'';
 }

@@ -20,8 +20,8 @@ OutError("bad request") if ($MYRC!=-1);
 OutError('資金の余裕がありません。') if ($DT->{money} < $RCest);
 
 	# 名前の正当性をチェック
-	require $JCODE_FILE;
-	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
+	# require $JCODE_FILE;
+	# $Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 
 	if(!$Q{name})
 	{

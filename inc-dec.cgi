@@ -2,7 +2,7 @@ use utf8;
 # 特殊デコード 2003/09/25 由來
 
 OutError("送信サイズが大きすぎます") if ($ENV{'CONTENT_LENGTH'} > 10240);
-require $JCODE_FILE;
+# require $JCODE_FILE;
 
 binmode(STDIN);
 my $Boundary = <STDIN>;
@@ -54,7 +54,7 @@ while (<STDIN>) {
 			}
 			# ファイル以外の場合
 			else {
-				&jcode::convert(\$Q{$Name}, 'sjis');
+				# &jcode::convert(\$Q{$Name}, 'sjis');
 				$Q{$Name} =~ s/&/&amp;/g;
 				$Q{$Name} =~ s/"/&quot;/g;
 				$Q{$Name} =~ s/</&lt;/g;

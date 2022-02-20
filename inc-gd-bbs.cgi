@@ -8,8 +8,9 @@ sub WriteGBBS
 	return ($msg,'発言は半角'.$maxlength.'文字(全角'.int($maxlength/2).'文字)までです。現在半角'.length($msg).'文字です。<br>')
 		if length($msg)>$maxlength;
 	
-	require $JCODE_FILE;
-	my $msg=CutStr(jcode::sjis($msg,$CHAR_SHIFT_JIS&&'sjis'),$maxlength);
+	# require $JCODE_FILE;
+	# my $msg=CutStr(jcode::sjis($msg,$CHAR_SHIFT_JIS&&'sjis'),$maxlength);
+	my $msg=CutStr($msg,$maxlength);
 	$msg=~s/&/&amp;/g;
 	$msg=~s/>/&gt;/g;
 	$msg=~s/</&lt;/g;

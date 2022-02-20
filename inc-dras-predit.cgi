@@ -84,22 +84,22 @@ sub preg
 	OutError("bad request") if ($PR[$q]->{fm});
 
 	# 名前の正当性をチェック
-	require $JCODE_FILE;
+	# require $JCODE_FILE;
 	if(!$Q{name})
 	{
 		OutError('名前を入力してください。');
 	}
-	$Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
+	# $Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
 		OutError('名前に使用できない文字が含まれています。');
 	}
 
 	#一度EUCに変換
-	&jcode::convert(\$Q{name}, "euc", "sjis");
-	$ZkatakanaExt = '(?:\xA5[\xA1-\xF6]|\xA1[\xA6\xBC\xB3\xB4])';
-	OutError('名前は全角カタカナで指定してください。') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
-	&jcode::convert(\$Q{name}, "sjis", "euc");
+	# &jcode::convert(\$Q{name}, "euc", "sjis");
+	# $ZkatakanaExt = '(?:\xA5[\xA1-\xF6]|\xA1[\xA6\xBC\xB3\xB4])';
+	# OutError('名前は全角カタカナで指定してください。') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
+	# &jcode::convert(\$Q{name}, "sjis", "euc");
 
 	OutError('名前が長すぎます。') if length($Q{name})>20;
 	OutError('名前が短すぎます。') if length($Q{name})<6;

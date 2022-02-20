@@ -37,15 +37,12 @@ sub GetQueryBBS
 
 	my $key;
 	undef %Q;
-	require $JCODE_FILE;
+	# require $JCODE_FILE;
 	foreach(split(/&/,$q))
 	{
 		($key, $val) = split(/=/);
 		$val =~ tr/+/ /;
 		$val =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
-
-		# S-JIS変換
-		&jcode'convert(*val, "sjis", "", "z");
 
 		$val =~ s/&/&amp;/g;
 		$val =~ s/</&lt;/g;
