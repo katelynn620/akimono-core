@@ -19,7 +19,7 @@ sub CheckLogin
 	$session=~s/[^0-9A-Za-z]//g;
 	$session=substr($session,-5,5);
 	
-	open(SESS,$fn); my @client=<SESS>; close(SESS);
+	open(SESS,"<:encoding(UTF-8)",$fn); my @client=<SESS>; close(SESS);
 	if($MASTER_USER)
 	{
 		$session=$client[0],chop($session) if ($client[0]);
@@ -31,7 +31,7 @@ sub CheckLogin
 		my %same=();
 		@client=grep(!$same{(split(/\t/,$_,2))[1]}++,@client);
 	}
-	open(SESS,">$fn");
+	open(SESS,">:encoding(UTF-8)","$fn");
 	print SESS $session."\n";
 	print SESS @client[0..9];
 	close(SESS);
@@ -44,7 +44,7 @@ sub CheckLogin
 		my $overlap=0;
 		my @buf=();
 		Lock();
-		if(open(DATA,$ipfile))
+		if(open(DATA,"<:encoding(UTF-8)",$ipfile))
 		{
 			my @data=<DATA>;
 			close(DATA);
@@ -61,7 +61,7 @@ sub CheckLogin
 		else
 			{WriteErrorLog("ip file read error ",$LOG_ERROR_FILE);}
 		
-		if(open(DATA,">$ipfile"))
+		if(open(DATA,">:encoding(UTF-8)",$ipfile))
 		{
 			print DATA @buf;
 			close(DATA);

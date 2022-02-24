@@ -72,6 +72,7 @@ sub GuildImgUp
 	print OUT $upfile;
 	close(OUT);
 	chmod (0666,$ImgFile);
+	binmode(STDOUT, ':encoding(utf8)');
 	}
 	else
 	{

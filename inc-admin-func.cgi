@@ -66,7 +66,7 @@ sub init
 	#ロックファイル作成
 	if(!GetFileList($DATA_DIR,"^$LOCK_FILE"))
 	{
-		if(open(DATA,">$DATA_DIR/$LOCK_FILE"))
+		if(open(DATA,">:encoding(UTF-8)","$DATA_DIR/$LOCK_FILE"))
 		{
 			print DATA 'ロックファイルです。削除してはいけません。';
 			close(DATA);
@@ -79,7 +79,7 @@ sub init
 	}
 	if(!GetFileList($COMMON_DIR,"^$LOCK_FILE"))
 	{
-		if(open(DATA,">$COMMON_DIR/$LOCK_FILE"))
+		if(open(DATA,">:encoding(UTF-8)","$COMMON_DIR/$LOCK_FILE"))
 		{
 			print DATA 'ロックファイルです。削除してはいけません。';
 			close(DATA);
@@ -97,7 +97,7 @@ sub init
 	#新規ゲームデータ作成
 	if(!-e "$DATA_DIR/$DATA_FILE$FILE_EXT")
 	{
-		if(open(DATA,">$DATA_DIR/$DATA_FILE$FILE_EXT"))
+		if(open(DATA,">:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 		{
 			print DATA time()."\n500000,100,,0,0:0:0:0:5001:0:5001:0:0:2000:0\n\n\n//\n"; #初期状態
 			close(DATA);
@@ -117,7 +117,7 @@ sub init
 	{
 		if(!-e $_[0])
 		{
-			if(open(DATA,">$_[0]"))
+			if(open(DATA,">:encoding(UTF-8)","$_[0]"))
 			{
 				print DATA $_[2];
 				close(DATA);
@@ -165,12 +165,12 @@ sub timeedit
 	$time=0;
 	$time=GetTimeLocal($Q{tlsec},$Q{tlmin},$Q{tlhour},$Q{tlday},$Q{tlmon}-1,$Q{tlyear});
 	if(!$time) { push(@log,'日付時刻設定が不正です');}
-	elsif(open(IN,"$DATA_DIR/$DATA_FILE$FILE_EXT"))
+	elsif(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	{
 		my @data=<IN>;
 		close(IN);
 		$data[0]=$time."\n";
-		open(OUT,">$DATA_DIR/$DATA_FILE$FILE_EXT");
+		open(OUT,">:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT");
 		print OUT @data;
 		close(OUT);
 		my($s,$min,$h,$d,$m,$y)=gmtime($time+$TZ_JST);
@@ -203,8 +203,8 @@ sub backup
 		
 		foreach my $file (@files)
 		{
-			my $inok=open(IN,"$Q{backup}/$file");
-			my $outok=open(OUT,">$DATA_DIR/$file");
+			my $inok=open(IN,"<:encoding(UTF-8)","$Q{backup}/$file");
+			my $outok=open(OUT,">:encoding(UTF-8)","$DATA_DIR/$file");
 			if($inok && $outok)
 			{
 				my @data=<IN>;
@@ -278,12 +278,12 @@ sub GetTimeLocal {
 
 sub delete_evt
 {
-	if(open(IN,"$DATA_DIR/$DATA_FILE$FILE_EXT"))
+	if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	{
 	my @data=<IN>;
 	close(IN);
 	$data[3]="\n";
-	open(OUT,">$DATA_DIR/$DATA_FILE$FILE_EXT");
+	open(OUT,">:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT");
 	print OUT @data;
 	close(OUT);
 	push(@log,$DATA_FILE.$FILE_EXT.'内のイベントデータを削除しました');
@@ -331,11 +331,12 @@ require $townfile if -e $townfile;
 
 return if ($Tname{$MYDIR} eq $TOWN_TITLE);
 
-	if(open(OUT,">".$townfile))
+	if(open(OUT,">:encoding(UTF-8)",$townfile))
 		{
 		$Tname{$MYDIR}=$TOWN_TITLE;
 		undef @OtherDir;
 		@OtherDir=keys(%Tname);
+		print OUT "use utf8;\n";
 		print OUT '@OtherDir=("',join('","',@OtherDir),'");',"\n";
 		foreach(keys(%Tname))
 			{

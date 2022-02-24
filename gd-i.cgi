@@ -17,10 +17,10 @@ $disp.="現在の情報収集レベルは".$lv."です。".$TRE.$TBE."<br>";
 
 	undef @MESSAGE;
 
-		open(IN,GetPath("log0"));
+		open(IN,"<:encoding(UTF-8)",GetPath("log0"));
 		push(@MESSAGE,<IN>);
 		close(IN);
-		open(IN,GetPath("log1"));
+		open(IN,"<:encoding(UTF-8)",GetPath("log1"));
 		push(@MESSAGE,<IN>);
 		close(IN);
 

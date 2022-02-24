@@ -9,7 +9,7 @@ $ERROR_REENTRY=1;
 $_[0]+=1900; $_[1]++;
 my $nowtime=sprintf("%d/%02d/%02d %02d:%02d:%02d",@_);
 
-	open(OUT,">>$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT");
+	open(OUT,">>:encoding(UTF-8)","$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT");
 	print OUT "1";
 	close(OUT);
 	
@@ -134,7 +134,7 @@ $msg
 STR
 
 	my $ErrFile = $DATA_DIR."/error.log";
-	open(OUT,"> $ErrFile");
+	open(OUT,">:encoding(UTF-8)","$ErrFile");
 	print OUT $txt;
 	close(OUT);
 	chmod (0666,$ErrFile);

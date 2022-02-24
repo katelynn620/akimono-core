@@ -55,7 +55,7 @@ sub RenameAndCheck
 sub OpenAndCheck
 {
 	my $count=5;
-	while(!open(OUT,">".$_[0]))
+	while(!open(OUT,">:encoding(UTF-8)",$_[0]))
 	{
 		WriteErrorLog('write mode open error',$LOG_ERROR_FILE),OutError('異常処理です。中断しました。') if !$count--;
 		select(undef,undef,undef,0.2);

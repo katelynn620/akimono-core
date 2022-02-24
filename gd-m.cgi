@@ -138,7 +138,7 @@ sub ReadEntry
 {
 	undef @ENTRY;
 	undef @MYENTRY;
-	open(IN,GetPath($COMMON_DIR,"entry")) or return;
+	open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"entry")) or return;
 	my @ent=<IN>;
 	close(IN);
 	$Ecount=$#ent;

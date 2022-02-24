@@ -30,7 +30,7 @@ sub ReadSubData
 	my($DT)=@_;
 	
 	my $subdata={};
-	open(IN,GetPath($SUBDATA_DIR,$DT->{name}."-s"));
+	open(IN,"<:encoding(UTF-8)",GetPath($SUBDATA_DIR,$DT->{name}."-s"));
 	while(<IN>)
 	{
 		chop;

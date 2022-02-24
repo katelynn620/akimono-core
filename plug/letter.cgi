@@ -40,7 +40,7 @@ sub ReadLetter
 	undef @SENLETTER;
 	$NeverS=0;
 	my $datafile=GetPath($COMMON_DIR,$BOX_FILE);
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	my @MESSAGE=<IN>;
 	close(IN);
 	$Lcount=$#MESSAGE;
@@ -71,7 +71,7 @@ sub ReadLetterName
 	foreach my $pg(@OtherDir)
 	{
 	my $datafile='../'.$pg.'/data/user.cgi';
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	my @data=<IN>;
 	close(IN);
 	$Ncount{$pg}=scalar(@data) - 1;

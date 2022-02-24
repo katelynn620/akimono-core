@@ -14,7 +14,7 @@ sub MakeIndexAutoLoad
 	{
 		next if $file!~/\.cgi$/;
 		
-		open(IN,"$AUTOLOAD_DIR/$file");
+		open(IN,"<:encoding(UTF-8)","$AUTOLOAD_DIR/$file");
 		while(<IN>)
 		{
 			next if !/^\s*sub\s+([^_]\w+)\s*$/;
@@ -27,7 +27,7 @@ sub MakeIndexAutoLoad
 	}
 	closedir(DIR);
 	
-	open(OUT,">".GetPath("autoload"));
+	open(OUT,">:encoding(UTF-8)",GetPath("autoload"));
 	print OUT "\%autoload=qw(".join(" ",%autoload).");1;";
 	close(OUT);
 	

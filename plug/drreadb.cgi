@@ -7,7 +7,7 @@ $MYRC=-1;
 $RCcount=-1;
 undef @RC;
 undef %id2rc;
-open(IN,GetPath($COMMON_DIR,"dra-rc")) or return;
+open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"dra-rc")) or return;
 my @req=<IN>;
 close(IN);
 $RCcount=$#req;
@@ -38,7 +38,7 @@ sub ReadDragon
 $DRcount=-1;
 undef @DR;
 undef %id2dra;
-open(IN,GetPath($COMMON_DIR,"dra-dr")) or return;
+open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"dra-dr")) or return;
 my @req=<IN>;
 close(IN);
 $DRcount=$#req;
@@ -65,7 +65,7 @@ sub ReadParent
 $PRcount=-1;
 undef @PR;
 undef %id2pr;
-open(IN,GetPath($COMMON_DIR,"dra-pr")) or return;
+open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"dra-pr")) or return;
 my @req=<IN>;
 close(IN);
 $PRcount=$#req;

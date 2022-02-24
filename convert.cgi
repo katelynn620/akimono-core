@@ -53,7 +53,7 @@ sub OldLog
 {
 	my($f)=@_;
 	$disp.=$f;
-	open(IN,GetPath("log-s$f")) or return;
+	open(IN,"<:encoding(UTF-8)",GetPath("log-s$f")) or return;
 	my @data=<IN>;
 	close(IN);
 	undef @MESSAGE;
@@ -71,7 +71,7 @@ sub DataReadOld
 {
 	my $datafile=GetPath("data");
 	OutError("実行できません") unless -e $datafile;
-	open(IN,$datafile);
+	open(IN,"<:encoding(UTF-8)",$datafile);
 	read(IN,my $buf,-s $datafile);
 	close(IN);
 	my @DATA=split(/\n/,$buf);

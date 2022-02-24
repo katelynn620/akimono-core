@@ -29,7 +29,7 @@ OutSkin();
 
 sub IpCheckOpen
 {
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	my @temp=<IN>;
 	push(@data, @temp);
 	close(IN);

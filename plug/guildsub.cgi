@@ -34,6 +34,7 @@ sub MakeGuildFile
 	my @guildlist=GetGuildDirFiles();
 	
 	OpenAndCheck(GetPath($TEMP_DIR,$GUILD_FILE));
+	print "use utf8\n";
 	print OUT '$GUILDIDX_name=0;$GUILDIDX_dealrate=1;$GUILDIDX_feerate=2;';
 	print OUT '%GUILD=(';
 	foreach my $code (keys(%GUILD_DETAIL))

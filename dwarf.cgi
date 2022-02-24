@@ -39,7 +39,7 @@ sub ReadDwarf
 	undef @SENDWF;
 	undef @DWF;
 	$NeverD=0;
-	open(IN,GetPath("dwarf")) or return;
+	open(IN,"<:encoding(UTF-8)",GetPath("dwarf")) or return;
 	my @dwf=<IN>;
 	close(IN);
 	$Dcount=$#dwf;

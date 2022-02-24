@@ -601,7 +601,7 @@ sub AnalyzeItemData
 	push(@errormsg,$filename.' がループしています'),return if $analyzefile{$filename}; # @@includeループを検出した場合は読み込み中止
 	$analyzefile{$filename}=1;
 	$filehandle++;
-	push(@errormsg,$filename.' がオープン出来ませんでした'),return if !open($filehandle,"$CUSTOM_DIR/$filename") && !open($filehandle,"$INCLUDE_DIR/$filename");
+	push(@errormsg,$filename.' がオープン出来ませんでした'),return if !open($filehandle,"<:encoding(utf8)","$CUSTOM_DIR/$filename") && !open($filehandle,"<:encoding(utf8)","$INCLUDE_DIR/$filename");
 	$analyzeoldmode=-1 if !defined($analyzeoldmode);
 	$analyzemode=''    if !defined($analyzemode);
 	$analyzeskip=0     if !defined($analyzeskip);
@@ -689,11 +689,12 @@ sub GetDefineList
 
 sub OutItemData
 {
-	open(OUT,">$ITEM_DIR/item$FILE_EXT");
+	open(OUT,">:encoding(utf8)","$ITEM_DIR/item$FILE_EXT");
 	
 	push(@dispmsg,("ディレクトリ名","\t".$g_define->{dirname}));
 	
 	push(@dispmsg,("バージョン","\t".$g_define->{version}));
+	print OUT "use utf8;\n";
 	print OUT "\$ITEM_VERSION='$g_define->{version}';\n";
 	
 	push(@dispmsg,"陳列棚維持費");
@@ -800,7 +801,8 @@ CODE
 		if($item->{localfuncturn})
 		{
 			push(@dispmsg,"\tfuncturn $item->{functurn}");
-			open(OUTSUB,">$ITEM_DIR/item-t/$item->{no}$FILE_EXT");
+			open(OUTSUB,">:encoding(utf8)","$ITEM_DIR/item-t/$item->{no}$FILE_EXT");
+			print OUTSUB "use utf8;\n";
 			print OUTSUB "package item;\nsub $item->{functurn} {eval(<<'_eval_code_');\n";
 			print OUTSUB GetFuncItemNo($item->{localfuncturn},"ITEM funct $item->{code}");
 			print OUTSUB "\n"."_eval_code_\n}\n1;\n";
@@ -808,7 +810,8 @@ CODE
 		if($item->{localfuncsale})
 		{
 			push(@dispmsg,"\tfuncsale $item->{funcsale}");
-			open(OUTSUB,">$ITEM_DIR/item-s/$item->{no}$FILE_EXT");
+			open(OUTSUB,">:encoding(utf8)","$ITEM_DIR/item-s/$item->{no}$FILE_EXT");
+			print OUTSUB "use utf8;\n";
 			print OUTSUB "package item;\nsub $item->{funcsale} {eval(<<'_eval_code_');\n";
 			print OUTSUB GetFuncItemNo($item->{localfuncsale},"ITEM funcs $item->{code}");
 			print OUTSUB "\n"."_eval_code_\n}\n1;\n";
@@ -816,7 +819,8 @@ CODE
 		if($item->{localfuncbuy})
 		{
 			push(@dispmsg,"\tfuncbuy $item->{funcbuy}");
-			open(OUTSUB,">$ITEM_DIR/item-b/$item->{no}$FILE_EXT");
+			open(OUTSUB,">:encoding(utf8)","$ITEM_DIR/item-b/$item->{no}$FILE_EXT");
+			print OUTSUB "use utf8;\n";
 			print OUTSUB "package item;\nsub $item->{funcbuy} {eval(<<'_eval_code_');\n";
 			print OUTSUB GetFuncItemNo($item->{localfuncbuy},"ITEM funcb $item->{code}");
 			print OUTSUB "\n"."_eval_code_\n}\n1;\n";
@@ -827,13 +831,15 @@ CODE
 			if($item->{localfunc})
 			{
 				push(@dispmsg,"\tfunc $item->{func}");
-				open(OUTSUB,">$ITEM_DIR/use-s/$item->{code}$FILE_EXT");
+				open(OUTSUB,">:encoding(utf8)","$ITEM_DIR/use-s/$item->{code}$FILE_EXT");
+				print OUTSUB "use utf8;\n";
 				print OUTSUB "sub $item->{func} {eval(<<'_eval_code_');\n";
 				print OUTSUB GetFuncItemNo($item->{localfunc},"ITEM func $item->{code}");
 				print OUTSUB "\n"."_eval_code_\n}\n1;\n";
 			}
 			
-			open(MAKEOUT,">$ITEM_DIR/use/$item->{code}$FILE_EXT");
+			open(MAKEOUT,">:encoding(utf8)","$ITEM_DIR/use/$item->{code}$FILE_EXT");
+			print MAKEOUT "use utf8;\n";
 			my $s="";
 			$s.="package item;\0";
 			$s.='$main\'DEFINE_FUNCUSE_SUB=1;\0' if $item->{localfunc};
@@ -1017,7 +1023,8 @@ CODE
 
 sub OutEventData
 {
-	open(EOUT,">$ITEM_DIR/event$FILE_EXT");
+	open(EOUT,">:encoding(utf8)","$ITEM_DIR/event$FILE_EXT");
+	print EOUT "use utf8;\n";
 	
 	if(@out_event==())
 	{
@@ -1062,7 +1069,8 @@ CODE
 		if($event->{localfuncstart})
 		{
 			push(@dispmsg,"\tstartfunc\t$event->{startfunc}");
-			open(EOUTSUB,">$ITEM_DIR/event-s/$event->{code}$FILE_EXT");
+			open(EOUTSUB,">:encoding(utf8)","$ITEM_DIR/event-s/$event->{code}$FILE_EXT");
+			print EOUTSUB "use utf8;\n";
 			print EOUTSUB "package event;\n";
 			print EOUTSUB "sub $event->{startfunc} {\n";
 			print EOUTSUB GetFuncItemNo($event->{localfuncstart},"EVENT startfunc $event->{code}");
@@ -1073,7 +1081,8 @@ CODE
 		if($event->{localfuncend})
 		{
 			push(@dispmsg,"\tendfunc\t$event->{endfunc}");
-			open(EOUTSUB,">$ITEM_DIR/event-e/$event->{code}$FILE_EXT");
+			open(EOUTSUB,">:encoding(utf8)","$ITEM_DIR/event-e/$event->{code}$FILE_EXT");
+			print EOUTSUB "use utf8;\n";
 			print EOUTSUB "package event;\n";
 			print EOUTSUB "sub $event->{endfunc} {\n";
 			print EOUTSUB GetFuncItemNo($event->{localfuncend},"EVENT endfunc $event->{code}");
@@ -1084,15 +1093,16 @@ CODE
 		if($event->{localfuncnow})
 		{
 			push(@dispmsg,"\tcustom func");
-			open(EOUTSUB,">$ITEM_DIR/event-n/$event->{code}$FILE_EXT");
+			open(EOUTSUB,">:encoding(utf8)","$ITEM_DIR/event-n/$event->{code}$FILE_EXT");
+			print EOUTSUB "use utf8;\n";
 			print EOUTSUB "package event;\n";
 			print EOUTSUB "sub $event->{nowfunc} {\n";
 			print EOUTSUB GetFuncItemNo($event->{localfuncnow},"EVENT func $event->{code}");
 			print EOUTSUB "\n}\n1;\n";
 		}
 		
-		open(EOUTSUB,">$ITEM_DIR/event/$event->{code}$FILE_EXT");
-		
+		open(EOUTSUB,">:encoding(utf8)","$ITEM_DIR/event/$event->{code}$FILE_EXT");
+		print EOUTSUB "use utf8;\n";
 		print EOUTSUB "push(\@EVENTMSG,'$event->{info}');\n" if $event->{info};
 		
 		foreach my $param (@{$event->{param}})
@@ -1187,7 +1197,8 @@ sub OutFunctionData
 		$packagename='item' if $key eq 'funcsale';
 		$packagename='item' if $key eq 'funcbuy';
 		
-		open(OUT,">$ITEM_DIR/$key$FILE_EXT");
+		open(OUT,">:encoding(utf8)","$ITEM_DIR/$key$FILE_EXT");
+		print OUT "use utf8;\n";
 		print OUT "package $packagename;\n" if $packagename ne '';
 		$val=~s/\s*sub\s+(\w+)\s*/\nsub $1 /g;
 		print OUT $val."\n1;\n";

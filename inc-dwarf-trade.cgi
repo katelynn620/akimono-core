@@ -15,7 +15,7 @@ $itemcode2idx{$ITEM[$_]->{code}}=$_;
 $itemprice2idx{int($ITEM[$_]->{price}/100)}=$_ unless $ITEM[$_]->{flag}=~/r/;;
 }
 
-open(IN,GetPath("trade"));
+open(IN,"<:encoding(UTF-8)",GetPath("trade"));
 ($TRADE_STOCK_TIME)=split(/[\t\n]/,<IN>);
 while(<IN>)
 {

@@ -51,10 +51,10 @@ $disp.=$pagecontrol;
 sub ReadDraLog
 {
 	undef @MESSAGE;
-	open(IN,GetPath($COMMON_DIR,"dra-log0"));
+	open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"dra-log0"));
 	push(@MESSAGE,<IN>);
 	close(IN);
-	open(IN,GetPath($COMMON_DIR,"dra-log1"));
+	open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"dra-log1"));
 	push(@MESSAGE,<IN>);
 	close(IN);
 	@MESSAGE=("0\t0\t情報はありません\n") if !scalar(@MESSAGE);

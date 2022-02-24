@@ -42,7 +42,7 @@ if(-e "$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT")
 	}
 	
 	my $userselect=qq|<option value="" selected>ユーザーを選択|;
-if(open(IN,"$DATA_DIR/$DATA_FILE$FILE_EXT"))
+if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	{
 		while(<IN>){s/[\r\n]//g; last if $_ eq '//';}
 		my @data=<IN>;

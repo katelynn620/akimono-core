@@ -31,7 +31,7 @@ OutSkin();
 
 sub ReadBride
 {
-	open(IN,GetPath('bride')) or return;
+	open(IN,"<:encoding(UTF-8)",GetPath('bride')) or return;
 	my @bride=<IN>;
 	close(IN);
 	$married=0;

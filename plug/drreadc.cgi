@@ -8,7 +8,7 @@ $fn||="0";
 $RDcount=0;
 undef @RD;
 @RDS=(0,0,0);
-open(IN,GetPath($COMMON_DIR,"dra-rd$fn")) or return;
+open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,"dra-rd$fn")) or return;
 my @req=<IN>;
 close(IN);
 $RDcount=$#req;

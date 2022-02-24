@@ -77,14 +77,12 @@ STR
 	$disp.=GetTagImgKao($DT->{name},$DT->{icon})."<br>";
 	$disp.=$TD."<SPAN>RANK</SPAN> ".($id2idx{$DT->{id}}+1).GetTopCountImage($DT->{rankingcount}).DignityDefine($DT->{dignity},1)."<br>";
 	$disp.=GetTagImgGuild($DT->{guild})."<b>".$DT->{shopname}."</b>".$TRE;
-	$disp.=<<STR;
-	$TR$TDB資金$TD$moneymsg$TRE
-	$TR$TDB時間$TD$tm$TRE
-	$TR$TDB人気$TD$rankmsg$TRE
-	$TR$TDBごみ$TD$cleanmsg$TRE
-	$TR$TDBコメント$TD<INPUT TYPE=TEXT NAME=cmt SIZE=20 VALUE="$DT->{comment}">
-	<INPUT TYPE=SUBMIT VALUE="変更">$TRE$TBE
-STR
+	$disp.= "$TR$TDB" . "資金" . "$TD$moneymsg$TRE
+	$TR$TDB" . "時間" . "$TD$tm$TRE
+	$TR$TDB" . "人気" . "$TD$rankmsg$TRE
+	$TR$TDB" . "ごみ" . "$TD$cleanmsg$TRE
+	$TR$TDB" . "コメント" . "$TD<INPUT TYPE=TEXT NAME=cmt SIZE=20 VALUE=\"$DT->{comment}\">
+	<INPUT TYPE=SUBMIT VALUE=\"変更\">$TRE$TBE";
 }
 
 

@@ -11,7 +11,7 @@ sub allread {
 	$x=0;
 	$disp.="<table width=500>$TR$TD<BIG>▼レス全表\示</BIG>\n";
 	$disp.="<UL>\n";
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	$top = <IN>;
 	$flag=0;
 	while (<IN>) {

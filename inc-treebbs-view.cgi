@@ -12,7 +12,7 @@ sub Msgview
 
 	$flag=0;
 	@new=();
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	$top = <IN>;
 	while (<IN>) {
 		($no,$re,$lx,$sub,$eml,$nam,$msg,$lt,$ho,$oya,$sml) = split(/<>/);

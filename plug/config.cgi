@@ -3,7 +3,7 @@ use utf8;
 
 sub ReadConfig
 {
-	open(IN,$_[0]) or return ();;
+	open(IN,"<:encoding(UTF-8)",$_[0]) or return ();;
 	my @data=();
 	while(<IN>)
 	{

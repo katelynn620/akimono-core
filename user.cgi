@@ -23,6 +23,7 @@ sub comment
 {
 	# require $JCODE_FILE;
 	# $comment=jcode::sjis($Q{cmt},$CHAR_SHIFT_JIS&&'sjis');
+	$comment = $Q{cmt};
 
 	if(($comment) =~ /([,:;\t\r\n<>&])/
 	|| CheckNGName($comment)

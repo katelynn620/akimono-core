@@ -36,7 +36,7 @@ sub GetTrueIP
 sub GetIPList
 {
 	my($ip)=@_;
-	open(IN,GetPath("user")) or return();
+	open(IN,"<:encoding(UTF-8)",GetPath("user")) or return();
 	my @data=<IN>;
 	close(IN);
 	my @list=map{(split(/\t/,$_))[4]}@data;

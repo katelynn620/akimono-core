@@ -117,9 +117,9 @@ my $logmemb="";
 foreach(@DT)
 	{
 	next if ($_->{lastlogin} < $NOW_TIME - 600);
-	$logmemb .= $_->{shopname}."， ";
+	$logmemb .= $_->{shopname}. "， ";
 	}
-$logmemb = substr($logmemb,0,(length($logmemb)-3)) if ($logmemb);
+$logmemb = substr($logmemb,0,(length($logmemb)-2)) if ($logmemb);
 $logmemb = "なし" if !$logmemb;
 
 $disp.=<<"HTML";

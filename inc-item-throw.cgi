@@ -33,12 +33,10 @@ STR
 		$disp.="<OPTION VALUE=\"$cnt\">$msg{$cnt}";
 		$oldcnt=$cnt;
 	}
-$disp.=<<STR;
-</SELECT>
+$disp .= "</SELECT>
 $ITEM[$itemno]->{scale}、もしくは
 <INPUT TYPE=TEXT SIZE=5 NAME=cnt2>
 $ITEM[$itemno]->{scale}
-<INPUT TYPE=SUBMIT VALUE="$msg1する">(時間消費無)
-</FORM>
-STR
+<INPUT TYPE=SUBMIT VALUE=\"" . $msg1 . "する\">(時間消費無)
+</FORM>";
 1;

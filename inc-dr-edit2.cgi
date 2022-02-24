@@ -31,7 +31,7 @@ sub WriteRaceLog
 	my($f,$message)=@_;
 	$f||=0;
 	my $fn=GetPath($COMMON_DIR,"dra-rlog$f");
-	open(OUT,">>$fn") or return;
+	open(OUT,">>:encoding(UTF-8)","$fn") or return;
 	print OUT $message;
 	close(OUT);
 }

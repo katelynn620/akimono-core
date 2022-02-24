@@ -10,7 +10,7 @@ if(-f "./lock")
 }
 elsif(-f "$DATA_DIR/lock")
 {
-	open(IN,"$DATA_DIR/lock");
+	open(IN,"<:encoding(UTF-8)","$DATA_DIR/lock");
 	$msg=join("",<IN>);
 	close(IN);
 }

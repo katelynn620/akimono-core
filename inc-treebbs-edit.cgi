@@ -10,7 +10,7 @@ if ($Q{sub} eq "" || $Q{sub} =~ /^(\x81\x40|\s)+$/)
 $Q{name}=$adminname,$Q{town}="" 	if ($MASTER_USER);
 
 # ログファイル読み込み
-open(IN,$datafile);
+open(IN,"<:encoding(UTF-8)",$datafile);
 @lines = <IN>;
 close(IN);
 

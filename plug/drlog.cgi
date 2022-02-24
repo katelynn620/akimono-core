@@ -22,7 +22,7 @@ sub RenewDraLog
 	}
 	else
 	{
-		open(IN,(-e $tempfile ? $tempfile : $s0));
+		open(IN,"<:encoding(UTF-8)",(-e $tempfile ? $tempfile : $s0));
 		push(@DLOG,<IN>);
 		close(IN);
 	}
@@ -35,7 +35,7 @@ sub WritePayLog
 {
 	my($file,$id,$money)=@_;
 	my $fn=GetPath($COMMON_DIR,"drapay-".$file);
-	open(OUT,">>$fn") or return;
+	open(OUT,">>:encoding(UTF-8)","$fn") or return;
 	print OUT "$id\t$money\n";
 	close(OUT);
 }

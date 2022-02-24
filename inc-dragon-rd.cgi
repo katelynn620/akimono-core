@@ -66,7 +66,7 @@ sub ReadRaceLog
 	$f||=0;
 	my $fn=GetPath($COMMON_DIR,"dra-rlog$f");
 	undef $RACELOG;
-	open(IN,$fn) or return;
+	open(IN,"<:encoding(UTF-8)",$fn) or return;
 	read(IN,$RACELOG,-s $fn);
 	close(IN);
 }

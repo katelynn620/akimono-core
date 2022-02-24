@@ -7,10 +7,10 @@ sub ReadLog
 	$id=$DT->{id} if $id eq '';
 	undef @MESSAGE;
 	
-	open(IN,GetPath("log0"));
+	open(IN,"<:encoding(UTF-8)",GetPath("log0"));
 	push(@MESSAGE,<IN>);
 	close(IN);
-	open(IN,GetPath("log1"));
+	open(IN,"<:encoding(UTF-8)",GetPath("log1"));
 	push(@MESSAGE,<IN>);
 	close(IN);
 	
@@ -62,7 +62,7 @@ sub RenewLog
 	}
 	else
 	{
-		open(IN,(-e $tempfile ? $tempfile : $s0));
+		open(IN,">:encoding(UTF-8)",(-e $tempfile ? $tempfile : $s0));
 		push(@LOG,<IN>);
 		close(IN);
 	}

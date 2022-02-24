@@ -62,7 +62,7 @@ HTML
 }
 
 $disp.=$TB;
-if (!$topic && defined(@EVENTMSG)) {
+if (!$topic && @EVENTMSG) {
 	foreach (sort(@EVENTMSG))
 		{$disp.=$TR.$TDB.'情報：'.$_.$TRE;}
 	}

@@ -5,7 +5,7 @@ sub ReadArmy
 {
 	undef %ARMY;
 	undef %RIOT;
-	open(IN,GetPath("army"));
+	open(IN,"<:encoding(UTF-8)",GetPath("army"));
 	my @buf=<IN>;
 	close(IN);
 	chop $buf[0];

@@ -71,7 +71,7 @@ OutSkin();
 sub ReadBoard
 {
 	undef @MESSAGE;
-	open(IN,GetPath($COMMON_DIR,$LOG_FILE));
+	open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,$LOG_FILE));
 	@MESSAGE=<IN>;
 	close(IN);
 }

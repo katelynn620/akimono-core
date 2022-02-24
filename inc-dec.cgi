@@ -1,4 +1,5 @@
 use utf8;
+use Encode qw(decode_utf8);
 # 特殊デコード 2003/09/25 由來
 
 OutError("送信サイズが大きすぎます") if ($ENV{'CONTENT_LENGTH'} > 10240);
@@ -55,6 +56,7 @@ while (<STDIN>) {
 			# ファイル以外の場合
 			else {
 				# &jcode::convert(\$Q{$Name}, 'sjis');
+				$Q{$Name} = decode_utf8($Q{$Name});
 				$Q{$Name} =~ s/&/&amp;/g;
 				$Q{$Name} =~ s/"/&quot;/g;
 				$Q{$Name} =~ s/</&lt;/g;

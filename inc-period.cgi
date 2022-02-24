@@ -183,8 +183,8 @@ use utf8;
 	
 	foreach my $filetype (@BACKUP_FILES)
 	{
-		open(IN,GetPath($filetype));
-		open(OUT,">".GetPath($BACKUP_DIR."1",$filetype));
+		open(IN,"<:encoding(UTF-8)",GetPath($filetype));
+		open(OUT,">:encoding(UTF-8)",GetPath($BACKUP_DIR."1",$filetype));
 		while(<IN>){print OUT $_;}
 		close(OUT);
 		close(IN);
@@ -225,7 +225,7 @@ if (rand(100) < 30)
 sub DragonBalance
 {
 	my $fn=GetPath($COMMON_DIR,"drapay-".$MYDIR);
-	open(IN,$fn) or return;
+	open(IN,"<:encoding(UTF-8)",$fn) or return;
 	my @req=<IN>;
 	close(IN);
 	foreach (0..$#req)

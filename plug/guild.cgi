@@ -4,7 +4,7 @@ use utf8;
 sub ReadGuildData
 {
 	undef %GUILD_DATA;
-	open(IN,GetPath($GUILDBAL_FILE));
+	open(IN,"<:encoding(UTF-8)",GetPath($GUILDBAL_FILE));
 	while(<IN>)
 	{
 		chop;

@@ -93,7 +93,7 @@ sub GetLog
 	}
 	else
 	{
-		open(IN,GetPath($LOG_DIR,$Q{log})) or OutError('存在しません '.$Q{log});
+		open(IN,"<:encoding(UTF-8)",GetPath($LOG_DIR,$Q{log})) or OutError('存在しません '.$Q{log});
 		my @data=reverse(<IN>);
 		close(IN);
 
@@ -133,7 +133,7 @@ sub GetLog
 sub GetMember
 {
 	DataRead();
-	if(open(IN,GetPath("user")))
+	if(open(IN,"<:encoding(UTF-8)",GetPath("user")))
 	{
 		while(<IN>)
 		{
@@ -159,7 +159,7 @@ sub GetMember
 	foreach my $DT (@DT)
 	{
 		$count{$DT->{remoteaddr}}++ if $DT->{remoteaddr};
-		open(SESS,"$SESSION_DIR/$DT->{name}.cgi");
+		open(SESS,"<:encoding(UTF-8)","$SESSION_DIR/$DT->{name}.cgi");
 		$DT->{clientinfo}=[<SESS>];
 		close(SESS);
 		shift(@{$DT->{clientinfo}});

@@ -71,7 +71,7 @@ sub WriteErrorLog
 	
 	my $fn=GetPath($LOG_DIR,$file);
 	rename($fn,GetPath($LOG_DIR,$file."-old")) if (stat($fn))[7]>$LOG_SIZE_MAX;
-	open(ERR,">>$fn") or return;
+	open(ERR,">>:encoding(UTF-8)","$fn") or return;
 	print ERR
 		join("\t",
 			(

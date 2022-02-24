@@ -45,7 +45,7 @@ sub WriteBoard
 	my @data=();
 	CoLock() if !$nolock;
 
-	open(IN,GetPath($COMMON_DIR,$LOG_FILE));
+	open(IN,"<:encoding(UTF-8)",GetPath($COMMON_DIR,$LOG_FILE));
 	@data=<IN>;
 	close(IN);
 	

@@ -54,7 +54,7 @@ sub ReadDTSub
 	my($DT,$tag)=@_;
 	
 	return 0 if !$DT or !$DT->{id}; # error $DT
-	return $DT->{"_$tag"}={} if !open(IN,GetPath($SUBDATA_DIR,$DT->{id}."-$tag")); # no file
+	return $DT->{"_$tag"}={} if !open(IN,"<:encoding(UTF-8)",GetPath($SUBDATA_DIR,$DT->{id}."-$tag")); # no file
 	
 	my @line=<IN>; # IN: key <LF> value <LF> key <LF> value <LF> ...
 	close(IN);

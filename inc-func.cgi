@@ -1,4 +1,5 @@
 use utf8;
+use Encode qw(decode_utf8 encode_utf8);
 # 基本関数定義 2005/03/30 由來
 
 BEGIN{$SIG{__WARN__}=$SIG{__DIE__}=sub{$incdir=$INCLUDE_DIR; $incdir||="../program"; require "$incdir/inc-error.cgi"; die($_[0]);};}
@@ -117,7 +118,7 @@ sub SetSkin
 	my $skinfile='smain';
 	$skinfile='sindex' if ($MYNAME eq 'index.cgi');
 	$skinfile.='-mob' if $MOBILE;
-	open(IN,$skinfile.'.html');
+	open(IN,"<:encoding(UTF-8)",$skinfile.'.html');
 	read(IN,my $SKIN,-s $skinfile.'.html');
 	close(IN);
 	%DISP={};
@@ -198,7 +199,7 @@ sub GetQuery
 		tr/\?+/  /;
 		s/%([a-fA-F0-9][a-fA-F0-9])/pack('H2',$1)/eg;
 		tr/"',\x00-\x1f/   /d;
-		$Q{$key}=$_;
+		$Q{$key}=decode_utf8($_);
 	}
 	@Q{qw(nm pw ss)}=split(/!/,$Q{u},3) if exists $Q{u};
 }
@@ -207,6 +208,8 @@ sub GetCookieSession
 {
 	my $cookieon=0;
 	my($name,$sess)=($ENV{HTTP_COOKIE}=~/SESSION=(.*)!(\w*)/);
+	$name = decode_utf8($name);
+	$sess = decode_utf8($sess);
 	$cookieon=1 if $name ne "";
 	$name="" if $name eq "-check-cookie-";
 	return ($name,$sess,$cookieon);
@@ -223,7 +226,7 @@ sub DataRead
 {
 	my $datafile=GetPath($DATA_FILE);
 	
-	open(IN,$datafile);
+	open(IN,"<:encoding(UTF-8)",$datafile);
 	read(IN,my $buf,-s $datafile);
 	close(IN);
 	my @DATA=split(/\n/,$buf);
@@ -329,7 +332,7 @@ sub CheckUserPass
 	
 	if($session ne '')
 	{
-		SetCookieSession(),OutError("timeout") if (stat($fn))[9]<$NOW_TIME-$SESSION_TIMEOUT_TIME || !open(SESS,$fn);
+		SetCookieSession(),OutError("timeout") if (stat($fn))[9]<$NOW_TIME-$SESSION_TIMEOUT_TIME || !open(SESS,"<:encoding(UTF-8)",$fn);
 		$_=<SESS>;
 		close(SESS);
 		chop;

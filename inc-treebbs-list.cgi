@@ -19,7 +19,7 @@ $TDB etc.$TRE
 EOM
 
 	$i=0;
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	if ($mode ne "past") { $top = <IN>; }
 	while (<IN>) {
 		($no,$reno,$lx,$sub,$town,$name,$msg,$t,$h,$oya,$sml) = split(/<>/);

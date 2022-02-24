@@ -143,7 +143,7 @@ sub GetDoubleIP
 	{
 	my $datafile='../'.$pg.'/data/user.cgi';
 	my($ip)=@_;
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	my @data=<IN>;
 	close(IN);
 	my @list=map{(split(/\t/,$_))[4]}@data;

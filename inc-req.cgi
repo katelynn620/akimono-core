@@ -16,7 +16,7 @@ sub ReadReq
 {
 $REQNONE=1;
 undef @REQ;
-open(IN,GetPath("request")) or return;
+open(IN,"<:encoding(UTF-8)",GetPath("request")) or return;
 my @req=<IN>;
 close(IN);
 $Scount=$#req;

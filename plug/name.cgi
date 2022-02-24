@@ -14,7 +14,7 @@ sub GetDoubleName
 	{
 	my $datafile='../'.$pg.'/data/user.cgi';
 	my($name)=@_;
-	open(IN,$datafile) or return();
+	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	my @data=<IN>;
 	close(IN);
 	my @list=map{(split(/\t/,$_))[1]}@data;

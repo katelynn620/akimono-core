@@ -101,7 +101,7 @@ sub CheckBride
 	my @BRIDEnamelist=qw(
 		no tm mode ida idb stbase ctbase money place reform
 		);
-	open(IN,GetPath('bride'));
+	open(IN,"<:encoding(UTF-8)",GetPath('bride'));
 	my @bride=<IN>;
 	close(IN);
 	my $married=0;

@@ -92,8 +92,8 @@ sub DataFilesBackup
 {
 	foreach my $filetype (@BACKUP_FILES)
 	{
-		open(IN, GetPath($filetype));
-		open(OUT,">".GetPath($BACKUP_DIR,$filetype));
+		open(IN,"<:encoding(UTF-8)",GetPath($filetype));
+		open(OUT,">:encoding(UTF-8)",GetPath($BACKUP_DIR,$filetype));
 		while(<IN>){print OUT $_;}
 		close(OUT);
 		close(IN);
