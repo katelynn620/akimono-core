@@ -1,6 +1,6 @@
+# 基本関数定義 2005/03/30 由來
 use utf8;
 use Encode qw(decode_utf8 encode_utf8);
-# 基本関数定義 2005/03/30 由來
 
 BEGIN{$SIG{__WARN__}=$SIG{__DIE__}=sub{$incdir=$INCLUDE_DIR; $incdir||="../program"; require "$incdir/inc-error.cgi"; die($_[0]);};}
 
@@ -10,6 +10,9 @@ $disp="";	# 出力バッファ初期化
 $NOW_TIME=time(); # 現在時刻
 $LOCKED='';	# ロック状態初期化
 @LOG=();	# ログ初期化
+
+# Add I18N
+RequireFile('inc-locale.cgi');
 
 ($MYDIR,$MYNAME)=($ENV{SCRIPT_NAME}=~/^.*\/([^\/]+)\/([^\/]+)$/); # 自ファイル名/ディレクトリ名
 ($REFERER)=($ENV{HTTP_REFERER}=~/.+\/(.+)$/);                     # HTTP REFERER
@@ -38,7 +41,6 @@ SetSkin();
 	qw(
 		leader money in out develop devem safety safem army robina robinb
 	);
-
 
 sub AUTOLOAD
 {
