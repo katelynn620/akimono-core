@@ -123,6 +123,12 @@ sub SetSkin
 	open(IN,"<:encoding(UTF-8)",$skinfile.'.html');
 	read(IN,my $SKIN,-s $skinfile.'.html');
 	close(IN);
+	# Add i18n for html skin;
+	while ($SKIN =~ m/l\('(.*?)'\)/g) {
+		my $target = $1;
+		my $replace = l($1);
+		$SKIN =~ s/l\('$target'\)/$replace/g;
+	}
 	%DISP={};
 	($DISP{TOP},$DISP{MENU},$DISP{BOTTOM})=split(/<!--SKINPAUSE-->/, $SKIN);
 }
