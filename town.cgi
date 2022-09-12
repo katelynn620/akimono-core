@@ -73,8 +73,8 @@ $i[1]=qq|<IMG WIDTH=96 HEIGHT=80 SRC="$IMAGE_URL/map/mapshop.png">|;
 $i[2]=qq|<IMG WIDTH=240 HEIGHT=80 SRC="$IMAGE_URL/map/consul.png">|;
 $i[2]=qq|<IMG WIDTH=240 HEIGHT=80 SRC="$IMAGE_URL/map/consul2.png">| if ($DTevent{rebel});
 $tree=qq|<IMG WIDTH=128 HEIGHT=80 SRC="$IMAGE_URL/map/tree1.png">|;
-$img_ex[0]=GetMenuTag('lord','<acronym title="領主邸">'.$i[2].'</acronym>');
-$img_ex[1]=GetMenuTag('shop-a','<acronym title="商店通り"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"></acronym>');
+$img_ex[0]=GetMenuTag('lord','<acronym title="'.l('領主邸').'">'.$i[2].'</acronym>');
+$img_ex[1]=GetMenuTag('shop-a','<acronym title="'.l('商店通り').'"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"><IMG WIDTH="96" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/mapshop.png"></acronym>');
 
 if ($STATE->{develop} > 4500)
 	{
@@ -120,10 +120,10 @@ foreach(@DT)
 	$logmemb .= $_->{shopname}. "， ";
 	}
 $logmemb = substr($logmemb,0,(length($logmemb)-2)) if ($logmemb);
-$logmemb = "なし" if !$logmemb;
+$logmemb = l("なし") if !$logmemb;
 
 $disp.=<<"HTML";
-<table width=256>$TR$TDB<small>現在活動中の店</small>$TRE
+<table width=256>$TR$TDB<small>${\l('現在活動中の店')}</small>$TRE
 $TR$TD<small>$logmemb</small>$TRE$TBE
 HTML
 }

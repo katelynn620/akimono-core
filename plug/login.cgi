@@ -73,7 +73,7 @@ sub CheckLogin
 		
 		OutError('stop') if $DT->{blocklogin} eq 'stop';
 		OutErrorBlockLogin($DT->{blocklogin}) if $DT->{blocklogin} ne '' && $DT->{blocklogin} ne 'mark';
-		OutErrorBlockLogin('重複登録検出') if !$MOBILE && $CHECK_IP && !$DT->{nocheckip} && $overlap;
+		OutErrorBlockLogin(l('重複登録検出')) if !$MOBILE && $CHECK_IP && !$DT->{nocheckip} && $overlap;
 		
 		if($DT->{blocklogin} eq 'mark')
 		{

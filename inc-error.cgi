@@ -13,7 +13,7 @@ my $nowtime=sprintf("%d/%02d/%02d %02d:%02d:%02d",@_);
 	print OUT "1";
 	close(OUT);
 	
-my $er_m="分析できませんでした。";
+my $er_m=l("分析できませんでした。");
 
 $msg=~s/&/&amp;/g;
 $msg=~s/"/&quot;/g;
@@ -23,35 +23,35 @@ $msg=~s/\n/<br>/g;
 if ($msg =~ /at\s(\S+)\sline/) {
 	$er_s=$1;
 	$er_sm="";
-	$er_sm="<br>このファイルを特に改変していない場合は別なファイルにエラーがあります。" if ($msg =~ /func/);
-	$er_sm="<br>これは「<b>inc-item-data.cgi</b>」を修正することにより解決します。" if ($msg =~ /data\/item/);
+	$er_sm="<br>".l('このファイルを特に改変していない場合は別なファイルにエラーがあります。') if ($msg =~ /func/);
+	$er_sm="<br>".l('これは「<b>inc-item-data.cgi</b>」を修正することにより解決します。') if ($msg =~ /data\/item/);
 }
 if ($msg =~ /line\s(\d+)[,\.]/) {
 	$er_l=$1;
 }
 if ($msg =~ /syntax\serror/ || $msg =~ /Scalar\sfound/ || $msg =~ /Array\sfound/) {
-	$er_m="文法ミスです。「\"」「\'」「\;」「\}」などのつけ忘れであることが多いです。";
+	$er_m=l("文法ミスです。「\"」「\'」「\;」「\}」などのつけ忘れであることが多いです。");
 }
 if ($msg =~ /Unrecognized\scharacter/) {
-	$er_m="処理できない文字が含まれています。間違えて全角文字を使ってしまったか，<br>全角文字を「\"」や「\'」などでくくるのを忘れていることが多いです。";
+	$er_m=l("処理できない文字が含まれています。間違えて全角文字を使ってしまったか，<br>全角文字を「\"」や「\'」などでくくるのを忘れていることが多いです。");
 }
 if ($msg =~ /Illegal\sdivision\sby\szero/) {
-	$er_m="ゼロで割る計算をさせています。<br>ある変数で割るときには，その変数がゼロになる場合は計算を回避してください。";
+	$er_m=l("ゼロで割る計算をさせています。<br>ある変数で割るときには，その変数がゼロになる場合は計算を回避してください。");
 }
 if ($msg =~ /Can't\sfind\sstring\sterminator/) {
-	$er_m="文字列が「\"」や「\'」などで閉じられていません。";
+	$er_m=l("文字列が「\"」や「\'」などで閉じられていません。");
 }
 if ($msg =~ /Unmatched\sright/) {
-	$er_m="文法ミスです。「\}」や「)」などが余計に多いようです。";
+	$er_m=l("文法ミスです。「\}」や「)」などが余計に多いようです。");
 }
 if ($msg =~ /Missing\sright/) {
-	$er_m="文法ミスです。「\}」や「)」などをつけ忘れているようです。";
+	$er_m=l("文法ミスです。「\}」や「)」などをつけ忘れているようです。");
 }
 if ($msg =~ /not\sdefined\sfunction/) {
-	$er_m="サブルーチンの名称にミスがあるようです。<br>原因としては，バージョンアップのミス，アイテムデータのイベント関連のミスなどが考えられます。";
+	$er_m=l("サブルーチンの名称にミスがあるようです。<br>原因としては，バージョンアップのミス，アイテムデータのイベント関連のミスなどが考えられます。");
 }
 if ($msg =~ /Can't\slocate/) {
-	$er_m="ファイルが存在しません。イベントやアイテムデータを削除したためかもしれません。";
+	$er_m=l("ファイルが存在しません。イベントやアイテムデータを削除したためかもしれません。");
 }
 
 PrintErr();
@@ -85,18 +85,18 @@ SPAN { font-family:"Comic Sans MS"; font-size:16pt; color:#664499 ;}
 input,input.button{color:#000000;background-color:#FFFFFF;border:1 #5f5f8c solid}
 -->
 </Style>
-<TITLE>$HTML_TITLE:エラー</TITLE>
+<TITLE>$HTML_TITLE:${\l('エラー')}</TITLE>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#6050cc" VLINK="#6050cc" ALINK="#FF0000">
 <center><br><SPAN>Sorry, An Error is Detected.</SPAN><br><br>
 <TABLE cellspacing="0" cellpadding="0"><TBODY><TR><TD bgcolor="#6B6599">
 <TABLE cellspacing="1" cellpadding="0" border="0" width="700"><TBODY><TR><TD bgcolor="#FFFFFF" align="center">
-<br>エラーが発見されたため，実行が中止されました。<br><br>
-プレイ中の方にはご不便をおかけしますが，解決までしばらくお待ちください。<br>
-なかなか解決しない場合は，お手数ですが<a href="mailto:$ADMIN_EMAIL">管理人までご連絡</a>ください。<br><br>
-<A HREF=\"$HOME_PAGE\" TARGET=_top>[ホームに戻る]</A>
+<br>${\l('エラーが発見されたため，実行が中止されました。')}<br><br>
+${\l('プレイ中の方にはご不便をおかけしますが，解決までしばらくお待ちください。')}<br>
+${\l('なかなか解決しない場合は，お手数ですが<a href="mailto:%1">管理人までご連絡</a>ください。',$ADMIN_EMAIL)}<br><br>
+<A HREF=\"$HOME_PAGE\" TARGET=_top>[${\l('ホームに戻る')}]</A>
 <br><div align="right"><small>
-<A HREF="http://akimono.org//">商人物語</A></small></div>
+<A HREF="http://akimono.org//">${\l('商人物語')}</A></small></div>
 </TD></TR></TBODY></TABLE>
 </TD></TR></TBODY></TABLE>
 <br><TABLE cellspacing="0" cellpadding="1" border="0">
@@ -104,18 +104,18 @@ input,input.button{color:#000000;background-color:#FFFFFF;border:1 #5f5f8c solid
 <TABLE cellspacing="0" cellpadding="5" width="700" border="0">
 <TBODY><TR><TD width="80" bgcolor="#ABA5FF" align="center">
 <FONT color="#FFFFFF"><small>for Admin</small></FONT></TD>
-<TD align="center" bgcolor="#DBD5FF">以下のアドバイスに従ってエラーを解決してください。 … 
-<A HREF="http://akimono.org/">[エラー相談]</A>
+<TD align="center" bgcolor="#DBD5FF">${\l('以下のアドバイスに従ってエラーを解決してください。')} … 
+<A HREF="http://akimono.org/">[${\l('エラー相談')}]</A>
 </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
 <br><TABLE cellspacing="0" cellpadding="5" width="700" border="0">
 <TR><TD width="80" bgcolor="#ABA5FF" align="center">
-<FONT color="#FFFFFF"><small>エラー状況</small></FONT></TD>
-<td bgcolor="#DBD5FF">$MYNAME の実行により発生。<small>($nowtime)</small></tr>
+<FONT color="#FFFFFF"><small>${\l('エラー状況')}</small></FONT></TD>
+<td bgcolor="#DBD5FF">${\l('%1 の実行により発生。',$MYNAME)}<small>($nowtime)</small></tr>
 <TR><TD width="80" bgcolor="#ABA5FF" align="center">
-<FONT color="#FFFFFF"><small>エラー原因</small></FONT></TD>
-<td bgcolor="#DBD5FF">「<b>$er_s</b>」の $er_l行目付近に原因があるようです。$er_sm</tr>
+<FONT color="#FFFFFF"><small>${\l('エラー原因')}</small></FONT></TD>
+<td bgcolor="#DBD5FF">${\l('「<b>%1</b>」の %2行目付近に原因があるようです。',$er_s,$er_l)}$er_sm</tr>
 <TR><TD width="80" bgcolor="#ABA5FF" align="center">
-<FONT color="#FFFFFF"><small>エラー分析</small></FONT></TD>
+<FONT color="#FFFFFF"><small>${\l('エラー分析')}</small></FONT></TD>
 <td bgcolor="#DBD5FF">$er_m</tr>
 <TR><TD width="80" bgcolor="#ABA5FF" align="center">
 <FONT color="#FFFFFF"><small>Error Data</small></FONT></TD>
@@ -127,8 +127,8 @@ input,input.button{color:#000000;background-color:#FFFFFF;border:1 #5f5f8c solid
 STR
 
 my $txt= <<"STR";
-$MYNAME の実行により発生。($nowtime)
-「$er_s」の $er_l行目付近に原因があるようです。$er_sm
+${\l('%1 の実行により発生。',$MYNAME)}($nowtime)
+${\l('「%1」の %2行目付近に原因があるようです。',$er_s,$er_l)}$er_sm
 $er_m
 $msg
 STR

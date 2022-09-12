@@ -4,7 +4,7 @@ use utf8;
 my ($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$RANKING_PAGE_ROWS,$DTusercount);
 
-$disp.="<BIG>●新聞：順位リスト</BIG><br><br>";
+$disp.="<BIG>●".l('新聞：順位リスト')."</BIG><br><br>";
 my $pagecontrol=GetPageControl($pageprev,$pagenext,"t=4","",$pagemax,$page);
 $disp.=$pagecontrol."<BR>";
 $disp.=$TB;
@@ -12,31 +12,31 @@ $disp.=$TB;
 if(!$MOBILE)
 {
 	$disp.=$TR;
-	$disp.=$TDB."点数";
-	$disp.=$TDB."店長";
-	$disp.=$TDB."ジョブ";
-	$disp.=$TDB."店名　人気";
-	$disp.=$TDB."今期売上";
-	$disp.=$TDB."資金";
-	$disp.=$TDB."熟練";
-	$disp.=$TDB."商品 【創業】 コメント";
+	$disp.=$TDB.l('点数');
+	$disp.=$TDB.l('店長');
+	$disp.=$TDB.l('ジョブ');
+	$disp.=$TDB.l('店名　人気');
+	$disp.=$TDB.l('今期売上');
+	$disp.=$TDB.l('資金');
+	$disp.=$TDB.l('熟練');
+	$disp.=$TDB.l('商品 【創業】 コメント');
 	$disp.=$TRE;
 }
 else
 {
-	$tdh_rk="RANK:";
-	$tdh_pt="点数:";
-	$tdh_nm="店名:";
-	$tdh_pp="人気:";
-	$tdh_mo="資金:";
-	$tdh_ts="本売:";
-	$tdh_ys="昨売:";
-	$tdh_cs="維持:";
-	$tdh_sc="一押:";
-	$tdh_cm="一言:";
-	$tdh_tx="昨税:";
-	$tdh_ex="熟練:";
-	$tdh_fd="創業:";
+	$tdh_rk=l('RANK').':';
+	$tdh_pt=l('点数').':';
+	$tdh_nm=l('店名').':';
+	$tdh_pp=l('人気').':';
+	$tdh_mo=l('資金').':';
+	$tdh_ts=l('本売').':';
+	$tdh_ys=l('昨売').':';
+	$tdh_cs=l('維持').':';
+	$tdh_sc=l('一押').':';
+	$tdh_cm=l('一言').':';
+	$tdh_tx=l('昨税').':';
+	$tdh_ex=l('熟練').':';
+	$tdh_fd=l('創業').':';
 }
 
 foreach my $idx ($pagestart..$pageend)

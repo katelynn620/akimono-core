@@ -8,11 +8,11 @@ RequireFile('inc-gd.cgi');
 
 my $code = $DT->{guild};
 $code=$Q{code} if $MASTER_USER;
-OutError('使用不可です') if !$code;
+OutError(l('使用不可です')) if !$code;
 
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ギルド受付</SPAN>：こちらは".GetTagImgGuild($DT->{guild});
-$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG> 作戦室です。<br>";
-$disp.="メンバーからの伝言は，こちらです。".$TRE.$TBE;
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>".l('ギルド受付')."</SPAN>：".l("こちらは").GetTagImgGuild($DT->{guild});
+$disp.=l("<BIG>%1</BIG> 作戦室です。",$GUILD{$DT->{guild}}->[$GUILDIDX_name])."<br>";
+$disp.=l("メンバーからの伝言は，こちらです。").$TRE.$TBE;
 
 $LOG_FILE='bbslog-'.$code;
 if ($Q{msg})
@@ -33,7 +33,7 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=hidden NAME=code VALUE="$code">
 $errormsg
 <INPUT TYPE=TEXT NAME=msg SIZE=50 VALUE="$Q{msg}">
-<INPUT TYPE=SUBMIT VALUE="書込">
+<INPUT TYPE=SUBMIT VALUE="${\l('書込')}">
 </FORM>
 STR
 
@@ -50,7 +50,7 @@ foreach(@MESSAGE[$pagestart..$pageend])
 	$tm=GetTime2FormatTime($tm);
 	if(!$to)
 	{
-		$sname="★管理者";
+		$sname=l("★管理者");
 	}
 
 $disp.=$TR;

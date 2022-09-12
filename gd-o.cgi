@@ -25,14 +25,14 @@ my $lt=$GUILD_DETAIL{$Q{g}}->{leadt};
 my $staff=$GUILD_DETAIL{$Q{g}}->{$MYDIR};
 
 $disp.="<table width=520>";
-$disp.=$TR.$TDB.'正式名称'.$TD."<b>".GetTagImgGuild($Q{g}).$GUILD_DETAIL{$Q{g}}->{name}."</b>";
+$disp.=$TR.$TDB.l('正式名称').$TD."<b>".GetTagImgGuild($Q{g}).$GUILD_DETAIL{$Q{g}}->{name}."</b>";
 if ($GUILD_DETAIL{$Q{g}}->{url})
 	{$disp.=qq| <a target="_blank" href="action.cgi?key=jump&guild=$Q{g}">[HP]</a>|;}
 $disp.=$TRE;
-$disp.=$TR.$TDB.'団長'.$TD.SearchLetterName($GUILD_DETAIL{$Q{g}}->{leader},$lt)." ($Tname{$lt})".$TRE;
-$disp.=$TR.$TDB.'街の軍師'.$TD.(defined($id2idx{$staff}) ? $DT[$id2idx{$staff}]->{shopname} : "不在").$TRE;
-$disp.=$TR.$TDB.'活動紹介'.$TD.$GUILD_DETAIL{$Q{g}}->{appeal}.$TRE;
-$disp.=$TR.$TDB.'入団条件'.$TD.$GUILD_DETAIL{$Q{g}}->{needed}.$TRE;
+$disp.=$TR.$TDB.l("団長").$TD.SearchLetterName($GUILD_DETAIL{$Q{g}}->{leader},$lt)." ($Tname{$lt})".$TRE;
+$disp.=$TR.$TDB.l("街の軍師").$TD.(defined($id2idx{$staff}) ? $DT[$id2idx{$staff}]->{shopname} : l("不在")).$TRE;
+$disp.=$TR.$TDB.l("活動紹介").$TD.$GUILD_DETAIL{$Q{g}}->{appeal}.$TRE;
+$disp.=$TR.$TDB.l("入団条件").$TD.$GUILD_DETAIL{$Q{g}}->{needed}.$TRE;
 $disp.=$TBE;
 
 my $pagecontrol=GetPageControl($pageprev,$pagenext,"g=".$Q{g},"",$pagemax,$page);
@@ -41,17 +41,17 @@ $disp.=$pagecontrol."<BR>";
 $disp.=$TB;
 
 	$disp.=$TR;
-	$disp.=$TDB."点数";
-	$disp.=$TDB."店長";
-	$disp.=$TDB."ジョブ";
-	$disp.=$TDB."肩書き　店名";
-	$disp.=$TDB."商品 【創業】 コメント";
+	$disp.=$TDB.l("点数");
+	$disp.=$TDB.l("店長");
+	$disp.=$TDB.l("ジョブ");
+	$disp.=$TDB.l("肩書き　店名");
+	$disp.=$TDB.l("商品 【創業】 コメント");
 	$disp.=$TRE;
 
 foreach my $idx ($pagestart..$pageend)
 {
 	my $DT=$guildDT[$idx];
-	my $rankupdown="(新)";
+	my $rankupdown=l("(新)");
 	if($DT->{rankingyesterday})
 	{
 		$rankupdown=$DT->{rankingyesterday}-$DT->{count}-1;

@@ -2,7 +2,7 @@ use utf8;
 # ギルド入団処理 2003/11/03 由來
 
 my $functionname=$Q{edit};
-OutError("bad request") if !defined(&$functionname);
+OutError('bad request') if !defined(&$functionname);
 &$functionname;
 WriteEntry();
 CoDataCA();
@@ -12,21 +12,21 @@ CoUnLock();
 
 sub new
 {
-	OutError("bad request") if (!$DT->{guild});
+	OutError('bad request') if (!$DT->{guild});
 	my $checkok;
 	$ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{leadt} eq $MYDIR && $GUILD_DETAIL{$DT->{guild}}->{leader} == $DT->{id});
 	$ckeckok=1 if ($GUILD_DETAIL{$DT->{guild}}->{$MYDIR} == $DT->{id});
-	OutError("bad request") if (!$ckeckok);
+	OutError('bad request') if (!$ckeckok);
 	my $town="";
 	my $id="";
 	foreach my $pg(@OtherDir)
 		{
 		$id=$Q{$pg}, $town=$pg if ($Q{$pg})
 		}
-	OutError('許可する相手を指定してください。') if !$id;
+	OutError(l('許可する相手を指定してください。')) if !$id;
 	foreach my $i(@MYENTRY)
 		{
-		OutError('すでに許可しています。') if ($ENTRY[$i]->{town} eq $town && $ENTRY[$i]->{id}==$id);
+		OutError(l('すでに許可しています。')) if ($ENTRY[$i]->{town} eq $town && $ENTRY[$i]->{id}==$id);
 		}
 
 	@ENTRY=reverse(@ENTRY);
@@ -43,8 +43,8 @@ sub new
 
 sub join
 {
-OutError("bad request") if ($DT->{guild});
-OutError("ギルド戦中は入団できません") if ($DTevent{guildbattle});
+OutError('bad request') if ($DT->{guild});
+OutError(l('ギルド戦中は入団できません')) if ($DTevent{guildbattle});
 my $checkok;
 	foreach my $cnt(0..$Ecount)
 		{
@@ -54,10 +54,10 @@ my $checkok;
 		next if ($Q{guild} ne $guild);
 		$checkok=1;
 		}
-OutError("許可が出ていません") if (!$checkok);
+OutError(l('許可が出ていません')) if (!$checkok);
 	my $name=$GUILD{$Q{guild}}->[$GUILDIDX_name];
 	my $member=$GUILD_DETAIL{$Q{guild}}->{member};
-	PushLog(1,0,$DT->{shopname}."がギルド「".$name."」の".$member."となりました。");
+	PushLog(1,0,l("%1がギルド「%2」の%3となりました。",$DT->{shopname},$name,$member));
 	$DT->{guild}=$Q{guild};
 RenewLog();
 DataWrite();

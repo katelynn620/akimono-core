@@ -24,9 +24,9 @@ sub GetCleanMessage
 	my($rank,$mode)=@_;
 	my $per=int($rank/50000);
 	$per=100 if $per > 100;
-	my $i="綺麗";
-	$i="清潔" if $per>=20;$i="普通" if $per>=40;
-	$i="不潔" if $per>=60;$i="汚屋敷" if $per>=80;
+	my $i=l("綺麗");
+	$i=l("清潔") if $per>=20;$i=l("普通") if $per>=40;
+	$i=l("不潔") if $per>=60;$i=l("汚屋敷") if $per>=80;
 	return $i if $MOBILE || $mode;
 	
 	my $bar="";

@@ -16,13 +16,13 @@ use utf8;
 		
 		#優勝者発表
 		my $DT=$DT[0];
-		my $count=$DT->{rankingcount}==1 ? "初優勝" : $DT->{rankingcount}."度目の優勝";
-		my $msg="「今期の優勝店は".$DT->{shopname}."さんでした。".$count."おめでとうございます」";
+		my $count=$DT->{rankingcount}==1 ? l("初優勝") : l("%1度目の優勝",$DT->{rankingcount});
+		my $msg=l("「今期の優勝店は%1さんでした。%2おめでとうございます」",$DT->{shopname},$count);
 		PushLog(1,0,$msg);
 		
-		$msg="「点数は".$DT->{point}."点";
-		$msg.="で、2位との差は".($DT->{point}-$DT[1]->{point})."点" if defined($DT[1]);
-		$msg.="でした」";
+		$msg=l("「点数は%1点",$DT->{point});
+		$msg.=l("で、2位との差は%1点",($DT->{point}-$DT[1]->{point})) if defined($DT[1]);
+		$msg.=l("でした」");
 		PushLog(1,0,$msg);
 	}
 	
@@ -47,15 +47,15 @@ use utf8;
 		{
 			if ($DT->{lastlogin}+$EXPIRE_TIME<$NOW_TIME)
 			{
-			CloseShop($DT->{id},'経営者不在');
-			PushLog(1,0,$DT->{shopname}."が経営者不在のため閉店しました。");
+			CloseShop($DT->{id},l('経営者不在'));
+			PushLog(1,0,l("%1が経営者不在のため閉店しました。",$DT->{shopname}));
 			}
 		}
 
 		#ドラゴンレース清算
 		if ($DT->{dragon})
 			{
-			PushLog(0,$DT->{id},"ドラゴンレースの収支 ".GetMoneyString($DT->{dragon}));
+			PushLog(0,$DT->{id},l("ドラゴンレースの収支")." ".GetMoneyString($DT->{dragon}));
 			$DT->{money}+=$DT->{dragon};
 			$DT->{drmoney}+=$DT->{dragon};
 			$DT->{saletoday}+=$DT->{dragon} if ($DT->{dragon} > 0);
@@ -135,7 +135,7 @@ use utf8;
 		{
 		#兵士が少ない場合のペナルティ
 		$STATE->{safety}-=int( (10000 - $STATE->{army}- $STATE->{robina}) / 20);
-		PushLog(2,0,"街の護衛軍が少ないため，治安が悪化しています。");
+		PushLog(2,0,l("街の護衛軍が少ないため，治安が悪化しています。"));
 		}
 	$STATE->{develop}=1000 if $STATE->{develop} < 1000;
 	$STATE->{safety}=1000 if $STATE->{safety} < 1000;
@@ -154,7 +154,7 @@ use utf8;
 	if ($STATE->{money} < 0)
 	{
 		#給料を払えない
-		PushLog(2,0,"街資金が底をつき，街の護衛軍に給料を支払えないようです。");
+		PushLog(2,0,l("街資金が底をつき，街の護衛軍に給料を支払えないようです。"));
 		$STATE->{army}=int($STATE->{army} / 3);
 		$STATE->{money}=0;
 	}
@@ -209,16 +209,16 @@ return if !defined($id2idx{$STATE->{leader}});
 my $i=int(15000 - $STATE->{develop} - $STATE->{safety} - rand(2500));
 my $ii=int(50000000 - $STATE->{money} - rand(5000000));
 return if ($i > 1000)&&($ii > 5000000);
-PushLog(2,0,"$BAL_JOB$BAL_NAMEが不穏な動きを見せています。"),return if ($i > 0) && ($ii > 0);
+PushLog(2,0,l("%1%2が不穏な動きを見せています。",$BAL_JOB,$BAL_NAME)),return if ($i > 0) && ($ii > 0);
 if (rand(100) < 30)
 	{
 	$DTevent{rebel}=$NOW_TIME+86400*3;
 	$STATE->{robinb}=10000;
-	PushLog(2,0,"$BAL_JOB$BAL_NAMEが街に攻め込み，反乱を起こしました！");
+	PushLog(2,0,l("%1%2が街に攻め込み，反乱を起こしました！",$BAL_JOB,$BAL_NAME));
 	}
 	else
 	{
-	PushLog(2,0,"$BAL_JOB$BAL_NAMEが攻める時機をうかがっているようです。");
+	PushLog(2,0,l("%1%2が攻める時機をうかがっているようです。",$BAL_JOB,$BAL_NAME));
 	}
 }
 

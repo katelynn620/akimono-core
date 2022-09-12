@@ -32,7 +32,7 @@ sub ReadLog
 		# $target=jcode::sjis($target,$CHAR_SHIFT_JIS&&'sjis');
 		@MESSAGE=grep(/\Q$target\E/o,@MESSAGE);
 	}
-	@MESSAGE=("0\t0\t0\t情報はありません\n") if !scalar(@MESSAGE);
+	@MESSAGE=("0\t0\t0\t".l('情報はありません')."\n") if !scalar(@MESSAGE);
 }
 
 sub PushLog

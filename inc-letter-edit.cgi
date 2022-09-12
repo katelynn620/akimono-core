@@ -42,7 +42,7 @@ foreach my $pg(@OtherDir)
 	{
 	$sendmail=$Q{$pg}, $sendto=$pg if ($Q{$pg})
 	}
-OutError('宛先を指定してください。') if !$sendto;
+OutError(l('宛先を指定してください。')) if !$sendto;
 
 	CheckNewBoxArg();
 
@@ -81,6 +81,6 @@ sub CheckNewBoxArg
 	# $Q{title}=CutStr(jcode::sjis($Q{title},$CHAR_SHIFT_JIS&&'sjis'),40);
 	$Q{msg}=CutStr($Q{msg},400);
 	$Q{title}=CutStr($Q{title},40);
-	OutError('内容がありません') if $Q{msg}eq'';
-	$Q{title}="（無題）" if $Q{title}eq'';
+	OutError(l('内容がありません')) if $Q{msg}eq'';
+	$Q{title}=l("（無題）") if $Q{title}eq'';
 }

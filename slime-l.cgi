@@ -22,9 +22,9 @@ sub st
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=st","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>●ドラゴンレース：厩舎一覧</BIG><br><br>
+<BIG>●${\l('ドラゴンレース')}：${\l('厩舎一覧')}</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB名称$TDB方針$TDB調教$TDB体調$TDB体重$TDBコース$TDB併竜$TDB坂路$TDBダート$TDB温泉$TDB繋養$TDB成績$TRE
+$TB$TR$TDB${\l('名称')}$TDB${\l('方針')}$TDB${\l('調教')}$TDB${\l('体調')}$TDB${\l('体重')}$TDB${\l('コース')}$TDB${\l('併竜')}$TDB${\l('坂路')}$TDB${\l('ダート')}$TDB${\l('温泉')}$TDB${\l('繋養')}$TDB${\l('成績')}$TRE
 STR
 
 	foreach my $i($pagestart..$pageend)
@@ -58,9 +58,9 @@ sub dra
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=dra","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>●ドラゴンレース：競争竜一覧</BIG><br><br>
+<BIG>●${\l('ドラゴンレース')}：${\l('競争竜一覧')}</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB名称$TDB年齢$TDB性別$TDBスピ$TDB勝負$TDB瞬発$TDBパワ$TDB体調$TDB体重$TDB距離適性$TDB総賞金$TDB成績$TRE
+$TB$TR$TDB${\l('名称')}$TDB${\l('年齢')}$TDB${\l('性別')}$TDB${\l('スピ')}$TDB${\l('勝負')}$TDB${\l('瞬発')}$TDB${\l('パワ')}$TDB${\l('体調')}$TDB${\l('体重')}$TDB${\l('距離適性')}$TDB${\l('総賞金')}$TDB${\l('成績')}$TRE
 STR
 
 	foreach ($pagestart..$pageend)
@@ -77,7 +77,7 @@ STR
 		$disp.=$TD.$EVALUE[int($DR[$_]->{con} /100*4)];
 		$disp.=$TD.$DR[$_]->{wt};
 		$disp.=$TD.GetRaceApt($DR[$_]->{apt},$DR[$_]->{fl});
-		$disp.=$TD.($DR[$_]->{prize} + 0)."万";
+		$disp.=$TD.l("%1万",($DR[$_]->{prize} + 0));
 		$disp.=$TD.($DR[$_]->{g1win} + 0)." - ".($DR[$_]->{g2win} + 0)." - ".($DR[$_]->{g3win} + 0)." - ".($DR[$_]->{sdwin} + 0);
 		$disp.=$TRE;
 		}
@@ -94,9 +94,9 @@ sub pr
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=pr","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>●ドラゴンレース：隠居竜一覧</BIG><br><br>
+<BIG>●${\l('ドラゴンレース')}：${\l('隠居竜一覧')}</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB名称$TDB年齢$TDB性別$TDBスピ$TDB勝負$TDB瞬発$TDBパワ$TDB健康$TDB柔軟$TDB距離適性$TDB現役賞金$TDB現役成績$TRE
+$TB$TR$TDB${\l('名称')}$TDB${\l('年齢')}$TDB${\l('性別')}$TDB${\l('スピ')}$TDB${\l('勝負')}$TDB${\l('瞬発')}$TDB${\l('パワ')}$TDB${\l('健康')}$TDB${\l('柔軟')}$TDB${\l('距離適性')}$TDB${\l('現役賞金')}$TDB${\l('現役成績')}$TRE
 STR
 
 	foreach ($pagestart..$pageend)
@@ -105,7 +105,7 @@ STR
 		$disp.=$TR;
 		$disp.=$TD.GetTagImgDra($PR[$_]->{fm},$PR[$_]->{color},1).$PR[$_]->{name};
 		$disp.=$TD.GetTime2found($NOW_TIME-$PR[$_]->{birth});
-		$disp.=$TD.($PR[$_]->{fm} ? "繁殖" : "種").$FM[$PR[$_]->{fm}];
+		$disp.=$TD.($PR[$_]->{fm} ? l("繁殖") : l("種")).$FM[$PR[$_]->{fm}];
 		$disp.=$TD.$VALUE[int($PR[$_]->{sp} /100*6)];
 		$disp.=$TD.$VALUE[int($PR[$_]->{sr} /100*6)];
 		$disp.=$TD.$VALUE[int($PR[$_]->{ag} /100*6)];
@@ -113,7 +113,7 @@ STR
 		$disp.=$TD.$VALUE[int($PR[$_]->{hl} /100*6)];
 		$disp.=$TD.$VALUE[int($PR[$_]->{fl} /100*6)];
 		$disp.=$TD.GetRaceApt($PR[$_]->{apt},$PR[$_]->{fl});
-		$disp.=$TD.($PR[$_]->{prize} + 0)."万";
+		$disp.=$TD.l("%1万",($PR[$_]->{prize} + 0));
 		$disp.=$TD.($PR[$_]->{g1win} + 0)." - ".($PR[$_]->{g2win} + 0)." - ".($PR[$_]->{g3win} + 0)." - ".($PR[$_]->{sdwin} + 0);
 		$disp.=$TRE;
 		}
@@ -129,9 +129,9 @@ sub jk
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=jk","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>●ドラゴンレース：騎手一覧</BIG><br><br>
+<BIG>●${\l('ドラゴンレース')}：${\l('騎手一覧')}</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB名前$TDB勤続$TDB逃先$TDB差追$TDB成績$TDB特殊能\力$TDB出走$TRE
+$TB$TR$TDB${\l('名前')}$TDB${\l('勤続')}$TDB${\l('逃先')}$TDB${\l('差追')}$TDB${\l('成績')}$TDB${\l('特殊能力')}$TDB${\l('出走')}$TRE
 STR
 
 	foreach my $i($pagestart..$pageend)
@@ -160,9 +160,9 @@ sub rc
 	my $pagecontrol=GetPageControl($pageprev,$pagenext,"mode=rc","",$pagemax,$page);
 
 	$disp.=<<STR;
-<BIG>●ドラゴンレース：牧場一覧</BIG><br><br>
+<BIG>●${\l('ドラゴンレース')}：${\l('牧場一覧')}</BIG><br><br>
 $pagecontrol
-$TB$TR$TDB名称$TDB所属$TDB創立$TDB平均賞金$TDB総賞金$TDB成績$TRE
+$TB$TR$TDB${\l('名称')}$TDB${\l('所属')}$TDB${\l('創立')}$TDB${\l('平均賞金')}$TDB${\l('総賞金')}$TDB${\l('成績')}$TRE
 STR
 
 	foreach my $i($pagestart..$pageend)
@@ -172,8 +172,8 @@ STR
 		$disp.=$TD.$RC[$i]->{name};
 		$disp.=$TD.$Tname{$RC[$i]->{town}};
 		$disp.=$TD.GetTime2found($NOW_TIME-$RC[$i]->{birth});
-		$disp.=$TD.($RC[$i]->{aprize} + 0)."万";
-		$disp.=$TD.($RC[$i]->{prize} + 0)."万";
+		$disp.=$TD.l("%1万",($RC[$i]->{aprize} + 0));
+		$disp.=$TD.l("%1万",($RC[$i]->{prize} + 0));
 		$disp.=$TD.($RC[$i]->{g1win} + 0)." - ".($RC[$i]->{g2win} + 0)." - ".($RC[$i]->{g3win} + 0)." - ".($RC[$i]->{sdwin} + 0);
 		$disp.=$TRE;
 		}
@@ -183,7 +183,7 @@ STR
 
 sub sche
 {
-	$disp.="<BIG>●ドラゴンレース：スケジュール</BIG><br><br>";
+	$disp.="<BIG>●${\l('ドラゴンレース')}：${\l('スケジュール')}</BIG><br><br>";
 
 	my $fn=GetPath($COMMON_DIR,"dr-last");
 	require $fn if (-e $fn);
@@ -191,7 +191,7 @@ sub sche
 	foreach (0..$#DRTIME)
 		{
 		$disp.=$TR;
-		$disp.=$TDB.($_ ? "次の".$RACETERM[($_ - 1)]."変動時刻" : "次の調教時刻");
+		$disp.=$TDB.($_ ? l("次の%1変動時刻",$RACETERM[($_ - 1)]) : l("次の調教時刻"));
 		$disp.=$TD.GetTime2FormatTime($DRTIME[$_]);
 		$disp.=$TRE;
 		}
@@ -199,8 +199,8 @@ sub sche
 
 	foreach (0..$#RACE)
 		{
-		$disp.="<BIG>●".$RACETERM[($_)]."開催日程</BIG><br><br>";
-		$disp.="$TB$TR$TDB名称$TDBランク$TDBハンデ$TDB馬場種$TDB坂$TDB距離$TDB１着賞金$TDB２着賞金$TDB３着賞金$TDB定員$TRE";
+		$disp.="<BIG>●".l("%1開催日程",$RACETERM[($_)])."</BIG><br><br>";
+		$disp.="$TB$TR$TDB${\l('名称')}$TDB${\l('ランク')}$TDB${\l('ハンデ')}$TDB${\l('馬場種')}$TDB${\l('坂')}$TDB${\l('距離')}$TDB${\l('%1着賞金','１')}$TDB${\l('%1着賞金','２')}$TDB${\l('%1着賞金','３')}$TDB${\l('定員')}$TRE";
 		my @MYRACE=@{$RACE[$_]};
 		foreach my $i(0..$#MYRACE)
 			{
@@ -208,13 +208,13 @@ sub sche
 			$disp.=$TR;
 			$disp.=$TD.$R[0];
 			$disp.=$TD.$RACERANK[$R[1]];
-			$disp.=$TD.($R[2] ? "$R[2]万毎" : " ");
+			$disp.=$TD.($R[2] ? l("%1万毎",$R[2]) : " ");
 			$disp.=$TD.$FIELDTYPE[$R[3]];
-			$disp.=$TD.($R[4] ? "あり" : " ");
+			$disp.=$TD.($R[4] ? l("あり") : " ");
 			$disp.=$TD.$R[5];
-			$disp.=$TD.$R[6]."万";
-			$disp.=$TD.$R[7]."万";
-			$disp.=$TD.$R[8]."万";
+			$disp.=$TD.l("%1万",$R[6]);
+			$disp.=$TD.l("%1万",$R[7]);
+			$disp.=$TD.l("%1万",$R[8]);
 			$disp.=$TD.$R[9];
 			$disp.=$TRE;
 			}
@@ -230,8 +230,8 @@ sub rd
 	ReadDragon();
 
 	$disp.=<<STR;
-<BIG>●ドラゴンレース：$RACETERM[$rcode]出走竜詳細</BIG><br><br>
-$TB$TR$TDB名称$TDB年齢$TDB性別$TDBスピ$TDB勝負$TDB瞬発$TDBパワ$TDB体調$TDB体重$TDB距離適性$TRE
+<BIG>●${\l('ドラゴンレース')}：${\l('出走竜詳細',$RACETERM[$rcode])}</BIG><br><br>
+$TB$TR$TDB${\l('名称')}$TDB${\l('年齢')}$TDB${\l('性別')}$TDB${\l('スピ')}$TDB${\l('勝負')}$TDB${\l('瞬発')}$TDB${\l('パワ')}$TDB${\l('体調')}$TDB${\l('体重')}$TDB${\l('距離適性')}$TRE
 STR
 
 foreach (0..$#RD)

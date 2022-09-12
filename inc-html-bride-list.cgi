@@ -2,7 +2,7 @@ use utf8;
 # 住宅操作 2005/01/06 由來
 
 $i=SearchBride($Q{no});
-OutError('指定された情報は存在しません') if ($i==-1);
+OutError(l('指定された情報は存在しません')) if ($i==-1);
 ($ida,$idb)=($BRIDE[$i]->{ida},$BRIDE[$i]->{idb});
 
 if (!$BRIDE[$i]->{mode})
@@ -26,27 +26,27 @@ if ($idb == $DT->{id}) {
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-神父：プロポーズを受けますか？ それなら次の注意をよく聴いてください。<br>
-・結婚資金が<b>500万$term[2]</b>かかります。<br>
-・事前によく話し合いなさい。その人と助け合っていけるかよく考えなさい。<br>
-・プロポーズをした側が夫となり，受けた側が妻になります。
+${\l('神父')}：${\l('プロポーズを受けますか？ それなら次の注意をよく聴いてください。')}<br>
+・${\l('結婚資金が<b>500万%1</b>かかります。',$term[2])}<br>
+・${\l('事前によく話し合いなさい。その人と助け合っていけるかよく考えなさい。')}<br>
+・${\l('プロポーズをした側が夫となり，受けた側が妻になります。')}
 $TRE$TBE
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="agree">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
-<BIG>●プロポーズを受ける</BIG>：私 $DT->{name} ($DT->{shopname})は
-$DT[$id2idx{$ida}]->{name} ($DT[$id2idx{$ida}]->{shopname})を夫とし<br>
-健やかなる時も病める時もその身を共にする事を
-<INPUT TYPE=SUBMIT VALUE='誓います'>
+<BIG>●${\l('プロポーズを受ける')}</BIG>：
+${\l('私 %1 (%2)は%3 (%4)を夫とし',$DT->{name},$DT->{shopname},$DT[$id2idx{$ida}]->{name},$DT[$id2idx{$ida}]->{shopname})}<br>
+${\l('健やかなる時も病める時もその身を共にする事を')}
+<INPUT TYPE=SUBMIT VALUE='${\l('誓います')}'>
 </FORM>
 <hr width=500 noshade size=1>
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="dis">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
-<BIG>●プロポーズを断る</BIG>：そんなこと言われても困るので
-<INPUT TYPE=SUBMIT VALUE='ごめんなさい'>
+<BIG>●${\l('プロポーズを断る')}</BIG>：${\l('そんなこと言われても困るので')}
+<INPUT TYPE=SUBMIT VALUE='${\l('ごめんなさい')}'>
 </FORM>
 STR
 }
@@ -55,15 +55,15 @@ elsif ($ida == $DT->{id}) {
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-神父：プロポーズを取りやめるつもりですか。<br>
-少し恥ずかしいかもしれませんが仕方ありませんね。
+${\l('神父')}：${\l('プロポーズを取りやめるつもりですか。')}<br>
+${\l('少し恥ずかしいかもしれませんが仕方ありませんね。')}
 $TRE$TBE
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="end">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
-<BIG>●プロポーズを取りやめる</BIG>：やはりまだ愛が足らなかったので
-<INPUT TYPE=SUBMIT VALUE='取りやめます'>
+<BIG>●${\l('プロポーズを取りやめる')}</BIG>：${\l('やはりまだ愛が足らなかったので')}
+<INPUT TYPE=SUBMIT VALUE='${\l('取りやめます')}'>
 </FORM>
 STR
 }
@@ -72,9 +72,8 @@ else {
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-神父：<b>$DT[$id2idx{$ida}]->{name}</b>さんの
-<b>$DT[$id2idx{$idb}]->{name}</b>さんへ想いは真剣です。たぶん。<br>
-今は二人をあたたかく見守ってあげてください。
+${\l('神父')}：${\l('<b>%1</b>さんの<b>%2</b>さんへ想いは真剣です。たぶん。',$DT[$id2idx{$ida}]->{name},$DT[$id2idx{$idb}]->{name})}<br>
+${\l('今は二人をあたたかく見守ってあげてください。')}
 $TRE$TBE
 STR
 }
@@ -83,14 +82,14 @@ STR
 sub House
 {
 $disp.=($BRIDE[$i]->{mode}==1)?$image[0]:$image[1];
-$btitle=($BRIDE[$i]->{mode}==1)?"教会 > 共用倉庫":"住宅";
+$btitle=($BRIDE[$i]->{mode}==1)?l("教会")." > ".l("共用倉庫"):l("住宅");
 	# 無関係な人
 	if ($DT->{id} != $ida && $DT->{id} != $idb) {
 	$disp.=<<STR;
 ：<BIG>$DT[$id2idx{$ida}]->{shopname} ＆ $DT[$id2idx{$idb}]->{shopname}</BIG><br><br>
 $TB$TR$TD
-結婚すると，マイホームとして二人の共用倉庫がもらえます。<br>
-資金や商品を置くことができ，維持費もかかりません。
+${\l('結婚すると，マイホームとして二人の共用倉庫がもらえます。')}<br>
+${\l('資金や商品を置くことができ，維持費もかかりません。')}
 $TRE$TBE
 STR
 	return;
@@ -100,15 +99,15 @@ STR
 	$disp.=<<STR;
 ：<BIG>$DT[$id2idx{$ida}]->{shopname} ＆ $DT[$id2idx{$idb}]->{shopname}</BIG><br><br>
 $TB$TR
-$TDB備品
-$TDB数量<small>/最大</small>
+$TDB${\l('備品')}
+$TDB${\l('数量')}<small>/${\l('最大')}</small>
 $TRE
-$TR$TD資金
+$TR$TD${\l('資金')}
 $TD$moneymes<small>/$moneymax</small>
 $TRE
 STR
 
-$formstock="<OPTION VALUE=\"-1\">資金(".GetMoneyString($BRIDE[$i]->{money}).")";
+$formstock="<OPTION VALUE=\"-1\">${\l('資金')}(".GetMoneyString($BRIDE[$i]->{money}).")";
 foreach (0..$BRIDE[$i]->{mode}-1) {
 	my $stock=$BRIDE[$i]->{stock}[$_];
 	my $cnt=$BRIDE[$i]->{cnt}[$_];
@@ -122,7 +121,7 @@ $disp.=$TRE.$TBE."<hr width=500 noshade size=1>";
 	my @sort;
 	foreach(1..$MAX_ITEM){$sort[$_]=$ITEM[$_]->{sort}};
 	my @itemlist=sort { $sort[$a] <=> $sort[$b] } (1..$MAX_ITEM);
-	$formitem="<OPTION VALUE=\"-1\">資金(".GetMoneyString($DT->{money}).")";
+	$formitem="<OPTION VALUE=\"-1\">".l('資金')."(".GetMoneyString($DT->{money}).")";
 	foreach(@itemlist)
 	{
 		my $cnt=$DT->{item}[$_-1];
@@ -138,10 +137,10 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="plus">
-<BIG>●保管</BIG>：住宅に <SELECT NAME=it SIZE=1>
+<BIG>●${\l('保管')}</BIG>：${\l('住宅に')} <SELECT NAME=it SIZE=1>
 $formitem
-</SELECT> を数量 <INPUT TYPE=TEXT NAME=num SIZE=5> (無記入で最大)
- <INPUT TYPE=SUBMIT VALUE='保管する'>
+</SELECT> ${\l('を数量')} <INPUT TYPE=TEXT NAME=num SIZE=5> (${\l('無記入で最大')})
+ <INPUT TYPE=SUBMIT VALUE='${\l('保管する')}'>
 </FORM>
 <hr width=500 noshade size=1>
 <form action="action.cgi" $METHOD>
@@ -150,10 +149,10 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="minus">
-<BIG>●取出</BIG>：住宅から <SELECT NAME=it SIZE=1>
+<BIG>●${\l('取出')}</BIG>：${\l('住宅から')} <SELECT NAME=it SIZE=1>
 $formstock
-</SELECT> を数量 <INPUT TYPE=TEXT NAME=num SIZE=5> (無記入で最大)
- <INPUT TYPE=SUBMIT VALUE='取り出す'>
+</SELECT> ${\l('を数量')} <INPUT TYPE=TEXT NAME=num SIZE=5> (${\l('無記入で最大')})
+ <INPUT TYPE=SUBMIT VALUE='${\l('取り出す')}'>
 </FORM>
 STR
 
@@ -166,9 +165,9 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=id VALUE="$DT->{id}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=d VALUE="1">
-<SPAN>離婚</SPAN>：
-<INPUT TYPE=SUBMIT VALUE='離婚する'>
-(備品は全て破棄)
+<SPAN>${\l('離婚')}</SPAN>：
+<INPUT TYPE=SUBMIT VALUE='${\l('離婚する')}'>
+(${\l('備品は全て破棄')})
 </FORM>
 STR
 }
@@ -185,16 +184,16 @@ $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=no VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="more">
-<BIG>●増築</BIG>：
-<INPUT TYPE=SUBMIT VALUE='増築する'>
+<BIG>●${\l('増築')}</BIG>：
+<INPUT TYPE=SUBMIT VALUE='${\l('増築する')}'>
 STR
-$disp.="(費用".GetMoneyString($BRIDE[$i]->{mode} * 10000000).")</form>";
+$disp.="(".l("費用").GetMoneyString($BRIDE[$i]->{mode} * 10000000).")</form>";
 	}
 	else
 	{
 $disp.=<<STR;
 <hr width=500 noshade size=1>
-<BIG>●増築</BIG>：資金が足りません
+<BIG>●${\l('増築')}</BIG>：${\l('資金が足りません')}
 STR
 	}
 }
@@ -205,16 +204,16 @@ sub DivCheck
 	$disp.=<<STR;
 $TB$TR$TD
 $image[3]
-神父：本当に離婚するのですね？
+${\l('神父')}：${\l('本当に離婚するのですね？')}
 $TRE$TBE
 <form action="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=id VALUE="$DT->{id}">
 <INPUT TYPE=HIDDEN NAME=idx VALUE="$BRIDE[$i]->{no}">
 <INPUT TYPE=HIDDEN NAME=mode VALUE="divorce">
-<SPAN>●離婚</SPAN>：
-<INPUT TYPE=SUBMIT VALUE='離婚する'>
-(備品は全て破棄)
+<SPAN>●${\l('離婚')}</SPAN>：
+<INPUT TYPE=SUBMIT VALUE='${\l('離婚する')}'>
+(${\l('備品は全て破棄')})
 </FORM>
 STR
 }

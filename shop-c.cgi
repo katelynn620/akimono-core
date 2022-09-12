@@ -4,7 +4,7 @@ use utf8;
 DataRead();
 CheckUserPass(1);
 
-$disp.="<BIG>●商店通り：相場表\示</BIG><br><br>";
+$disp.="<BIG>●".l('商店通り')."：".l('相場表示')."</BIG><br><br>";
 
 # 需要/供給バランス計算
 GetMarketStatus();
@@ -34,20 +34,20 @@ $TBT$TRT
 $USERPASSFORM
 <input type=hidden name=tp value=\"$tp\">
 $itemlist
-<input type=submit value="商品で検索"> 
+<input type=submit value="${\l('商品で検索')}"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-b">
 $USERPASSFORM
 $shoplist
-<input type=submit value="店名で検索"> 
+<input type=submit value="${\l('店名で検索')}"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-c">
 $USERPASSFORM
-<input type=submit value="相場を調査">
+<input type=submit value="${\l('相場を調査')}">
 </form>
 $TRE$TBE
 <br>
@@ -60,13 +60,13 @@ $disp.=GetPageControl($pageprev,$pagenext,"t=3","",$pagemax,$page);
 
 $disp.=$TB;
 $disp.=$TR;
-$disp.=$TDB.'商品名';
-$disp.=$TDB.'今期<small>/前期</small><br>総売上数';
-$disp.=$TDB.'最安値';
-$disp.=$TDB.'最高値';
-$disp.=$TDB.'販売相場';
-$disp.=$TDB.'標準価格';
-$disp.=$TDB.'需要供給バランス';
+$disp.=$TDB.l('商品名');
+$disp.=$TDB.l('今期').'<small>/'.l('前期').'</small><br>'.l('総売上数');
+$disp.=$TDB.l('最安値');
+$disp.=$TDB.l('最高値');
+$disp.=$TDB.l('販売相場');
+$disp.=$TDB.l('標準価格');
+$disp.=$TDB.l('需要供給バランス');
 $disp.=$TRE;
 foreach my $ITEM ((sort{$a->{sort} <=> $b->{sort}} values(%marketitemlist))[$pagestart..$pageend])
 {

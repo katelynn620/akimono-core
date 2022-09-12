@@ -5,10 +5,10 @@ $NOITEM=1 if ($Q{t}==1);
 DataRead();
 CheckUserPass(1);
 
-$disp.=GetMenuTag('log',	'[速報]')
-	.GetMenuTag('log',	'[入賞]','&t=3')
-	.GetMenuTag('log',	'[順位]','&t=4')
-	.GetMenuTag('log',	'[爵位]','&t=5');
+$disp.=GetMenuTag('log',	'['.l('速報').']')
+	.GetMenuTag('log',	'['.l('入賞').']','&t=3')
+	.GetMenuTag('log',	'['.l('順位').']','&t=4')
+	.GetMenuTag('log',	'['.l('爵位').']','&t=5');
 $disp.="<hr width=500 noshade size=1>";
 
 if ($Q{t}==5) {

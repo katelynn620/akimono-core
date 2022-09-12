@@ -2,10 +2,10 @@ use utf8;
 # ドラゴンレース ドラゴンメンテ 2005/03/30 由來
 
 ReadDragon();
-$disp.="<BIG>●ドラゴンレース：牧場</BIG><br><br>";
+$disp.="<BIG>●".l('ドラゴンレース')."：".l('牧場')."</BIG><br><br>";
 
 my $functionname=$Q{code};
-OutError("bad request") if !defined(&$functionname);
+OutError('bad request') if !defined(&$functionname);
 &$functionname;
 
 WriteDragon();
@@ -16,18 +16,18 @@ sub retire
 {
 	#ドラゴンチェック
 	my $cnt=$id2dra{$Q{dr}};
-	OutError("bad request") if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
-	OutError("bad request") if ($DR[$cnt]->{race} > 1);
-	OutError("bad request") if ($NOW_TIME-$DR[$cnt]->{birth} < $DRretire);
+	OutError('bad request') if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
+	OutError('bad request') if ($DR[$cnt]->{race} > 1);
+	OutError('bad request') if ($NOW_TIME-$DR[$cnt]->{birth} < $DRretire);
 
-	OutError("ドラゴンを引退させるには retire と入力してください") if ($Q{check} ne "retire");
+	OutError(l('ドラゴンを引退させるには retire と入力してください')) if ($Q{check} ne "retire");
 
-	$disp.="ドラゴン「".$DR[$cnt]->{name}."」を引退させました。";
+	$disp.=l("ドラゴン「%1」を引退させました。",$DR[$cnt]->{name});
 
 	if ($DR[$cnt]->{prize} >= $PRentry)
 	{
-	$disp.="<br>現役時代の活躍により，".($DR[$cnt]->{fm} ? "繁殖" : "種").$FM[$DR[$cnt]->{fm}]."竜入りが認められました。";
-	PushDraLog(0,"ドラゴン「".$DR[$cnt]->{name}."」が引退し，".($DR[$cnt]->{fm} ? "繁殖" : "種").$FM[$DR[$cnt]->{fm}]."竜入りしました。");
+	$disp.="<br>".l("現役時代の活躍により，%1%2竜入りが認められました。",($DR[$cnt]->{fm} ? l("繁殖") : l("種")),$FM[$DR[$cnt]->{fm}]);
+	PushDraLog(0,"ドラゴン「%1」が引退し，%2%3竜入りしました。",$DR[$cnt]->{name},($DR[$cnt]->{fm} ? l("繁殖") : l("種")),$FM[$DR[$cnt]->{fm}]);
 	RenewDraLog();
 
 	ReadParent();
@@ -68,41 +68,41 @@ sub retire
 
 sub preg
 {
-	OutError('これ以上ドラゴンを所有できません。') if (scalar @MYDR >= $MYDRmax);
+	OutError(l('これ以上ドラゴンを所有できません。')) if (scalar @MYDR >= $MYDRmax);
 
 	ReadParent();
 
 	#自ドラゴンチェック
 	my $p=$id2pr{$Q{dr}};
-	OutError("bad request") if ($MYDIR ne $PR[$p]->{town});
-	OutError("bad request") if ($PR[$p]->{owner}!=$DT->{id});
-	OutError("bad request") if (!$PR[$p]->{fm});
-	OutError("bad request") if ($NOW_TIME-$PR[$p]->{preg} < $PRcycle);
+	OutError('bad request') if ($MYDIR ne $PR[$p]->{town});
+	OutError('bad request') if ($PR[$p]->{owner}!=$DT->{id});
+	OutError('bad request') if (!$PR[$p]->{fm});
+	OutError('bad request') if ($NOW_TIME-$PR[$p]->{preg} < $PRcycle);
 
 	#種ドラゴンチェック
 	my $q=$id2pr{$Q{pr}};
-	OutError("bad request") if ($PR[$q]->{fm});
+	OutError('bad request') if ($PR[$q]->{fm});
 
 	# 名前の正当性をチェック
 	# require $JCODE_FILE;
 	if(!$Q{name})
 	{
-		OutError('名前を入力してください。');
+		OutError(l('名前を入力してください。'));
 	}
 	# $Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('名前に使用できない文字が含まれています。');
+		OutError(l('名前に使用できない文字が含まれています。'));
 	}
 
 	#一度EUCに変換
 	# &jcode::convert(\$Q{name}, "euc", "sjis");
 	# $ZkatakanaExt = '(?:\xA5[\xA1-\xF6]|\xA1[\xA6\xBC\xB3\xB4])';
-	# OutError('名前は全角カタカナで指定してください。') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
+	# OutError(l('名前は全角カタカナで指定してください。')) if ($Q{name} !~ /^($ZkatakanaExt)*$/);
 	# &jcode::convert(\$Q{name}, "sjis", "euc");
 
-	OutError('名前が長すぎます。') if length($Q{name})>20;
-	OutError('名前が短すぎます。') if length($Q{name})<6;
+	OutError(l('名前が長すぎます。')) if length($Q{name})>20;
+	OutError(l('名前が短すぎます。')) if length($Q{name})<6;
 
 	@DR=reverse(@DR);
 	$DRcount++;
@@ -137,6 +137,6 @@ sub preg
 	$PR[$p]->{preg}=$NOW_TIME;
 	WriteParent();
 
-$disp.="新しいドラゴン「<b>".$Q{name}."</b>」が誕生しました。";
+$disp.=l("新しいドラゴン「<b>%1</b>」が誕生しました。",$Q{name});
 }
 

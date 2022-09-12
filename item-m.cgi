@@ -9,7 +9,7 @@ $itemno=$Q{item};
 $no=$Q{no};
 CheckItemNo($itemno);
 $itemcode=GetPath($ITEM_DIR,"use",$ITEM[$itemno]->{code});
-OutError('使えません') if $itemcode eq '' || !(-e $itemcode);
+OutError(l('使えません')) if $itemcode eq '' || !(-e $itemcode);
 
 $ITEM=$ITEM[$itemno];
 @item::DT=@DT;
@@ -20,14 +20,14 @@ RequireFile('inc-item.cgi');
 require $itemcode;
 
 $USE=GetUseItem($no);
-OutError('使えません') if !$USE || !$USE->{useok};
+OutError(l('使えません')) if !$USE || !$USE->{useok};
 $item::USE=$USE;
 
 RequireFile('inc-html-ownerinfo.cgi');
 
 my $MAX_COUNT=9999999999;
-my $scale=$USE->{scale} ? $USE->{scale} : '回';
-my $action=$USE->{action} ? $USE->{action} : '使う';
+my $scale=$USE->{scale} ? $USE->{scale} : l('回');
+my $action=$USE->{action} ? $USE->{action} : l('使う');
 my $scaleone="";
 $scaleone="(1$scale)" if $USE->{arg}!~/nocount/;
 
@@ -35,27 +35,27 @@ $USE->{time}=GetItemUseTime($USE);
 
 $disp.="<BIG>●".$USE->{name}."</BIG><br><br>";
 $disp.=$TB;
-$disp.=$TR.$TDB."備考".$TD.$USE->{info}.$TRE;
-$disp.=$TR.$TDB."費用 $scaleone$TD".GetMoneyString($USE->{money}).$TRE if $USE->{money};
+$disp.=$TR.$TDB.l("備考").$TD.$USE->{info}.$TRE;
+$disp.=$TR.$TDB.l('費用')." $scaleone$TD".GetMoneyString($USE->{money}).$TRE if $USE->{money};
 my $exp=$DT->{exp}->{$USE->{itemno}};
 
 if($USE->{time} || $exp)
 {
-	$disp.=$TR.$TDB."時間 $scaleone".$TD.GetTime2HMS($USE->{time});
-	$disp.="(熟練度".int($exp/10)."%)" if $exp;
+	$disp.=$TR.$TDB.l("時間")." $scaleone".$TD.GetTime2HMS($USE->{time});
+	$disp.="(".l("熟練度").int($exp/10)."%)" if $exp;
 	$disp.=$TRE;
 	
-	$disp.=$TR.$TDB.'必要熟練度'.$TD.int($USE->{needexp}/10).'%'.$TRE if $USE->{needexp};
+	$disp.=$TR.$TDB.l('必要熟練度').$TD.int($USE->{needexp}/10).'%'.$TRE if $USE->{needexp};
 }
 
-$disp.=$TR.$TDB.'必要職業'.$TD.$JOBTYPE{$USE->{needjob}}.$TRE if $USE->{needjob};
-$disp.=$TR.$TDB.'必要点数'.$TD.$USE->{needpoint}.$TRE if $USE->{needpoint};
-$disp.=$TR.$TDB.'必要人気'.$TD.int($USE->{needpop}/100).'%'.$TRE if $USE->{needpop};
+$disp.=$TR.$TDB.l('必要職業').$TD.$JOBTYPE{$USE->{needjob}}.$TRE if $USE->{needjob};
+$disp.=$TR.$TDB.l('必要点数').$TD.$USE->{needpoint}.$TRE if $USE->{needpoint};
+$disp.=$TR.$TDB.l('必要人気').$TD.int($USE->{needpop}/100).'%'.$TRE if $USE->{needpop};
 
 my $count_min=$MAX_COUNT;
 if(defined($USE->{use}[0]))
 {
-	$disp.=$TR.$TDB."使用 $scaleone".$TD;
+	$disp.=$TR.$TDB.l("使用")." $scaleone".$TD;
 	$disp.=$TB;
 	foreach my $USEITEM (@{$USE->{use}})
 	{
@@ -64,19 +64,19 @@ if(defined($USE->{use}[0]))
 		
 		$disp.=$TR;
 		$disp.=$TD.$ITEM[$no]->{name};
-		$disp.=$TD.$USEITEM->{count}.$TD."残".$DT->{item}[$no-1];
+		$disp.=$TD.$USEITEM->{count}.$TD.l("残").$DT->{item}[$no-1];
 		if($USEITEM->{proba}==0)
 		{
-			$disp.=$TD."消費しない";
+			$disp.=$TD.l("消費しない");
 		}
 		elsif($USEITEM->{proba}==1000)
 		{
-			$disp.=$TD."消費する";
+			$disp.=$TD.l("消費する");
 			$count_min=$count if $count<$count_min;
 		}
 		else
 		{
-			$disp.=$TD."消費確率".($USEITEM->{proba}/10)."\%";
+			$disp.=$TD.l("消費確率").($USEITEM->{proba}/10)."\%";
 			$count_min=$count if $count<$count_min;
 		}
 		$disp.=$TRE;
@@ -96,9 +96,9 @@ if($USE->{arg}!~/nocount/)
 	$msg{1000}=1000; $msg{10000}=10000;
 	if($money<=$time){$count_max=$money;}else{$count_max=$time;}
 	if($count_min<=$count_max){$count_max=$count_min;}
-	$msg{$money}="$money(資金最大)";
-	$msg{$time}="$time(時間最大)";
-	$msg{$count_min}="$count_min(材料最大)";
+	$msg{$money}="$money(".l('資金最大').")";
+	$msg{$time}="$time(".l('時間最大').")";
+	$msg{$count_min}="$count_min(".l('材料最大').")";
 
 	$disp.=$TR;
 	$disp.=$TDB."最大回数".$TD.$count_max;
@@ -107,25 +107,25 @@ if($USE->{arg}!~/nocount/)
 $disp.=$TRE.$TBE."<br>";
 
 if( ($USE->{money}) && ($DT->{money} < $USE->{money}) )
-	{$nonuse=1; $disp.="<B>資金が足りません</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('資金が足りません')."</B><BR>";}
 
 if($DT->{time}+$USE->{time}>$NOW_TIME)
-	{$nonuse=1; $disp.="<B>時間が足りません</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('時間が足りません')."</B><BR>";}
 
 if($exp<$USE->{needexp})
-	{$nonuse=1; $disp.="<B>熟練度が足りません</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('熟練度が足りません')."</B><BR>";}
 
 if($USE->{needjob} && ($DT->{job} ne $USE->{needjob}))
-	{$nonuse=1; $disp.="<B>必要な職業に就いていません</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('必要な職業に就いていません')."</B><BR>";}
 
 if($USE->{needpoint} && ($DT->{point} < $USE->{needpoint}))
-	{$nonuse=1; $disp.="<B>点数が足りません</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('点数が足りません')."</B><BR>";}
 
 if($USE->{needpop} && ($DT->{rank} < $USE->{needpop}))
-	{$nonuse=1; $disp.="<B>人気が足りません</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('人気が足りません')."</B><BR>";}
 
 if($USE->{needevent} && !$DTevent{$USE->{needevent}})
-	{$nonuse=1; $disp.="<B>このコマンドには特定のイベントの発生が必要です</B><BR>";}
+	{$nonuse=1; $disp.="<B>".l('このコマンドには特定のイベントの発生が必要です')."</B><BR>";}
 
 $disp.=&{"item::".$USE->{functioninfo}}() if $USE->{functioninfo}; # @@use funci
 
@@ -142,7 +142,7 @@ if(!$nonuse)
 		{
 			$select_target.="<OPTION VALUE='$_->{id}'>$_->{shopname}";
 		}
-		$select_target.="</SELECT>に対して";
+		$select_target.="</SELECT>".l('に対して');
 	}
 	
 	if($USE->{arg}!~ /nocount/)
@@ -158,7 +158,7 @@ if(!$nonuse)
 			$oldcnt=$cnt;
 		}
 		$select_count.="</SELECT>$scale ";
-		$select_count.="または<INPUT TYPE=TEXT NAME=cnt2 SIZE=5>$scale";
+		$select_count.=l("または")."<INPUT TYPE=TEXT NAME=cnt2 SIZE=5>$scale";
 	}
 	else
 	{
@@ -168,15 +168,15 @@ if(!$nonuse)
 	if($USE->{arg}=~ /message(\d*)/)
 	{
 		my $limit=$1||80;
-		my $header=$USE->{argmessage}||'コメント';
-		$header.='('.$limit.'字以内)';
+		my $header=$USE->{argmessage}||l('コメント');
+		$header.='('.l('%1字以内',$limit).')';
 		$input_message="$header<BR><INPUT TYPE=TEXT NAME=msg VALUE=\"\" MAXLENGTH=\"$limit\"><BR>";
 	}
 	
 	if($USE->{arg}=~ /select/ && $USE->{argselect})
 	{
 		my @fld=split(/;/,$USE->{argselect});
-		unshift(@fld,'選択') if @fld%2==0;
+		unshift(@fld,l('選択')) if @fld%2==0;
 		my $header=shift @fld;
 		$select_userdata.=qq|$header <select name="select">|;
 		while(@fld)

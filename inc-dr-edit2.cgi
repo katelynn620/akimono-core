@@ -56,7 +56,7 @@ sub Entry
 			undef $RD[$_];
 
 			}
-		PushDraLog($rcode+1,$R[0]."は出走竜不足のため開催が見送られました。");
+		PushDraLog($rcode+1,l("%1は出走竜不足のため開催が見送られました。",$R[0]));
 		$DRTIME[$rcode+1]+=86400*2;
 		$RDS[1]++;
 		$RDS[1]=0 if ($RDS[1] > $#MYRACE);
@@ -64,7 +64,7 @@ sub Entry
 		}
 		else
 		{
-		PushDraLog($rcode+1,$R[0]."の出走登録が締め切られました。");
+		PushDraLog($rcode+1,l("%1の出走登録が締め切られました。",$R[0]));
 		# 出走数が定員を超える場合は抽選
 		if (scalar @RD > $R[9])
 			{
@@ -87,7 +87,7 @@ sub Entry
 				$JK[$id2jk{$id}]->{race}=1 if (defined $id2jk{$id});
 				undef $RD[$_];
 				}
-			PushDraLog($rcode+1,"出走竜多数のため，抽選が行われました。");
+			PushDraLog($rcode+1,l("出走竜多数のため，抽選が行われました。"));
 			}
 
 		#出走処理
@@ -125,33 +125,33 @@ sub Race1
 		}
 	@RD=sort{$a->{time}<=>$b->{time}}@RD;
 
-	$RACELOG.="それでは <b>".$R[0]."</b>の出走です<br>\n";
-	$RACELOG.="初々しい竜たちが勢ぞろい<br>\n" if $R[1]==5;
-	$RACELOG.="栄冠を手にするのは 果たしてどの竜なのか<br>\n" if $R[1]==0;
-	$RACELOG.="このコースの終盤は坂になっています 一波乱あるかもしれません<br>\n" if $R[4];
-	$RACELOG.="いま スタートです<br>\n";
+	$RACELOG.=l("それでは <b>%1</b>の出走です",$R[0])."<br>\n";
+	$RACELOG.=l("初々しい竜たちが勢ぞろい")."<br>\n" if $R[1]==5;
+	$RACELOG.=l("栄冠を手にするのは 果たしてどの竜なのか")."<br>\n" if $R[1]==0;
+	$RACELOG.=l("このコースの終盤は坂になっています 一波乱あるかもしれません")."<br>\n" if $R[4];
+	$RACELOG.=l("いま スタートです")."<br>\n";
 
 	if ($RD[0]->{strate}< 2)
 		{
-		$RACELOG.="トップに立ったのは <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
-		$RACELOG.="大方の予\想通りといったところでしょうか<br>\n";
+		$RACELOG.=l("トップに立ったのは <b>%1%2</b>",GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
+		$RACELOG.=l('大方の予想通りといったところでしょうか')."<br>\n";
 		}
 		else
 		{
-		$RACELOG.="なんと <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b> がいきなりトップに立ちました<br>\n";
-		$RACELOG.="これは 作戦なのか<br>\n";
+		$RACELOG.=l("なんと <b>%1%2</b> がいきなりトップに立ちました",GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
+		$RACELOG.=l('これは 作戦なのか')."<br>\n";
 		}
 
 	#任意の１頭を紹介
 	my $i=int(rand($#RD))+1;
-	$RACELOG.="現在 ".($i + 1)."番目を走っているのは ".$RD[$i]->{no}."枠 <b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b><br>\n";
+	$RACELOG.=l("現在 %1番目を走っているのは %2枠 <b>%3%4</b>",($i + 1),$RD[$i]->{no},GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
 	if ($RD[$i]->{pop} < 4)
 		{
-		$RACELOG.=$RD[$i]->{pop}."番人気の期待を受け この位置から勝利を狙います<br>\n";
+		$RACELOG.=l("%1番人気の期待を受け この位置から勝利を狙います",$RD[$i]->{pop})."<br>\n";
 		}
 		else
 		{
-		$RACELOG.="人気は ".$RD[$i]->{pop}."番となりましたが 果たしてこの竜は伏兵となるでしょうか<br>\n";
+		$RACELOG.=l("人気は %1番となりましたが 果たしてこの竜は伏兵となるでしょうか",$RD[$i]->{pop})."<br>\n";
 		}
 
 	$DRTIME[$rcode+1]+=3600*8;
@@ -167,21 +167,21 @@ sub Race2
 		}
 	@RD=sort{$a->{time}<=>$b->{time}}@RD;
 
-	$RACELOG.="最初のコーナーを回りました<br>\n";
+	$RACELOG.=l("最初のコーナーを回りました")."<br>\n";
 	if ($no == $RD[0]->{no})
 		{
-		$RACELOG.="現在 トップは変わらず <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
-		$RACELOG.="この勢いは 最後まで続くのか<br>\n";
+		$RACELOG.=l("現在 トップは変わらず <b>%1%2</b>",GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
+		$RACELOG.=l('この勢いは 最後まで続くのか')."<br>\n";
 		}
 		else
 		{
-		$RACELOG.="ここで トップが変わる ";
-		$RACELOG.="トップは <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
+		$RACELOG.=l("ここで トップが変わる ");
+		$RACELOG.=l("トップは <b>%1%2</b>",GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
 		}
 
 	#レース展開判定 未実装
-	$RACELOG.="中間".($R[5] / 2)."kmの通過タイムは ".GetRaceTime($RD[0]->{time})."<br>\n";
-	$RACELOG.="ほぼ 平常どおりといえるでしょう 展開にさほど影響はなさそうです<br>\n";
+	$RACELOG.=l("中間%1kmの通過タイムは %2",($R[5] / 2),GetRaceTime($RD[0]->{time}))."<br>\n";
+	$RACELOG.=l("ほぼ 平常どおりといえるでしょう 展開にさほど影響はなさそうです")."<br>\n";
 
 	#差し馬の１頭を紹介
 	my $i=int(rand($#RD))+1;
@@ -189,7 +189,7 @@ sub Race2
 		{
 		$i=$_,last if ($RD[$_]->{strate}==2 || $RD[$_]->{strate}==3);
 		}
-	$RACELOG.="<b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b> いい位置だ ここから トップを狙うのか<br>\n";
+	$RACELOG.=l("<b>%1%2</b> いい位置だ ここから トップを狙うのか",GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
 
 	$DRTIME[$rcode+1]+=3600*8;
 	$RDS[0]++;
@@ -204,19 +204,19 @@ sub Race3
 		}
 	@RD=sort{$a->{time}<=>$b->{time}}@RD;
 
-	$RACELOG.="後続竜が差を詰めていきます<br>\n";
+	$RACELOG.=l("後続竜が差を詰めていきます")."<br>\n";
 	if ($no == $RD[0]->{no})
 		{
-		$RACELOG.="さあ どうか</b> ";
-		$RACELOG.="トップは変わらず <b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b><br>\n";
-		$RACELOG.="このまま 逃げ切れるのか ";
+		$RACELOG.=l("さあ どうか")."</b> ";
+		$RACELOG.=l("トップは変わらず <b>%1%2</b>",GetTagImgDra($RD[0]->{fm},$RD[0]->{color}),$RD[0]->{name})."<br>\n";
+		$RACELOG.=l("このまま 逃げ切れるのか")." ";
 		}
 		else
 		{
-		$RACELOG.="<b>".GetTagImgDra($RD[0]->{fm},$RD[0]->{color}).$RD[0]->{name}."</b> が差した！<br>\n";
-		$RACELOG.="さあ どうか</b> ";
+		$RACELOG.=l("<b>%1%2</b> が差した！",GetTagImgDra($RD[0]->{fm},$RD[0]->{color}),$RD[0]->{name})."<br>\n";
+		$RACELOG.=l("さあ どうか")."</b> ";
 		}
-	$RACELOG.="後を追うのは <b>".GetTagImgDra($RD[1]->{fm},$RD[1]->{color}).$RD[1]->{name}."</b><br>\n";
+	$RACELOG.=l("後を追うのは <b>%1%2</b>",GetTagImgDra($RD[1]->{fm},$RD[1]->{color}),$RD[1]->{name})."<br>\n";
 
 	#差し馬の１頭を紹介
 	my $i=int(rand($#RD))+1;
@@ -224,7 +224,7 @@ sub Race3
 		{
 		$i=$_,last if ($RD[$_]->{strate}==2 || $RD[$_]->{strate}==3);
 		}
-	$RACELOG.="<b>".GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}).$RD[$i]->{name}."</b> いい足取りだが どうか<br>\n";
+	$RACELOG.=l("<b>%1%2</b> いい足取りだが どうか",GetTagImgDra($RD[$i]->{fm},$RD[$i]->{color}),$RD[$i]->{name})."<br>\n";
 
 	$DRTIME[$rcode+1]+=3600*6;
 	$RDS[0]++;
@@ -242,61 +242,61 @@ sub Race4
 	my $name1=GetTagImgDra($RD[0]->{fm},$RD[0]->{color})."<b>".$RD[0]->{name}."</b>";
 	my $name2=GetTagImgDra($RD[1]->{fm},$RD[1]->{color})."<b>".$RD[1]->{name}."</b>";
 
-	$RACELOG.="最後のコーナーをまわって 直線に入ります<br>\n";
+	$RACELOG.=l("最後のコーナーをまわって 直線に入ります")."<br>\n";
 	if ($no == $RD[0]->{no})
 			{
 			# トップ変わらず
-			$RACELOG.="さあ どうか ";
-			$RACELOG.="$name2 が追い上げる<br>\n";
-			$RACELOG.="$name1 が逃げる このまま逃げ切るか<br>\n";
+			$RACELOG.=l("さあ どうか ");
+			$RACELOG.=l("%1 が追い上げる",$name2)."<br>\n";
+			$RACELOG.=l("%1 が逃げる このまま逃げ切るか",$name1)."<br>\n";
 
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.="$name2 が迫る！ しかし $name1 も粘る！<br>\n";
-				$RACELOG.="$name1 だ！ 逃げ切りました！ 勝ったのは $name1！<br>\n";
+				$RACELOG.=l("%1 が迫る！ しかし %1 も粘る！",$name2,$name1)."<br>\n";
+				$RACELOG.=l("%1 だ！ 逃げ切りました！ 勝ったのは %2！",$name1,$name1)."<br>\n";
 				}
 				else
 				{
-				$RACELOG.="$name1 差を広げる！<br>\n";
-				$RACELOG.="$name1！ この竜は強い！ 勝ったのは $name1！<br>\n";
+				$RACELOG.=l("%1 差を広げる！",$name1)."<br>\n";
+				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %2！",$name1,$name1)."<br>\n";
 				}
 			}
 		elsif ($no == $RD[1]->{no})
 			{
 			# ２着
 			$RACELOG.="さあ どうか ";
-			$RACELOG.="$name1 が追い上げる<br>\n";
-			$RACELOG.="$name2 が逃げる このまま逃げ切るか<br>\n";
+			$RACELOG.=l("%1 が追い上げる",$name1)."<br>\n";
+			$RACELOG.=l("%1 が逃げる このまま逃げ切るか",$name2)."<br>\n";
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.="$name1 が迫る！ $name2 が粘る！<br>\n";
-				$RACELOG.="$name1 が差した！<br>\n";
-				$RACELOG.="$name2 一歩及ばず！ 勝ったのは $name1！<br>\n";
+				$RACELOG.=l("%1 が迫る！ %2 が粘る！",$name1,$name2)."<br>\n";
+				$RACELOG.=l("%1 が差した！",$name1)."<br>\n";
+				$RACELOG.=l("%1 一歩及ばず！ 勝ったのは %2！",$name2,$name1)."<br>\n";
 				}
 				else
 				{
-				$RACELOG.="$name1 が差した！<br>\n";
-				$RACELOG.="$name1 さらに差を広げる！<br>\n";
-				$RACELOG.="$name1！ この竜は強い！ 勝ったのは $name1！<br>\n";
+				$RACELOG.=l("%1 が差した！",$name1)."<br>\n";
+				$RACELOG.=l("%1 さらに差を広げる！",$name1)."<br>\n";
+				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %2！",$name1,$name1)."<br>\n";
 				}
 			}
 		else
 			{
 			# トップ完全交代
-			$RACELOG.="さあ どうか ";
-			$RACELOG.="$name2 が差した！<br>\n";
-			$RACELOG.="さらに <b>$name1</b> が後に続く！<br>\n";
+			$RACELOG.=l("さあ どうか ");
+			$RACELOG.=l("%1 が差した！",$name2)."<br>\n";
+			$RACELOG.=l("さらに <b>%1</b> が後に続く！",$name1)."<br>\n";
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.="$name1 が迫る！ $name2 が粘る！<br>\n";
-				$RACELOG.="$name1 が差した！<br>\n";
-				$RACELOG.="$name2 一歩及ばず！ 勝ったのは $name1！<br>\n";
+				$RACELOG.=l("%1 が迫る！ %2 が粘る！",$name1,$name2)."<br>\n";
+				$RACELOG.=l("%1 が差した！",$name1)."<br>\n";
+				$RACELOG.=l("%1 一歩及ばず！ 勝ったのは %2！",$name2,$name1)."<br>\n";
 				}
 				else
 				{
-				$RACELOG.="$name1 が一気に差した！<br>\n";
-				$RACELOG.="$name1 さらに差を広げる！<br>\n";
-				$RACELOG.="$name1！ この竜は強い！ 勝ったのは $name1！<br>\n";
+				$RACELOG.=l("%1 が一気に差した！",$name1)."<br>\n";
+				$RACELOG.=l("%1 さらに差を広げる！",$name1)."<br>\n";
+				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %2！",$name1,$name1)."<br>\n";
 				}
 			}
 
@@ -306,7 +306,7 @@ sub Race4
 	ReadStable();
 
 	# トップ
-	PushDraLog($rcode+1,$R[0]."で「".$RD[0]->{name}."」が勝ちました。");
+	PushDraLog($rcode+1,l("%1で「%2」が勝ちました。",$R[0],$RD[0]->{name}));
 
 	my $id=$RD[0]->{dr};
 	if (defined $id2dra{$id})
@@ -418,7 +418,7 @@ sub Race4
 	$RACELOG.="<br>";
 	foreach(0..$#RD)
 		{
-		$RACELOG.=($_ + 1)."着 ".GetRaceTime($RD[$_]->{time});
+		$RACELOG.=l("%1着 %2",($_ + 1),GetRaceTime($RD[$_]->{time}));
 		$RACELOG.=" ".$STRATE[ $RD[$_]->{str} ]." ";
 		$RACELOG.=GetTagImgDra($RD[$_]->{fm},$RD[$_]->{color}).$RD[$_]->{name};
 		$RACELOG.=" <small>(".$RD[$_]->{lose}.")</small>" if $_;

@@ -1,7 +1,7 @@
 use utf8;
 # ドワーフ宅配便 2004/01/20 由來
 
-$image[0]=GetTagImgKao("住み込みドワーフ","dwarf");
+$image[0]=GetTagImgKao(l("住み込みドワーフ"),"dwarf");
 $Q{mode}='new',  if ($Q{form} eq "make")&&($Q{ok}); 	# 送信モード切替
 
 Lock() if $Q{mode};

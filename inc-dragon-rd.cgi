@@ -9,32 +9,32 @@ my @R=@{$MYRACE[$RDS[1]]};
 undef @RACE;
 undef @MYRACE;	#不必要な配列は解放
 
-$disp.="<BIG>●ドラゴンレース：".$RACETERM[$rcode]."</BIG><br><br>";
-$disp.="$TB$TR$TD".GetTagImgKao("レース受付","slime2").$TD;
-$disp.="<SPAN>レース受付</SPAN>：";
+$disp.="<BIG>●".l('ドラゴンレース')."：".$RACETERM[$rcode]."</BIG><br><br>";
+$disp.="$TB$TR$TD".GetTagImgKao(l("レース受付"),"slime2").$TD;
+$disp.="<SPAN>".l('レース受付')."</SPAN>：";
 
 if ($RDS[0]>1) {
-$disp.="ただいまレースが行われています。<br>";
-$disp.="次の実況放送は ".GetTime2FormatTime($DRTIME[$rcode + 1])." です。";
+$disp.=l("ただいまレースが行われています。")."<br>";
+$disp.=l("次の実況放送は %1 です。",GetTime2FormatTime($DRTIME[$rcode + 1]));
 	}
 elsif ($RDS[0]==1) {
-$disp.="出走ドラゴンは以下のとおり決定いたしました。<br>";
-$disp.="レース開始時刻は ".GetTime2FormatTime($DRTIME[$rcode + 1])." です。";
+$disp.=l("出走ドラゴンは以下のとおり決定いたしました。")."<br>";
+$disp.=l("レース開始時刻は %1 です。",GetTime2FormatTime($DRTIME[$rcode + 1]));
 	}
 else {
-$disp.="ただいま出走登録を受付中です。<br>";
-$disp.="登録締め切りは ".GetTime2FormatTime($DRTIME[$rcode + 1])." です。";
+$disp.=l("ただいま出走登録を受付中です。")."<br>";
+$disp.=l("登録締め切りは %1 です。",GetTime2FormatTime($DRTIME[$rcode + 1]));
 	}
 
 $disp.=$TRE.$TBE."<br>";
 $disp.="<b>".$R[0]."</b> (".$RACERANK[$R[1]].") ".$FIELDTYPE[$R[3]].$R[5]."km";
 $disp.='<IMG class="i" SRC="'.$IMAGE_URL.'/dragonw'.($RDS[2] + 1).$IMAGE_EXT.'"> ';
-$disp.="定員 ".$R[9]." ハンデ";
-$disp.=($R[2] ? "$R[2]万毎" : "なし");
+$disp.=l("定員")." ".$R[9]." ".l("ハンデ");
+$disp.=($R[2] ? l("%1万毎",$R[2]) : l("なし"));
 $disp.=qq|<br><IMG class="i" SRC="$IMAGE_URL/guildprize$IMAGE_EXT">|;
-$disp.="賞金 ".$R[6]."万 - ".$R[7]."万 - ".$R[8]."万";
-$disp.=qq| <input type="button" value="出走竜詳細" onclick="javascript:window.open('action.cgi?key=slime-l&mode=rd&rcode=$rcode','_blank','width=760,height=580,scrollbars')">|;
-$disp.="<br><br>$TB$TR$TDB枠番$TDB名前$TDB年齢$TDB性別$TDBハンデ$TDB牧場$TDB厩舎$TDB騎手$TDB総賞金$TDB脚質$TDB人気$TDB通過タイム$TRE";
+$disp.=l("賞金")." ".$R[6].l("万")." - ".$R[7].l("万")." - ".$R[8].l("万");
+$disp.=qq| <input type="button" value="${\l('出走竜詳細')}" onclick="javascript:window.open('action.cgi?key=slime-l&mode=rd&rcode=$rcode','_blank','width=760,height=580,scrollbars')">|;
+$disp.="<br><br>$TB$TR$TDB".l('枠番')."$TDB".l('名前')."$TDB".l('年齢')."$TDB".l('性別')."$TDB".l('ハンデ')."$TDB".l('牧場')."$TDB".l('厩舎')."$TDB".l('騎手')."$TDB".l('総賞金')."$TDB".l('脚質')."$TDB".l('人気')."$TDB".l('通過タイム')."$TRE";
 
 foreach (0..$#RD)
 	{
@@ -48,7 +48,7 @@ foreach (0..$#RD)
 	$disp.=$TD.$RD[$_]->{rcname};
 	$disp.=$TD.$RD[$_]->{stname};
 	$disp.=$TD.$RD[$_]->{jkname};
-	$disp.=$TD.($RD[$_]->{prize} + 0)."万";
+	$disp.=$TD.($RD[$_]->{prize} + 0).l("万");
 	$disp.=$TD.$STRATE[ $RD[$_]->{strate} ];
 	$disp.=$TD.$RD[$_]->{pop};
 	$disp.=$TD.GetRaceTime($RD[$_]->{time});
@@ -57,7 +57,7 @@ foreach (0..$#RD)
 $disp.=$TBE."<br>";
 
 ReadRaceLog($rcode);
-$disp.=$TB.$TR.$TD.GetTagImgKao("レース受付","slime6","align=left ")."<SPAN>実況アナウンサー</SPAN><br>".$RACELOG.$TRE.$TBE if ($RACELOG);
+$disp.=$TB.$TR.$TD.GetTagImgKao(l("レース受付"),"slime6","align=left ")."<SPAN>".l('実況アナウンサー')."</SPAN><br>".$RACELOG.$TRE.$TBE if ($RACELOG);
 1;
 
 sub ReadRaceLog

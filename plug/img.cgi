@@ -7,7 +7,7 @@ sub GetTagImgGuild
 	
 	return "" if $guildcode eq '';
 	my $name=$GUILD{$guildcode}->[$GUILDIDX_name];
-	$name="不明" if $name eq '';
+	$name=l("不明") if $name eq '';
 	return $name if $MOBILE || $noimage;
 	return qq|<IMG class="s" ALT="$name" SRC="$COMMON_URL/$guildcode.gif"> |;
 }
@@ -37,6 +37,6 @@ sub GetTagImgItemType
 	}
 	
 	return "" if $mode==2;
-	return $ITEMTYPE[$type].($mode==1?'専門店':'').":";
+	return $ITEMTYPE[$type].($mode==1?l('専門店'):'').":";
 }
 1;

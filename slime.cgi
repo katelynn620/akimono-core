@@ -9,14 +9,14 @@ DataRead();
 CheckUserPass(1);
 RequireFile("inc-dr-edit".$drlock.".cgi") if ($drlock);
 
-$disp.=GetMenuTag('slime',		'[あきスポ]','&mode=info')
-	.GetMenuTag('slime',		'[登竜レース]','&mode=rd')
-	.GetMenuTag('slime',		'[重賞レース]','&mode=rd&code=1');
+$disp.=GetMenuTag('slime',		'['.l('あきスポ').']','&mode=info')
+	.GetMenuTag('slime',		'['.l('登竜レース').']','&mode=rd')
+	.GetMenuTag('slime',		'['.l('重賞レース').']','&mode=rd&code=1');
 if (!$GUEST_USER)
 	{
-	$disp.=GetMenuTag('slime',		'[牧場]','&mode=ranch')
-		.GetMenuTag('slime',		'[厩舎]','&mode=stable')
-		.GetMenuTag('slime',		'[騎手]','&mode=jock');
+	$disp.=GetMenuTag('slime',		'['.l('牧場').']','&mode=ranch')
+		.GetMenuTag('slime',		'['.l('厩舎').']','&mode=stable')
+		.GetMenuTag('slime',		'['.l('騎手').']','&mode=jock');
 	}
 $disp.="<hr width=500 noshade size=1>";
 $Q{mode}||="info";

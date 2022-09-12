@@ -2,10 +2,10 @@ use utf8;
 # 荘園管理 2005/03/30 由來
 
 Lock() if $Q{mode};
-$image[0]=GetTagImgKao("大臣","minister",'align="left" ');
+$image[0]=GetTagImgKao(l("大臣"),"minister",'align="left" ');
 DataRead();
 CheckUserPass();
-OutError('荘園管理を行えるのは領主のみです') if $STATE->{leader}!=$DT->{id};
+OutError(l('荘園管理を行えるのは領主のみです')) if $STATE->{leader}!=$DT->{id};
 RequireFile('inc-manor.cgi');
 
 ReadDTSub($DT,"lord");
@@ -28,26 +28,26 @@ my $ii=($now % $ONE_DAY_TIME);
 $ii=1 if $ii < 1;
 $taxsum=GetMoneyString(int($taxsum * $ONE_DAY_TIME / $ii / 10000) * 10000);
 
-$disp.="<BIG>●荘園管理室</BIG><br><br>";
-$disp.=$TB.$TR.$TD.$image[0]."<SPAN>大臣</SPAN>：財政状態に気をつけて運営しないといけませんぞ。<br>";
-$disp.="・販売在庫は，一度につき 1000個まで。<br>";
-$disp.="・種の販売価格は，".GetMoneyString(1000)." ～ ".GetMoneyString(10000)."。<br>";
-$disp.="・収穫物の買取価格は，".GetMoneyString(5000)." ～ ".GetMoneyString(40000)."。<br>";
-$disp.="・販売価格を買取価格より高くすると，誰も使いたがりませんのでご注意を。".$TRE.$TBE;
+$disp.="<BIG>●".l("荘園管理室")."</BIG><br><br>";
+$disp.=$TB.$TR.$TD.$image[0]."<SPAN>".l("大臣")."</SPAN>：".l("財政状態に気をつけて運営しないといけませんぞ。")."<br>";
+$disp.="・".l("販売在庫は，一度につき 1000個まで。")."<br>";
+$disp.="・".l("種の販売価格は，%1 ～ %2。",GetMoneyString(1000),GetMoneyString(10000))."<br>";
+$disp.="・".l("収穫物の買取価格は，%1 ～ %2",GetMoneyString(5000),GetMoneyString(40000))."。<br>";
+$disp.="・".l("販売価格を買取価格より高くすると，誰も使いたがりませんのでご注意を。").$TRE.$TBE;
 
-$disp.="<hr width=500 noshade size=1><BIG>●現在の財政状態</BIG><br><br>";
-$disp.="$TB$TDB街資金$TDB税収見込み$TDB前期税収$TDB前期歳出$TRE";
+$disp.="<hr width=500 noshade size=1><BIG>●".l("現在の財政状態")."</BIG><br><br>";
+$disp.="$TB$TDB".l("街資金")."$TDB".l("税収見込み")."$TDB".l("前期税収")."$TDB".l("前期歳出")."$TRE";
 $disp.=$TR.$TD.GetMoneyString($STATE->{money}).$TD.$taxsum;
 $disp.=$TD.GetMoneyString($STATE->{in}).$TD.GetMoneyString($STATE->{out}).$TRE.$TBE;
 
 
 $disp.=<<"HTML";
-<hr width=500 noshade size=1><BIG>●荘園設定</BIG><br><br>
+<hr width=500 noshade size=1><BIG>●${\l('荘園設定')}</BIG><br><br>
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=hidden NAME=mode VALUE="inside">
 $TB$TR
-$TDB種$TDB販売在庫$TDB販売価格$TD$TDB収穫物$TDB買取価格$TDB買取った数$TDB説明$TRE
+$TDB${\l('種')}$TDB${\l('販売在庫')}$TDB${\l('販売価格')}$TD$TDB${\l('収穫物')}$TDB${\l('買取価格')}$TDB${\l('買取った数')}$TDB${\l('説明')}$TRE
 HTML
 
 my $balance=0;
@@ -56,7 +56,7 @@ foreach my $i(0..$#MANOR)
 	my @MYMANOR=@{$MANOR[$i]};
 	$disp.=$TR.$TD.GetTagImgManor($MYMANOR[1]).$MYMANOR[0];
 	my $c=$MANORLORD->{"count$i"} + 0;
-	$disp.=qq|$TD<INPUT TYPE=TEXT NAME=count$i SIZE=8 VALUE="$c"> 個|;
+	$disp.=qq|$TD<INPUT TYPE=TEXT NAME=count$i SIZE=8 VALUE="$c"> ${\l('個')}|;
 	my $t=$MANORLORD->{"price$i"} + 0;
 	$balance-=$c*$t;
 	$disp.=$TD."@".qq|$term[0]<INPUT TYPE=TEXT NAME=price$i SIZE=8 VALUE="$t">$term[1]|;
@@ -64,20 +64,20 @@ foreach my $i(0..$#MANOR)
 	$t=$MANORLORD->{"cost$i"} + 0;
 	$balance+=$c*$t;
 	$disp.=$TD."@".qq|$term[0]<INPUT TYPE=TEXT NAME=cost$i SIZE=8 VALUE="$t">$term[1]|;
-	$disp.=$TD.($MANORLORD->{"stock$i"} +0)." 個";
-	$disp.=$TD."<small>買取数 $MYMANOR[5]個で".GetTagImgItemType($MYMANOR[4]).$ITEM[$MYMANOR[4]]->{name}."を生成</small>".$TRE;
+	$disp.=$TD.($MANORLORD->{"stock$i"} +0)." ".l("個");
+	$disp.=$TD."<small>".l("買取数 %1個で%2%3を生成",$MYMANOR[5],GetTagImgItemType($MYMANOR[4]),$ITEM[$MYMANOR[4]]->{name})."</small>".$TRE;
 	}
-$disp.=$TBE."<br>※上記の荘園設定では，".GetMoneyString($balance)."の財政支出が見込まれます。<br><br>";
+$disp.=$TBE."<br>※".l("上記の荘園設定では，%1の財政支出が見込まれます。",GetMoneyString($balance))."<br><br>";
 
 $disp.=<<"HTML";
-<INPUT TYPE=SUBMIT VALUE="以上の内容で決定">
+<INPUT TYPE=SUBMIT VALUE="${\l('以上の内容で決定')}">
 </FORM>
 <hr width=500 noshade size=1>
 	<FORM ACTION="action.cgi" $METHOD>
 	$MYFORM$USERPASSFORM
 	<INPUT TYPE=hidden NAME=mode VALUE="outside">
-<BIG>●産物生成</BIG>： 買い取った収穫物から産物を 
-<INPUT TYPE=SUBMIT VALUE="生成する">
+<BIG>●${\l('産物生成')}</BIG>： ${\l('買い取った収穫物から産物を ')}
+<INPUT TYPE=SUBMIT VALUE="${\l('生成する')}">
 	</FORM>
 HTML
 
@@ -110,14 +110,13 @@ foreach my $i(0..$#MANOR)
 
 	my $itemno=$MYMANOR[4];
 	my $count=CheckCount($num,0,0,$ITEM[$itemno]->{limit} - $DT->{item}[$itemno-1]);
-	$disp.=$ITEM[$itemno]->{name}."は倉庫にいっぱいなので生成をとりやめました。<br>" , next if !$count;
+	$disp.=l("%1は倉庫にいっぱいなので生成をとりやめました。",$ITEM[$itemno]->{name})."<br>" , next if !$count;
 
 	$flag++;
 	$DT->{item}[$itemno-1]+=$count;
 	$DT->{_lord}->{"stock$i"}-=$count * $MYMANOR[5];
-	my $ret=$ITEM[$itemno]->{name}."を".$count.$ITEM[$itemno]->{scale}."生成";
-	$disp.=$ret."しました。<br>";
-	PushLog(0,$DT->{id},"荘園にて".$ret);
+	$disp.=l("%1を%2%3生成しました。",$ITEM[$itemno]->{name},$count,$ITEM[$itemno]->{scale})."<br>";
+	PushLog(0,l("%1荘園にて%2を%3%4生成",$DT->{id},$ITEM[$itemno]->{name},$count,$ITEM[$itemno]->{scale}));
 	}
 
 if ($flag)
@@ -129,7 +128,7 @@ if ($flag)
 	}
 	else
 	{
-	$disp.='生成可能なものがありませんでした。';
+	$disp.=l('生成可能なものがありませんでした。');
 	}
 UnLock();
 OutSkin();

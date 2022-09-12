@@ -53,7 +53,7 @@ sub MakeGuildFile
 	foreach my $code (grep(!$okguild{$_},keys(%GUILD)))
 	{
 		next if $code eq '';
-		PushLog(1,0,"ギルド「".$GUILD{$code}->[$GUILDIDX_name]."」は滅びました。",1);
+		PushLog(1,0,l("ギルド「%1」は滅びました。",$GUILD{$code}->[$GUILDIDX_name]),1);
 		foreach my $DT (@DT)
 		{
 			$DT->{guild}="",delete $DT->{user}{_so_e} if ($DT->{guild} eq $code);
@@ -62,7 +62,7 @@ sub MakeGuildFile
 	foreach my $code (grep(!$GUILD{$_},keys(%okguild)))
 	{
 		next if $code eq '';
-		PushLog(1,0,"ギルド「".$GUILD_DETAIL{$code}->{shortname}."」が結成されました。",1);
+		PushLog(1,0,l("ギルド「%1」が結成されました。",$GUILD_DETAIL{$code}->{shortname}),1);
 	}
 }
 1;

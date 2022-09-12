@@ -13,7 +13,7 @@ $linecount=0;
 ($MYDIR,$MYNAME)=($ENV{SCRIPT_NAME}=~/^.*\/([^\/]+)\/([^\/]+)$/); # 自ファイル名/ディレクトリ名
 $g_define->{dirname}=$MYDIR; # 設置ディレクトリ名(@@if等で利用可)
 
-OutError('管理者パスワードが不正です') if $Q{admin} ne $MASTER_PASSWORD;
+OutError(l('管理者パスワードが不正です')) if $Q{admin} ne $MASTER_PASSWORD;
 OutHeader();
 $mode=$Q{mode};
 
@@ -21,13 +21,13 @@ print "</center>\n";
 print <<"HTML" if $ENV{HTTP_REFERER} ne '';
 	<FORM ACTION="$ENV{HTTP_REFERER}" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="管理メニューへ戻る">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('管理メニューへ戻る')}">
 	</FORM>
 HTML
 
 if(!-e "./lock" and !-e "$DATA_DIR/lock")
 {
-	print("自動的にメンテモードに移行できませんでした。手動でメンテモードにしてから再生成お願いします。"),exit
+	print(l("自動的にメンテモードに移行できませんでした。手動でメンテモードにしてから再生成お願いします。")),exit
 		if !mkdir("$DATA_DIR/lock",$DIR_PERMISSION);
 	$LOCK_AUTO_MAKE=1;
 	sleep(1); # 念のためwait
@@ -145,7 +145,7 @@ sub GetItemNumber
 		return $_->{no} if $_->{code} eq $val || $_->{name} eq $val;
 	}
 	
-	push(@errormsg,"アイテム無\t".$val);
+	push(@errormsg,l("アイテム無")."\t".$val);
 	return $val;
 }
 
@@ -363,11 +363,11 @@ sub GetBuffer
 
 		if($line =~ s/\sPOP\s+(\S+)\s//i)
 		{
-			push(@errormsg,"$NOW_FILENAME ($linecount) pointより前の行にpopを記述してください") if $flag_point;
+			push(@errormsg,l("%1 (%2) pointより前の行にpopを記述してください",$NOW_FILENAME,$linecount)) if $flag_point;
 			my $num=$1;
 			if($num =~ /^lv([\d\.]+)$/i)
 				{
-				push(@errormsg,"$NOW_FILENAME ($linecount) popより前の行にpriceを記述してください") if !$flag_price;
+				push(@errormsg,l("%1 (%2)  popより前の行にpriceを記述してください",$NOW_FILENAME,$linecount)) if !$flag_price;
 				if ($1 > 0)
 					{
 					$g_item->{popular}=int($g_item->{popular}/ $1 * 5);	#レベル指定（計算式逆になる）
@@ -391,7 +391,7 @@ sub GetBuffer
 			my $num=$2;
 			if($num =~ /^lv([\-\d\.]+)$/i)
 				{
-				push(@errormsg,"$NOW_FILENAME ($linecount) pointより前の行にpriceまたはpopを記述してください") if (!$g_item->{point} &&  !$flag_price);
+				push(@errormsg,l("%1 (%2) pointより前の行にpriceまたはpopを記述してください",$NOW_FILENAME,$linecount)) if (!$g_item->{point} &&  !$flag_price);
 				$g_item->{point}=int($g_item->{point}* $1 / 5);	#レベル指定
 				}
 				else
@@ -598,10 +598,10 @@ sub GetFileList
 sub AnalyzeItemData
 {
 	my($filehandle,$filename)=@_;
-	push(@errormsg,$filename.' がループしています'),return if $analyzefile{$filename}; # @@includeループを検出した場合は読み込み中止
+	push(@errormsg,l('%1 がループしています',$filename)),return if $analyzefile{$filename}; # @@includeループを検出した場合は読み込み中止
 	$analyzefile{$filename}=1;
 	$filehandle++;
-	push(@errormsg,$filename.' がオープン出来ませんでした'),return if !open($filehandle,"<:encoding(utf8)","$CUSTOM_DIR/$filename") && !open($filehandle,"<:encoding(utf8)","$INCLUDE_DIR/$filename");
+	push(@errormsg,l('%1 がオープン出来ませんでした',$filename)),return if !open($filehandle,"<:encoding(utf8)","$CUSTOM_DIR/$filename") && !open($filehandle,"<:encoding(utf8)","$INCLUDE_DIR/$filename");
 	$analyzeoldmode=-1 if !defined($analyzeoldmode);
 	$analyzemode=''    if !defined($analyzemode);
 	$analyzeskip=0     if !defined($analyzeskip);
@@ -682,7 +682,7 @@ sub GetDefineList
 		$list2[$1]=$g_define->{$_};
 		if($quote){$list2[$1]="'$list2[$1]'";}
 	}
-	push(@errormsg,"\@DEFINE $idx のリスト数が合いません") if grep($_ ne '',@list2)!=$#list2-$baseidx+1;
+	push(@errormsg,l("\@DEFINE %1 のリスト数が合いません",$idx)) if grep($_ ne '',@list2)!=$#list2-$baseidx+1;
 	$ret=join($sep,@list2);
 	return $ret;
 }
@@ -691,22 +691,22 @@ sub OutItemData
 {
 	open(OUT,">:encoding(utf8)","$ITEM_DIR/item$FILE_EXT");
 	
-	push(@dispmsg,("ディレクトリ名","\t".$g_define->{dirname}));
+	push(@dispmsg,(l("ディレクトリ名"),"\t".$g_define->{dirname}));
 	
-	push(@dispmsg,("バージョン","\t".$g_define->{version}));
+	push(@dispmsg,(l("バージョン"),"\t".$g_define->{version}));
 	print OUT "use utf8;\n";
 	print OUT "\$ITEM_VERSION='$g_define->{version}';\n";
 	
-	push(@dispmsg,"陳列棚維持費");
+	push(@dispmsg,l("陳列棚維持費"));
 	my $ary=GetDefineList("costshowcase"," ",1);
 	push(@dispmsg,"\t".$ary);
 	print OUT "\@SHOWCASE_COST=qw($ary);\n";
 	
-	push(@dispmsg,"最大資金");
+	push(@dispmsg,l("最大資金"));
 	push(@dispmsg,"\t".$g_define->{maxmoney});
 	print OUT "\$MAX_MONEY=$g_define->{maxmoney};\n";
 	
-	push(@dispmsg,"作業所要時間");
+	push(@dispmsg,l("作業所要時間"));
 	push(@dispmsg,"\tEDIT SHOWCASE\t".$g_define->{timeeditshowcase});
 	#push(@dispmsg,"\tSHOPPING     \t".$g_define->{timeshopping}."★このパラメータは廃止しました") if $g_define->{timeshopping};
 	push(@dispmsg,"\tSEND ITEM    \t".$g_define->{timesenditem});
@@ -720,19 +720,19 @@ sub OutItemData
 	#print OUT "\$TIME_SEND_ITEM_PLUS=$g_define->{timesenditemplus};\n";
 	print OUT "\$TIME_SEND_MONEY_PLUS=$g_define->{timesendmoneyplus};\n";
 	
-	push(@dispmsg,"アイテム使用時間倍率 ".$g_define->{itemusetimerate}) if $g_define->{itemusetimerate}!=1;
+	push(@dispmsg,l("アイテム使用時間倍率 ",$g_define->{itemusetimerate})) if $g_define->{itemusetimerate}!=1;
 	
-	push(@dispmsg,"アイテム分類");
+	push(@dispmsg,l("アイテム分類"));
 	$ary=GetDefineList("type");
 	push(@dispmsg,"\t".$ary);
 	print OUT "\@ITEMTYPE=qw($ary );\n";
 	
-	push(@dispmsg,"職業リスト");
+	push(@dispmsg,l("職業リスト"));
 	$ary=join(" ",map{/^job-([a-z]+)$/;($1,$g_define->{$_})}grep(/^job-[a-z]+$/,keys %$g_define));
 	print OUT "%JOBTYPE=qw($ary );\n";
 	push(@dispmsg,"\t".$ary);
 	
-	push(@dispmsg,"定義関数");
+	push(@dispmsg,l("定義関数"));
 	foreach my $key (keys(%{$g_define->{function}}))
 	{
 		push(@dispmsg,"\t".$key);
@@ -743,17 +743,17 @@ sub OutItemData
 	
 	my $sort=0;
 	
-	print OUT <<'CODE';
-tie @ITEM,"AutoVarItem",[
-{name=>'なし',price=>0,point=>0},
+	print OUT <<CODE;
+tie \@ITEM,"AutoVarItem",[
+{name=>'${\l('なし')}',price=>0,point=>0},
 CODE
 	my $prevno=0;
 	foreach(0..$#out_item){$out_item[$_]->{sort}=$_;};
 	foreach my $item (sort {$a->{no}<=>$b->{no}} @out_item)
 	{
-		push(@errormsg,"コード無\tITEM\t$item->{no}\t$item->{name}"),next if !$item->{code};
-		push(@errormsg,"重複登録\tITEM\t".$item->{code}),next if $g_define_item{$item->{code}}++;
-		push(@errormsg,"重複登録\tITEM-NO\t".$item->{no}),next if $g_define_itemno{$item->{no}}++;
+		push(@errormsg,l('コード無')."\tITEM\t$item->{no}\t$item->{name}"),next if !$item->{code};
+		push(@errormsg,l('重複登録')."\tITEM\t".$item->{code}),next if $g_define_item{$item->{code}}++;
+		push(@errormsg,l('重複登録')."\tITEM-NO\t".$item->{no}),next if $g_define_itemno{$item->{no}}++;
 		
 		my $itemname=$item->{name};
 		$itemname=~s/\\$//;
@@ -934,7 +934,7 @@ CODE
 					$ope.="=" if $ope=~/[\+\-\*]/;
 					$val=GetNumber($val);
 					my $jobcode=GetJobCode($val[0]);
-					push(@errormsg,"未定義職業 $val[0]"),next if !$jobcode;
+					push(@errormsg,l('未定義職業 %1',$val[0])),next if !$jobcode;
 					
 					my @keys=();
 					push(@keys,qw(time exptime)) if $key eq 'times';
@@ -1037,8 +1037,8 @@ foreach(
 CODE
 	foreach my $event (@out_event)
 	{
-		push(@errormsg,"コード無\tEVENT\t$event->{info}"),next if !$event->{code};
-		push(@errormsg,"重複登録\tEVENT\t".$event->{code}),next if $g_define_event{$event->{code}};
+		push(@errormsg,l('コード無')."\tEVENT\t$event->{info}"),next if !$event->{code};
+		push(@errormsg,l('重複登録')."\tEVENT\t".$event->{code}),next if $g_define_event{$event->{code}};
 		$g_define_event{$event->{code}}=1;
 		
 		push(@dispmsg,"EVENT\t$event->{info}");
@@ -1224,7 +1224,7 @@ sub OutResultMessage
 		print "<hr>";
 	}
 	
-	print "利用可能\アイテムNo.<br>";
+	print l('利用可能アイテムNo.')."<br>";
 	foreach(1..$#g_useitemno)
 	{
 		if(!$g_useitemno[$_])
@@ -1273,7 +1273,7 @@ sub GetLocalFunction
 
 sub OutDefineData
 {
-	open OUT,">$ITEM_DIR/define$FILE_EXT";
+	open OUT,">:encoding(UTF-8)","$ITEM_DIR/define$FILE_EXT";
 	
 	print OUT "\%DEFINE_DATA=(\n";
 	while(my($key,$val)=each %$g_define)

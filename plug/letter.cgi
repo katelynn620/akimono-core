@@ -21,12 +21,12 @@ sub WriteLetter
 sub SearchLetterName
 {
 	my($no,$to)=@_;
-	return '(宅配便のお知らせ)' if $no==1;
+	return '('.l('宅配便のお知らせ').')' if $no==1;
 	foreach(0..$Ncount{$to})
 		{
 		return $LNAME{$to}[$_] if ($no==$LID{$to}[$_]);
 		}
-	return "(不明)";
+	return "(".l('不明').")";
 }
 
 sub ReadLetter

@@ -5,4 +5,4 @@ use utf8;
 # 独自の改造を施したとしても，inc-item-data内のバージョンを変更するだけにしてください。
 
 $BASE_VERSION="05-03-30";
-$VERSION="商人物語 ".$BASE_VERSION;
+$VERSION=l("商人物語")." ".$BASE_VERSION;

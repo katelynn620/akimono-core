@@ -4,10 +4,10 @@ use utf8;
 @BRIDEnamelist=qw(
 	no tm mode ida idb stbase ctbase money place reform
 	);
-$image[0]='<IMG ALT="住宅" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">共用倉庫';
-$image[1]='<IMG ALT="住宅" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">一戸建て';
-$image[2]='<IMG ALT="プロポーズ" WIDTH="16" HEIGHT="16" BORDER="0" SRC="'.$IMAGE_URL.'/house2.png">プロポーズ';
-$image[3]=GetTagImgKao("神父","father");
+$image[0]='<IMG ALT="'.l('住宅').'" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">'.l('共用倉庫');
+$image[1]='<IMG ALT="'.l('住宅').'" WIDTH="19" HEIGHT="22" BORDER="0" SRC="'.$IMAGE_URL.'/house1.gif">'.l('一戸建て');
+$image[2]='<IMG ALT="'.l('プロポーズ').'" WIDTH="16" HEIGHT="16" BORDER="0" SRC="'.$IMAGE_URL.'/house2.png">'.l('プロポーズ');
+$image[3]=GetTagImgKao(l("神父"),"father");
 
 Lock() if ($Q{mode});	# できるだけ早くロック。
 DataRead();
@@ -21,7 +21,7 @@ RequireFile('inc-html-bride-list.cgi');
 }
 else
 {
-$disp.="<BIG>●教会</BIG><br><br>";
+$disp.="<BIG>●".l('教会')."</BIG><br><br>";
 RequireFile('inc-html-bride.cgi');
 }
 

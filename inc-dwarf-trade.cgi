@@ -1,7 +1,7 @@
 use utf8;
 # 貿易品リスト表示 2005/01/06 由來
 
-OutError("bad request") unless -e "trade.cgi";
+OutError('bad request') unless -e "trade.cgi";
 CheckTradeProcess();
 
 $tp=int($Q{tp}+0);
@@ -40,21 +40,21 @@ close(IN);
 my($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$RANKING_PAGE_ROWS,scalar(@itemlist));
 
-$disp.=GetMenuTag('dwarf','[宅配便リスト]')
-	.GetMenuTag('dwarf',		'[宅配便を出す]','&form=make');
-$disp.=GetMenuTag('dwarf','[貿易品リスト]','&trade=list') if -e "trade.cgi";
+$disp.=GetMenuTag('dwarf','['.l('宅配便リスト').']')
+	.GetMenuTag('dwarf',		'['.l('宅配便を出す').']','&form=make');
+$disp.=GetMenuTag('dwarf','['.l('貿易品リスト').']','&trade=list') if -e "trade.cgi";
 $disp.="<hr width=500 noshade size=1>";
 
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>住み込みドワーフ</SPAN>：いま取り扱い中の貿易品は次の通りじゃ。<br>
-欲しい物があったらすぐに手続するとよいのう。
+<SPAN>${\l('住み込みドワーフ')}</SPAN>：${\l('いま取り扱い中の貿易品は次の通りじゃ。')}<br>
+${\l('欲しい物があったらすぐに手続するとよいのう。')}
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="trade">
-<BIG>●入港中の貿易品</BIG><br><br>
+<BIG>●${\l('入港中の貿易品')}</BIG><br><br>
 HTML
 
 foreach my $cnt (0..$#ITEMTYPE)
@@ -74,17 +74,17 @@ $disp.=$TB;
 	$disp.=<<"HTML";
 $TB$TR
 $TD／
-$TDB送付品
-$TDB代金
-$TDB送付元
-$TDB状態
-$TDB期限
+$TDB${\l('送付品')}
+$TDB${\l('代金')}
+$TDB${\l('送付元')}
+$TDB${\l('状態')}
+$TDB${\l('期限')}
 $TRE
 HTML
 
 my @MODE;
-$MODE[1]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign1.png">販売中|;
-$MODE[2]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign2.png">売約済み|;
+$MODE[1]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign1.png">${\l('販売中')}|;
+$MODE[2]=qq|<IMG class="i" SRC="$IMAGE_URL/map/dwfsign2.png">${\l('売約済み')}|;
 
 my $allbuy=1;
 foreach my $cnt ($pagestart .. $pageend)
@@ -95,18 +95,18 @@ foreach my $cnt ($pagestart .. $pageend)
 	$disp.="<input type=radio name=\"code\" value=\"$item->[9]:$item->[3]:$item->[4]:$item->[5]\">",$allbuy=0 if !$item->[8];
 	$disp.=$TD;
 	$disp.=GetTagImgItemType($item->[3]).$ITEM[$item->[3]]->{name}.' '.$item->[4].$ITEM[$item->[3]]->{scale};
-	$disp.='<br><small>(定価 '.GetMoneyString($ITEM[$item->[3]]->{price} * $item->[4]).')</small>';
+	$disp.='<br><small>('.l('定価').' '.GetMoneyString($ITEM[$item->[3]]->{price} * $item->[4]).')</small>';
 	
 	$disp.=$TDNW.GetMoneyString($item->[5]);
 	$disp.=$TDNW.$item->[1]."<br><small> (".$item->[2].")</small>";
 	$disp.=$TDNW;
 	$disp.=($item->[8] ? $MODE[2] : $MODE[1]);
-	$disp.=$TD.($lasttime>0 ? "あと".GetTime2HMS($lasttime) : "まもなく");
+	$disp.=$TD.($lasttime>0 ? l("あと%1",GetTime2HMS($lasttime)) : l("まもなく"));
 	$disp.=$TRE;
 }
 $disp.=$TBE."<br>";
 $disp.=<<"HTML" if !$allbuy;
-選択した貿易品について <INPUT TYPE=SUBMIT VALUE="輸入を申\し込む">
+${\l('選択した貿易品について')} <INPUT TYPE=SUBMIT VALUE="${\l('輸入を申し込む')}">
 </FORM>
 HTML
 
@@ -125,7 +125,7 @@ sub CheckTradeProcess
 		unlink($fn) if (stat($fn))[9]<$NOW_TIME-60*30; #既に解除されている可能性をチェック後解除
 		UnLock();
 	}
-	OutError('ただ今貿易船が入港しています。もうしばらくお待ちください');
+	OutError(l('ただ今貿易船が入港しています。もうしばらくお待ちください'));
 }
 
 sub ConvertItem

@@ -11,7 +11,7 @@ sub CheckCount
 	$cnt=$cnt2 ? $cnt2 : $cnt1;
 	$cnt=$min if $cnt<$min;
 	$cnt=$max if $cnt>$max;
-	OutError('不正な値です。') if  $cnt =~/(nan|inf)/i;
+	OutError(l('不正な値です。')) if  $cnt =~/(nan|inf)/i;
 	return int($cnt);
 }
 
@@ -34,7 +34,7 @@ sub UseTime
 		my $tmp=$NOW_TIME-$DT->{time};
 		$DT->{time}=$NOW_TIME-$MAX_STOCK_TIME if $tmp>$MAX_STOCK_TIME;
 		
-		OutError('時間が足りません。') if $tmp<0 && $USER ne '';
+		OutError(l('時間が足りません。')) if $tmp<0 && $USER ne '';
 		
 		$DT->{time}+=$tm;
 	}

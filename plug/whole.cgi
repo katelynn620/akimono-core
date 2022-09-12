@@ -4,8 +4,8 @@ use utf8;
 sub GetWholeStore
 {
 	my $DT={};
-	$DT->{name}="マスター";
-	$DT->{shopname}="市場";
+	$DT->{name}=l("マスター");
+	$DT->{shopname}=l("市場");
 	
 	my $cnt=0;
 	

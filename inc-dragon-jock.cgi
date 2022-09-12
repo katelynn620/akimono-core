@@ -2,25 +2,25 @@ use utf8;
 # ドラゴンレース 騎手メニュー表示 2005/03/30 由來
 
 ReadJock();
-$disp.="<BIG>●ドラゴンレース：騎手</BIG><br><br>";
+$disp.="<BIG>●".l('ドラゴンレース')."：".l('騎手')."</BIG><br><br>";
 
 if ($MYJK==-1)
 {
-$disp.="$TB$TR$TD".GetTagImgKao("騎手仲間","slime5").$TD;
-$disp.="<SPAN>騎手仲間</SPAN>：騎手を雇っていないんだな。<br>";
-$disp.="騎手を雇えば，自分や他人のドラゴンの力をレースで引き出せる。".$TRE.$TBE."<br>";
+$disp.="$TB$TR$TD".GetTagImgKao(l("騎手仲間"),"slime5").$TD;
+$disp.="<SPAN>".l('騎手仲間')."</SPAN>：".l('騎手を雇っていないんだな。')."<br>";
+$disp.=l("騎手を雇えば，自分や他人のドラゴンの力をレースで引き出せる。").$TRE.$TBE."<br>";
 if (scalar @JK < $JKmax)
 	{
 	FormJock();
 	}
 	else
 	{
-	$disp.="<BIG>●騎手雇用</BIG>： 定員に達しているため，これ以上雇用できません。";
+	$disp.="<BIG>●".l('騎手雇用')."</BIG>： ".l('定員に達しているため，これ以上雇用できません。')."";
 	}
 }
 else
 {
-$disp.="$TB$TR$TDB名前$TDB勤続$TDB逃先$TDB差追$TDB成績$TDB特殊能\力$TDB出走$TRE";
+$disp.="$TB$TR$TDB".l('名前')."$TDB".l('勤続')."$TDB".l('逃先')."$TDB".l('差追')."$TDB".l('成績')."$TDB".l('特殊能力')."$TDB".l('出走')."$TRE";
 $disp.=$TR;
 $disp.=$TD.$JK[$MYJK]->{name};
 $disp.=$TD.GetTime2found($NOW_TIME-$JK[$MYJK]->{birth});
@@ -43,13 +43,13 @@ $disp.=<<STR;
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="jkedit">
 <INPUT TYPE=HIDDEN NAME=code VALUE="new">
-<BIG>●騎手雇用</BIG>： <INPUT TYPE=TEXT NAME=name SIZE=20> と名付けて 
-<INPUT TYPE=SUBMIT VALUE='雇用'>
+<BIG>●${\l('騎手雇用')}</BIG>： <INPUT TYPE=TEXT NAME=name SIZE=20> ${\l('と名付けて')} 
+<INPUT TYPE=SUBMIT VALUE='${\l('雇用')}'>
 </FORM>
 <br>
 $TB$TR$TD
-・騎手を雇用するには，資金<b>$estmsg</b>がかかります。<br>
-・騎手は全体で <b>$JKmax</b>人の定員があり，満員になると雇用できません。
+・${\l('騎手を雇用するには，資金<b>%1</b>がかかります。',$estmsg)}<br>
+・${\l('騎手は全体で <b>%1</b>人の定員があり，満員になると雇用できません。',$JKmax)}
 $TBE
 STR
 }

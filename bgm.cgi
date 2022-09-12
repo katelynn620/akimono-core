@@ -14,7 +14,7 @@ print <<"EOM";
 <frame name="bgm" src="action.cgi?key=midi&$USERPASSURL" noresize>
 <frame name="game" src="action.cgi?key=$Q{mode}&$USERPASSURL">
 <noframes>
-<body>フレーム非対応のブラウザの方はご利用できません</body>
+<body>${\l('フレーム非対応のブラウザの方はご利用できません')}</body>
 </noframes>
 </frameset>
 </html>

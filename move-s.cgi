@@ -1,14 +1,14 @@
 use utf8;
 # 移転処理 2004/01/20 由來
 
-OutError('使用不可です') if !$MOVETOWN_ENABLE || !$TOWN_CODE;
+OutError(l('使用不可です')) if !$MOVETOWN_ENABLE || !$TOWN_CODE;
 my $townmaster=ReadTown($TOWN_CODE,'getown');
-OutError('使用不可です') if !$townmaster;
+OutError(l('使用不可です')) if !$townmaster;
 DataRead();
 CheckUserPass();
 
 OutError('bad request') if  ($Q{towncode} eq '' || $Q{pass} eq '');
-OutError('パスワードが正しくありません') if $Q{pass} ne $MASTER_PASSWORD && !CheckPassword($Q{pass},$DT->{pass});
+OutError(l('パスワードが正しくありません')) if $Q{pass} ne $MASTER_PASSWORD && !CheckPassword($Q{pass},$DT->{pass});
 
 #移転処理
 $disp.=MoveShop($DT,$Q{towncode});
@@ -21,8 +21,8 @@ sub MoveShop
 	my($DT,$towncode)=@_;
 	
 	my($town)=ReadTown($towncode);
-	return '<b>移転可能な街が見つかりません</b>' if !$town;
-	return '<b>移転先での名前が不正です(12文字以内)</b>' if $Q{name} eq '' || length $Q{name}>12 || $Q{name}=~ /([,:;\t\r\n<>&])/;
+	return '<b>'.l('移転可能な街が見つかりません').'</b>' if !$town;
+	return '<b>'.l('移転先での名前が不正です(12文字以内)').'</b>' if $Q{name} eq '' || length $Q{name}>12 || $Q{name}=~ /([,:;\t\r\n<>&])/;
 	
 	$DT->{newname}=$Q{name};
 	$DT->{newpass}=$Q{pass};
@@ -46,8 +46,8 @@ sub MoveShop
 		Lock();
 		DataRead();
 		CheckUserPass();
-		PushLog(1,0,$DT->{shopname}."が移転していきました。");
-		CloseShop($DT->{id},$town->{name}."へ移転");
+		PushLog(1,0,l("%1が移転していきました。",$DT->{shopname}));
+		CloseShop($DT->{id},l("%1へ移転",$town->{name}));
 		RenewLog();
 		DataWrite();
 		DataCommitOrAbort();
@@ -59,23 +59,23 @@ sub MoveShop
 			my($code,$name)=split(/!/,shift);
 			my %trashitem=@_; my $val=0;
 			foreach(values(%trashitem)){$val+=$_;}
-			$trash=$name."で保管していた商品 ".scalar(keys(%trashitem))." 種類 ".$val." 個が破棄されました。";
+			$trash=l("%1で保管していた商品 %2 種類 %3 個が破棄されました。",$name,scalar(keys(%trashitem)),$val);
 		}
 		$MENUSAY='<A HREF="index.cgi" TARGET=_top>[トップ]</A> ';
 		SetCookieSession();
-		return	$town->{name}."へ移転しました。<br>".
-				GetTagA($town->{name}."へ移動","action.cgi?key=jump&town=$town->{code}")."<br><br>".$trash;
+		return	l("%1へ移転しました。",$town->{name})."<br>".
+				GetTagA(l("%1へ移動",$town->{name}),"action.cgi?key=jump&town=$town->{code}")."<br><br>".$trash;
 	}
 	elsif($result eq 'DENY')
 	{
-		return	"移転を拒否されました。移転先の状況や移転受け入れ条件等をご確認下さい。<br>".
+		return	l("移転を拒否されました。移転先の状況や移転受け入れ条件等をご確認下さい。")."<br>".
 				"<b>$GET_DATA{msg}</b><br>".
-				GetTagA($town->{name}."を訪れてみる","action.cgi?key=jump&town=$town->{code}","","_blank");
+				GetTagA(l("%1を訪れてみる",$town->{name}),"action.cgi?key=jump&town=$town->{code}","","_blank");
 	}
 	elsif($result eq 'ERROR')
 	{
-		return	"移転先に接続出来ませんでした。移転先の状況を確認し、必要があれば各管理者までご連絡下さい。<br>".
-				GetTagA($town->{name}."を確認","action.cgi?key=jump&town=$town->{code}","","_blank");
+		return	l("移転先に接続出来ませんでした。移転先の状況を確認し、必要があれば各管理者までご連絡下さい。")."<br>".
+				GetTagA(l("%1を確認",$town->{name}),"action.cgi?key=jump&town=$town->{code}","","_blank");
 	}
 	else
 	{

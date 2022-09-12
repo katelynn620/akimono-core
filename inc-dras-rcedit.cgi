@@ -2,10 +2,10 @@ use utf8;
 # ドラゴンレース 牧場編集表示 2005/03/30 由來
 
 ReadRanch();
-$disp.="<BIG>●ドラゴンレース：牧場</BIG><br><br>";
+$disp.="<BIG>●".l('ドラゴンレース')."：".l('牧場')."</BIG><br><br>";
 
 my $functionname=$Q{code};
-OutError("bad request") if !defined(&$functionname);
+OutError('bad request') if !defined(&$functionname);
 &$functionname;
 
 WriteRanch();
@@ -16,8 +16,8 @@ CoDataCA();
 
 sub new
 {
-OutError("bad request") if ($MYRC!=-1);
-OutError('資金の余裕がありません。') if ($DT->{money} < $RCest);
+OutError('bad request') if ($MYRC!=-1);
+OutError(l('資金の余裕がありません。')) if ($DT->{money} < $RCest);
 
 	# 名前の正当性をチェック
 	# require $JCODE_FILE;
@@ -25,14 +25,14 @@ OutError('資金の余裕がありません。') if ($DT->{money} < $RCest);
 
 	if(!$Q{name})
 	{
-		OutError('名前を入力してください。');
+		OutError(l('名前を入力してください。'));
 	}
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('名前に使用できない文字が含まれています。');
+		OutError(l('名前に使用できない文字が含まれています。'));
 	}
-	OutError('名前が長すぎます。') if length($Q{name})>20;
-	OutError('名前が短すぎます。') if length($Q{name})<6;
+	OutError(l('名前が長すぎます。')) if length($Q{name})>20;
+	OutError(l('名前が短すぎます。')) if length($Q{name})<6;
 
 	@RC=reverse(@RC);
 	$RCcount++;
@@ -45,7 +45,7 @@ OutError('資金の余裕がありません。') if ($DT->{money} < $RCest);
 	@RC=reverse(@RC);
 
 WritePayLog($MYDIR,$DT->{id},-$RCest);
-PushDraLog(0,"新しい牧場「".$Q{name}."」が設立されました。");
-$disp.="新しい牧場「<b>".$Q{name}."</b>」を設立しました。";
+PushDraLog(0,l("新しい牧場「%1」が設立されました。",$Q{name}));
+$disp.=l("新しい牧場「<b>%1</b>」が設立されました。",$Q{name});
 }
 

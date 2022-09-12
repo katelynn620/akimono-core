@@ -2,10 +2,10 @@ use utf8;
 # ドラゴンレース ドラゴンメンテ 2005/03/30 由來
 
 ReadDragon();
-$disp.="<BIG>●ドラゴンレース：牧場</BIG><br><br>";
+$disp.="<BIG>●".l('ドラゴンレース')."：".l('牧場')."</BIG><br><br>";
 
 my $functionname=$Q{code};
-OutError("bad request") if !defined(&$functionname);
+OutError('bad request') if !defined(&$functionname);
 &$functionname;
 
 WriteDragon();
@@ -16,31 +16,31 @@ sub new
 {
 	#牧場チェック
 	ReadRanch();
-	OutError("bad request") if ($MYRC==-1);
+	OutError('bad request') if ($MYRC==-1);
 
-	OutError('資金の余裕がありません。') if ($DT->{money} < $DRbuy);
-	OutError('これ以上ドラゴンを所有できません。') if (scalar @MYDR >= $MYDRmax);
+	OutError(l('資金の余裕がありません。')) if ($DT->{money} < $DRbuy);
+	OutError(l('これ以上ドラゴンを所有できません。')) if (scalar @MYDR >= $MYDRmax);
 
 	# 名前の正当性をチェック
 	# require $JCODE_FILE;
 	if(!$Q{name})
 	{
-		OutError('名前を入力してください。');
+		OutError(l('名前を入力してください。'));
 	}
 	# $Q{name}=jcode::sjis($Q{name},$CHAR_SHIFT_JIS&&'sjis');
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('名前に使用できない文字が含まれています。');
+		OutError(l('名前に使用できない文字が含まれています。'));
 	}
 
 	#一度EUCに変換
 	# &jcode::convert(\$Q{name}, "euc", "sjis");
 	# $ZkatakanaExt = '(?:\xA5[\xA1-\xF6]|\xA1[\xA6\xBC\xB3\xB4])';
-	# OutError('名前は全角カタカナで指定してください。') if ($Q{name} !~ /^($ZkatakanaExt)*$/);
+	# OutError(l('名前は全角カタカナで指定してください。')) if ($Q{name} !~ /^($ZkatakanaExt)*$/);
 	# &jcode::convert(\$Q{name}, "sjis", "euc");
 
-	OutError('名前が長すぎます。') if length($Q{name})>20;
-	OutError('名前が短すぎます。') if length($Q{name})<6;
+	OutError(l('名前が長すぎます。')) if length($Q{name})>20;
+	OutError(l('名前が短すぎます。')) if length($Q{name})<6;
 
 	@DR=reverse(@DR);
 	$DRcount++;
@@ -74,44 +74,44 @@ sub new
 	@DR=reverse(@DR);
 
 WritePayLog($MYDIR,$DT->{id},-$DRbuy);
-$disp.="新しいドラゴン「<b>".$Q{name}."</b>」を購入しました。";
+$disp.=l("新しいドラゴン「<b>%1</b>」を購入しました。",$Q{name});
 }
 
 sub ent
 {
 my $cnt=$id2dra{$Q{dr}};
-OutError("bad request") if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
+OutError('bad request') if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
 
 ReadStable();
-OutError("bad request") if (!scalar @ST);
-OutError("bad request") if (!defined $id2st{$Q{ent}});
+OutError('bad request') if (!scalar @ST);
+OutError('bad request') if (!defined $id2st{$Q{ent}});
 $DR[$cnt]->{stable}=$Q{ent};
 my $i=$id2st{$Q{ent}};
-$disp.="ドラゴンを厩舎「".$ST[$i]->{name}."」に預託しました。";
+$disp.=l("ドラゴンを厩舎「%1」に預託しました。",$ST[$i]->{name});
 }
 
 sub torace
 {
 	#ドラゴンチェック
 	my $cnt=$id2dra{$Q{dr}};
-	OutError("bad request") if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
-	OutError("bad request") if ($DR[$cnt]->{race} > 1);
+	OutError('bad request') if ($DR[$cnt]->{town} ne $MYDIR || $DR[$cnt]->{owner} != $DT->{id});
+	OutError('bad request') if ($DR[$cnt]->{race} > 1);
 
 	#牧場チェック
 	ReadRanch();
-	OutError("bad request") if ($MYRC==-1);
+	OutError('bad request') if ($MYRC==-1);
 
 	#レースチェック
 	my $rcode=$Q{rcode};
 	ReadRace($rcode);
-	OutError("現在".$RACETERM[$rcode]."は出走登録を受け付けていません") if ($RDS[0]);
+	OutError(l('現在%1は出走登録を受け付けていません',$RACETERM[$rcode])) if ($RDS[0]);
 
 	my @MYRACE=@{$RACE[$rcode]};
 	my @R=@{$MYRACE[$RDS[1]]};
 	undef @RACE;
 	undef @MYRACE;	#不必要な配列は解放
 
-	OutError("次回の".$R[0]."は賞金未獲得のドラゴンのみ出走できます") if ($R[1]==5 && $DR[$cnt]->{prize} > 0);
+	OutError(l('次回の%1は賞金未獲得のドラゴンのみ出走できます',$R[0])) if ($R[1]==5 && $DR[$cnt]->{prize} > 0);
 
 	#所属厩舎を調べる
 	ReadStable();
@@ -124,24 +124,24 @@ sub torace
 		}
 	}
 
-	my $lose="実力不足";
+	my $lose=l("実力不足");
 	my ($sp,$sr,$ag,$pw)=($DR[$cnt]->{sp},$DR[$cnt]->{sr},$DR[$cnt]->{ag},$DR[$cnt]->{pw});
 
 	# パワー配分
 	my $pwp=$R[3] * 4 + $RDS[2] * 3 + 1;
-	$lose="パワー不足" if ($pwp > 1 && $sp < $pw);
+	$lose=l("パワー不足") if ($pwp > 1 && $sp < $pw);
 	$sp=int(($sp * (10 - $pwp) + $pw * $pwp) / 10);
 
 	# 体調による影響 最大でスピード5割
 	$sp-=int($sp*(100 - $DR[$cnt]->{con})/200);
-	$lose="体調不調" if ($DR[$cnt]->{con} < 60);
+	$lose=l("体調不調") if ($DR[$cnt]->{con} < 60);
 
 	# 体重とハンデによる影響 10トンでスピード5割
 	my $wt=$DR[$cnt]->{wt} - 50;
 	$wt=-$wt if ($wt < 0);
 	$wt+=int($DR[$cnt]->{prize} / $R[2]) if $R[2];
 	$sp-=int($sp*$wt/20);
-	$lose="重量調整失敗" if ($wt > 2);
+	$lose=l("重量調整失敗") if ($wt > 2);
 
 	my $sp1=$sp2=$sp3=$sp4=$sp * 6 + 1000;		#基準速度 1000 - 1600
 
@@ -179,14 +179,14 @@ sub torace
 	my $m=GetRaceApt($DR[$cnt]->{apt},$DR[$cnt]->{fl},$R[5]);
 	if ($m > 0)
 		{
-		$lose="距離短すぎ";
+		$lose=l("距離短すぎ");
 		$m=300 if $m > 300;
 		$sp1-=$m * 2;
 		$sp2-=$m;
 		}
 	elsif ($m < 0)
 		{
-		$lose="距離長すぎ";
+		$lose=l("距離長すぎ");
 		$m=-300 if $m < -300;
 		$sp1+=$m * 2;
 		$sp2+=$m;
@@ -202,7 +202,7 @@ sub torace
 		foreach(0..$JKcount)
 			{
 			next if ($JK[$_]->{no}!=$Q{jock});
-			OutError("その騎手はすでに他の竜に騎乗しています") if ($JK[$_]->{race} > 1);
+			OutError(l('その騎手はすでに他の竜に騎乗しています')) if ($JK[$_]->{race} > 1);
 			$jkname=$JK[$_]->{name};
 			$JK[$_]->{race}=2;
 
@@ -240,12 +240,12 @@ sub torace
 	$RD[$i]->{sp3}=$sp3;
 	$RD[$i]->{sp4}=$sp4;
 	$RD[$i]->{str}=$Q{str};
-	$lose="作戦ミス" if ($Q{str} != $RD[$i]->{strate});
+	$lose=l("作戦ミス") if ($Q{str} != $RD[$i]->{strate});
 	$RD[$i]->{lose}=$lose;
 
 	WriteRace($rcode);
 
 	$DR[$cnt]->{race}=2;
-$disp.="ドラゴン「".$DR[$cnt]->{name}."」を".$R[0]."に出走登録しました。";
+$disp.=l("ドラゴン「%1」を%2に出走登録しました。",$DR[$cnt]->{name},$R[0]);
 }
 

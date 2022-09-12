@@ -15,10 +15,10 @@ $target=$Q{tg};
 $message=$Q{msg};
 $select=$Q{select};
 CheckItemNo($itemno);
-OutError('標的が見つかりません') if $target && !defined($id2idx{$target});
+OutError(l('標的が見つかりません')) if $target && !defined($id2idx{$target});
 
 $itemcode=GetPath($ITEM_DIR,"use",$ITEM[$itemno]->{code});
-OutError('使えません') if $itemcode eq '' || !(-e $itemcode);
+OutError(l('使えません')) if $itemcode eq '' || !(-e $itemcode);
 
 $ITEM=$ITEM[$itemno];
 @item::DT=@DT;
@@ -29,7 +29,7 @@ RequireFile('inc-item.cgi');
 require $itemcode;
 
 $USE=GetUseItem($no);
-OutError('使えません') if !$USE || !$USE->{useok};
+OutError(l('使えません')) if !$USE || !$USE->{useok};
 $item::USE=$USE;
 
 	if($USE->{arg}=~/message(\d*)/)
@@ -38,7 +38,7 @@ $item::USE=$USE;
 		# require $JCODE_FILE;
 		# $message=EscapeHTML(jcode::sjis($message,$CHAR_SHIFT_JIS&&'sjis'));
 		$message=EscapeHTML($message);
-		OutError('入力文字数が多すぎます (<>&"は4～6文字に換算されます)') if length $message>$limit;
+		OutError(l('入力文字数が多すぎます (<>&"は4～6文字に換算されます)')) if length $message>$limit;
 	}
 	my %select_hash;
 	if($USE->{arg}=~/select/)
@@ -51,7 +51,7 @@ $item::USE=$USE;
 			last if shift @fld eq $select;
 			shift @fld;
 		}
-		OutError('選択肢が不正です') if !@fld;
+		OutError(l('選択肢が不正です')) if !@fld;
 	}
 	$USE->{arg}={};
 	$USE->{arg}->{target}=$target;
@@ -66,19 +66,19 @@ RequireFile('inc-html-ownerinfo.cgi');
 
 my $count=$USE->{result}->{count};
 
-$disp.="<BIG>●結果</BIG><br><br>";
+$disp.="<BIG>●".l("結果")."</BIG><br><br>";
 
 if(!$count)
 {
-	$disp.="実行できませんでした";
+	$disp.=l("実行できませんでした");
 }
 else
 {
 
 	$disp.=$USE->{result}->{function_return}."<BR>" if $USE->{result}->{function_return};
 	$disp.=$USE->{result}->{count}.$USE->{scale}."<BR>";
-	$disp.="費用:".GetMoneyString($USE->{money}*$USE->{result}->{count})."<BR>" if $USE->{money}*$USE->{result}->{count};
-	$disp.="時間:".GetTime2HMS(GetItemUseTime($USE)*$count)."<BR><BR>";
+	$disp.=l('費用').":".GetMoneyString($USE->{money}*$USE->{result}->{count})."<BR>" if $USE->{money}*$USE->{result}->{count};
+	$disp.=l('時間').":".GetTime2HMS(GetItemUseTime($USE)*$count)."<BR><BR>";
 	
 	foreach my $MESSAGE (@{$USE->{result}->{addmsg}})
 		{$disp.=$MESSAGE."<BR>" if $MESSAGE;}
@@ -91,12 +91,12 @@ else
 		foreach my $MESSAGE (@{$USE->{result}->{trashmsg}})
 			{$disp.=$MESSAGE."<BR>" if $MESSAGE;}
 		
-		$disp.="入手:";
+		$disp.=l('入手').":";
 		foreach my $ADDITEM (@{$USE->{result}->{additem}})
 		{
 			my $no=$ADDITEM->[0];
 			$disp.=$ITEM[$no]->{name};
-			$disp.=" +".$ADDITEM->[1]." (残".$DT->{item}[$no-1].") ";
+			$disp.=" +".$ADDITEM->[1]." (".l("残%1",$DT->{item}[$no-1]).") ";
 		}
 		$disp.="<BR>";
 	}
@@ -113,12 +113,12 @@ else
 	
 	if($USE->{result}->{useitem}[0])
 	{
-		$disp.="消費:";
+		$disp.=l('消費').":";
 		foreach my $USEITEM (@{$USE->{result}->{useitem}})
 		{
 			my $no=$USEITEM->[0];
 			$disp.=$ITEM[$no]->{name};
-			$disp.=" -".$USEITEM->[1]." (残".$DT->{item}[$no-1].") ";
+			$disp.=" -".$USEITEM->[1]." (".l("残%1",$DT->{item}[$no-1]).") ";
 		}
 		$disp.="<BR>";
 	}

@@ -3,7 +3,7 @@ use utf8;
 
 $NOMENU=1;
 $Q{er}=(($Q{bk} eq "sc")?'main':'stock');
-OutError('不正な呼び出しです') if $Q{no}eq'';
+OutError(l('不正な呼び出しです')) if $Q{no}eq'';
 
 Lock();
 DataRead();
@@ -24,27 +24,27 @@ if($no<0 || $no>=$DT->{showcasecount}
 || $ITEM[$itemno]->{flag}=~/s/
 )
 {
-	OutError('不正な要求です');
+	OutError(l('不正な要求です'));
 }
 
 $price=0;
 if($itemno>0)
 {
-	OutError('そのアイテムは在庫無しです') if !$DT->{item}[$itemno-1];
+	OutError(l('そのアイテムは在庫無しです')) if !$DT->{item}[$itemno-1];
 	$price=$prc!=0 ? $prc : int($ITEM[$itemno]->{price} / 100 * $per);
 }
 $price=$MAX_MONEY if $price>$MAX_MONEY;
 
 if($itemno && $price)
 {
-	$ret="棚".($no+1)."に$ITEM[$itemno]->{name}を".GetMoneyString($price)."で陳列しました。";
+	$ret=l('棚%1に%2を%3で陳列しました。',$no+1,$ITEM[$itemno]->{name},GetMoneyString($price));
 	PushLog(0,$DT->{id},$ret);
 }
 else
 {
 	$itemno=0;
 	$price=0;
-	$ret="棚".($no+1)."への陳列をやめました。";
+	$ret=l("棚%1への陳列をやめました。",$no+1);
 	PushLog(0,$DT->{id},$ret);
 }
 
@@ -57,8 +57,8 @@ DataCommitOrAbort();
 UnLock();
 
 $disp.=$TBT.$TRT.$TD.GetTagImgJob($DT->{job},$DT->{icon});
-$disp.=$TD.GetMenuTag('stock',	'[倉庫へ行く]');
-$disp.=GetMenuTag('main','[店内に戻る]');
+$disp.=$TD.GetMenuTag('stock',	'['.l('倉庫へ行く').']');
+$disp.=GetMenuTag('main','['.l('店内に戻る').']');
 $disp.=$TRE.$TBE;
 $disp.="<br>".$ret;
 

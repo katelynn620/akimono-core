@@ -11,7 +11,7 @@ my $DTS=GetWholeStore();
 my($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$LIST_PAGE_ROWS,$DTS->{showcasecount});
 
-$disp.="<BIG>●市場</BIG><br><br>";
+$disp.="<BIG>●".l("市場")."</BIG><br><br>";
 
 my $pagecontrol=GetPageControl($pageprev,$pagenext,"","",$pagemax,$page);
 $disp.=$pagecontrol;
@@ -29,8 +29,8 @@ foreach my $i ($pagestart..$pageend)
 	$disp.="<A HREF=\"action.cgi?key=buy&buy=0!$i!$itemno&bk=m!$page&$USERPASSURL\">" if !$GUEST_USER;
 	$disp.=GetTagImgItemType($itemno).$ITEM->{name};
 	$disp.="</A>" if !$GUEST_USER;
-	$disp.=$TD.'@'.GetMoneyString($DTS->{price}[$i]).$TD."残".$DTS->{item}[$itemno-1].$ITEM->{scale};
-	$disp.=$TD.$DT->{item}[$itemno-1].$ITEM->{scale}."所持" if $DT->{item}[$itemno-1];
+	$disp.=$TD.'@'.GetMoneyString($DTS->{price}[$i]).$TD.l("残%1%2",$DTS->{item}[$itemno-1],$ITEM->{scale});
+	$disp.=$TD.l("%1%2所持",$DT->{item}[$itemno-1],$ITEM->{scale}) if $DT->{item}[$itemno-1];
 	$disp.=$TRE;
 }
 $disp.=$TBE;

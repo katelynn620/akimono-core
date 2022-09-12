@@ -3,32 +3,32 @@ use utf8;
 
 if(-e "$DATA_DIR/$LASTTIME_FILE$FILE_EXT")
 	{
-		push(@log,'現在メンテモードにつき，ゲームの進行が止まっています。') if -e "./lock" or -e "$DATA_DIR/lock";
-		push(@log,'ゲームデータがなくなっています。'," バックアップを復元するか初期化が必要です。") if !-e "$DATA_DIR/$DATA_FILE$FILE_EXT";
-		my $init=' 初期化ボタン（メニュー下部）を押して修復してください。';
-		push(@log,'ギルド定義ファイルがなくなっています。',$init) if !-e "$DATA_DIR/$GUILD_FILE$FILE_EXT";
-		push(@log,'ロックファイルがなくなっています。',$init) if !GetFileList($DATA_DIR,"^$LOCK_FILE");
-		push(@log,'共有ロックファイルがなくなっています。',$init) if !GetFileList($COMMON_DIR,"^$LOCK_FILE");
+		push(@log,l('現在メンテモードにつき，ゲームの進行が止まっています。')) if -e "./lock" or -e "$DATA_DIR/lock";
+		push(@log,l('ゲームデータがなくなっています。'),l(' バックアップを復元するか初期化が必要です。')) if !-e "$DATA_DIR/$DATA_FILE$FILE_EXT";
+		my $init=l(' 初期化ボタン（メニュー下部）を押して修復してください。');
+		push(@log,l('ギルド定義ファイルがなくなっています。'),$init) if !-e "$DATA_DIR/$GUILD_FILE$FILE_EXT";
+		push(@log,l('ロックファイルがなくなっています。'),$init) if !GetFileList($DATA_DIR,"^$LOCK_FILE");
+		push(@log,l('共有ロックファイルがなくなっています。'),$init) if !GetFileList($COMMON_DIR,"^$LOCK_FILE");
 		foreach my $dir ($SESSION_DIR,$TEMP_DIR,$COTEMP_DIR,$LOG_DIR,$SUBDATA_DIR,$BACKUP_DIR)
 		{
-			push(@log,$dir.' がなくなっています。',$init) if !-e $dir;
+			push(@log,l('%1 がなくなっています。',$dir),$init) if !-e $dir;
 		}
-		push(@log,' 商品データを作成してください。') if !-e $ITEM_DIR;
+		push(@log,l(' 商品データを作成してください。')) if !-e $ITEM_DIR;
 	}
 	else
 	{
-		push(@log,' 初期化を行ってください（メニュー下部）');
+		push(@log,l(' 初期化を行ってください（メニュー下部）'));
 	}
 	
 if(-e "$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT")
 	{
 	my $errorcount=(-s "$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT")+0;
 	unlink("$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT");
-	push(@log,'前回の管理から現在まで '.$errorcount.'回のエラーを検知しました。');
+	push(@log,l('前回の管理から現在まで %1回のエラーを検知しました。',$errorcount));
 	}
-	push(@log,"<A HREF=\"$DATA_DIR/error.log\">[エラー情報]</A> が報告されています。") if(-e "$DATA_DIR/error.log");
+	push(@log,"<A HREF=\"$DATA_DIR/error.log\">[".l('エラー情報')."]</A> ".l('が報告されています。')) if(-e "$DATA_DIR/error.log");
 	
-	my $backupselect=qq|<option value="" selected>バックアップを選択|;
+	my $backupselect="<option value=\"\" selected>".l('バックアップを選択');
 	my $backupbasedir=$BACKUP_DIR;
 	$backupbasedir=~s/\/([^\/]*)$//;
 	foreach(GetFileList($backupbasedir,"^$1"))
@@ -41,7 +41,7 @@ if(-e "$DATA_DIR/$ERROR_COUNT_FILE$FILE_EXT")
 		$backupselect.=qq|<option value="$_">$timestr|;
 	}
 	
-	my $userselect=qq|<option value="" selected>ユーザーを選択|;
+	my $userselect="<option value=\"\" selected>".l('ユーザーを選択');
 if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	{
 		while(<IN>){s/[\r\n]//g; last if $_ eq '//';}
@@ -62,14 +62,14 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	};
 	if ($@)
 	{
-	push(@log,' inc-item-data.cgiにエラーがあり，データを取得できません。');
-	push(@log,'一部の管理機能が正常に動作しない可能性があります。');
+	push(@log,l(' inc-item-data.cgiにエラーがあり，データを取得できません。'));
+	push(@log,l('一部の管理機能が正常に動作しない可能性があります。'));
 	}
 	else
 	{
 	foreach(1..$MAX_ITEM){$sort[$_]=$ITEM[$_]->{sort}};
 	my @itemlist=sort { $sort[$a] <=> $sort[$b] } (1..$MAX_ITEM);
-	$formitem="<OPTION VALUE=\"\">アイテムを選択";
+	$formitem="<OPTION VALUE=\"\">".l('アイテムを選択');
 	foreach my $idx (@itemlist)
 		{
 		$formitem.="<OPTION VALUE=\"$idx\">$ITEM[$idx]->{name}";
@@ -82,7 +82,7 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	my($s,$min,$h,$d,$m,$y)=gmtime(time()+$TZ_JST);
 	$y+=1900;$m++;
 
-	$disp.="<hr width=700 noshade size=1><SPAN>基本管理機能\</SPAN>";
+	$disp.="<hr width=700 noshade size=1><SPAN>".l('基本管理機能')."\</SPAN>";
 	$disp.="<table><tr><td bgcolor=\"#CBC5FF\"><table width=200>";
 	$disp.="<tr><td>perl version</td><td>$]</td></tr>";
 	foreach('.',$DATA_DIR,$INCLUDE_DIR,$AUTOLOAD_DIR,$TOWN_DIR,$COMMON_DIR,"_config.cgi","action.cgi",$MYNAME)
@@ -96,37 +96,37 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	<FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="menteon">
-	<INPUT TYPE="SUBMIT" VALUE="◆ メンテモードに移行 ◆"></FORM>
+	<INPUT TYPE="SUBMIT" VALUE="◆ ${\l('メンテモードに移行')} ◆"></FORM>
 	<td colspan=2><FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="menteoff">
-	<INPUT TYPE="SUBMIT" VALUE="◆ メンテモードを解除 ◆">
+	<INPUT TYPE="SUBMIT" VALUE="◆ ${\l('メンテモードを解除')} ◆">
 	</FORM></tr><tr><td colspan=2>
 	<FORM ACTION="admin.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="makeitem">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="■ 商品データを作成 ■">
+	<INPUT TYPE="SUBMIT" VALUE="■ ${\l('商品データを作成')} ■">
 	</FORM>
 	<td colspan=2><FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="item-list">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="□ 商品データを確認 □">
+	<INPUT TYPE="SUBMIT" VALUE="□ ${\l('商品データを確認')} □">
 	</FORM></tr><tr><td>
 	<FORM TARGET="_blank" ACTION="http://www.geocities.co.jp/Playtown-Bingo/8587/diff/$BASE_VERSION.htm" METHOD="GET">
-	<INPUT TYPE="SUBMIT" VALUE="■ 更新を確認 ■">
+	<INPUT TYPE="SUBMIT" VALUE="■ ${\l('更新を確認')} ■">
 	</FORM>
 	<td>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="treebbs">
 	<INPUT TYPE="HIDDEN" NAME=nm VALUE="soldoutadmin">
 	<INPUT TYPE="HIDDEN" NAME=pw VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="掲示板">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('掲示板')}">
 	</FORM>
 	<td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="errdel">
-	<INPUT TYPE="SUBMIT" VALUE="エラー情報削除">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('エラー情報削除')}">
 	</FORM>
 	<td>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
@@ -134,131 +134,131 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	<INPUT TYPE="HIDDEN" NAME=log VALUE=".">
 	<INPUT TYPE="HIDDEN" NAME=nm VALUE="soldoutadmin">
 	<INPUT TYPE="HIDDEN" NAME=pw VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="各種ログ閲覧">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('各種ログ閲覧')}">
 	</FORM></tr><tr><td colspan=3>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub2">
 	<INPUT TYPE="HIDDEN" NAME=nm VALUE="soldoutadmin">
 	<INPUT TYPE="HIDDEN" NAME=pw VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="メンバーリスト">
-	<INPUT TYPE="CHECKBOX" NAME=host>ホスト表\示
-	<INPUT TYPE="CHECKBOX" NAME=only>一覧のみ
+	<INPUT TYPE="SUBMIT" VALUE="${\l('メンバーリスト')}">
+	<INPUT TYPE="CHECKBOX" NAME=host>${\l('ホスト表示')}
+	<INPUT TYPE="CHECKBOX" NAME=only>${\l('一覧のみ')}
 	</FORM>
 	<td>
 	<FORM TARGET="_blank" ACTION="index.cgi" METHOD="POST">
-	<INPUT TYPE="SUBMIT" VALUE="トップ画面へ">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('トップ画面へ')}">
 	</FORM></tr><tr><td colspan=4>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub2">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="delitem">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	・プレイデータから <SELECT NAME=num1>$formitem</SELECT> または No.<INPUT TYPE=TEXT NAME=num2 SIZE=5> を
-	<INPUT TYPE="SUBMIT" VALUE="消去する">
+	・${\l('プレイデータから')} <SELECT NAME=num1>$formitem</SELECT> ${\l('または')} No.<INPUT TYPE=TEXT NAME=num2 SIZE=5> ${\l('を')}
+	<INPUT TYPE="SUBMIT" VALUE="${\l('消去する')}">
 	</FORM></tr><tr><td colspan=4>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub2">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	・イベントコード <INPUT TYPE="TEXT" size=12 NAME=ecode> を<br>
-	終了時刻 <INPUT TYPE="TEXT" NAME=tlyear SIZE=5 VALUE="$y">年<INPUT TYPE="TEXT" NAME=tlmon SIZE=3 VALUE="$m">月
-	<INPUT TYPE="TEXT" NAME=tlday SIZE=3 VALUE="$d">日 <INPUT TYPE="TEXT" NAME=tlhour SIZE=3 VALUE="$h">時
-	<INPUT TYPE="TEXT" NAME=tlmin SIZE=3 VALUE="$min">分<INPUT TYPE="TEXT" NAME=tlsec SIZE=3 VALUE="$s">秒
-	まで <INPUT TYPE="SUBMIT" VALUE="発生させる">
+	・${\l('イベントコード')} <INPUT TYPE="TEXT" size=12 NAME=ecode> ${\l('を')}<br>
+	${\l('終了時刻')} <INPUT TYPE="TEXT" NAME=tlyear SIZE=5 VALUE="$y">${\l('年')}<INPUT TYPE="TEXT" NAME=tlmon SIZE=3 VALUE="$m">${\l('月')}
+	<INPUT TYPE="TEXT" NAME=tlday SIZE=3 VALUE="$d">${\l('日')} <INPUT TYPE="TEXT" NAME=tlhour SIZE=3 VALUE="$h">${\l('時')}
+	<INPUT TYPE="TEXT" NAME=tlmin SIZE=3 VALUE="$min">${\l('分')}<INPUT TYPE="TEXT" NAME=tlsec SIZE=3 VALUE="$s">${\l('秒')}
+	${\l('まで')} <INPUT TYPE="SUBMIT" VALUE="${\l('発生させる')}">
 	</FORM></tr></table>
 	</tr></table><hr width=700 noshade size=1>
-	<SPAN>メンバー賞品授与機能\</SPAN>
+	<SPAN>${\l('メンバー賞品授与機能')}\</SPAN>
 	<table width=700 bgcolor="#DBD5FF"><tr><td>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="賞品授与"> <SELECT NAME=user>$userselect</SELECT> 
-	<INPUT TYPE="TEXT" size=46 NAME=comment VALUE="">←コメント(任意)<br>
-	・アイテム <SELECT NAME=senditem>$formitem</SELECT>：<INPUT TYPE="TEXT" size=3 NAME=count VALUE="1">個
-	／・資金：<INPUT TYPE="TEXT" size=5 NAME=sendmoney VALUE="0">円
-	／・時間：<INPUT TYPE="TEXT" size=3 NAME=sendtime VALUE="0">時間
-	／・爵位：<INPUT TYPE="TEXT" size=3 NAME=senddig VALUE="0">ポイント<br>
-	※それぞれを一度に指定することもできます。コメントを空欄にすると公表\しません。
+	<INPUT TYPE="SUBMIT" VALUE="${\l('賞品授与')}"> <SELECT NAME=user>$userselect</SELECT> 
+	<INPUT TYPE="TEXT" size=46 NAME=comment VALUE="">${\l('←コメント(任意)')}<br>
+	・${\l('アイテム')} <SELECT NAME=senditem>$formitem</SELECT>：<INPUT TYPE="TEXT" size=3 NAME=count VALUE="1">${\l('個')}
+	／・${\l('資金')}：<INPUT TYPE="TEXT" size=5 NAME=sendmoney VALUE="0">${\l('円')}
+	／・${\l('時間')}：<INPUT TYPE="TEXT" size=3 NAME=sendtime VALUE="0">${\l('時間')}
+	／・${\l('爵位')}：<INPUT TYPE="TEXT" size=3 NAME=senddig VALUE="0">${\l('ポイント')}<br>
+	※${\l('それぞれを一度に指定することもできます。コメントを空欄にすると公表しません。')}
 	</FORM></tr></table><hr width=700 noshade size=1>
-	<SPAN>メンバー管理機能\</SPAN>
+	<SPAN>${\l('メンバー管理機能')}\</SPAN>
 	<table width=700 bgcolor="#DBD5FF"><tr><td width=280>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="new">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="新規店舗オープン"><br>
-	※定員にかかわらずオープン可能\。</FORM>
+	<INPUT TYPE="SUBMIT" VALUE="${\l('')}新規店舗オープン"><br>
+	※${\l('定員にかかわらずオープン可能。')}</FORM>
 	<td><FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=pw VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="ユーザー店舗入店"> <SELECT NAME=nm>$userselect</SELECT><br>
-	※本人が入店していても同時に操作できます。
+	<INPUT TYPE="SUBMIT" VALUE="${\l('')}ユーザー店舗入店"> <SELECT NAME=nm>$userselect</SELECT><br>
+	※${\l('本人が入店していても同時に操作できます。')}
 	</FORM></tr>
 	<tr><td colspan=2>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="user">
 	<INPUT TYPE="HIDDEN" NAME=pw VALUE="$Q{admin}">
 	<INPUT TYPE=HIDDEN NAME=mode VALUE=repass>
-	<INPUT TYPE="SUBMIT" VALUE="パスワード変更"> <SELECT NAME=nm>$userselect</SELECT>
-	<INPUT TYPE="TEXT" size=5 NAME=pw1 VALUE="">←新パス
-	<INPUT TYPE="TEXT" size=5 NAME=pw2 VALUE="">←新パスもう一度
+	<INPUT TYPE="SUBMIT" VALUE="${\l('パスワード変更')}"> <SELECT NAME=nm>$userselect</SELECT>
+	<INPUT TYPE="TEXT" size=5 NAME=pw1 VALUE="">${\l('←新パス')}
+	<INPUT TYPE="TEXT" size=5 NAME=pw2 VALUE="">${\l('←新パスもう一度')}
 	</FORM></tr>
 	<tr><td colspan=2>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="ユーザー店舗凍結"> <SELECT NAME=user>$userselect</SELECT>
-	<INPUT TYPE="TEXT"   NAME=blocklogin VALUE="">←凍結理由<br>
-	※「off」と入力で凍結解除：「mark」と入力でログイン履歴ログ：「stop」と入力で休止扱い
+	<INPUT TYPE="SUBMIT" VALUE="${\l('ユーザー店舗凍結')}"> <SELECT NAME=user>$userselect</SELECT>
+	<INPUT TYPE="TEXT"   NAME=blocklogin VALUE="">${\l('←凍結理由')}<br>
+	※${\l('「off」と入力で凍結解除：「mark」と入力でログイン履歴ログ：「stop」と入力で休止扱い')}
 	</FORM></tr>
 	<tr><td colspan=2>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="重複登録許可／禁止"> <SELECT NAME=user>$userselect</SELECT>
-	<SELECT NAME=nocheckip><option value="nocheck">重複許可<option value="check">重複禁止</SELECT>
+	<INPUT TYPE="SUBMIT" VALUE="${\l('重複登録許可／禁止')}"> <SELECT NAME=user>$userselect</SELECT>
+	<SELECT NAME=nocheckip><option value="nocheck">${\l('重複許可')}<option value="check">${\l('重複禁止')}</SELECT>
 	</FORM></tr>
 	<tr><td colspan=2>
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="admin-sub">
 	<INPUT TYPE="HIDDEN" NAME=u VALUE="soldoutadmin!$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="ユーザー店舗追放"> <SELECT NAME=user>$userselect</SELECT> 
-	<INPUT TYPE="TEXT" NAME=comment VALUE="">←コメント（任意）<br>
-	<INPUT TYPE="CHECKBOX" NAME=log>←通知しない 
-	<INPUT TYPE="TEXT" NAME=closeshop VALUE="">← 確認のため closeshop と入力
+	<INPUT TYPE="SUBMIT" VALUE="${\l('ユーザー店舗追放')}"> <SELECT NAME=user>$userselect</SELECT> 
+	<INPUT TYPE="TEXT" NAME=comment VALUE="">${\l('←コメント（任意）')}<br>
+	<INPUT TYPE="CHECKBOX" NAME=log>${\l('←通知しない ')}
+	<INPUT TYPE="TEXT" NAME=closeshop VALUE="">${\l('← 確認のため closeshop と入力')}
 	</FORM></tr></table><hr width=700 noshade size=1>
-	<SPAN>データ初期化・削除機能\</SPAN>
+	<SPAN>${\l('データ初期化・削除機能')}\</SPAN>
 	<table width=700 bgcolor="#DBD5FF"><tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="init">
-	<INPUT TYPE="SUBMIT" VALUE="初期化/破損修復">（復旧機能\です。すでにあるデータは削除されません）
+	<INPUT TYPE="SUBMIT" VALUE="${\l('初期化/破損修復')}">（${\l('復旧機能です。すでにあるデータは削除されません')}）
 	</FORM></tr><tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
-	ゲームデータのうち，商品データ・関連ディレクトリだけを<INPUT TYPE="HIDDEN" NAME=mode VALUE="mini">
-	<INPUT TYPE="SUBMIT" VALUE="最小アンインストールする"> <INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">管理パス
+	${\l('ゲームデータのうち，商品データ・関連ディレクトリだけを')}<INPUT TYPE="HIDDEN" NAME=mode VALUE="mini">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('最小アンインストールする')}"> <INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">${\l('管理パス')}
 	</FORM></tr>
 	<tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
-	ユーザーデータを残しつつ，ゲームデータ・関連ディレクトリを<INPUT TYPE="HIDDEN" NAME=mode VALUE="piece">
-	<INPUT TYPE="SUBMIT" VALUE="部分アンインストールする"> <INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">管理パス
+	${\l('ユーザーデータを残しつつ，ゲームデータ・関連ディレクトリを')}<INPUT TYPE="HIDDEN" NAME=mode VALUE="piece">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('部分アンインストールする')}"> <INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">${\l('管理パス')}
 	</FORM></tr>
 	<tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
-	ユーザーデータを含めて，全ゲームデータ・関連ディレクトリを<INPUT TYPE="HIDDEN" NAME=mode VALUE="delunit">
-	<INPUT TYPE="SUBMIT" VALUE="完全アンインストールする"> <INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">管理パス
+	${\l('ユーザーデータを含めて，全ゲームデータ・関連ディレクトリを')}<INPUT TYPE="HIDDEN" NAME=mode VALUE="delunit">
+	<INPUT TYPE="SUBMIT" VALUE="${\l('完全アンインストールする')}"> <INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">${\l('管理パス')}
 	</FORM></tr>
 	<tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="timeedit">
-	最終更新時刻を<INPUT TYPE="TEXT" NAME=tlyear SIZE=5 VALUE="$y">年<INPUT TYPE="TEXT" NAME=tlmon SIZE=3 VALUE="$m">月
-	<INPUT TYPE="TEXT" NAME=tlday SIZE=3 VALUE="$d">日 <INPUT TYPE="TEXT" NAME=tlhour SIZE=3 VALUE="$h">時
-	<INPUT TYPE="TEXT" NAME=tlmin SIZE=3 VALUE="$min">分<INPUT TYPE="TEXT" NAME=tlsec SIZE=3 VALUE="$s">秒
-	に<INPUT TYPE="SUBMIT" VALUE="変更する">
-	<INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">管理パス
+	${\l('最終更新時刻を')}<INPUT TYPE="TEXT" NAME=tlyear SIZE=5 VALUE="$y">${\l('')}年<INPUT TYPE="TEXT" NAME=tlmon SIZE=3 VALUE="$m">${\l('月')}
+	<INPUT TYPE="TEXT" NAME=tlday SIZE=3 VALUE="$d">${\l('日')} <INPUT TYPE="TEXT" NAME=tlhour SIZE=3 VALUE="$h">${\l('時')}
+	<INPUT TYPE="TEXT" NAME=tlmin SIZE=3 VALUE="$min">${\l('分')}<INPUT TYPE="TEXT" NAME=tlsec SIZE=3 VALUE="$s">${\l('秒')}
+	に<INPUT TYPE="SUBMIT" VALUE="${\l('変更する')}">
+	<INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">${\l('管理パス')}
 	</FORM></tr>
 	<tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="backup">
-	ゲームデータを<SELECT NAME=backup>$backupselect</SELECT>
-	の時点に<INPUT TYPE="SUBMIT" VALUE="復元する">
-	<INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">管理パス
+	${\l('ゲームデータを')}<SELECT NAME=backup>$backupselect</SELECT>
+	${\l('の時点に')}<INPUT TYPE="SUBMIT" VALUE="${\l('復元する')}">
+	<INPUT TYPE="PASSWORD" size=5 NAME=admin VALUE="">${\l('管理パス')}
 	</FORM></tr></table><br><br>
 HTML
 1;

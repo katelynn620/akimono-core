@@ -8,7 +8,7 @@ $NOITEM=1;
 DataRead();
 CheckUserPass();
 
-$image[0]=GetTagImgKao("お手伝い","help");
+$image[0]=GetTagImgKao(l("お手伝い"),"help");
 $WriteFlag=0;						# 更新フラグ。
 
 ReadLetterName();

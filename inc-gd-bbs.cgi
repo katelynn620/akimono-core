@@ -5,7 +5,7 @@ sub WriteGBBS
 {
 	my($msg,$maxlength)=@_;
 	return ('','') if !$msg;
-	return ($msg,'発言は半角'.$maxlength.'文字(全角'.int($maxlength/2).'文字)までです。現在半角'.length($msg).'文字です。<br>')
+	return ($msg,l('発言は半角%1文字(全角%2文字)までです。現在半角%3文字です。',$maxlength,int($maxlength/2),length($msg)).'<br>')
 		if length($msg)>$maxlength;
 	
 	# require $JCODE_FILE;
@@ -24,12 +24,12 @@ sub WriteGBBS
 		my($tm,$mode,$dummy,$id,$msgline,$no)=split(/,/);
 		($msgline)=split(/\t/,$msgline);
 		next if $DT->{id}!=$id;
-		return ('','重複投稿は出来ません。<br>') if $tm>$NOW_TIME-60*15 && $msgline eq $msg;
+		return ('',l('重複投稿は出来ません。').'<br>') if $tm>$NOW_TIME-60*15 && $msgline eq $msg;
 		$count++,$wait+=3**$count/($NOW_TIME-$tm+1) if $SECURE_MODE_BBS && $count<10;
 		$lasttm||=$tm;
 	}
 	$wait=int($lasttm+$wait-$NOW_TIME);
-	return ('','連続投稿は出来ません。あと'.$wait.'秒お待ち下さい。<br>') if $wait>0;
+	return ('',l('連続投稿は出来ません。あと%1秒お待ち下さい。',$wait).'<br>') if $wait>0;
 	
 	CoLock();
 	WriteBoard(20,0,0,$msg,1) if $MASTER_USER;

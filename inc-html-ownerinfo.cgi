@@ -7,7 +7,7 @@ if(!$GUEST_USER && !$MOBILE)
 	if($tm<0)
 	{
 		$tm=-$tm;
-		$tm='行動可能まであと '.GetTime2HMS($tm);
+		$tm=l('行動可能まであと %1',GetTime2HMS($tm));
 	}
 	else
 	{
@@ -16,14 +16,16 @@ if(!$GUEST_USER && !$MOBILE)
 	}
 	my $rankmsg=GetRankMessage($DT->{rank});
 	my $moneymsg=GetMoneyString($DT->{money});
+	my $timestr = l('時間#A');
+	$timestr =~ s/#A//g;
 	$disp.=<<STR;
 	$TB$TR
 	$TD
 	<SPAN>RANK</SPAN> ${\($id2idx{$DT->{id}}+1)}$TDE
-	$TD<SPAN>店名：</SPAN>$DT->{shopname}$TDE
-	$TD<SPAN>点数：</SPAN>$DT->{point}$TDE
-	$TD<SPAN>資金：</SPAN>$moneymsg$TDE
-	$TD<SPAN>時間：</SPAN>$tm$TDE
+	$TD<SPAN>${\l('店名')}：</SPAN>$DT->{shopname}$TDE
+	$TD<SPAN>${\l('点数')}：</SPAN>$DT->{point}$TDE
+	$TD<SPAN>${\l('資金')}：</SPAN>$moneymsg$TDE
+	$TD<SPAN>$timestr：</SPAN>$tm$TDE
 	$TRE$TBE
 <hr width=500 noshade size=1>
 STR

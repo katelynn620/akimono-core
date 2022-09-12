@@ -4,16 +4,16 @@ use utf8;
 $NOITEM=1;
 DataRead();
 CheckUserPass(1);
-OutError('ギルドに入っていません') if !$DT->{guild};
+OutError(l('ギルドに入っていません')) if !$DT->{guild};
 RequireFile('inc-gd.cgi');
 
 my $lv=int( $GUILD_DATA{$DT->{guild}}->{money} / 111000);
 $lv = 1 if ( $lv < 1 ) ;
 $lv = 200 if ( $lv > 200 ) ;
 
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ギルド受付</SPAN>：".GetTagImgGuild($DT->{guild});
-$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG>が収集した情報です。<br>";
-$disp.="現在の情報収集レベルは".$lv."です。".$TRE.$TBE."<br>";
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>".l('ギルド受付')."</SPAN>：".GetTagImgGuild($DT->{guild});
+$disp.=l("<BIG>%1</BIG>が収集した情報です。",$GUILD{$DT->{guild}}->[$GUILDIDX_name])."<br>";
+$disp.=l("現在の情報収集レベルは%1です。",$lv).$TRE.$TBE."<br>";
 
 	undef @MESSAGE;
 
@@ -27,7 +27,7 @@ $disp.="現在の情報収集レベルは".$lv."です。".$TRE.$TBE."<br>";
 		my $id=0;
 		
 		@MESSAGE=grep(/^\d+\t\d+\t(\d+\d)\t/o,@MESSAGE);
-		@MESSAGE=("0,0,0,情報はありません\n") if !scalar(@MESSAGE);
+		@MESSAGE=("0,0,0,".l('情報はありません')."\n") if !scalar(@MESSAGE);
 
 $lv = scalar(@MESSAGE) if ( $lv > scalar(@MESSAGE) ) ;
 
@@ -55,7 +55,7 @@ foreach my $cnt ($pagestart..$pageend)
 		if ($lv > 20 && defined($id2idx{$id}))	{
 		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>".$DT[$id2idx{$id}]->{shopname}."</SPAN>：".$message;}
 		else	{
-		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>？？？？？？</SPAN>：".$message;}
+		$disp.="<small>".GetTime2FormatTime($tm)."</small> <SPAN>".l('？？？？？？')."</SPAN>：".$message;}
 	
 	$disp.="<BR>";
 	}

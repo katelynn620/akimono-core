@@ -13,7 +13,7 @@ foreach(0..$#DR)
 	if ($NOW_TIME-$DR[$_]->{birth} > $DRretire * 4)
 		{
 		# 引退
-		PushDraLog(0,$DR[$_]->{name}."は引退しました。");
+		PushDraLog(0,l("%1は引退しました。",$DR[$_]->{name}));
 		undef $DR[$_];
 		next;
 		}
@@ -70,7 +70,7 @@ foreach(0..$#ST)
 	if ($NOW_TIME-$ST[$_]->{birth} > $STtime)
 		{
 		# 老朽化
-		PushDraLog(0,$ST[$_]->{name}."は老朽化により閉鎖しました。");
+		PushDraLog(0,l("%1は老朽化により閉鎖しました。",$ST[$_]->{name}));
 		undef $ST[$_];
 		$stflag++;
 		next;

@@ -8,10 +8,10 @@ my $space='<IMG class="i" SRC="'.$IMAGE_URL.'/map/dummy.png">';
 my $vspace='<IMG WIDTH="64" HEIGHT="16" SRC="'.$IMAGE_URL.'/map/dummy.png">';
 $gold='<IMG width="24" height="24" SRC="'.$IMAGE_URL.'/map/c-sg.png">';
 $trush='<IMG class="c" SRC="'.$IMAGE_URL.'/map/c-st.png">';
-my $post=GetMenuTag('letter','<acronym title="郵便箱"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-sp.png"></acronym>');
-my $news=GetMenuTag('log','<acronym title="新聞"><IMG width="24" height="26" SRC="'.$IMAGE_URL.'/map/c-sn.png"></acronym>');
-my $stock=GetMenuTag('stock','<acronym title="倉庫"><IMG WIDTH="90" HEIGHT="42" SRC="'.$IMAGE_URL.'/map/shops.png"></acronym>');
-my $dwarf=GetMenuTag('dwarf','<acronym title="ドワーフ宅配便"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-s11.png"></acronym>');
+my $post=GetMenuTag('letter','<acronym title="'.l('郵便箱').'"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-sp.png"></acronym>');
+my $news=GetMenuTag('log','<acronym title="'.l('新聞').'"><IMG width="24" height="26" SRC="'.$IMAGE_URL.'/map/c-sn.png"></acronym>');
+my $stock=GetMenuTag('stock','<acronym title="'.l('倉庫').'"><IMG WIDTH="90" HEIGHT="42" SRC="'.$IMAGE_URL.'/map/shops.png"></acronym>');
+my $dwarf=GetMenuTag('dwarf','<acronym title="'.l('ドワーフ宅配便').'"><IMG class="c" SRC="'.$IMAGE_URL.'/map/c-s11.png"></acronym>');
 
 $image[0]='<td WIDTH="208" HEIGHT="64" style="background-image : url('.$IMAGE_URL.'/map/shop1a.png)">';
 $image[1]='<td valign=bottom WIDTH="96" style="background-image : url('.$IMAGE_URL.'/map/shop2a.png)">';
@@ -20,7 +20,7 @@ $image[3]='<td style="background-image : url('.$IMAGE_URL.'/map/shop2b.png)">';
 $image[4]='<td HEIGHT="48" align=center valign=top style="background-image : url('.$IMAGE_URL.'/map/shop1c.png)">';
 $image[5]='<td valign=top style="background-image : url('.$IMAGE_URL.'/map/shop2c.png)">';
 
-$disp.="<BIG>●".$DT->{shopname}."店内</BIG><br><br>";
+$disp.="<BIG>●".$DT->{shopname}.l("店内")."</BIG><br><br>";
 
 DevelopImage();
 HelpMessage();
@@ -60,7 +60,7 @@ sub OwnerInfo
 	if($tm<0)
 	{
 		$tm=-$tm;
-		$tm='行動可能まであと '.GetTime2HMS($tm);
+		$tm=l('行動可能まであと %1',GetTime2HMS($tm));
 	}
 	else
 	{
@@ -77,12 +77,17 @@ STR
 	$disp.=GetTagImgKao($DT->{name},$DT->{icon})."<br>";
 	$disp.=$TD."<SPAN>RANK</SPAN> ".($id2idx{$DT->{id}}+1).GetTopCountImage($DT->{rankingcount}).DignityDefine($DT->{dignity},1)."<br>";
 	$disp.=GetTagImgGuild($DT->{guild})."<b>".$DT->{shopname}."</b>".$TRE;
-	$disp.= "$TR$TDB" . "資金" . "$TD$moneymsg$TRE
-	$TR$TDB" . "時間" . "$TD$tm$TRE
-	$TR$TDB" . "人気" . "$TD$rankmsg$TRE
-	$TR$TDB" . "ごみ" . "$TD$cleanmsg$TRE
-	$TR$TDB" . "コメント" . "$TD<INPUT TYPE=TEXT NAME=cmt SIZE=20 VALUE=\"$DT->{comment}\">
-	<INPUT TYPE=SUBMIT VALUE=\"変更\">$TRE$TBE";
+
+	# I18N
+	my $timestr = l('時間#A');
+	$timestr =~ s/#A//g;
+
+	$disp.= "$TR$TDB" . l("資金") . "$TD$moneymsg$TRE
+	$TR$TDB$timestr$TD$tm$TRE
+	$TR$TDB" . l("人気") . "$TD$rankmsg$TRE
+	$TR$TDB" . l("ごみ") . "$TD$cleanmsg$TRE
+	$TR$TDB" . l("コメント") . "$TD<INPUT TYPE=TEXT NAME=cmt SIZE=20 VALUE=\"$DT->{comment}\">
+	<INPUT TYPE=SUBMIT VALUE=\"".l('変更')."\">$TRE$TBE";
 }
 
 
@@ -106,38 +111,38 @@ $chara="";
 my $i=int($NOW_TIME / 3600) % 3;
 if (!$show)
 	{
-	$helper=TagChara("在庫を切らしちゃってるんです。スミマセン…","0");
+	$helper=TagChara(l('在庫を切らしちゃってるんです。スミマセン…'),"0");
 	if ($i == 0)
 		{
-		$chara=TagChara("ありゃりゃ，何にも売ってないぞ。困った。","1").$vspace;
+		$chara=TagChara(l('ありゃりゃ，何にも売ってないぞ。困った。'),"1").$vspace;
 		}
 	elsif ($i == 1)
 		{
-		$chara=$vspace.TagChara("せっかく買いに来たのに何にもない…。どうしよう？","2").TagChara("しょうがないね。もうちょっと待ってみる？","3");
+		$chara=$vspace.TagChara(l('せっかく買いに来たのに何にもない…。どうしよう？'),"2").TagChara(l('しょうがないね。もうちょっと待ってみる？'),"3");
 		}
 	else
 		{
-		$chara=TagChara("ねぇねぇお姉ちゃん，なんでここには何にもないの？","4");
+		$chara=TagChara(l('ねぇねぇお姉ちゃん，なんでここには何にもないの？'),"4");
 		}
 	}
 else
 	{
-	$helper=TagChara("いらっしゃいませっ","0");
+	$helper=TagChara(l('いらっしゃいませっ'),"0");
 	if ($i == 0)
 		{
-		$chara=$vspace.TagChara("どれどれ。今日の買いどころは…","5");
+		$chara=$vspace.TagChara(l('どれどれ。今日の買いどころは…'),"5");
 		}
 	elsif ($i == 1)
 		{
-		$chara=TagChara("ん～，これくださいな。","6").$vspace;
+		$chara=TagChara(l('ん～，これくださいな。'),"6").$vspace;
 		}
 	elsif ($DT->{rank} < 5500)
 		{
-		$chara=TagChara("うーん，そこそこ良い店ではあるんだけどね…","7").TagChara("もう一声っていう感じなのよねぇ…","8").$vspace;
+		$chara=TagChara(l('うーん，そこそこ良い店ではあるんだけどね…'),"7").TagChara(l('もう一声っていう感じなのよねぇ…'),"8").$vspace;
 		}
 	else
 		{
-		$chara=$vspace.TagChara("ここはなかなか良いところだな。","9").TagChara("そうじゃな。わしもよく寄る店じゃ。","10");
+		$chara=$vspace.TagChara(l('ここはなかなか良いところだな。'),"9").TagChara(l('そうじゃな。わしもよく寄る店じゃ。'),"10");
 		}
 	}
 }
@@ -150,43 +155,38 @@ sub TagChara
 
 sub HelpMessage
 {
-$disp.=$TB.$TR.$TD.GetTagImgKao("お手伝い","help").$TD;
+$disp.=$TB.$TR.$TD.GetTagImgKao(l('お手伝い'),"help").$TD;
 
- if ($NeverR)
+	if ($NeverR)
 	{
-$disp.=<<"HTML";
-	<SPAN>お手伝い</SPAN>：新しい手紙が $NeverR通届いております。<br>
-	郵便箱を開けてみてください。
-HTML
+		$disp.='
+			<SPAN>'.l('お手伝い').'</SPAN>：'.l('新しい手紙が %1通届いております。',$NeverR).'<br>'
+			.l('郵便箱を開けてみてください。');
 	}
 	elsif ( ($NOW_TIME-$DT->{foundation}) < 3600*3 )
 	{
-$disp.=<<'HTML';
-	<SPAN>お手伝い</SPAN>：はじめまして。私が店のお手伝いをさせてもらってます。<br>
-	さっそくですが店長さま，<A HREF="action.cgi?key=library&t=1" TARGET=_blank>
-	[ゲームのやり方]</A>はご存知ですか？
-HTML
-	}
+		$disp.='
+			<SPAN>'.l('お手伝い').'</SPAN>：'.l('はじめまして。私が店のお手伝いをさせてもらってます。').'<br>'
+			.l('さっそくですが店長さま，')
+			.l('<A HREF="action.cgi?key=library&t=1" TARGET=_blank>[ゲームのやり方]</A>はご存知ですか？');
+		}
 	elsif ($DT->{trush} > 4000000)
 	{
-$disp.=<<'HTML';
-	<SPAN>お手伝い</SPAN>：店長さま，お帰りなさいませ。<br>
-	お店の中が汚れてきています。そろそろ掃除したらいかがでしょう。
-HTML
+		$disp.='
+			<SPAN>'.l('お手伝い').'</SPAN>：'.l('店長さま，お帰りなさいませ。').'<br>'
+			.l('お店の中が汚れてきています。そろそろ掃除したらいかがでしょう。');
 	}
 	elsif (!$show)
 	{
-$disp.=<<'HTML';
-	<SPAN>お手伝い</SPAN>：店長さま，売る物がなくなってしまいました。<br>
-	すぐに在庫を補充するか，代わりのものを売りに出しましょう。
-HTML
+		$disp.='
+			<SPAN>'.l('お手伝い').'</SPAN>：'.l('店長さま，売る物がなくなってしまいました。').'<br>'
+			.l('すぐに在庫を補充するか，代わりのものを売りに出しましょう。');
 	}
 	else
 	{
-$disp.=<<'HTML';
-	<SPAN>お手伝い</SPAN>：店長さま，お帰りなさいませ。<br>
-	お店はいまのところ順調ですよ。
-HTML
+		$disp.='
+			<SPAN>'.l('お手伝い').'</SPAN>：'.l('店長さま，お帰りなさいませ。').'<br>'
+			.l('お店はいまのところ順調ですよ。');
 	}
 $disp.=$TRE.$TBE."<br>";
 }

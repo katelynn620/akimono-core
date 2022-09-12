@@ -6,8 +6,8 @@ $Q{bk}="none";
 $NOITEM=1;
 DataRead();
 CheckUserPass();
-OutError("") if !$MASTER_USER;
-$disp.="<BIG>●街間の重複登録状況</BIG><br><br>";
+OutError('') if !$MASTER_USER;
+$disp.="<BIG>●".l('街間の重複登録状況')."</BIG><br><br>";
 
 @data=();
 foreach my $i(@OtherDir) {

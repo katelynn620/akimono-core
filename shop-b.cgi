@@ -40,7 +40,7 @@ foreach($ITEM[0],sort{$a->{sort} <=> $b->{sort}}values(%itemlist))
 $itemlist.="</select>";
 
 my $shoplist="";
-$shoplist="<select name=ds><option value=\"\">すべて";
+$shoplist="<select name=ds><option value=\"\">".l('すべて');
 foreach (@DT)
 {
 	$shoplist.="<OPTION VALUE=\"$_->{id}\"".($Q{senditem}==$_->{id}?' SELECTED':'').">$_->{shopname}" if $DT->{id}!=$_->{id};
@@ -61,7 +61,7 @@ else
 		GetPage($Q{pg},$SHOP_PAGE_ROWS,$DTusercount);
 }
 
-$disp.="<BIG>●商店通り：店名別表\示</BIG>";
+$disp.="<BIG>●".l('商店通り')."：".l('店名別表示')."</BIG>";
 $disp.="<br><br>";
 
 #店別追加バージョン
@@ -73,20 +73,20 @@ $TBT$TRT
 $USERPASSFORM
 <input type=hidden name=tp value=\"$tp\">
 $itemlist
-<input type=submit value="商品で検索"> 
+<input type=submit value="${\l('商品で検索')}"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-b">
 $USERPASSFORM
 $shoplist
-<input type=submit value="店名で検索"> 
+<input type=submit value="${\l('店名で検索')}"> 
 </form>
 <td valign="bottom">
 <form action="action.cgi" $METHOD>
 <input type=hidden name=key value="shop-c">
 $USERPASSFORM
-<input type=submit value="相場を調査">
+<input type=submit value="${\l('相場を調査')}">
 </form>
 $TRE$TBE
 <br>
@@ -112,14 +112,14 @@ foreach my $cnt ($pagestart .. $pageend)
 		{
 			my $ITEM=$ITEM[$itemno];
 			$stock=$DT->{item}[$itemno-1];
-			my $msg=$stock ? "残".$stock.$ITEM->{scale} : "売り切れ";
+			my $msg=$stock ? l("残%1%2",$stock,$ITEM->{scale}). : l("売り切れ");
 			$disp.=$TR.$TD;
 			$disp.="<A HREF=\"action.cgi?key=buy&buy=$DT->{id}!$idx!$itemno&bk=p!$page&$USERPASSURL\">" if $stock && !$GUEST_USER;
 			$disp.=GetTagImgItemType($itemno).$ITEM->{name};
 			$disp.="</A>" if $stock && !$GUEST_USER;
 			$disp.=$TD.'@'.GetMoneyString($DT->{price}[$idx]);
 			$disp.=$TD.$msg;
-			$disp.=$TD.($DT->{itemtoday}{$itemno}+0).$ITEM->{scale}."売上";
+			$disp.=$TD.l("%1%2売上",($DT->{itemtoday}{$itemno}+0),$ITEM->{scale});
 			$disp.=$TRE;
 		}
 	}

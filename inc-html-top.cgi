@@ -4,25 +4,26 @@ use utf8;
 my ($page,$pagestart,$pageend,$pagenext,$pageprev,$pagemax)
 	=GetPage($Q{pg},$TOP_RANKING_PAGE_ROWS,$DTusercount);
 
-$disp.="<BIG>●トップ $TOP_RANKING_PAGE_ROWSの店舗</BIG>：".GetMenuTag('log','[詳細]','&t=4')."<br><br>";
+$disp.="<BIG>●".l('トップ %1の店舗',$TOP_RANKING_PAGE_ROWS)."</BIG>：".GetMenuTag('log','['.l('詳細').']','&t=4')."<br><br>";
+
 $disp.=$TB;
 
 	$disp.=$TR;
-	$disp.=$TDB."点数";
-	$disp.=$TDB."店長";
-	$disp.=$TDB."ジョブ";
-	$disp.=$TDB."店名　人気";
-	$disp.=$TDB."今期売上";
-	$disp.=$TDB."資金";
-	$disp.=$TDB."熟練";
-	$disp.=$TDB."商品 【創業】 コメント";
+	$disp.=$TDB.l('点数');
+	$disp.=$TDB.l('店長');
+	$disp.=$TDB.l('ジョブ');
+	$disp.=$TDB.l('店名　人気');
+	$disp.=$TDB.l('今期売上');
+	$disp.=$TDB.l('資金');
+	$disp.=$TDB.l('熟練');
+	$disp.=$TDB.l('商品 【創業】 コメント');
 	$disp.=$TRE;
 
 foreach my $idx ($pagestart..$pageend)
 {
 	my $DT=$DT[$idx];
 	
-	my $rankupdown="(新)";
+	my $rankupdown=l('(新)');
 	if($DT->{rankingyesterday})
 	{
 		$rankupdown=$DT->{rankingyesterday}-$idx-1;

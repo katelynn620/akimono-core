@@ -3,7 +3,7 @@ use utf8;
 
 sub Compat
 {
-	OutError("互換性のないプログラムのため，実行することができません");
+	OutError(l('互換性のないプログラムのため，実行することができません'));
 }
 
 sub OutHTML

@@ -16,7 +16,7 @@ sub GetTime2found
 	my($tm,$mode)=@_;
 	
 	my $h=int($tm/3600);
-	return $h.'時間' if $h<24;
-	return int($h/24).'日';
+	return $h.l('時間') if $h<24;
+	return int($h/24).l('日');
 }
 1;

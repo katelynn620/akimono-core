@@ -14,11 +14,11 @@ $page = $Q{page};
 if ($page eq "") { $page = 0; }
 while ($Q{message} =~ /<br>$/) { $Q{message} =~ s/<br>$//g; }
 
-$disp.=GetMenuTag('treebbs',	'[記事一覧]')
-	.GetMenuTag('treebbs',	'[新規投稿]','&mode=formview');
+$disp.=GetMenuTag('treebbs',	'['.l('記事一覧').']')
+	.GetMenuTag('treebbs',	'['.l('新規投稿').']','&mode=formview');
 $disp.="<hr width=500 noshade size=1>";
 
-$disp.="<BIG>●掲示板</BIG><br><br>";
+$disp.="<BIG>●".l('掲示板')."</BIG><br><br>";
 
 %filename=qw(form edit msgview view allread all formview view list list);
 my $functionname=$filename{$mode};

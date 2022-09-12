@@ -39,7 +39,7 @@ sub CheckLockStatus
 	return if $LOCKED eq '' || -e $LOCKED;
 	
 	WriteErrorLog("write lock check error ",$LOG_ERROR_FILE);
-	OutError("異常処理です。最初からやり直してみてください。");
+	OutError(l('異常処理です。最初からやり直してみてください。'));
 }
 
 sub DataWrite

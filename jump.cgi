@@ -15,9 +15,9 @@ sub JumpGuild
 	my $guild=ReadGuild($code);
 	return if !$guild || $guild->{url} eq '';
 	$disp="";
-	$disp.="ギルド ".GetTagImgGuild($code).$guild->{name}."<br>";
+	$disp.=l("ギルド")." ".GetTagImgGuild($code).$guild->{name}."<br>";
 	$disp.="<br>".$guild->{comment}."<br><br>";
-	$disp.=GetTagA($guild->{name}."へ自動的にジャンプします。しない場合はこのリンクを辿ってください。",$guild->{url})."<br>";
+	$disp.=GetTagA(l("%1へ自動的にジャンプします。しない場合はこのリンクを辿ってください。",$guild->{name}),$guild->{url})."<br>";
 	print "Refresh: 1; url=$guild->{url}\n";
 }
 
@@ -28,7 +28,7 @@ sub JumpTown
 	return if !$town || $town->{url} eq '';
 	print "Refresh: 1; url=$town->{url}\n";
 	$disp="";
-	$disp.=GetTagA($town->{name}."へ自動的にジャンプします。しない場合はこのリンクを辿ってください。");
+	$disp.=GetTagA(l("%1へ自動的にジャンプします。しない場合はこのリンクを辿ってください。",$town->{name}));
 }
 
 

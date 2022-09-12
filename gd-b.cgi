@@ -6,10 +6,10 @@ DataRead();
 CheckUserPass();
 ReadGuild();
 ReadGuildData();
-$image[0]=GetTagImgKao("ギルド受付","guild");
+$image[0]=GetTagImgKao(l("ギルド受付"),"guild");
 $Q{er}='gd-f';
 
-$disp.="<BIG>●ギルド公館</BIG><br><br>";
+$disp.="<BIG>●".l('ギルド公館')."</BIG><br><br>";
 
 $Q{url}="http://" if $Q{url} eq "";
 $Q{leadt}=$MYDIR;
@@ -18,7 +18,7 @@ $Q{leader}=$DT->{id};
 @MAX=(30,12,4,4,6,30,120,120,10,10,60);
 foreach my $i(0..$#GLIST)
 	{
-	OutError('記入されていない項目があります - '.$GLIST[$i]) if (!$Q{$GLIST[$i]});
+	OutError(l('記入されていない項目があります - %1',$GLIST[$i])) if (!$Q{$GLIST[$i]});
 	# $Q{$GLIST[$i]}=CutStr(jcode::sjis($Q{$GLIST[$i]},$CHAR_SHIFT_JIS&&'sjis'),$MAX[$i]);
 	$Q{$GLIST[$i]}=CutStr($Q{$GLIST[$i]},$MAX[$i]);
 	$Q{$GLIST[$i]}=~s/&/&amp;/g;
@@ -26,13 +26,13 @@ foreach my $i(0..$#GLIST)
 	$Q{$GLIST[$i]}=~s/</&lt;/g;
 	}
 $Q{url}="" if $Q{url} eq "http://";
-OutError('会費率や割引増率に使用できない文字が含まれています') if ($Q{dealrate} =~ /([^0-9])/)||($Q{feerate} =~ /([^0-9])/);
-OutError('割引増率は10～500の間の数値で指定してください') if ($Q{dealrate} > 500) || ($Q{dealrate} < 10);
-OutError('会費率は10～500の間の数値で指定してください') if ($Q{feerate} > 500) || ($Q{feerate} < 10);
-OutError('ギルドコードに使用できない文字が含まれています') if ($Q{code} =~ /([^a-z])/);
-OutError('ギルド設立に画像ファイルは必須です') if (!$Q{upfile})&&($Q{mode} ne "edit");
+OutError(l('会費率や割引増率に使用できない文字が含まれています')) if ($Q{dealrate} =~ /([^0-9])/)||($Q{feerate} =~ /([^0-9])/);
+OutError(l('割引増率は10～500の間の数値で指定してください')) if ($Q{dealrate} > 500) || ($Q{dealrate} < 10);
+OutError(l('会費率は10～500の間の数値で指定してください')) if ($Q{feerate} > 500) || ($Q{feerate} < 10);
+OutError(l('ギルドコードに使用できない文字が含まれています')) if ($Q{code} =~ /([^a-z])/);
+OutError(l('ギルド設立に画像ファイルは必須です')) if (!$Q{upfile})&&($Q{mode} ne "edit");
 
-OutError('同じギルドコードがすでに存在しています') if (-e $COMMON_DIR."/".$Q{code}.".pl")&&($Q{mode} ne "edit");
+OutError(l('同じギルドコードがすでに存在しています')) if (-e $COMMON_DIR."/".$Q{code}.".pl")&&($Q{mode} ne "edit");
 
 GuildImgUp() if ($Q{upfile});
 BuildGuild();
@@ -52,8 +52,8 @@ if ($Q{mode} ne "edit")
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-ギルド受付：手続が完了しました。数分後に反映されると思います。<br>
-楽しいギルドになっていくといいですね。頑張ってください。
+${\l('ギルド受付')}：${\l('手続が完了しました。数分後に反映されると思います。')}<br>
+${\l('楽しいギルドになっていくといいですね。頑張ってください。')}
 $TRE$TBE
 HTML
 OutSkin();
@@ -76,7 +76,7 @@ sub GuildImgUp
 	}
 	else
 	{
-	OutError('gif画像ファイルではないようです。'.$MIMETYPE{upfile});
+	OutError(l('gif画像ファイルではないようです。 %1',$MIMETYPE{upfile}));
 	}
 }
 

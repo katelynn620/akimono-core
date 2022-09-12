@@ -10,17 +10,17 @@ if (!$DT->{guild})
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ギルド受付</SPAN>：現在あるギルドの一覧です。<br>
-クリックすると詳しい情報を見ることができます。
+<SPAN>${\l('ギルド受付')}</SPAN>：${\l('現在あるギルドの一覧です。')}<br>
+${\l('クリックすると詳しい情報を見ることができます。')}
 $TRE$TBE
 HTML
 GuildRanking();
 }
 elsif ($GUILD{$DT->{guild}}->[$GUILDIDX_name])
 {
-$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>ギルド受付</SPAN>：こちらは".GetTagImgGuild($DT->{guild});
-$disp.="<BIG>".$GUILD{$DT->{guild}}->[$GUILDIDX_name]."</BIG> 本部です。<br>";
-$disp.="現在のギルドの情勢は，このようになっております。".$TRE.$TBE;
+$disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>".l('ギルド受付')."</SPAN>：".l("こちらは").GetTagImgGuild($DT->{guild});
+$disp.=l("<BIG>%1</BIG> 本部です。",$GUILD{$DT->{guild}}->[$GUILDIDX_name])."<br>";
+$disp.=l("現在のギルドの情勢は，このようになっております。").$TRE.$TBE;
 GuildRanking();
 RequireFile('inc-guild-cmd.cgi');
 }
@@ -29,10 +29,10 @@ else
 $disp.=<<"HTML";
 $TB$TR
 $TD$image[0]$TD
-<SPAN>ギルド受付</SPAN>：<b>$DT->{shopname}</b>さんのギルドは，ただいま結成中です。<br>
-数分経ったら出来上がるはずですので，しばらくお待ちください。
+<SPAN>${\l('ギルド受付')}</SPAN>：${\l('<b>%1</b>さんのギルドは，ただいま結成中です。',$DT->{shopname})}<br>
+${\l('数分経ったら出来上がるはずですので，しばらくお待ちください。')}
 $TRE$TBE
-<br>※結成直後は，寄付などを行っても効果が現れないのでご注意ください。
+<br>※${\l('結成直後は，寄付などを行っても効果が現れないのでご注意ください。')}
 HTML
 }
 
@@ -42,7 +42,7 @@ OutSkin();
 
 sub GuildRanking
 {
-$disp.='<br>[<BIG>ギルド対抗戦</BIG>終了まであと'.GetTime2HMS($DTevent{guildbattle}-$DTlasttime).']' if $DTevent{guildbattle};
+$disp.='<br>['.l('<BIG>ギルド対抗戦</BIG>終了まであと%1',GetTime2HMS($DTevent{guildbattle}-$DTlasttime)).']' if $DTevent{guildbattle};
 undef %guildcount;
 foreach(@DT)
 {
@@ -75,17 +75,17 @@ foreach my $guild (@guildlist[$pagestart..$pageend])
 	$disp.=$TDB."No.".$rank++."<td align=right>";
 	$disp.="<A HREF=\"action.cgi?key=gd-o&$USERPASSURL&g=$code\">".GetTagImgGuild($code).$name."</a>";
 	$disp.=qq|<IMG class="i" SRC="$IMAGE_URL/guildprize$IMAGE_EXT">| if ($code eq $Dguild);
-	$disp.="<br><SPAN>資金</SPAN> ".GetMoneyString($guild->{money});
-	$disp.=    "(赤字)" if $guild->{money}<0;
+	$disp.="<br><SPAN>".l('資金')."</SPAN> ".GetMoneyString($guild->{money});
+	$disp.=l("(赤字)") if $guild->{money}<0;
 	$disp.=qq|$TD<IMG class="i" SRC="$IMAGE_URL/guild-a$IMAGE_EXT">|.DefTarent($guild->{atk}+0);
 	$disp.=qq|<br><IMG class="i" SRC="$IMAGE_URL/guild-b$IMAGE_EXT">|.DefTarent($guild->{def}+0);
-	$disp.=$TD."<SPAN>収入</SPAN> ".GetMoneyString($guild->{in});
-	$disp.="<br><SPAN>支出</SPAN> ".GetMoneyString($guild->{out});
-	$disp.=$TD."<SPAN>割引増率</SPAN> ".($dealrate/10)."%";
-	$disp.="<br><SPAN>会費率</SPAN> ".($feerate/10)."%".$TD;
-	$disp.="<SPAN>".$member."</SPAN> ".($guildcount{$code}+0)."名";
+	$disp.=$TD."<SPAN>".l('収入')."</SPAN> ".GetMoneyString($guild->{in});
+	$disp.="<br><SPAN>".l('支出')."</SPAN> ".GetMoneyString($guild->{out});
+	$disp.=$TD."<SPAN>".l('割引増率')."</SPAN> ".($dealrate/10)."%";
+	$disp.="<br><SPAN>".l('会費率')."</SPAN> ".($feerate/10)."%".$TD;
+	$disp.="<SPAN>".$member."</SPAN> ".($guildcount{$code}+0).l("名");
 	if ($GUILD_DETAIL{$code}->{url})
-		{$disp.=qq| <a target="_blank" href="action.cgi?key=jump&guild=$code">[HP]</a> |;}
+		{$disp.=qq| <a target="_blank" href="action.cgi?key=jump&guild=$code">[${\l('HP')}]</a> |;}
 	$disp.="<br>".$comment;
 	$disp.=$TRE;
 }

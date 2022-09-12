@@ -9,7 +9,7 @@ sub allread {
 	my($no,$re,$lx,$sub,$eml,$nam,$msg,$t,$ho,$oya,$sml,$date);
 
 	$x=0;
-	$disp.="<table width=500>$TR$TD<BIG>▼レス全表\示</BIG>\n";
+	$disp.="<table width=500>$TR$TD<BIG>▼".l('レス全表示')."</BIG>\n";
 	$disp.="<UL>\n";
 	open(IN,"<:encoding(UTF-8)",$datafile) or return();
 	$top = <IN>;
@@ -42,8 +42,8 @@ sub allread {
 $disp.=<<HTML;
 <hr width=500 size=1><table width=500 id="$no">
 $TR$TDB■ $sub$TRE
-$TR$TD<SPAN>発言者</SPAN>：<b> $nam</b> $eml<br>
-<SPAN>発言日</SPAN>： $date$TRE
+$TR$TD<SPAN>${\l('発言者')}</SPAN>：<b> $nam</b> $eml<br>
+<SPAN>${\l('発言日')}</SPAN>： $date$TRE
 $TR$TD◇
 <blockquote>$msg</blockquote>
 </td></tr></table>

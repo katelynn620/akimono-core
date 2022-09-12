@@ -4,20 +4,20 @@ use utf8;
 DataRead();
 CheckUserPass();
 
-$MENUSAY=GetMenuTag('log','[新聞]')
-	.GetMenuTag('shop-a',	'[商店通りへ]')
-	.GetMenuTag('shop-m',	'[市場へ]')
-	.GetMenuTag('main',	'[店内に戻る]');
+$MENUSAY=GetMenuTag('log',l('[新聞]'))
+	.GetMenuTag('shop-a',	l('[商店通りへ]'))
+	.GetMenuTag('shop-m',	l('[市場へ]'))
+	.GetMenuTag('main',	l('[店内に戻る]'));
 
 RequireFile('inc-html-ownerinfo.cgi');
 
 if ($DT->{trush} > 5000000)
 	{
-	$disp.="<BIG>●倉庫</BIG><br><br>";
-	$disp.=$TB.$TR.$TD.GetTagImgKao("お手伝い","help").$TD;
-	$disp.="<SPAN>お手伝い</SPAN>：商品がごみの中にうずもれていて，見つけられません。";
-	$disp.="<br>先にお掃除して，ごみを片付けましょう。".$TRE.$TBE;
-	$disp.="<br>".GetMenuTag('sweep','[お掃除へ]');
+	$disp.="<BIG>●".l('倉庫')."</BIG><br><br>";
+	$disp.=$TB.$TR.$TD.GetTagImgKao(l('お手伝い'),"help").$TD;
+	$disp.="<SPAN>".l('お手伝い')."</SPAN>：".l('商品がごみの中にうずもれていて，見つけられません。');
+	$disp.="<br>".l('先にお掃除して，ごみを片付けましょう。').$TRE.$TBE;
+	$disp.="<br>".GetMenuTag('sweep',l('[お掃除へ]'));
 	OutSkin();
 	exit;
 	}
@@ -52,30 +52,30 @@ my $itemno;
 foreach(0..$DT->{showcasecount}-1)
 {
 	next if !($itemno=$DT->{showcase}[$_]);
-	$showcase{$itemno}.="棚".($_+1).GetMoneyString($DT->{price}[$_])." ";
+	$showcase{$itemno}.=l('棚').($_+1).GetMoneyString($DT->{price}[$_])." ";
 }
 
 if(%itema)
 {
-	$disp.="<BIG>●保管倉庫</BIG><br><br>";
+	$disp.="<BIG>●".l('保管倉庫')."</BIG><br><br>";
 	$disp.=$TB;
 	if($MOBILE)
 	{
-		$tdh_sp="標準:";
-		$tdh_cs="維持:";
-		$tdh_st="在庫:";
-		$tdh_ex="熟練:";
+		$tdh_sp=l('標準').':';
+		$tdh_cs=l('維持').':';
+		$tdh_st=l('在庫').':';
+		$tdh_ex=l('熟練').':';
 	}
 	else
 	{
 		$disp.=$TR.$TDB.
 			join($TDB,
-				qw(
-					名称
-					標準価格
-					維持費
-					数量<small>/最大</small>
-					熟練
+				(
+					l('名称'),
+					l('標準価格'),
+					l('維持費'),
+					l('数量').'<small>/'.l('最大').'</small>',
+					l('熟練'),
 				)
 			).$TRE;
 	}
@@ -98,7 +98,7 @@ if(%itema)
 	$disp.=$TBE."<hr width=500 noshade size=1>";
 }
 
-$disp.="<BIG>●販売倉庫</BIG><br><br>";
+$disp.="<BIG>●".l('販売倉庫')."</BIG><br><br>";
 foreach my $cnt (0..$#ITEMTYPE)
 {
 	$disp.=$cnt==$tp ? "[" : "<A HREF=\"action.cgi?key=stock&$USERPASSURL&tp=$cnt\">";
@@ -110,35 +110,35 @@ foreach my $cnt (0..$#ITEMTYPE)
 
 if(!%itemb)
 {
-	$disp.="<hr width=500 noshade size=1>在庫がありません";
+	$disp.="<hr width=500 noshade size=1>".l('在庫がありません');
 }
 else
 {
 	$disp.=$TB;
 	if($MOBILE)
 	{
-		$tdh_sp="標準:";
-		$tdh_cs="維持:";
-		$tdh_ts="本昨売:";
-		$tdh_ex="熟練:";
-		$tdh_sc="陳列:";
-		$tdh_mp="相場:";
-		$tdh_mb="需給:";
+		$tdh_sp=l('標準').':';
+		$tdh_cs=l('維持').':';
+		$tdh_ts=l('本昨売').':';
+		$tdh_ex=l('熟練').':';
+		$tdh_sc=l('陳列').':';
+		$tdh_mp=l('相場').':';
+		$tdh_mb=l('需給').':';
 	}
 	else
 	{
 		$disp.=$TR.$TDB.
 			join($TDB,
-				qw(
-					名称
-					標準価格
-					維持費
-					数量<small>/最大</small>
-					売上数<small>/前期</small>
-					熟練
-					陳列
-					販売相場
-					需要供給バランス
+				(
+					l('名称'),
+					l('標準価格'),
+					l('維持費'),
+					l('数量<small>/最大</small>'),
+					l('売上数<small>/前期</small>'),
+					l('熟練'),
+					l('陳列'),
+					l('販売相場'),
+					l('需要供給バランス'),
 				)
 			).$TRE;
 	}

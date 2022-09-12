@@ -20,8 +20,8 @@ sub CheckItemNo
 	$itemno+=0;
 	$DT=$main::DT if !$DT;
 	
-	OutError('そんなアイテムはないです。') if $itemno<1 || $itemno>$MAX_ITEM;
-	OutError('アイテムの在庫がありません。') if !$DT->{item}[$itemno-1];
+	OutError(l('そんなアイテムはないです。')) if $itemno<1 || $itemno>$MAX_ITEM;
+	OutError(l('アイテムの在庫がありません。')) if !$DT->{item}[$itemno-1];
 
 	return $itemno;
 }

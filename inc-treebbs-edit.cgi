@@ -2,9 +2,9 @@ use utf8;
 # 掲示板書き込み処理 2003/09/25 由來
 
 if ($Q{message} eq "" || $Q{message} =~ /^(\x81\x40|\s|<br>)+$/)
-	{ OutError("メッセージが入力されていません。"); }
+	{ OutError(l('メッセージが入力されていません。')); }
 if ($Q{sub} eq "" || $Q{sub} =~ /^(\x81\x40|\s)+$/)
-	{ OutError("タイトルが入力されていません。"); }
+	{ OutError(l('タイトルが入力されていません。')); }
 
 # 管理者認識
 $Q{name}=$adminname,$Q{town}="" 	if ($MASTER_USER);
@@ -72,5 +72,5 @@ if ($count % 9999) { $count++; } else { $count=1; }
 	CoDataCA();
 	CoUnLock();
 
-	$disp.="書き込みを完了しました。 --".GetMenuTag('treebbs','[記事一覧に戻る]');
+	$disp.=l("書き込みを完了しました。").' --'.GetMenuTag('treebbs','['.l('記事一覧に戻る').']');
 1;

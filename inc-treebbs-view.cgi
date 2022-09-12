@@ -45,15 +45,15 @@ sub Msgview
 $disp.=<<HTML;
 <table width=500>
 $TR$TDB■ $v_sub$TRE
-$TR$TD<SPAN>発言者</SPAN>：<b> $v_nam</b> $v_eml<br>
-<SPAN>発言日</SPAN>： $date$TRE
+$TR$TD<SPAN>${\l('発言者')}</SPAN>：<b> $v_nam</b> $v_eml<br>
+<SPAN>${\l('発言日')}</SPAN>： $date$TRE
 $TR$TD◇
 <blockquote>$v_msg</blockquote>
 </td></tr></table>
 HTML
 
 	if (@new > 1) {
-		$disp.="<hr width=500 size=1><table width=500><tr><td><BIG>▼関連発言</BIG>\n";
+		$disp.="<hr width=500 size=1><table width=500><tr><td><BIG>▼".l('関連発言')."</BIG>\n";
 		$x=0;
 		$disp.="<UL>\n";
 		foreach (@new) {
@@ -85,7 +85,7 @@ sub msg_form {
 	if ($mode eq 'msgview') {
 		$disp.=<<STR;
 <hr width=500 noshade size=1>
-<BIG>●返信フォーム</BIG><br><br>
+<BIG>●${\l('返信フォーム')}</BIG><br><br>
 <FORM ACTION="action.cgi" enctype="multipart/form-data" $METHOD>
 $MYFORM$USERPASSFORM
 <input type=hidden name=mode value="form">
@@ -99,8 +99,8 @@ STR
 		my $image=GetTagImgKao("案内人","guide");
 		$disp.=<<STR;
 $TB$TR$TD$image
-$TD◇題名は，内容が分かるようにお願いします。<br>
-◇質問するときには先に図書館で調べましょう。
+$TD◇${\l('題名は，内容が分かるようにお願いします。')}<br>
+◇${\l('質問するときには先に図書館で調べましょう。')}
 $TRE$TBE<br>
 <FORM ACTION="action.cgi" enctype="multipart/form-data" $METHOD>
 $MYFORM$USERPASSFORM
@@ -114,9 +114,9 @@ $disp.=<<"STR";
 <input type=hidden name=name value="$DT->{shopname}">
 <input type=hidden name=town value="$TOWN_TITLE">
 $TBT$TRT
-<td nowrap><SPAN>タイトル</SPAN>
+<td nowrap><SPAN>${\l('タイトル')}</SPAN>
 <td><input type=text name=sub size=38 value=\"$res_sub\"></td></tr>
-$TRT<td nowrap><SPAN>メッセージ</SPAN><td>
+$TRT<td nowrap><SPAN>${\l('メッセージ')}</SPAN><td>
 <textarea name=message rows=10 cols=62 wrap=soft></textarea></tr>
 STR
 
@@ -127,10 +127,10 @@ STR
 	}
 
 $disp.=<<"EOM";
-$TRT<td nowrap><SPAN>発言種類</SPAN></td><td><select name=smail>
+$TRT<td nowrap><SPAN>${\l('発言種類')}</SPAN></td><td><select name=smail>
 $select_option
 </select></tr>$TBE
-<input type=submit value=" 記事を投稿する ">
+<input type=submit value=" ${\l('記事を投稿する')} ">
 </form>
 EOM
 }

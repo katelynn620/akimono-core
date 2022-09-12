@@ -96,7 +96,7 @@ sub CheckBride
 	undef @place;
 	my @buf = sort { $b <=> $a } @Pcode;
 	my $MAXADD=$buf[0];
-	$place[100]=$space.GetMenuTag('bride','<acronym title="教会"><IMG WIDTH=112 HEIGHT=80 SRC="'.$IMAGE_URL.'/map/house1d.png"></acronym>');
+	$place[100]=$space.GetMenuTag('bride','<acronym title="'.l('教会').'"><IMG WIDTH=112 HEIGHT=80 SRC="'.$IMAGE_URL.'/map/house1d.png"></acronym>');
 
 	my @BRIDEnamelist=qw(
 		no tm mode ida idb stbase ctbase money place reform
@@ -123,7 +123,7 @@ sub CheckBride
 	foreach(101..$MAXADD)
 		{
 		next if $place[$_];
-		$place[$_]='<acronym title="住宅用地"><IMG WIDTH="128" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/housez.png"></acronym>';
+		$place[$_]='<acronym title="'.l('住宅用地').'"><IMG WIDTH="128" HEIGHT="80" SRC="'.$IMAGE_URL.'/map/housez.png"></acronym>';
 		$place[$_]=GetMenuTag('bride',$place[$_],'&form='.$_.'&idx='.$married) if $married;
 		}
 }

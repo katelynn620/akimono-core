@@ -2,10 +2,10 @@ use utf8;
 # ドラゴンレース 厩舎編集 2005/03/30 由來
 
 ReadStable();
-$disp.="<BIG>●ドラゴンレース：厩舎</BIG><br><br>";
+$disp.="<BIG>●".l('ドラゴンレース')."：".l('厩舎')."</BIG><br><br>";
 
 my $functionname=$Q{code};
-OutError("bad request") if !defined(&$functionname);
+OutError('bad request') if !defined(&$functionname);
 &$functionname;
 
 WriteStable();
@@ -16,9 +16,9 @@ CoDataCA();
 
 sub new
 {
-OutError("bad request") if ($MYST!=-1);
-OutError("bad request") if (scalar @ST >= $STmax);
-OutError('資金の余裕がありません。') if ($DT->{money} < $STest);
+OutError('bad request') if ($MYST!=-1);
+OutError('bad request') if (scalar @ST >= $STmax);
+OutError(l('資金の余裕がありません。')) if ($DT->{money} < $STest);
 
 	# 名前の正当性をチェック
 	# require $JCODE_FILE;
@@ -26,14 +26,14 @@ OutError('資金の余裕がありません。') if ($DT->{money} < $STest);
 
 	if(!$Q{name})
 	{
-		OutError('名前を入力してください。');
+		OutError(l('名前を入力してください。'));
 	}
 	if($Q{name} =~ /([,:;\t\r\n<>&])/ || CheckNGName($Q{name}) )
 	{
-		OutError('名前に使用できない文字が含まれています。');
+		OutError(l('名前に使用できない文字が含まれています。'));
 	}
-	OutError('名前が長すぎます。') if length($Q{name})>20;
-	OutError('名前が短すぎます。') if length($Q{name})<6;
+	OutError(l('名前が長すぎます。')) if length($Q{name})>20;
+	OutError(l('名前が短すぎます。')) if length($Q{name})<6;
 
 	@ST=reverse(@ST);
 	$STcount++;
@@ -51,17 +51,17 @@ OutError('資金の余裕がありません。') if ($DT->{money} < $STest);
 	@ST=reverse(@ST);
 
 WritePayLog($MYDIR,$DT->{id},-$STest);
-PushDraLog(0,"新しい厩舎「".$Q{name}."」が設立されました。");
-$disp.="新しい厩舎「<b>".$Q{name}."</b>」を設立しました。";
+PushDraLog(0,l("新しい厩舎「%1」が設立されました。",$Q{name}));
+$disp.=l("新しい厩舎「<b>%1</b>」を設立しました。",$Q{name});
 }
 
 sub large
 {
-OutError("bad request") if ($MYST==-1);
-OutError('資金の余裕がありません。') if ($DT->{money} < $STest);
+OutError('bad request') if ($MYST==-1);
+OutError(l('資金の余裕がありません。')) if ($DT->{money} < $STest);
 my $n=int(($NOW_TIME - $ST[$MYST]->{birth})/86400/2) + 1;
 my $cost=($ST[$MYST]->{sp} + $ST[$MYST]->{sr} + $ST[$MYST]->{ag} + $ST[$MYST]->{pw} + $ST[$MYST]->{hl} + $ST[$MYST]->{fl});
-OutError("bad request") if ($n < $cost);
+OutError('bad request') if ($n < $cost);
 
 	my @large=qw(
 		sp sr ag pw hl fl
@@ -70,9 +70,9 @@ OutError("bad request") if ($n < $cost);
 	my $lar=$large[$Q{lar}];
 
 	$ST[$MYST]->{$lar}++;
-	OutError('これ以上，この施設は増築できません') if ($ST[$MYST]->{$lar} > 3);
+	OutError(l('これ以上，この施設は増築できません')) if ($ST[$MYST]->{$lar} > 3);
 
 WritePayLog($MYDIR,$DT->{id},-$STest);
-$disp.="厩舎を増築しました。";
+$disp.=l("厩舎を増築しました。");
 }
 

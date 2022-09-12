@@ -135,7 +135,7 @@ sub UseItem
 			if($itemcount+$DT->{item}[$itemno-1]>$ITEM[$itemno]->{limit})
 			{
 				$itemcount-=$ITEM[$itemno]->{limit}-$DT->{item}[$itemno-1];
-				my $trashitem="これ以上持てないので".$ITEM[$itemno]->{name}."を".($itemcount).$ITEM[$itemno]->{scale}."破棄しました";
+				my $trashitem=l("これ以上持てないので%1を%2%3破棄しました",$ITEM[$itemno]->{name},$itemcount,$ITEM[$itemno]->{scale});
 				$DTwholestore[$itemno-1]+=$itemcount;
 				push(@{$USE->{result}->{trashmsg}},$trashitem);
 				$itemcount=$ITEM[$itemno]->{limit}-$DT->{item}[$itemno-1];
@@ -248,7 +248,7 @@ sub GetBackUrl
 	);
 	my $url=$url{$urltype}; $url||="key=$urltype&$USERPASSURL";
 	
-	return '<A HREF="action.cgi?'.$url.'">[戻る]</A>';
+	return '<A HREF="action.cgi?'.$url.'">['.l('戻る').']</A>';
 }
 
 1;

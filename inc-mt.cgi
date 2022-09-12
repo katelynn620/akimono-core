@@ -34,8 +34,8 @@ if (-e "$DATA_DIR/error.log")
 	<TABLE cellspacing="0" cellpadding="5" width="700" border="0">
 	<TBODY><TR><TD width="80" bgcolor="#ABA5FF" align="center">
 	<FONT color="#FFFFFF"><small>for Admin</small></FONT></TD>
-	<TD align="center" bgcolor="#DBD5FF">エラーのためシステムを停止しました。 … 
-	<A HREF="$DATA_DIR/error.log">[エラー情報]</A> ： <A HREF="http://akimono.org/">[エラー相談]</A>
+	<TD align="center" bgcolor="#DBD5FF">${\l('エラーのためシステムを停止しました。')} … 
+	<A HREF="$DATA_DIR/error.log">[${\l('エラー情報')}]</A> ： <A HREF="http://akimono.org/">[${\l('エラー相談')}]</A>
 	</TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>
 STR
 	}
@@ -55,18 +55,18 @@ SPAN { font-family:"Comic Sans MS"; font-size:16pt; color:#664499 ;}
 input,input.button{color:#000000;background-color:#FFFFFF;border:1 #5f5f8c solid}
 -->
 </Style>
-<TITLE>$HTML_TITLE:メンテ中</TITLE>
+<TITLE>$HTML_TITLE:${\l('メンテ中')}</TITLE>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#6050cc" VLINK="#6050cc" ALINK="#FF0000">
 <center><br><SPAN>Sorry, Now Under Site Maintenance.</SPAN><br><br>
 <TABLE cellspacing="0" cellpadding="0"><TBODY><TR><TD bgcolor="#6B6599">
 <TABLE cellspacing="1" cellpadding="0" border="0" width="700"><TBODY><TR><TD bgcolor="#FFFFFF" align="center">
-<br>ただいまメンテナンス作業中のため，ゲームが停止しております。<br><br>
-プレイ中の方にはご不便をおかけしますが，もうしばらくお待ちください。<br>
-数時間以上経っても戻らない場合は，お手数ですが<a href="mailto:$ADMIN_EMAIL">管理人までご連絡</a>ください。<br><br>
+<br>${\l('ただいまメンテナンス作業中のため，ゲームが停止しております。')}<br><br>
+${\l('プレイ中の方にはご不便をおかけしますが，もうしばらくお待ちください。')}<br>
+${\l('数時間以上経っても戻らない場合は，お手数ですが<a href="mailto:%1">管理人までご連絡</a>ください。',$ADMIN_EMAIL)}<br><br>
 <A HREF=\"$HOME_PAGE\" TARGET=_top>[ホームに戻る]</A>
 <br><div align="right"><small>
-<A HREF="http://akimono.org/">商人物語</A></small></div>
+<A HREF="http://akimono.org/">${\l('商人物語')}</A></small></div>
 </TD></TR></TBODY></TABLE>
 </TD></TR></TBODY></TABLE>
 $er<br>$msg</CENTER>

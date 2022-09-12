@@ -32,10 +32,10 @@ $design_sale=1;
 $design_prof=0;
 $design_rank=0;
 $design_plus=0;
-$disp.="<BIG>●アイテムデータ</BIG><br><br>";
+$disp.="<BIG>●".l('アイテムデータ')."</BIG><br><br>";
 } else {
-OutError("bad request") if ($listcheck == 2);
-$disp.="<BIG>●アイテム紹介</BIG><br><br>";
+OutError('bad request') if ($listcheck == 2);
+$disp.="<BIG>●".l('アイテム紹介')."</BIG><br><br>";
 }
 
 my $tp=int($Q{tp}+0);
@@ -67,15 +67,15 @@ $disp.=GetPageControl($pageprev,$pagenext,"tp=$tp","",$pagemax,$page);
 
 $disp.=$TB;
 $disp.=$TR;
-$disp.=$TDB.'No.' if $design_no;
-$disp.=$TDB.'商品名';
-$disp.=$TDB.'標準価格';
-$disp.=$TDB.'維持費';
-$disp.=$TDB.'売行' if $design_sale;
-$disp.=$TDB.'利益率';
-$disp.=$TDB.'人気率';
-$disp.=$TDB.'入荷';
-$disp.=$TDB.'説明';
+$disp.=$TDB.l('No.') if $design_no;
+$disp.=$TDB.l('商品名');
+$disp.=$TDB.l('標準価格');
+$disp.=$TDB.l('維持費');
+$disp.=$TDB.l('売行') if $design_sale;
+$disp.=$TDB.l('利益率');
+$disp.=$TDB.l('人気率');
+$disp.=$TDB.l('入荷');
+$disp.=$TDB.l('説明');
 $disp.=$TRE;
 foreach my $ITEM ((sort{$a->{sort} <=> $b->{sort}} values(%adminitemlist))[$pagestart..$pageend])
 {

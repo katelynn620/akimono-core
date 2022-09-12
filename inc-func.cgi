@@ -153,7 +153,7 @@ sub OutSkin
 	
 	if ($MOBILE)
 		{
-		print GetMenuTag('menu','[メニュー]'),'<br><br>' if !$NOMENU && $Q{key} ne 'menu';
+		print GetMenuTag('menu','['.l('メニュー').']'),'<br><br>' if !$NOMENU && $Q{key} ne 'menu';
 		$DISP{MENU} =~ s/#SKINTITLE#/$HTML_TITLE/;
 		print $DISP{MENU};
 		}
@@ -177,7 +177,7 @@ sub GetTagImgKao
 sub GetTagImgJob
 {
 	my($i,$ii)=@_;
-	return qq|<IMG ALT="すっぴん" class="j" SRC="$IMAGE_URL/job/job.gif">| if !$i;
+	return qq|<IMG ALT="|.l('すっぴん').qq|" class="j" SRC="$IMAGE_URL/job/job.gif">| if !$i;
 	return qq|<IMG ALT="$JOBTYPE{$i}" class="j" SRC="$IMAGE_URL/job/job$i.gif">|;
 }
 
@@ -395,15 +395,15 @@ sub GetTime2HMS
 	my($tm,$mode)=@_;
 	
 	my $s=$tm%60;
-	return Get02D($s).'秒' if $tm<60;
+	return Get02D($s).l('秒') if $tm<60;
 	
 	my $m=($tm-$s)%3600;
-	return ($m/60).'分' if $tm<3600;
+	return ($m/60).l('分') if $tm<3600;
 	
 	my $h=($tm-$s-$m)/3600;
-	return $h.'時間'.($m && !$mode ? Get02D($m/60).'分':'') if $h<24*3;
+	return $h.l('時間').($m && !$mode ? Get02D($m/60).l('分'):'') if $h<24*3;
 	
-	return int($h/24).'日';
+	return int($h/24).l('日');
 }
 
 sub GetTagA

@@ -3,7 +3,7 @@ use utf8;
 
 $NOMENU=1;
 $Q{bk}="none";
-$disp.="<BIG>●アイコン一覧</BIG><br><br>";
+$disp.="<BIG>●".l('アイコン一覧')."</BIG><br><br>";
 
 $disp.=$TBT;
 foreach my $i(1..$ICON_NUMBER)

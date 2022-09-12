@@ -47,7 +47,7 @@ sub CheckShowCaseNumber
 	my($DT,$sc)=@_;
 	
 	$sc+=0;
-	OutError('そんな陳列棚はありません') if $sc<0 || $DT->{showcasecount}<=$sc;
+	OutError(l('そんな陳列棚はありません')) if $sc<0 || $DT->{showcasecount}<=$sc;
 
 	return $sc;
 }
@@ -56,7 +56,7 @@ sub GetTopCountImage
 {
 	my($count)=@_;
 	return "" if !$count;
-	return $count."回優勝" if $MOBILE;
+	return $count.l('%1回優勝',$count) if $MOBILE;
 
 	my $ret="";
 	my $num=1;
@@ -66,7 +66,7 @@ sub GetTopCountImage
 		$num++;
 	}
 	my $fn=$IMAGE_URL."/rank".$num.$IMAGE_EXT;
-	$ret="<IMG class=\"i\" SRC=\"$fn\" ALT=\"$count回優勝\">";
+	$ret="<IMG class=\"i\" SRC=\"$fn\" ALT=\"".l('%1回優勝',$count)."\">";
 	return $ret;
 }
 
@@ -79,12 +79,12 @@ sub GetMoneyMessage
 
 	foreach my $rank (10,20,50,100,500,1000,5000)
 	{
-		return $rank."<font size=\"-3\">万$term[2]以下</font>" if $money<=$rank;
+		return $rank."<font size=\"-3\">".l('万')."$term[2]".l('以下')."</font>" if $money<=$rank;
 	}
 
 	foreach my $rank (10000,50000,100000)
 	{
-		return int($rank/10000)."<font size=\"-3\">億$term[2]以下</font>" if $money<=$rank;
+		return int($rank/10000)."<font size=\"-3\">".l('億')."$term[2].l('以下').</font>" if $money<=$rank;
 	}
 }
 

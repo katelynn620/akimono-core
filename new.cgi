@@ -1,17 +1,17 @@
 use utf8;
 # 新規開店 2004/01/20 由來
 
-$image[0]=GetTagImgKao("案内人","guide");
+$image[0]=GetTagImgKao(l('案内人'),"guide");
 # require $JCODE_FILE;
 DataRead();
 
 if($Q{admin} ne $MASTER_PASSWORD)
 {
-	OutError('新規店舗登録権限がありません。') if $NEW_SHOP_ADMIN;
-	OutError('あなたはすでに店舗を持っています。') if GetIPList(GetTrueIP());
-	OutError('あなたは他の街ですでに店舗を持っています。') if $NEW_OTHERTOWN_BLOCK && GetDoubleIP(GetTrueIP());
-	OutError('あなたは現在登録制限されています。') if $NEW_SHOP_BLOCKIP && GetTrueIP() eq $DTblockip;
-	OutError('出店キーワードが正しくありません。') if $NEW_SHOP_KEYWORD && $Q{sname} && $Q{newkey} ne $NEW_SHOP_KEYWORD;
+	OutError(l('新規店舗登録権限がありません。')) if $NEW_SHOP_ADMIN;
+	OutError(l('あなたはすでに店舗を持っています。')) if GetIPList(GetTrueIP());
+	OutError(l('あなたは他の街ですでに店舗を持っています。')) if $NEW_OTHERTOWN_BLOCK && GetDoubleIP(GetTrueIP());
+	OutError(l('あなたは現在登録制限されています。')) if $NEW_SHOP_BLOCKIP && GetTrueIP() eq $DTblockip;
+	OutError(l('出店キーワードが正しくありません。')) if $NEW_SHOP_KEYWORD && $Q{sname} && $Q{newkey} ne $NEW_SHOP_KEYWORD;
 	checkMaxUser();
 }
 
@@ -27,35 +27,34 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 	|| CheckNGName($Q{name})  #名前のチェックを追加
 	)
 	{
-		OutError('名前・店名・パスワードに使用できない'.
-		         '文字が含まれています。');
+		OutError(l('名前・店名・パスワードに使用できない文字が含まれています。'));
 	}
 	if(!$Q{sname} || !$Q{name} || !$Q{pass1} || !$Q{pass2})
 	{
-		OutError('名前・店名・パスワードを入力してください。');
+		OutError(l('名前・店名・パスワードを入力してください。'));
 	}
 	if($Q{pass1} ne $Q{pass2})
 	{
-		OutError('確認パスワードが違っています。');
+		OutError(l('確認パスワードが違っています。'));
 	}
 	if(length($Q{sname})<4)
 	{
-		OutError('店名の文字数が少ないです。');
+		OutError(l('店名の文字数が少ないです。'));
 	}
 	if(length($Q{name})>12 || length($Q{sname})>20
 	|| length($Q{pass1})>12 || length($Q{pass2})>8)
 	{
-		OutError('名前(全角6文字)・店名(全角10文字)・パスワード(8文字)の文字数が多いです。');
+		OutError(l('名前(全角6文字)・店名(全角10文字)・パスワード(8文字)の文字数が多いです。'));
 	}
 	if( $Q{name} eq $Q{pass1} )
 	{
-		OutError('名前とパスワードは同じにしないでください。');
+		OutError(l('名前とパスワードは同じにしないでください。'));
 	}
 	
 	Lock();
 	DataRead();
-	OutError('既に存在する名前です。-> '.$Q{name}) if $name2pass{$Q{name}};
-	OutError('既に存在する店名です。-> '.$Q{sname}) if GetDoubleName($Q{sname});;
+	OutError(l('既に存在する名前です。-> %1',$Q{name})) if $name2pass{$Q{name}};
+	OutError(l('既に存在する店名です。-> %1',$Q{sname})) if GetDoubleName($Q{sname});;
 	
 	$idx=$DTusercount;
 	$DTlasttime=$NOW_TIME if !$idx;
@@ -99,7 +98,7 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 	$DTblockip=$DT->{remoteaddr};
 
 	require "$ITEM_DIR/funcnew.cgi" if $DEFINE_FUNCNEW;
-	PushLog(1,0,$Q{sname}."が新装開店しました。") if !$DEFINE_FUNCNEW || !$DEFINE_FUNCNEW_NOLOG;
+	PushLog(1,0,l("%1が新装開店しました。",$Q{sname})) if !$DEFINE_FUNCNEW || !$DEFINE_FUNCNEW_NOLOG;
 
 	RenewLog();
 	DataWrite();
@@ -107,21 +106,21 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 	UnLock();
 
 	$disp=<<STR;
-街に新しいお店が誕生しました。<br><br>
+${\l('街に新しいお店が誕生しました。')}<br><br>
 $TB$TR$TD
-<SPAN>名前</SPAN>：$Q{name}<BR>
-<SPAN>店名</SPAN>：$Q{sname}<BR>
-<SPAN>パスワード</SPAN>：$Q{pass1}
+<SPAN>${\l('名前')}</SPAN>：$Q{name}<BR>
+<SPAN>${\l('店名')}</SPAN>：$Q{sname}<BR>
+<SPAN>${\l('パスワード')}</SPAN>：$Q{pass1}
 $TRE$TBE
-<BR>※パスワードは必ずメモを取っておいてください。<BR><BR>
+<BR>※${\l('パスワードは必ずメモを取っておいてください。')}<BR><BR>
 $TB$TR
 $TD$image[0]$TD
-スタートしたら，まず<SPAN>[掲示板]</SPAN>であいさつをすると良いでしょう。<br>
-また<SPAN>[図書館]</SPAN>に経営のヒントがありますので一通りご覧下さい。
+${\l('スタートしたら，まず<SPAN>[掲示板]</SPAN>であいさつをすると良いでしょう。')}<br>
+${\l('また<SPAN>[図書館]</SPAN>に経営のヒントがありますので一通りご覧下さい。')}
 $TRE$TBE
 <BR>
-<A HREF=\"index.cgi?u=$Q{name}!$Q{pass1}\">ゲームスタート</A><BR><BR>
-ログイン後に[♪]を押すとBGMを演奏することができます。
+<A HREF=\"index.cgi?u=$Q{name}!$Q{pass1}\">${\l('ゲームスタート')}</A><BR><BR>
+${\l('ログイン後に[♪]を押すとBGMを演奏することができます。')}
 STR
 	OutSkin();
 	exit;
@@ -133,7 +132,7 @@ OutSkin();
 
 sub checkMaxUser
 {
-	OutError($TB.$TR.$TD.$image[0].$TD.'申し訳ありませんが，現在満員となっております。<BR>空きが出るのをお待ちください。'.$TRE.$TBE)
+	OutError($TB.$TR.$TD.$image[0].$TD.l('申し訳ありませんが，現在満員となっております。').'<BR>'.l('空きが出るのをお待ちください。').$TRE.$TBE)
 		if $DTusercount>=$MAX_USER;
 }
 

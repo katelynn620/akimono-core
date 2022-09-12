@@ -6,21 +6,21 @@ $Q{bk}="none";
 $NOITEM=1;
 DataRead();
 CheckUserPass();
-OutError("") if !$MASTER_USER;
+OutError('') if !$MASTER_USER;
 
 ReadLetterName();
 ReadLetter();
 
-$disp.="<BIG>●郵便チェック</BIG><br><br>";
+$disp.="<BIG>●".l("郵便チェック")."</BIG><br><br>";
 
 foreach my $i(0..$Lcount)
 	{
 	my $sname=SearchLetterName($LETTER[$i]->{fromid},$LETTER[$i]->{fromt});
-	$sname="(不明)" if $sname eq "-1";
+	$sname=l("(不明)") if $sname eq "-1";
 	my $tname=SearchLetterName($LETTER[$i]->{toid},$LETTER[$i]->{tot});
-	$tname="(不明)" if $tname eq "-1";
+	$tname=l("(不明)") if $tname eq "-1";
 	$disp.="□";
-	$disp.=($LETTER[$i]->{mode}==1) ? "<SPAN>未読</SPAN>：" : "既読：";
+	$disp.=($LETTER[$i]->{mode}==1) ? "<SPAN>".l('未読')."</SPAN>：" : l("既読")."：";
 	$disp.=GetTime2FormatTime($LETTER[$i]->{time})." … from：<span>".$sname."</span>";
 	$disp.=" <small>（".$Tname{$LETTER[$i]->{fromt}}."）</small> ";
 	$disp.=" … to：<span>".$tname."</span>";

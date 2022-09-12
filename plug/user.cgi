@@ -4,9 +4,9 @@ use utf8;
 sub GetID2UserName
 {
 	my($to)=@_;
-	return ("貿易","") if $to==1;
+	return (l("貿易"),"") if $to==1;
 	return ($DT[$id2idx{$to}]->{shopname},$DT[$id2idx{$to}]->{name}) if defined($id2idx{$to});
-	return ('閉店済','');
+	return (l('閉店済'),'');
 }
 
 sub CheckUserID
@@ -15,7 +15,7 @@ sub CheckUserID
 	$id+=0;
 	
 	return 0 if $enable0 && !$id;
-	OutError('その店舗は存在しません。') if !defined($id2idx{$id});
+	OutError(l('その店舗は存在しません。')) if !defined($id2idx{$id});
 
 	return ($id,$id2idx{$id});
 }

@@ -2,7 +2,7 @@ use utf8;
 # 宅配便編集 2005/03/30 由來
 
 my $functionname=$Q{mode};
-OutError("bad request") if !defined(&$functionname);
+OutError('bad request') if !defined(&$functionname);
 &$functionname;
 
 WriteDwarf();
@@ -14,28 +14,28 @@ UnLock();
 sub new
 {
 	my ($to,$item)=($Q{to},$Q{item});
-	OutError("宛先を指定してください。") if $to==-1;
-	OutError("自分自身に宅配便を出すことはできません。") if ($to == $DT->{id});
+	OutError(l('宛先を指定してください。')) if $to==-1;
+	OutError(l('自分自身に宅配便を出すことはできません。')) if ($to == $DT->{id});
 	if ($to==99)
 		{
-		OutError("貿易がつながっていないので指定できません。") unless -e "trade.cgi";
+		OutError(l('貿易がつながっていないので指定できません。')) unless -e "trade.cgi";
 		$Q{notice}=0;
 		}
 		else
 		{
-		OutError("存在しない店舗です。") if !defined($id2idx{$to});
+		OutError(l('存在しない店舗です。')) if !defined($id2idx{$to});
 		}
-	OutError("アイテムの指定が不正です。") if !$ITEM[$item]->{name};
-	OutError("アイテムの指定が不正です。") if $ITEM[$item]->{flag}=~/r/;	# r 依頼不可
+	OutError(l('アイテムの指定が不正です。')) if !$ITEM[$item]->{name};
+	OutError(l('アイテムの指定が不正です。')) if $ITEM[$item]->{flag}=~/r/;	# r 依頼不可
 
 	$Q{num}||=$DT->{item}[$item-1];
 	$Q{num}=CheckCount($Q{num},0,0,$DT->{item}[$item-1]);
-	OutError("アイテムの在庫がありません。") if !$Q{num};
+	OutError(l('アイテムの在庫がありません。')) if !$Q{num};
 	my $price=CheckCount($Q{price},0,0,$MAX_MONEY);
 	$price=$price * $Q{num} if $Q{unit};
-	OutError("料金を指定してください。") if !$price;
+	OutError(l('料金を指定してください。')) if !$price;
 	my $numrate=$ITEM[$item]->{price} * $Q{num};
-	OutError("商品と料金の価値がつりあっていません。") if ($price > $numrate * 2) || ($numrate > $price * 2);
+	OutError(l('商品と料金の価値がつりあっていません。')) if ($price > $numrate * 2) || ($numrate > $price * 2);
 
 	NoticeDwarf() if $Q{notice};
 
@@ -55,7 +55,7 @@ sub new
 
 	my $cost=0;
 	$cost=int($price * $DTTaxrate / 100);
-	OutError("税金を払うことができません。") if ($cost > $DT->{money});
+	OutError(l('税金を払うことができません。')) if ($cost > $DT->{money});
 	$DT->{taxtoday}+=$cost;
 	$DT->{money}-=$cost;
 
@@ -94,25 +94,25 @@ sub plus
 	$DT->{item}[$item-1]+=$num;
 	$DT->{item}[$item-1]=$ITEM[$item]->{limit} if ($DT->{item}[$item-1]>$ITEM[$item]->{limit});
 	}
-	OutError("代金を支払うのに必要な資金が足りません。") if ($DT->{money} < 0);
+	OutError(l('代金を支払うのに必要な資金が足りません。')) if ($DT->{money} < 0);
 	DataWrite();
 }
 
 sub trade
 {
-	OutError("貿易がつながっていないので指定できません。") unless -e "trade.cgi";
-	OutError("貿易品を指定してください。") if !defined($Q{code});
+	OutError(l('貿易がつながっていないので指定できません。')) unless -e "trade.cgi";
+	OutError(l('貿易品を指定してください。')) if !defined($Q{code});
 
 	my($boxno,$item,$num,$price)=split(/:/,$Q{code});
-	OutError("アイテムの指定が不正です。") if !$ITEM[$item]->{name};
-	OutError("アイテムの指定が不正です。") if $ITEM[$item]->{flag}=~/r/;	# r 依頼不可
+	OutError(l('アイテムの指定が不正です。')) if !$ITEM[$item]->{name};
+	OutError(l('アイテムの指定が不正です。')) if $ITEM[$item]->{flag}=~/r/;	# r 依頼不可
 
 	$num=CheckCount($num,0,0,$MAX_MONEY);
-	OutError("個数の指定が不正です。".$num) if !$num;
+	OutError(l('個数の指定が不正です。',$num)) if !$num;
 	$price=CheckCount($price,0,0,$MAX_MONEY);
-	OutError("料金の指定が不正です。") if !$price;
-	OutError("資金を準備しておいてください。") if $price > $DT->{money};
-	OutError("その貿易品はすでに売約済です。") if grep($_->{trade} eq $boxno,@DWF);
+	OutError(l('料金の指定が不正です。')) if !$price;
+	OutError(l('資金を準備しておいてください。')) if $price > $DT->{money};
+	OutError(l('その貿易品はすでに売約済です。')) if grep($_->{trade} eq $boxno,@DWF);
 
 	@DWF=reverse(@DWF);
 	$Dcount++;
@@ -182,8 +182,8 @@ sub NoticeDwarf
 	$LETTER[$i]->{fromid}=1;
 	$LETTER[$i]->{tot}=$MYDIR;
 	$LETTER[$i]->{toid}=$Q{to};
-	$LETTER[$i]->{title}="宅配便到着のお知らせ";
-	$LETTER[$i]->{msg}="こちらドワーフ宅配便です。".$DT->{shopname}."さんより，小包が届けられましたので，ご確認をお願いいたします。";
+	$LETTER[$i]->{title}=l("宅配便到着のお知らせ");
+	$LETTER[$i]->{msg}=l("こちらドワーフ宅配便です。%1さんより，小包が届けられましたので，ご確認をお願いいたします。",$DT->{shopname});
 	$LETTER[$i]->{mode}=1;	#未読設定
 	$LETTER[$i]->{other}=$DT->{shopname};
 	@LETTER=reverse(@LETTER);

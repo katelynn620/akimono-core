@@ -1,12 +1,12 @@
 use utf8;
 # アイテム破棄下請け 2004/01/20 由來
 
-my $msg1="破棄";
-my $msg2="全部";
+my $msg1=l("破棄");
+my $msg2=l("全部");
 if ($ITEM[$itemno]->{flag}=~/h/)
 	{
-	$msg1="解雇";
-	$msg2="全員";
+	$msg1=l("解雇");
+	$msg2=l("全員");
 	}
 
 $disp.=<<STR;
@@ -34,9 +34,9 @@ STR
 		$oldcnt=$cnt;
 	}
 $disp .= "</SELECT>
-$ITEM[$itemno]->{scale}、もしくは
+$ITEM[$itemno]->{scale}、".l('もしくは')."
 <INPUT TYPE=TEXT SIZE=5 NAME=cnt2>
 $ITEM[$itemno]->{scale}
-<INPUT TYPE=SUBMIT VALUE=\"" . $msg1 . "する\">(時間消費無)
+<INPUT TYPE=SUBMIT VALUE=\"" . l('%1する',$msg1) . "\">(".l('時間消費無').")
 </FORM>";
 1;

@@ -15,13 +15,13 @@ Force() if ($ckeckok);
 sub GuildFundF
 {
 	$stock=($DT->{money} - 100000);
-	$disp.="<BIG>●ギルド寄付</BIG>： 資金の余裕がありません",return if ($stock < 100000);
+	$disp.="<BIG>●".l('ギルド寄付')."</BIG>： ".l("資金の余裕がありません"),return if ($stock < 100000);
 $disp.=<<STR;
 	<form action="action.cgi" $METHOD>
 	<INPUT TYPE=HIDDEN NAME=key VALUE="gd-s">
 	$USERPASSFORM
 	<INPUT TYPE=HIDDEN NAME=mode VALUE="fund">
-	<BIG>●ギルド寄付</BIG>： $term[0]
+	<BIG>●${\l('ギルド寄付')}</BIG>： $term[0]
 	<SELECT NAME=cnt1>
 	<OPTION VALUE="0" SELECTED>
 STR
@@ -29,7 +29,7 @@ STR
 	$msg{10000}=10000;
 	$msg{100000}=100000;
 	$msg{1000000}=1000000;
-	$msg{$stock}="$stock(最大額)";
+	$msg{$stock}="$stock(".l('最大額').")";
 	my $oldcnt=0;
 	foreach my $cnt (sort { $a <=> $b } (1000,10000,100000,1000000,$stock))
 	{
@@ -39,54 +39,54 @@ STR
 	}
 $disp.=<<STR;
 	</SELECT>
-	$term[1]、もしくは $term[0]
+	${\l('%1、もしくは %2',$term[1],$term[0])}
 	<INPUT TYPE=TEXT SIZE=7 NAME=cnt2>$term[1]
-	<INPUT TYPE=SUBMIT VALUE="寄付する">
+	<INPUT TYPE=SUBMIT VALUE="${\l('寄付する')}">
 	</FORM>
 STR
 }
 
 sub Break
 {
-	$disp.="<BIG>●ギルドブレイク</BIG>： 肩書きがつかないと実行できません",return if (!$DT->{user}{_so_e});
-	$disp.='<BIG>●ギルドブレイク</BIG>： 時間が足りません',return if GetStockTime($DT->{time})<$usetime;
+	$disp.="<BIG>●".l('ギルドブレイク')."</BIG>： ".l("肩書きがつかないと実行できません"),return if (!$DT->{user}{_so_e});
+	$disp.='<BIG>●'.l('ギルドブレイク')."</BIG>： ".l('時間が足りません'),return if GetStockTime($DT->{time})<$usetime;
 	$target="";
 	foreach (keys(%GUILD))
 	{
 	$target.="<OPTION value=\"$_\">$GUILD{$_}->[$GUILDIDX_name]" if $GUILD_DATA{$_}->{money} > $GUILD_DATA{$DT->{guild}}->{money};
 	}
-	$disp.="<BIG>●ギルドブレイク</BIG>： 相手がいません",return if (!$target);
+	$disp.="<BIG>●".l('ギルドブレイク')."</BIG>： ".l("相手がいません"),return if (!$target);
 $disp.=<<STR;
 <form action="action.cgi" $METHOD>
 <INPUT TYPE=HIDDEN NAME=key VALUE="gd-s">
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="break">
-<BIG>●ギルドブレイク：</BIG>
+<BIG>●${\l('ギルドブレイク')}：</BIG>
 <SELECT NAME=tg>
 <OPTION value="">
 $target
 </SELECT>
-に対して
-<INPUT TYPE=SUBMIT VALUE="攻撃する">
+${\l('に対して')}
+<INPUT TYPE=SUBMIT VALUE="${\l('攻撃する')}">
 STR
-	$disp.="(消費時間:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(".l('消費時間').":".GetTime2HMS($usetime).")</FORM>";
 }
 
 sub Force
 {
 	$disp.='<hr width=500 noshade size=1>';
-	$disp.="<BIG>●軍備増強</BIG>： 肩書きがつかないと実行できません",return if (!$DT->{user}{_so_e});
-	$disp.='<BIG>●軍備増強</BIG>： 時間が足りません',return if GetStockTime($DT->{time})<$usetime;
-	$disp.="<BIG>●軍備増強</BIG>： 増強の必要がありません",return if ($GUILD_DATA{$DT->{guild}}->{atk} > 990);
+	$disp.="<BIG>●".l('軍備増強')."</BIG>： ".l("肩書きがつかないと実行できません"),return if (!$DT->{user}{_so_e});
+	$disp.='<BIG>●'.l('軍備増強').'</BIG>： '.l("時間が足りません"),return if GetStockTime($DT->{time})<$usetime;
+	$disp.="<BIG>●".l('軍備増強')."</BIG>： ".l("増強の必要がありません"),return if ($GUILD_DATA{$DT->{guild}}->{atk} > 990);
 $disp.=<<STR;
 <form action="action.cgi" $METHOD>
 <INPUT TYPE=HIDDEN NAME=key VALUE="gd-s">
 $USERPASSFORM
 <INPUT TYPE=HIDDEN NAME=mode VALUE="force">
-<BIG>●軍備増強：</BIG>
-$GUILD{$DT->{guild}}->[$GUILDIDX_name]の攻撃力を
-<INPUT TYPE=SUBMIT VALUE="強化する"> (ギルド資金4分の1消費)
+<BIG>●${\l('軍備増強')}：</BIG>
+${\l('%1の攻撃力を',$GUILD{$DT->{guild}}->[$GUILDIDX_name])}
+<INPUT TYPE=SUBMIT VALUE="${\l('強化する')}"> (${\l('ギルド資金4分の1消費')})
 STR
-	$disp.="(消費時間:".GetTime2HMS($usetime).")</FORM>";
+	$disp.="(".l('消費時間').":".GetTime2HMS($usetime).")</FORM>";
 }
 
