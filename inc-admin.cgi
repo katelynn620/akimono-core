@@ -173,7 +173,7 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	<INPUT TYPE="SUBMIT" VALUE="${\l('賞品授与')}"> <SELECT NAME=user>$userselect</SELECT> 
 	<INPUT TYPE="TEXT" size=46 NAME=comment VALUE="">${\l('←コメント(任意)')}<br>
 	・${\l('アイテム')} <SELECT NAME=senditem>$formitem</SELECT>：<INPUT TYPE="TEXT" size=3 NAME=count VALUE="1">${\l('個')}
-	／・${\l('資金')}：<INPUT TYPE="TEXT" size=5 NAME=sendmoney VALUE="0">${\l('円')}
+	／・${\l('資金')}：<INPUT TYPE="TEXT" size=5 NAME=sendmoney VALUE="0">$term[2]
 	／・${\l('時間')}：<INPUT TYPE="TEXT" size=3 NAME=sendtime VALUE="0">${\l('時間')}
 	／・${\l('爵位')}：<INPUT TYPE="TEXT" size=3 NAME=senddig VALUE="0">${\l('ポイント')}<br>
 	※${\l('それぞれを一度に指定することもできます。コメントを空欄にすると公表しません。')}

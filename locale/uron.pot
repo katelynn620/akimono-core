@@ -173,7 +173,7 @@ msgstr ""
 
 #. ($name2,$name1)
 #: program/inc-dr-edit2.cgi:255
-msgid "%1 が迫る！ しかし %1 も粘る！"
+msgid "%1 が迫る！ しかし %2 も粘る！"
 msgstr ""
 
 #. ($name2)
@@ -193,9 +193,9 @@ msgstr ""
 msgid "%1 さらに差を広げる！"
 msgstr ""
 
-#. ($name1,$name1)
+#. ($name1)
 #: program/inc-dr-edit2.cgi:256
-msgid "%1 だ！ 逃げ切りました！ 勝ったのは %2！"
+msgid "%1 だ！ 逃げ切りました！ 勝ったのは %1！"
 msgstr ""
 
 #. ($MYNAME)
@@ -607,12 +607,14 @@ msgstr ""
 msgid "%1度目の優勝"
 msgstr ""
 
+#. (60)
+#. (10)
 #. (30)
 #. (12)
 #. (6)
 #. (120)
 #. (20)
-#: program/gd-e.cgi:74 program/gd-f.cgi:103 program/gd-f.cgi:105 program/gd-f.cgi:111 program/gd-f.cgi:113 program/gd-f.cgi:115 program/gd-f.cgi:117
+#: program/gd-e.cgi:74 program/gd-f.cgi:103 program/gd-f.cgi:105 program/gd-f.cgi:111 program/gd-f.cgi:113 program/gd-f.cgi:115 program/gd-f.cgi:117 program/gd-f.cgi:48 program/gd-f.cgi:88
 msgid "%1文字以内"
 msgstr ""
 
@@ -658,9 +660,9 @@ msgstr ""
 msgid "%1開催日程"
 msgstr ""
 
-#. ($name1,$name1)
+#. ($name1)
 #: program/inc-dr-edit2.cgi:261 program/inc-dr-edit2.cgi:280 program/inc-dr-edit2.cgi:299
-msgid "%1！ この竜は強い！ 勝ったのは %2！"
+msgid "%1！ この竜は強い！ 勝ったのは %1！"
 msgstr ""
 
 #. ($DT[$id2idx{$ida}]->{name},$DT[$id2idx{$idb}]->{name})
@@ -745,10 +747,6 @@ msgstr ""
 msgid "10倍の値を指定（30%にするには300と記入。10～500）"
 msgstr ""
 
-#: program/gd-f.cgi:88
-msgid "10文字以内"
-msgstr ""
-
 #: program/inc-item-show.cgi:28
 msgid "1割増"
 msgstr ""
@@ -775,10 +773,6 @@ msgstr ""
 
 #: program/inc-item-show.cgi:22
 msgid "5割引"
-msgstr ""
-
-#: program/gd-f.cgi:48
-msgid "60文字以内"
 msgstr ""
 
 #: program/inc-main.cgi:171
@@ -978,10 +972,6 @@ msgstr ""
 msgid "retireと入力"
 msgstr ""
 
-#: test.pl:12
-msgid "test"
-msgstr ""
-
 #. ($LOCKED)
 #: program/plug/lock.cgi:15
 msgid "unlock error %1"
@@ -1133,8 +1123,8 @@ msgstr ""
 msgid "あと %1通まで手紙を送ることができます。"
 msgstr ""
 
-#. (GetTime2HMS($lasttime)
 #. (GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME)
+#. (GetTime2HMS($lasttime)
 #. (GetTime2HMS($DWF[$i]->{tm}-$NOW_TIME+$BOX_STOCK_TIME)
 #: program/inc-dwarf-trade.cgi:104 program/inc-dwarf.cgi:136 program/inc-dwarf.cgi:77 program/req-l.cgi:50 program/req.cgi:87
 msgid "あと%1"
@@ -1273,6 +1263,10 @@ msgstr ""
 
 #: program/sweep-s.cgi:21
 msgid "お掃除レポート"
+msgstr ""
+
+#: program/req-f.cgi:31
+msgid "お礼"
 msgstr ""
 
 #: program/inc-dragon.cgi:24
@@ -1502,12 +1496,8 @@ msgstr ""
 msgid "ご指定のIDは<SPAN>%1</SPAN>のためアクセス制限されています。"
 msgstr ""
 
-#: program/inc-dr-edit2.cgi:210 program/inc-dr-edit2.cgi:217
+#: program/inc-dr-edit2.cgi:210 program/inc-dr-edit2.cgi:217 program/inc-dr-edit2.cgi:249 program/inc-dr-edit2.cgi:286
 msgid "さあ どうか"
-msgstr ""
-
-#: program/inc-dr-edit2.cgi:249 program/inc-dr-edit2.cgi:286
-msgid "さあ どうか "
 msgstr ""
 
 #: program/inc-main.cgi:170
@@ -1554,7 +1544,7 @@ msgstr ""
 msgid "すでに許可しています。"
 msgstr ""
 
-#: program/shop-a.cgi:59 program/shop-b.cgi:43
+#: program/shop-a.cgi:59 program/shop-b.cgi:43 program/shop-c.cgi:22
 msgid "すべて"
 msgstr ""
 
@@ -1683,14 +1673,6 @@ msgstr ""
 
 #: program/inc-html-bride.cgi:34
 msgid "でも大事なのは，やはり二人の強い絆でしょうね。"
-msgstr ""
-
-#: program/req-f.cgi:61
-msgid "で買い取ります。"
-msgstr ""
-
-#: program/req-f.cgi:46
-msgid "で買ってください。"
 msgstr ""
 
 #: program/inc-dragon-jock.cgi:46 program/inc-dragon-pr.cgi:72 program/inc-dragon-ranch.cgi:118 program/inc-dragon-stable.cgi:65
@@ -2110,8 +2092,9 @@ msgstr ""
 msgid "ギルドを変更できるのは団長だけです"
 msgstr ""
 
+#. ($DIG_FORGUILD)
 #: program/gd-f.cgi:16
-msgid "ギルドを結成するには，$DIG_FORGUILDポイント以上の爵位が必要となります。"
+msgid "ギルドを結成するには，%1ポイント以上の爵位が必要となります。"
 msgstr ""
 
 #: program/gd-e.cgi:25
@@ -3153,7 +3136,7 @@ msgstr ""
 msgid "他の街へ輸出"
 msgstr ""
 
-#: program/inc-dwarf-form.cgi:111 program/inc-dwarf-trade.cgi:78 program/inc-dwarf.cgi:100 program/inc-dwarf.cgi:44
+#: program/inc-dwarf-form.cgi:111 program/inc-dwarf-form.cgi:58 program/inc-dwarf-trade.cgi:78 program/inc-dwarf.cgi:100 program/inc-dwarf.cgi:44
 msgid "代金"
 msgstr ""
 
@@ -3395,7 +3378,7 @@ msgstr ""
 msgid "依頼達成"
 msgstr ""
 
-#: program/buy.cgi:48 program/manor-m.cgi:34
+#: program/buy.cgi:48 program/manor-m.cgi:34 program/req-f.cgi:45 program/req-f.cgi:59
 msgid "価格"
 msgstr ""
 
@@ -3690,10 +3673,6 @@ msgstr ""
 msgid "内政重視"
 msgstr ""
 
-#: program/inc-admin.cgi:176
-msgid "円"
-msgstr ""
-
 #: program/other.cgi:90 program/other.cgi:98
 msgid "再出発(やり直し)"
 msgstr ""
@@ -3897,8 +3876,16 @@ msgstr ""
 msgid "半角英数のみ"
 msgstr ""
 
-#: program/inc-dwarf-form.cgi:60 program/req-f.cgi:46 program/req-f.cgi:61
+#: program/inc-dwarf-form.cgi:60
 msgid "単価指定"
+msgstr ""
+
+#: program/req-f.cgi:61
+msgid "単価指定)で買い取ります。"
+msgstr ""
+
+#: program/req-f.cgi:46
+msgid "単価指定)で買ってください。"
 msgstr ""
 
 #: uron/custom/staff.cgi:25
@@ -4526,12 +4513,16 @@ msgstr ""
 msgid "定義関数"
 msgstr ""
 
-#: program/inc-dwarf-form.cgi:109 program/inc-letter-form.cgi:41 program/inc-letter-form.cgi:93
+#: program/inc-dwarf-form.cgi:109 program/inc-dwarf-form.cgi:40 program/inc-letter-form.cgi:41 program/inc-letter-form.cgi:93
 msgid "宛先"
 msgstr ""
 
 #: program/inc-dwarf-edit.cgi:17 program/inc-dwarf-form.cgi:76 program/inc-letter-edit.cgi:45 program/inc-letter-form.cgi:78
 msgid "宛先を指定してください。"
+msgstr ""
+
+#: program/inc-letter-form.cgi:49
+msgid "宛先選択"
 msgstr ""
 
 #: program/inc-dras-dredit.cgi:127
@@ -4745,6 +4736,10 @@ msgstr ""
 
 #: program/lord-s.cgi:37
 msgid "引き上げました"
+msgstr ""
+
+#: program/lord-s.cgi:38
+msgid "引き下げました"
 msgstr ""
 
 #: program/inc-dragon-detail.cgi:190
@@ -5401,6 +5396,10 @@ msgstr ""
 msgid "栄冠を手にするのは 果たしてどの竜なのか"
 msgstr ""
 
+#: program/inc-dragon.cgi:94
+msgid "栗毛"
+msgstr ""
+
 #: program/inc-dragon.cgi:35
 msgid "桃花賞"
 msgstr ""
@@ -5527,8 +5526,8 @@ msgstr ""
 msgid "残%1"
 msgstr ""
 
-#. ($DTS->{item}[$itemno-1],$ITEM->{scale})
 #. ($stock,$ITEM->{scale})
+#. ($DTS->{item}[$itemno-1],$ITEM->{scale})
 #: program/shop-a.cgi:121 program/shop-b.cgi:115 program/shop-m.cgi:32
 msgid "残%1%2"
 msgstr ""
@@ -5640,10 +5639,6 @@ msgstr ""
 
 #: program/inc-dragon-stable.cgi:114
 msgid "温泉施設 (健康上昇)"
-msgstr ""
-
-#: program/inc-dragon.cgi:94
-msgid "漆毛"
 msgstr ""
 
 #: program/gd-o.cgi:44 program/inc-html-bride.cgi:37 program/inc-html-ownerinfo.cgi:26 program/inc-html-ranking.cgi:15 program/inc-html-ranking.cgi:28 program/inc-html-top.cgi:12 program/inc-info.cgi:37 program/inc-info.cgi:63 uron/custom/inc-html-ranking.cgi:16 uron/custom/inc-html-ranking.cgi:29 uron/custom/inc-html-top.cgi:11

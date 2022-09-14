@@ -112,7 +112,7 @@ foreach my $cnt ($pagestart .. $pageend)
 		{
 			my $ITEM=$ITEM[$itemno];
 			$stock=$DT->{item}[$itemno-1];
-			my $msg=$stock ? l("残%1%2",$stock,$ITEM->{scale}). : l("売り切れ");
+			my $msg=$stock ? l("残%1%2",$stock,$ITEM->{scale}) : l("売り切れ");
 			$disp.=$TR.$TD;
 			$disp.="<A HREF=\"action.cgi?key=buy&buy=$DT->{id}!$idx!$itemno&bk=p!$page&$USERPASSURL\">" if $stock && !$GUEST_USER;
 			$disp.=GetTagImgItemType($itemno).$ITEM->{name};

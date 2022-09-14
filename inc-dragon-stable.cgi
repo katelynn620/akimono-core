@@ -37,7 +37,7 @@ else
 	$cost=($ST[$MYST]->{sp} + $ST[$MYST]->{sr} + $ST[$MYST]->{ag} + $ST[$MYST]->{pw} + $ST[$MYST]->{hl} + $ST[$MYST]->{fl});
 	$disp.=$TD.GetMoneyString($cost * $STcost);
 	my $limit=$ST[$MYST]->{birth} + $STtime - $NOW_TIME;
-	$disp.=$TD.l("あと %1",(($limit > 0) ? GetTime2found($limit)) : l("わずか"));
+	$disp.=$TD.l("あと %1",(($limit > 0) ? GetTime2found($limit) : l("わずか")));
 	$disp.=$TRE.$TBE."<br>";
 	StableDragon();
 	FormLarge();

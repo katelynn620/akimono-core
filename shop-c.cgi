@@ -19,7 +19,7 @@ foreach($ITEM[0],grep(!$tp || $_->{type}==$tp,sort{$a->{sort} <=> $b->{sort}}val
 $itemlist.="</select>";
 
 my $shoplist="";
-$shoplist="<select name=ds><option value=\"\">すべて";
+$shoplist="<select name=ds><option value=\"\">".l("すべて");
 foreach (@DT)
 {
 	$shoplist.="<OPTION VALUE=\"$_->{id}\"".($Q{senditem}==$_->{id}?' SELECTED':'').">$_->{shopname}" if $DT->{id}!=$_->{id};

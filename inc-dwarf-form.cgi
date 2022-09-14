@@ -37,7 +37,7 @@ $TRE$TBE<br>$preerror
 <FORM ACTION="action.cgi" $METHOD>
 $MYFORM$USERPASSFORM
 $TB
-$TR$TDB<b>${\l('')}宛先</b>
+$TR$TDB<b>${\l('宛先')}</b>
 HTML
 
 $disp.=$TD."<SELECT NAME=to><OPTION VALUE=\"-1\">".l('－－宛先選択－－');
@@ -55,7 +55,7 @@ $TR$TDB<b>${\l('商品')}</b>
 $TD<SELECT NAME=item SIZE=1>
 $formitem
 </SELECT> ${\l('を')} <INPUT TYPE=TEXT NAME=num SIZE=7 VALUE="$Q{num}"> ${\l('個')}$TRE
-$TR$TDB<b>代金</b>
+$TR$TDB<b>${\l('代金')}</b>
 $TD<INPUT TYPE=TEXT NAME=price SIZE=12 VALUE="$Q{price}"> $term[2](
 <INPUT TYPE=CHECKBOX NAME=unit>${\l('単価指定')})
 $TR$TD<SPAN>使用法</SPAN>$TD

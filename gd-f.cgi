@@ -13,7 +13,7 @@ GuildEditMenu();
 elsif ($DT->{dignity} < $DIG_FORGUILD)
 {
 $disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>".l('ギルド受付')."</SPAN>：".l('こちらはギルド結成届出所です。')."<br>";
-$disp.=l('ギルドを結成するには，$DIG_FORGUILDポイント以上の爵位が必要となります。').$TRE.$TBE."<br>";
+$disp.=l('ギルドを結成するには，%1ポイント以上の爵位が必要となります。',$DIG_FORGUILD).$TRE.$TBE."<br>";
 $disp.=l("条件を満たしていません");
 }
 else
@@ -45,7 +45,7 @@ $TB$TR$TDB<b>ギルドコード</b>
 <td colspan=2><b>$code</b><INPUT TYPE=HIDDEN NAME=code VALUE="$code">$TRE
 $TR$TDB<b>${\l('ギルド画像')}</b><br>(32*16pt)
 <td colspan=2>${\l('gif形式画像のみ（指定しないと現状のまま）')}<br><input type=file name=upfile size=36>$TRE
-$TR$TDB<b>${\l('ギルドホームページ')}</b><br>(${\l('60文字以内')})
+$TR$TDB<b>${\l('ギルドホームページ')}</b><br>(${\l('%1文字以内',60)})
 <td colspan=2>${\l('一般向けホームページ')}<br><INPUT TYPE=TEXT NAME=url SIZE=56 VALUE="$GUILD_DETAIL{$code}->{url}">$TRE
 $i
 $TR$TDB<b>${\l('軍師任命')}</b><br>(${\l('各街 1名まで')})
@@ -85,7 +85,7 @@ $disp.=<<"HTML";
 <INPUT TYPE=hidden NAME=key VALUE="gd-b">
 $USERPASSFORM
 <INPUT TYPE=hidden NAME=mode VALUE="make">
-$TB$TR$TDB<b>${\l('ギルドコード')}</b><br>(${\l('10文字以内')})
+$TB$TR$TDB<b>${\l('ギルドコード')}</b><br>(${\l('%1文字以内',10)})
 <td colspan=2>${\l('半角英数')}<b>${\l('小文字のみ')}</b><br><INPUT TYPE=TEXT NAME=code SIZE=10 VALUE="">$TRE
 $TR$TDB<b>${\l('ギルド画像')}</b><br>(32*16pt)
 <td colspan=2>${\l('gif形式画像のみ')}<br><input type=file name=upfile size=36>$TRE

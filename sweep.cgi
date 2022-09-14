@@ -24,7 +24,7 @@ else
 {
 	$disp.=$TB.$TR;
 	$disp.=$TD.GetTagImgKao(l("お掃除アドバイザ"),"sweep").$TD;
-	$disp.=l("お掃除アドバイザ"),"：",l("現在%1kg相当のごみがありますね。",int($DT->{trush}/10000))."<br>";
+	$disp.=l("お掃除アドバイザ")."：".l("現在%1kg相当のごみがありますね。",int($DT->{trush}/10000))."<br>";
 	$disp.=l("これを全部片付けるには%1くらいかかりそうです。",GetTime2found($usetime));
 	$disp.=$TRE.$TBE;
 

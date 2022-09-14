@@ -46,7 +46,7 @@ foreach(0..$#OtherDir)
 	{
 	my $pg=$OtherDir[$_];
 	$disp.=( ($_ % $r) ? "<br>" : $TD);
-	$disp.="$Tname{$pg} <SELECT NAME=$pg><OPTION VALUE=\"-1\">宛先選択";
+	$disp.="$Tname{$pg} <SELECT NAME=$pg><OPTION VALUE=\"-1\">".l('宛先選択');
 	foreach my $i(0..$Ncount{$pg})
 		{
 		$disp.="<OPTION VALUE=\"$LID{$pg}[$i]\"".($Q{$pg}==$LID{$pg}[$i] ? ' SELECTED' : '').">$LNAME{$pg}[$i]";

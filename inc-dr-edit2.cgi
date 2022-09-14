@@ -246,25 +246,25 @@ sub Race4
 	if ($no == $RD[0]->{no})
 			{
 			# トップ変わらず
-			$RACELOG.=l("さあ どうか ");
+			$RACELOG.=l("さあ どうか");
 			$RACELOG.=l("%1 が追い上げる",$name2)."<br>\n";
 			$RACELOG.=l("%1 が逃げる このまま逃げ切るか",$name1)."<br>\n";
 
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
 				{
-				$RACELOG.=l("%1 が迫る！ しかし %1 も粘る！",$name2,$name1)."<br>\n";
-				$RACELOG.=l("%1 だ！ 逃げ切りました！ 勝ったのは %2！",$name1,$name1)."<br>\n";
+				$RACELOG.=l("%1 が迫る！ しかし %2 も粘る！",$name2,$name1)."<br>\n";
+				$RACELOG.=l("%1 だ！ 逃げ切りました！ 勝ったのは %1！",$name1)."<br>\n";
 				}
 				else
 				{
 				$RACELOG.=l("%1 差を広げる！",$name1)."<br>\n";
-				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %2！",$name1,$name1)."<br>\n";
+				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %1！",$name1)."<br>\n";
 				}
 			}
 		elsif ($no == $RD[1]->{no})
 			{
 			# ２着
-			$RACELOG.="さあ どうか ";
+			$RACELOG.="さあ どうか";
 			$RACELOG.=l("%1 が追い上げる",$name1)."<br>\n";
 			$RACELOG.=l("%1 が逃げる このまま逃げ切るか",$name2)."<br>\n";
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
@@ -277,13 +277,13 @@ sub Race4
 				{
 				$RACELOG.=l("%1 が差した！",$name1)."<br>\n";
 				$RACELOG.=l("%1 さらに差を広げる！",$name1)."<br>\n";
-				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %2！",$name1,$name1)."<br>\n";
+				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %1！",$name1)."<br>\n";
 				}
 			}
 		else
 			{
 			# トップ完全交代
-			$RACELOG.=l("さあ どうか ");
+			$RACELOG.=l("さあ どうか");
 			$RACELOG.=l("%1 が差した！",$name2)."<br>\n";
 			$RACELOG.=l("さらに <b>%1</b> が後に続く！",$name1)."<br>\n";
 			if ($RD[1]->{time} - $RD[0]->{time} < 15)
@@ -296,7 +296,7 @@ sub Race4
 				{
 				$RACELOG.=l("%1 が一気に差した！",$name1)."<br>\n";
 				$RACELOG.=l("%1 さらに差を広げる！",$name1)."<br>\n";
-				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %2！",$name1,$name1)."<br>\n";
+				$RACELOG.=l("%1！ この竜は強い！ 勝ったのは %1！",$name1)."<br>\n";
 				}
 			}
 

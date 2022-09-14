@@ -28,7 +28,7 @@ $USERPASSFORM
 <BIG>●${\l('交換タイプ')}</BIG>：${\l('依頼品')} <SELECT NAME=prn SIZE=1>
 $formlist
 </SELECT> ${\l('を数量')} <INPUT TYPE=TEXT NAME=pr SIZE=7> ${\l('持って来てくれた方には')}<br>
-お礼 <SELECT NAME=it SIZE=1>
+${\l('お礼')} <SELECT NAME=it SIZE=1>
 $formitem
 </SELECT> ${\l('を数量')} <INPUT TYPE=TEXT NAME=num SIZE=7> ${\l('差し上げます。')}
 <INPUT TYPE=SUBMIT VALUE='${\l('作成')}'>
@@ -42,8 +42,8 @@ $USERPASSFORM
 <BIG>●${\l('販売タイプ')}</BIG>：${\l('販売品')} <SELECT NAME=it SIZE=1>
 $formitem
 </SELECT> ${\l('を数量')} <INPUT TYPE=TEXT NAME=num SIZE=7> ${\l('売り出すので')}<br>
-価格 <INPUT TYPE=TEXT NAME=pr SIZE=7> $term[2](
-<INPUT TYPE=CHECKBOX NAME=unit>${\l('単価指定')})${\l('で買ってください。')}
+${\l('価格')} <INPUT TYPE=TEXT NAME=pr SIZE=7> $term[2](
+<INPUT TYPE=CHECKBOX NAME=unit>${\l('単価指定)で買ってください。')}
 <INPUT TYPE=HIDDEN NAME=prn VALUE="-1">
 <INPUT TYPE=SUBMIT VALUE='${\l('作成')}'>
 </FORM>
@@ -56,9 +56,9 @@ $USERPASSFORM
 <BIG>●${\l('買取タイプ')}</BIG>：${\l('依頼品')} <SELECT NAME=prn SIZE=1>
 $formlist
 </SELECT> ${\l('を数量')} <INPUT TYPE=TEXT NAME=pr SIZE=7> ${\l('持って来てくれた方には')}<br>
-価格 <INPUT TYPE=TEXT NAME=num SIZE=7> $term[2](
+${\l('価格')} <INPUT TYPE=TEXT NAME=num SIZE=7> $term[2](
 <INPUT TYPE=HIDDEN NAME=it VALUE="-1">
-<INPUT TYPE=CHECKBOX NAME=unit>${\l('単価指定')})${\l('で買い取ります。')}
+<INPUT TYPE=CHECKBOX NAME=unit>${\l('単価指定)で買い取ります。')}
 <INPUT TYPE=SUBMIT VALUE='${\l('作成')}'>
 </FORM>
 STR

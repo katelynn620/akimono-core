@@ -35,7 +35,7 @@ $disp.=l("街の内政方針を変更しました。");
 if ($DTTaxrate != $taxrate )
 	{
 	my $i=l("引き上げました");
-	$i="引き下げました" if $DTTaxrate > $taxrate;
+	$i=l("引き下げました") if $DTTaxrate > $taxrate;
 	$DTTaxrate=int($Q{taxrate});
 	PushLog(2,0,l("領主%1は街の税率を%2%に%3。",$DT->{name},$taxrate,$i));
 	$disp.="<br>".l("街の税率を%1%に%2。",$taxrate,$i);
