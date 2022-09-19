@@ -1024,6 +1024,10 @@ msgstr ""
 msgid "★管理者"
 msgstr ""
 
+#: program/buy.cgi:98
+msgid "、もしくは"
+msgstr ""
+
 #. ($GUILD{$tg}->[$GUILDIDX_name],GetMoneyString($attack)
 #: program/gd-s.cgi:61
 msgid "「%1」から%2を奪取！"

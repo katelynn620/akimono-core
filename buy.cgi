@@ -95,7 +95,7 @@ else
 		$disp.="<OPTION VALUE=\"$cnt\">$msg{$cnt}";
 		$oldcnt=$cnt;
 	}
-	$disp.="</SELECT> $ITEM[$itemno]->{scale}、もしくは ";
+	$disp.="</SELECT> $ITEM[$itemno]->{scale}".l('、もしくは')." ";
 	$disp.="<INPUT TYPE=TEXT NAME=num2 SIZE=5> $ITEM[$itemno]->{scale} ";
 
   if ($ITEM->{flag}=~/h/) {  $disp.="<INPUT TYPE=SUBMIT VALUE='".l("雇う")."'>";  }

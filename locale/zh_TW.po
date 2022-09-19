@@ -1025,6 +1025,10 @@ msgstr "●新聞：速報"
 msgid "★管理者"
 msgstr "★管理員"
 
+#: program/buy.cgi:98
+msgid "、もしくは"
+msgstr "、或者是"
+
 #. ($GUILD{$tg}->[$GUILDIDX_name],GetMoneyString($attack)
 #: program/gd-s.cgi:61
 msgid "「%1」から%2を奪取！"
@@ -2952,7 +2956,7 @@ msgstr "上述莊園設定預計財務支出為%1。"
 
 #: program/buy.cgi:77 program/manor-m.cgi:53
 msgid "上記を"
-msgstr "將以上給"
+msgstr "上述物品以"
 
 #: program/admin-sub2.cgi:85
 msgid "上記タブより閲覧したいログを選択してください"
