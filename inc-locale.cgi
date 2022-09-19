@@ -1,4 +1,5 @@
 {
+
     package I18N;
     use FindBin qw($Bin);
     use parent 'Locale::Maketext';
@@ -8,10 +9,14 @@
         _decode => 1,
         _style  => 'gettext',
     };
+
+    sub fallback_languages {
+        return ('ja_JP');
+    }
 }
 
 sub l {
-    my $i18n = I18N->get_handle('tw');
+    my $i18n = ($LANG ne "") ? I18N->get_handle($LANG) : I18N->get_handle();
     return $i18n->maketext(@_);
 }
 
