@@ -39,8 +39,7 @@ msgid " ←条件を満たしていません"
 msgstr " ←尚未達成此條件"
 
 #. ($dir)
-#. ($DATA_DIR)
-#: program/inc-admin-func.cgi:61 uron/admin.cgi:23
+#: program/inc-admin-func.cgi:61
 msgid " ディレクトリ %1 のパーミッションを見直してください"
 msgstr " 請檢查目錄 %1 的權限"
 
@@ -63,22 +62,6 @@ msgstr " 請產生商品資料。"
 #: program/inc-admin-func.cgi:47
 msgid " 設定を見直すか、手動で作成してください"
 msgstr " 請檢查設定或手動建立"
-
-#: uron/custom/inc-html-ranking.cgi:68
-msgid " （他店のオリジナルうどん）"
-msgstr " （其它店鋪的原創烏龍麵）"
-
-#: uron/custom/inc-html-ranking.cgi:73
-msgid " （他店のオリジナルそば）"
-msgstr "（其它店鋪的原創蕎麥麵）"
-
-#: uron/admin.cgi:20
-msgid "$DATA_DIR の設定不良，もしくは，$DATA_DIR ディレクトリが作成されていません"
-msgstr "未建立 $DATA_DIR 或 $DATA_DIR 目錄的設定錯誤"
-
-#: uron/admin.cgi:21
-msgid "$SESSION_DIR $TEMP_DIR $LOG_DIR $BACKUP_DIR $SUBDATA_DIR 辺りの設定が異常です"
-msgstr "$SESSION_DIR $TEMP_DIR $LOG_DIR $BACKUP_DIR $SUBDATA_DIR 的設定有異常"
 
 #. ($ITEM->{name},$Q{count},$ITEM->{scale})
 #: program/admin-sub.cgi:66
@@ -222,11 +205,6 @@ msgstr "%1 一步之差！ 獲勝的是 %2！"
 #: program/inc-dr-edit2.cgi:260
 msgid "%1 差を広げる！"
 msgstr "%1 差距擴大了！"
-
-#. ($HTML_TITLE)
-#: uron/admin.cgi:86 uron/admin.cgi:89
-msgid "%1 管理室"
-msgstr "%1 管理室"
 
 #. (GetMoneyString($Q{sendmoney})
 #: program/admin-sub.cgi:76
@@ -394,11 +372,6 @@ msgstr "「%2」在%1中獲得勝利。"
 msgid "%1で保管していた商品 %2 種類 %3 個が破棄されました。"
 msgstr "存放在 %1 的 %2 類型的 %3 個已被丟棄。"
 
-#. ("<BIG>$TITLE[$Q{t}]</BIG>")
-#: uron/custom/library.cgi:491
-msgid "%1については，以下の本が見つかりました。"
-msgstr "關於%1的內容，找到了以下的書籍。"
-
 #. ($DT[$i]->{shopname})
 #: program/lord-s.cgi:113
 msgid "%1に対して取り締まりを行いました。"
@@ -423,11 +396,6 @@ msgstr "%2在%1的指揮下"
 #: program/inc-guild-cmd.cgi:87
 msgid "%1の攻撃力を"
 msgstr "將%1的攻擊力"
-
-#. (($STATE->{leader} ? $DT[$lid]->{name} : $BAL_NAME)
-#: uron/custom/inc-town.cgi:133
-msgid "%1の暴政に断固ハンターイ！"
-msgstr "堅決反對%1的暴政！"
 
 #. ($DT[$i]->{shopname})
 #: program/lord-s.cgi:75
@@ -715,7 +683,7 @@ msgstr "(庫存最多)"
 msgid "(掃除最大)"
 msgstr "(掃除最多)"
 
-#: program/gd-o.cgi:54 program/inc-html-top.cgi:26 uron/custom/inc-html-ranking.cgi:47 uron/custom/inc-html-top.cgi:25
+#: program/gd-o.cgi:54 program/inc-html-top.cgi:26
 msgid "(新)"
 msgstr "(新)"
 
@@ -872,15 +840,6 @@ msgstr "<b>意見</b>"
 msgid "<b>解決</b>"
 msgstr "<b>解決</b>"
 
-#. (($MAX_MOVE_USER-$DTusercount)
-#: uron/index.cgi:26
-msgid "<small>（移転：残り%1名様）</small>"
-msgstr "<small>（轉移：剩下%1個名額）</small>"
-
-#: uron/index.cgi:26
-msgid "<small>（移転：現在満員）</small>"
-msgstr "<small>（轉移：現在額滿）</small>"
-
 #. ($idx)
 #: program/inc-makeitem.cgi:685
 msgid "@DEFINE %1 のリスト数が合いません"
@@ -906,10 +865,6 @@ msgstr "網站"
 msgid "IP重複許可"
 msgstr "IP重複登入許可"
 
-#: uron/custom/inc-menu.cgi:24
-msgid "LogOut"
-msgstr "登出"
-
 #: program/item-list.cgi:70
 msgid "No."
 msgstr "No."
@@ -918,7 +873,7 @@ msgstr "No."
 msgid "OP"
 msgstr "OP"
 
-#: program/inc-html-ranking.cgi:27 program/inc-info.cgi:55 uron/custom/inc-html-ranking.cgi:28
+#: program/inc-html-ranking.cgi:27 program/inc-info.cgi:55
 msgid "RANK"
 msgstr "RANK"
 
@@ -977,7 +932,7 @@ msgstr "請輸入retire"
 msgid "unlock error %1"
 msgstr "解除鎖定錯誤 %1"
 
-#: program/wis.cgi:7 uron/custom/inc-menu.cgi:49
+#: program/wis.cgi:7
 msgid "wis"
 msgstr "密語"
 
@@ -1066,31 +1021,6 @@ msgstr "「想加入請寫信給商會會長」之類的"
 msgid "「点数は%1点"
 msgstr "「點數為%1點"
 
-#: uron/custom/library.cgi:189
-msgid "【上級】ギルド"
-msgstr "【進階】商會"
-
-#: uron/custom/library.cgi:267
-msgid "【上級】ドラゴンレース"
-msgstr "【進階】賽龍"
-
-#: uron/custom/library.cgi:423
-msgid "【上級】結婚"
-msgstr "【進階】結婚"
-
-#: uron/custom/library.cgi:340
-msgid "【上級】領主制度"
-msgstr "【進階】領主制度"
-
-#. ($MAX_USER - $DTusercount)
-#: uron/index.cgi:24
-msgid "【新規店舗オープン】<small>残り %1 名様</small>"
-msgstr "【開新店舖】<small>剩下 %1 個名額</small>"
-
-#: uron/index.cgi:25
-msgid "【新規店舗オープン】<small>現在満員</small>"
-msgstr "【開新店舖】<small>名額已滿</small>"
-
 #: program/inc-dragon-info.cgi:6
 msgid "あきんどスポーツ新聞では，競竜に役立つ情報を提供している。"
 msgstr "商物運動報為賽龍提供有用的訊息。"
@@ -1127,8 +1057,8 @@ msgstr "還可以透過宅急便再發送 %1 個包裹。"
 msgid "あと %1通まで手紙を送ることができます。"
 msgstr "您最多可發送 %1封信。"
 
-#. (GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME)
 #. (GetTime2HMS($lasttime)
+#. (GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME)
 #. (GetTime2HMS($DWF[$i]->{tm}-$NOW_TIME+$BOX_STOCK_TIME)
 #: program/inc-dwarf-trade.cgi:104 program/inc-dwarf.cgi:136 program/inc-dwarf.cgi:77 program/req-l.cgi:50 program/req.cgi:87
 msgid "あと%1"
@@ -1181,18 +1111,6 @@ msgstr "目前正在進行貿易的商品如下。"
 #: program/inc-main.cgi:130
 msgid "いらっしゃいませっ"
 msgstr "歡迎光臨"
-
-#: uron/custom/inc-town.cgi:117
-msgid "うちのスライムまた負けちゃった・・・"
-msgstr "我的史萊姆輸了啊・・・"
-
-#: uron/custom/orilist.cgi:7
-msgid "うどん"
-msgstr "烏龍麵"
-
-#: uron/custom/staff.cgi:27
-msgid "うどんそば仕様原作"
-msgstr "烏龍麵蕎麥麵版本原作"
 
 #: program/inc-main.cgi:141
 msgid "うーん，そこそこ良い店ではあるんだけどね…"
@@ -1253,7 +1171,7 @@ msgstr "小幫手"
 msgid "お手数ですが<SPAN>必ず５秒以上待ってから</SPAN>戻ってもう一度アクセスしてください。<br>"
 msgstr "很抱歉，<SPAN>請稍等5秒以上</SPAN>再重新存取。"
 
-#: program/menu.cgi:22 program/sweep.cgi:8 uron/custom/inc-menu.cgi:21
+#: program/menu.cgi:22 program/sweep.cgi:8
 msgid "お掃除"
 msgstr "打掃"
 
@@ -1293,10 +1211,6 @@ msgstr "刀鞘杯"
 msgid "が報告されています。"
 msgstr "產生了。"
 
-#: uron/custom/inc-hometown.cgi:43
-msgid "きゃんきゃんっ"
-msgstr "鏘鏘"
-
 #: program/wis.cgi:27
 msgid "くれぐれも失礼のないようにしてください。"
 msgstr "訊息內容請注意禮貌。"
@@ -1334,10 +1248,6 @@ msgstr "對方未讀的信件共有 %1封。"
 #: program/inc-dr-edit2.cgi:212
 msgid "このまま 逃げ切れるのか"
 msgstr "繼續下去 要成為領放龍了"
-
-#: uron/custom/inc-new.cgi:11
-msgid "このゲームは，ブラウザでプレイできる経営シミュレーションＲＰＧです。"
-msgstr "本遊戲為使用瀏覽器遊玩的經營模擬RPG。"
 
 #: program/item-m.cgi:128
 msgid "このコマンドには特定のイベントの発生が必要です"
@@ -1404,10 +1314,6 @@ msgstr "本功能只能在維護模式下執行"
 #: program/lord.cgi:35
 msgid "この街はオレの物だ。ぐわっはっは！"
 msgstr "這個城鎮是俺的啦。哇哈哈哈！"
-
-#: uron/custom/inc-hometown.cgi:48
-msgid "この街は警戒がぬるくてラッキー♪"
-msgstr "這條街沒什麼戒心真是太幸運了♪"
 
 #. (GetMoneyString($pr)
 #: program/req-s.cgi:148
@@ -1556,10 +1462,6 @@ msgstr "全部"
 msgid "すべての店の税率を 通常 に"
 msgstr "全部店鋪的稅率回到正常的水準"
 
-#: uron/custom/inc-palace.cgi:11 uron/custom/inc-palace.cgi:12
-msgid "ずっと食べたいと思っているのじゃが，この身では博多には行けぬ。"
-msgstr "我一直想吃，但我一個人去不了博多。"
-
 #: program/inc-main.cgi:121
 msgid "せっかく買いに来たのに何にもない…。どうしよう？"
 msgstr "好不容易來買東西竟然什麼都沒有…。該怎麼辦呢？"
@@ -1607,10 +1509,6 @@ msgstr "交易的物品已經售出。"
 #: program/inc-dras-dredit.cgi:205
 msgid "その騎手はすでに他の竜に騎乗しています"
 msgstr "騎師已經騎著另一條龍了"
-
-#: uron/custom/orilist.cgi:8
-msgid "そば"
-msgstr "蕎麥麵"
 
 #: program/inc-admin.cgi:179
 msgid "それぞれを一度に指定することもできます。コメントを空欄にすると公表しません。"
@@ -1695,16 +1593,12 @@ msgstr "我看看，今天要買啥好呢…"
 msgid "なお、表示される内容には生のパスワードが含まれる可能性もありますので、注意してください。"
 msgstr "請注意，顯示的內容可能包含原始密碼。"
 
-#: uron/custom/staff.cgi:17
-msgid "なお，素材をゲームから直接取り出して利用しないでください。"
-msgstr "請不要直接從遊戲中獲取素材並使用。"
-
 #. ($ADMIN_EMAIL)
 #: program/inc-error.cgi:96
 msgid "なかなか解決しない場合は，お手数ですが<a href=\"mailto:%1\">管理人までご連絡</a>ください。"
 msgstr "如果無法解決，請與<a href=\"mailto:%1\">管理員</a>聯絡。"
 
-#: program/inc-dragon-rd.cgi:33 program/inc-dragon.cgi:70 program/inc-dwarf.cgi:74 program/inc-makeitem.cgi:748 program/req-l.cgi:48 program/town.cgi:123 uron/custom/inc-menu.cgi:138
+#: program/inc-dragon-rd.cgi:33 program/inc-dragon.cgi:70 program/inc-dwarf.cgi:74 program/inc-makeitem.cgi:748 program/req-l.cgi:48 program/town.cgi:123
 msgid "なし"
 msgstr "無"
 
@@ -1761,17 +1655,9 @@ msgstr "的稅率"
 msgid "の肩書きを"
 msgstr "的頭銜"
 
-#: uron/custom/inc-new.cgi:8
-msgid "はじめに"
-msgstr "介紹"
-
 #: program/inc-main.cgi:169
 msgid "はじめまして。私が店のお手伝いをさせてもらってます。"
 msgstr "很高興見到你，我是店裡的小幫手。"
-
-#: uron/custom/inc-hometown.cgi:38
-msgid "はやくマイホームを建てないとなぁ・・・"
-msgstr "我必須快點蓋好我的家啊・・・"
 
 #: program/palace-s.cgi:29
 msgid "はやく使命を達成するのじゃ。ゆめゆめ忘れるでないぞ。"
@@ -1781,17 +1667,9 @@ msgstr "快點達成你的使命。不要忘記你的夢想。"
 msgid "へ標準価格の"
 msgstr "標準售價的"
 
-#: uron/custom/inc-menu.cgi:135
-msgid "ほか"
-msgstr "其他"
-
 #: program/inc-dr-edit2.cgi:184
 msgid "ほぼ 平常どおりといえるでしょう 展開にさほど影響はなさそうです"
 msgstr "可以說幾乎是正常的。似乎沒有太大的影響。"
-
-#: uron/custom/inc-town.cgi:127
-msgid "ぽかぽかして気持ちええのぉ・・・"
-msgstr "感覺很溫暖呢..."
 
 #: program/new.cgi:119
 msgid "また<SPAN>[図書館]</SPAN>に経営のヒントがありますので一通りご覧下さい。"
@@ -1838,17 +1716,9 @@ msgstr "再提升點經營手段後再來吧。"
 msgid "もしくは"
 msgstr "或者"
 
-#: uron/custom/inc-town.cgi:134
-msgid "もっと市民の安全を考えろーっ"
-msgstr "應該多考慮市民的安全啊"
-
 #: program/inc-dwarf-form.cgi:35
 msgid "もらう相手にとって失礼にならぬようにな。"
 msgstr "不要對收件人沒禮貌。"
-
-#: uron/custom/inc-hometown.cgi:39
-msgid "やっと結婚できたねっ"
-msgstr "終於可以結婚了呢"
 
 #: program/inc-html-bride-list.cgi:65
 msgid "やはりまだ愛が足らなかったので"
@@ -1871,10 +1741,6 @@ msgstr "所以我會獎勵你 %1<b>爵位經驗值</b>。"
 #: program/inc-dragon-stable.cgi:40
 msgid "わずか"
 msgstr "快了"
-
-#: uron/custom/inc-hometown.cgi:34
-msgid "わーい わーい"
-msgstr "哇－ 哇－"
 
 #: program/inc-admin.cgi:155 program/inc-admin.cgi:161 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
 msgid "を"
@@ -1900,17 +1766,9 @@ msgstr "以軍隊"
 msgid "ん～，これくださいな。"
 msgstr "嗯~ 請給我這個。"
 
-#: uron/custom/inc-new.cgi:30
-msgid "アイコン"
-msgstr "頭像"
-
-#: program/icon.cgi:6 program/other.cgi:29 uron/custom/inc-new.cgi:41
+#: program/icon.cgi:6 program/other.cgi:29
 msgid "アイコン一覧"
 msgstr "頭像一覽"
-
-#: uron/custom/staff.cgi:31
-msgid "アイコン（追加）"
-msgstr "圖示（追加）"
 
 #: program/inc-admin.cgi:175
 msgid "アイテム"
@@ -2020,15 +1878,7 @@ msgstr "錯誤狀態"
 msgid "エラー相談"
 msgstr "錯誤諮詢"
 
-#: uron/custom/orilist.cgi:27
-msgid "オリジナルうどん開発店"
-msgstr "原創烏龍麵店"
-
-#: uron/custom/orilist.cgi:59
-msgid "オリジナルそば開発店"
-msgstr "原創蕎麥麵店"
-
-#: program/jump.cgi:18 program/move-f.cgi:44 program/move-f.cgi:45 uron/custom/inc-menu.cgi:40 uron/custom/inc-town.cgi:61
+#: program/jump.cgi:18 program/move-f.cgi:44 program/move-f.cgi:45
 msgid "ギルド"
 msgstr "商會"
 
@@ -2223,21 +2073,9 @@ msgstr "商會內折扣"
 msgid "ギルド間割引増率"
 msgstr "商會內折扣增加率"
 
-#: uron/sindex-mob.html:11 uron/sindex.html:39
-msgid "クッキーで保存"
-msgstr "保存cookie"
-
 #: program/gd.cgi:14
 msgid "クリックすると詳しい情報を見ることができます。"
 msgstr "點此查看詳細訊息。"
-
-#: uron/custom/staff.cgi:16
-msgid "ゲームの各部分についての著作権は，それぞれ下記の方々に帰属します。"
-msgstr "遊戲各部分內容的著作權歸屬於，請參考以下內容"
-
-#: uron/custom/library.cgi:475
-msgid "ゲームをプレイするのに必要な知識から，高度な情報まで"
-msgstr "這裡從遊戲遊玩的基礎知識到進階資訊都有"
 
 #: program/new.cgi:122
 msgid "ゲームスタート"
@@ -2295,17 +2133,13 @@ msgstr "子程序的名稱似乎有錯誤。<br>原因可能是版本升級錯�
 msgid "システム改造等で店舗データに互換性がない場合"
 msgstr "如果由於系統改造等原因導致店鋪資料不相容的情況"
 
-#: program/gd-o.cgi:46 program/inc-html-ranking.cgi:17 program/inc-html-top.cgi:14 program/inc-info.cgi:36 uron/custom/inc-html-ranking.cgi:18 uron/custom/inc-html-top.cgi:13
+#: program/gd-o.cgi:46 program/inc-html-ranking.cgi:17 program/inc-html-top.cgi:14 program/inc-info.cgi:36
 msgid "ジョブ"
 msgstr "職業"
 
 #: program/inc-dragon-info.cgi:10 program/slime-l.cgi:186
 msgid "スケジュール"
 msgstr "時程表"
-
-#: uron/sindex.html:45
-msgid "スタッフロール"
-msgstr "工作人員名單"
 
 #: program/new.cgi:118
 msgid "スタートしたら，まず<SPAN>[掲示板]</SPAN>であいさつをすると良いでしょう。"
@@ -2318,10 +2152,6 @@ msgstr "速度"
 #: program/inc-dragon-detail.cgi:39 program/inc-dragon-pr.cgi:34 program/inc-dragon.cgi:84
 msgid "スピード"
 msgstr "速度"
-
-#: uron/custom/inc-palace.cgi:16
-msgid "セリフ"
-msgstr "對話"
 
 #: program/inc-error.cgi:39
 msgid "ゼロで割る計算をさせています。<br>ある変数で割るときには，その変数がゼロになる場合は計算を回避してください。"
@@ -2406,12 +2236,8 @@ msgstr "資料初始化、刪除功能"
 msgid "データ更新に失敗しました"
 msgstr "資料更新失敗了"
 
-#: uron/custom/inc-menu.cgi:117
-msgid "トップ"
-msgstr "TOP"
-
 #. ($TOP_RANKING_PAGE_ROWS)
-#: program/inc-html-top.cgi:7 uron/custom/inc-html-top.cgi:7
+#: program/inc-html-top.cgi:7
 msgid "トップ %1の店舗"
 msgstr "排名前%1的店舖"
 
@@ -2540,7 +2366,7 @@ msgstr "因備份檔案破損故停止處理"
 msgid "バージョン"
 msgstr "版本"
 
-#: program/new.cgi:113 uron/custom/inc-new.cgi:43 uron/sindex-mob.html:10 uron/sindex.html:38
+#: program/new.cgi:113
 msgid "パスワード"
 msgstr "密碼"
 
@@ -2560,17 +2386,9 @@ msgstr "密碼使用了無法使用的字元，停止修改密碼。"
 msgid "パスワードは 8文字までです。"
 msgstr "密碼只能8個字。"
 
-#: uron/custom/inc-new.cgi:54
-msgid "パスワードは他人が推測できないようなものを。"
-msgstr "請使用他人無法猜到的密碼"
-
 #: program/new.cgi:115
 msgid "パスワードは必ずメモを取っておいてください。"
 msgstr "請務必記下您的密碼。"
-
-#: uron/custom/inc-new.cgi:44
-msgid "パスワードもう一度"
-msgstr "再輸入密碼"
 
 #: program/inc-admin.cgi:198 program/other.cgi:75
 msgid "パスワード変更"
@@ -2579,10 +2397,6 @@ msgstr "修改密碼"
 #: program/user.cgi:97
 msgid "パスワード変更しました"
 msgstr "密碼修改完成"
-
-#: uron/custom/staff.cgi:12
-msgid "パスワード漏れの危険があるので表示中止します。"
-msgstr "有暴露密碼的風險作業已中斷。"
 
 #: program/inc-dragon-ranch.cgi:49 program/inc-dragon-ranch.cgi:76 program/slime-l.cgi:234 program/slime-l.cgi:63 program/slime-l.cgi:99
 msgid "パワ"
@@ -2599,11 +2413,6 @@ msgstr "力量不足"
 #: program/inc-error.cgi:54
 msgid "ファイルが存在しません。イベントやアイテムデータを削除したためかもしれません。"
 msgstr "檔案不存在。這可能是因為您刪除了事件或道具資料。"
-
-#. ($fname)
-#: uron/_config.cgi:227
-msgid "ファイルが見つかりません - %1"
-msgstr "找不到檔案 - %1"
 
 #: program/bgm.cgi:17
 msgid "フレーム非対応のブラウザの方はご利用できません"
@@ -2635,18 +2444,6 @@ msgstr "遊玩中給您帶來不便我們深表歉意，請稍後。"
 #: program/inc-error.cgi:95
 msgid "プレイ中の方にはご不便をおかけしますが，解決までしばらくお待ちください。"
 msgstr "遊玩中給您帶來不便我們深表歉意，解決前請稍後"
-
-#: uron/custom/library.cgi:98
-msgid "プレイ方法（中級）"
-msgstr "遊玩方法（中級）"
-
-#: uron/custom/library.cgi:48
-msgid "プレイ方法（初級）"
-msgstr "遊玩方法（初級）"
-
-#: uron/custom/library.cgi:148
-msgid "プレイ方法（用語）"
-msgstr "遊玩方法（用語）"
 
 #: program/bride.cgi:9 program/inc-html-bride.cgi:91
 msgid "プロポーズ"
@@ -2684,10 +2481,6 @@ msgstr "拒絕求婚"
 msgid "ホスト表示"
 msgstr "顯示hostname"
 
-#: uron/custom/inc-menu.cgi:117
-msgid "ホーム"
-msgstr "首頁"
-
 #: program/inc-error.cgi:97
 msgid "ホームに戻る"
 msgstr "回到首頁"
@@ -2704,17 +2497,9 @@ msgstr "點"
 msgid "マスター"
 msgstr "店長"
 
-#: uron/custom/staff.cgi:33
-msgid "マップ・キャラ"
-msgstr "地圖、角色設定"
-
 #: program/inc-letter-form.cgi:36
 msgid "マナーを守り，もらう立場の人のことを考えて書きましょう。"
 msgstr "對於發送的信件內容請注意禮貌。"
-
-#: uron/admin.cgi:134
-msgid "マニュアルを参照して正しく設定して下さい"
-msgstr "請參考使用手冊進行正確的設定"
 
 #: program/admin-sub2.cgi:91
 msgid "マークログ"
@@ -2824,17 +2609,13 @@ msgstr "封鎖使用者店鋪"
 msgid "ランク"
 msgstr "排名"
 
-#: program/other.cgi:31 uron/custom/inc-new.cgi:31
+#: program/other.cgi:31
 msgid "ランダム"
 msgstr "隨機"
 
 #: program/lord-f.cgi:64
 msgid "リセットする"
 msgstr "重置"
-
-#: uron/custom/library.cgi:10
-msgid "ルールと注意"
-msgstr "規則與注意事項"
 
 #: program/inc-treebbs-all.cgi:12
 msgid "レス全表示"
@@ -2864,10 +2645,6 @@ msgstr "<SPAN>TIMEOUT</SPAN>，因為您登入後已經過了很長的時間。 
 #: program/new.cgi:123
 msgid "ログイン後に[♪]を押すとBGMを演奏することができます。"
 msgstr "登入後按[♪]即可播放BGM。"
-
-#: uron/custom/staff.cgi:29
-msgid "ロゴ・ジョブイラスト"
-msgstr "圖示/店鋪插圖"
 
 #: program/inc-admin.cgi:10
 msgid "ロックファイルがなくなっています。"
@@ -2917,13 +2694,9 @@ msgstr "請注意，一旦獲得許可就不能撤回。"
 msgid "一戸建て"
 msgstr "獨立住宅"
 
-#: program/inc-html-ranking.cgi:35 uron/custom/inc-html-ranking.cgi:36
+#: program/inc-html-ranking.cgi:35
 msgid "一押"
 msgstr ""
-
-#: uron/custom/inc-town.cgi:111
-msgid "一気にケリをつけようっ"
-msgstr "讓我們立即開戰吧"
 
 #: program/gd-f.cgi:49
 msgid "一般向けホームページ"
@@ -2937,7 +2710,7 @@ msgstr "列表中顯示的標語"
 msgid "一覧のみ"
 msgstr "列表檢視"
 
-#: program/inc-html-ranking.cgi:36 uron/custom/inc-html-ranking.cgi:37
+#: program/inc-html-ranking.cgi:36
 msgid "一言"
 msgstr "一言"
 
@@ -3031,10 +2804,6 @@ msgstr "無法執行不相容的程式"
 msgid "交換タイプ"
 msgstr "交換類型"
 
-#: uron/custom/inc-menu.cgi:45
-msgid "交流"
-msgstr "交流"
-
 #: program/army.cgi:112 program/army.cgi:20 program/army.cgi:73 program/lord-f.cgi:131 program/lord-f.cgi:160 program/lord-f.cgi:98 program/lord.cgi:142 program/lord.cgi:150 program/lord.cgi:51
 msgid "人"
 msgstr "人"
@@ -3059,7 +2828,7 @@ msgstr "人口"
 msgid "人民解放"
 msgstr "無為而治"
 
-#: program/admin-sub2.cgi:152 program/inc-dragon-rd.cgi:37 program/inc-html-ranking-3.cgi:59 program/inc-html-ranking-3.cgi:67 program/inc-html-ranking.cgi:30 program/inc-info.cgi:40 program/inc-info.cgi:56 program/inc-main.cgi:87 uron/custom/inc-html-ranking.cgi:31 uron/custom/inc-html-top.cgi:14
+#: program/admin-sub2.cgi:152 program/inc-dragon-rd.cgi:37 program/inc-html-ranking-3.cgi:59 program/inc-html-ranking-3.cgi:67 program/inc-html-ranking.cgi:30 program/inc-info.cgi:40 program/inc-info.cgi:56 program/inc-main.cgi:87
 msgid "人気"
 msgstr "人氣"
 
@@ -3100,7 +2869,7 @@ msgstr "本付"
 msgid "今期"
 msgstr "本期"
 
-#: program/inc-html-ranking.cgi:19 program/inc-html-top.cgi:16 program/inc-info.cgi:41 uron/custom/inc-html-ranking.cgi:20 uron/custom/inc-html-top.cgi:15
+#: program/inc-html-ranking.cgi:19 program/inc-html-top.cgi:16 program/inc-info.cgi:41
 msgid "今期売上"
 msgstr "本期銷售"
 
@@ -3224,10 +2993,6 @@ msgstr "想蓋房屋嗎？請注意以下內容。"
 msgid "住宅を持つまでの間は，この教会の持ち物置き場を使ってかまいません。"
 msgstr "在房屋蓋好之前，你可以使用這個教堂的儲藏區。"
 
-#: uron/custom/inc-menu.cgi:43
-msgid "住宅地"
-msgstr "住宅區"
-
 #: program/inc-html-bride-edit.cgi:46
 msgid "住宅増築に必要な資金が足りません。"
 msgstr "擴建房屋所需資金不足。"
@@ -3255,10 +3020,6 @@ msgstr "身體不適"
 #: program/inc-dragon-detail.cgi:46 program/inc-dragon-ranch.cgi:49 program/inc-dragon-stable.cgi:23 program/inc-dragon-stable.cgi:82 program/slime-l.cgi:234 program/slime-l.cgi:27 program/slime-l.cgi:63
 msgid "体重"
 msgstr "體重"
-
-#: uron/custom/inc-palace.cgi:10 uron/custom/inc-palace.cgi:8 uron/custom/inc-palace.cgi:9
-msgid "余は，いまグルメに凝っていてな。珍味を食したいと思っておるのじゃ。"
-msgstr "朕現在對美食很著迷。希望能吃點稀奇的食物。"
 
 #: program/req-f.cgi:34 program/req-f.cgi:48 program/req-f.cgi:62
 msgid "作成"
@@ -3362,7 +3123,7 @@ msgstr "委託物品的數量太大而無法完成。"
 msgid "依頼品の個数や価格の指定を忘れてるみたいだぜ。"
 msgstr "您似乎忘記指定所委託物品的數量和價格。"
 
-#: program/req-f.cgi:9 program/req-l.cgi:9 program/req-s.cgi:9 program/req.cgi:9 uron/custom/inc-menu.cgi:29 uron/custom/inc-town.cgi:39
+#: program/req-f.cgi:9 program/req-l.cgi:9 program/req-s.cgi:9 program/req.cgi:9
 msgid "依頼所"
 msgstr "委託所"
 
@@ -3406,7 +3167,7 @@ msgstr "保管倉庫"
 msgid "保管品"
 msgstr "保管品"
 
-#: program/inc-main.cgi:13 program/item.cgi:17 program/menu.cgi:20 program/stock.cgi:16 uron/custom/inc-menu.cgi:20
+#: program/inc-main.cgi:13 program/item.cgi:17 program/menu.cgi:20 program/stock.cgi:16
 msgid "倉庫"
 msgstr "倉庫"
 
@@ -3471,7 +3232,7 @@ msgstr "物品全部會被刪除"
 msgid "備考"
 msgstr "備註"
 
-#: program/army.cgi:14 uron/custom/inc-menu.cgi:42
+#: program/army.cgi:14
 msgid "傭兵所"
 msgstr "傭兵所"
 
@@ -3643,10 +3404,6 @@ msgstr "解雇士兵"
 msgid "兵士雇用"
 msgstr "雇用士兵"
 
-#: uron/custom/inc-town.cgi:74
-msgid "兵士駐屯所"
-msgstr "軍營"
-
 #. ($num,GetMoneyString($price)
 #: program/army-s.cgi:46
 msgid "兵士駐屯所にてドワーフ兵士を%1人@%2(計%3)にて雇いました"
@@ -3704,10 +3461,6 @@ msgstr "凍結"
 #: program/inc-error.cgi:36
 msgid "処理できない文字が含まれています。間違えて全角文字を使ってしまったか，<br>全角文字を「\"」や「'」などでくくるのを忘れていることが多いです。"
 msgstr "包含無法處理的文字。可能用到了全形文字，或者可能忘記將全形文字用「\"」或「'」括起來。"
-
-#: uron/custom/inc-new.cgi:47
-msgid "出店キーワード"
-msgstr "開店密碼"
 
 #: program/new.cgi:14
 msgid "出店キーワードが正しくありません。"
@@ -3836,7 +3589,7 @@ msgstr "折扣率"
 msgid "割引増率は10～500の間の数値で指定してください"
 msgstr "折扣率必須設定在10~500之間。"
 
-#: program/admin-sub2.cgi:152 program/inc-html-ranking.cgi:39 program/inc-info.cgi:39 uron/custom/inc-html-ranking.cgi:40
+#: program/admin-sub2.cgi:152 program/inc-html-ranking.cgi:39 program/inc-info.cgi:39
 msgid "創業"
 msgstr "創業時間"
 
@@ -3864,7 +3617,7 @@ msgstr "勝負耐力"
 msgid "勤続"
 msgstr "服務年限"
 
-#: program/move-f.cgi:67 uron/custom/inc-new.cgi:27 uron/custom/inc-new.cgi:28
+#: program/move-f.cgi:67
 msgid "半角全角OK"
 msgstr "全形半形皆可"
 
@@ -3875,10 +3628,6 @@ msgstr "現半形數字"
 #: program/gd-f.cgi:89
 msgid "半角英数"
 msgstr "半形英數"
-
-#: uron/custom/inc-new.cgi:43
-msgid "半角英数のみ"
-msgstr "只能輸入半形英數字"
 
 #: program/inc-dwarf-form.cgi:60
 msgid "単価指定"
@@ -3891,10 +3640,6 @@ msgstr "指定單價)來收購"
 #: program/req-f.cgi:46
 msgid "単価指定)で買ってください。"
 msgstr "指定單價)來販售"
-
-#: uron/custom/staff.cgi:25
-msgid "原作"
-msgstr "原作"
 
 #: program/inc-dragon-rd.cgi:37 program/inc-dragon-stable.cgi:5 program/inc-dras-stedit.cgi:5 program/slime.cgi:18
 msgid "厩舎"
@@ -3943,10 +3688,6 @@ msgstr "開設小屋"
 msgid "厩舎預託"
 msgstr "託付小屋"
 
-#: uron/custom/inc-new.cgi:12
-msgid "参加する前に，図書館でルールやプレイ方法をよく読んでください。"
-msgstr "註冊前請先閱讀圖書館裡面的規則以及遊玩方法。"
-
 #: program/inc-treebbs.cgi:15 program/inc-treebbs.cgi:16
 msgid "参考"
 msgstr "情報"
@@ -3954,10 +3695,6 @@ msgstr "情報"
 #: program/army.cgi:23 program/lord.cgi:83
 msgid "反乱"
 msgstr "叛亂"
-
-#: uron/custom/inc-town.cgi:110
-msgid "反乱だ！加勢に行くぞっ"
-msgstr "是叛亂啊！ 我來幫忙"
 
 #: program/army.cgi:157
 msgid "反乱に"
@@ -4023,10 +3760,6 @@ msgstr "需要幾分鐘才會生效"
 msgid "収入"
 msgstr "收入"
 
-#: uron/custom/inc-menu.cgi:22
-msgid "収支"
-msgstr "收支"
-
 #: program/manor-f.cgi:50 program/manor.cgi:40
 msgid "収穫物"
 msgstr "作物"
@@ -4068,7 +3801,7 @@ msgstr "進行鎮壓"
 msgid "取出"
 msgstr "取出"
 
-#: program/inc-treebbs.cgi:15 uron/custom/inc-menu.cgi:26
+#: program/inc-treebbs.cgi:15
 msgid "取引"
 msgstr "交易"
 
@@ -4128,7 +3861,7 @@ msgstr "已存在相同的商會代碼"
 msgid "名"
 msgstr "名"
 
-#: program/admin-sub2.cgi:152 program/buy.cgi:45 program/inc-dragon-jock.cgi:23 program/inc-dragon-rd.cgi:37 program/inc-info.cgi:53 program/new.cgi:111 program/slime-l.cgi:134 uron/custom/inc-new.cgi:27 uron/sindex-mob.html:9 uron/sindex.html:37
+#: program/admin-sub2.cgi:152 program/buy.cgi:45 program/inc-dragon-jock.cgi:23 program/inc-dragon-rd.cgi:37 program/inc-info.cgi:53 program/new.cgi:111 program/slime-l.cgi:134
 msgid "名前"
 msgstr "名字"
 
@@ -4208,15 +3941,11 @@ msgstr "沒有命名的權限。"
 msgid "商人物語"
 msgstr "商人物語"
 
-#: uron/sindex.html:45
-msgid "商人物語 配布元"
-msgstr "商人物語 發佈站"
-
 #: program/buy.cgi:45 program/inc-dwarf-form.cgi:110 program/inc-dwarf-form.cgi:54 program/manor-m.cgi:32
 msgid "商品"
 msgstr "商品"
 
-#: program/gd-o.cgi:48 program/inc-html-ranking.cgi:22 program/inc-html-top.cgi:19 uron/custom/inc-html-ranking.cgi:23 uron/custom/inc-html-top.cgi:18
+#: program/gd-o.cgi:48 program/inc-html-ranking.cgi:22 program/inc-html-top.cgi:19
 msgid "商品 【創業】 コメント"
 msgstr "商品 【創業時間】 評論"
 
@@ -4260,7 +3989,7 @@ msgstr "依商品顯示"
 msgid "商品名"
 msgstr "商品名"
 
-#: program/shop-a.cgi:70 program/shop-b.cgi:64 program/shop-c.cgi:7 program/town.cgi:77 uron/custom/inc-menu.cgi:28
+#: program/shop-a.cgi:70 program/shop-b.cgi:64 program/shop-c.cgi:7 program/town.cgi:77
 msgid "商店通り"
 msgstr "商店街"
 
@@ -4283,18 +4012,6 @@ msgstr "商會會長是無法退出商會的。"
 #: program/gd-f.cgi:36
 msgid "団長様，今後のギルドをどのようになさるおつもりですか？"
 msgstr "會長，您對商會的未來有什麼打算呢？"
-
-#: uron/custom/inc-menu.cgi:14 uron/custom/inc-menu.cgi:36 uron/custom/inc-town.cgi:83 uron/custom/library.cgi:455
-msgid "図書館"
-msgstr "圖書館"
-
-#: uron/custom/inc-town.cgi:122
-msgid "図書館の情報は重要だよっ"
-msgstr "圖書館的情報很重要喔"
-
-#: uron/custom/library.cgi:456 uron/custom/library.cgi:475 uron/custom/library.cgi:491
-msgid "図書館員"
-msgstr "圖書館員"
 
 #: program/inc-sc.cgi:31 program/item.cgi:24 program/stock.cgi:66
 msgid "在庫"
@@ -4424,10 +4141,6 @@ msgstr "修改"
 msgid "変更パスワードが入力されていません。"
 msgstr "沒有輸入欲修改的密碼。"
 
-#: uron/custom/inc-town.cgi:109
-msgid "大変だ・・・。援軍を呼ばないと！"
-msgstr "糟了・・・。要趕快叫援軍來啊！"
-
 #: program/inc-html-ranking-3.cgi:26
 msgid "大富豪"
 msgstr "大富翁"
@@ -4456,10 +4169,6 @@ msgstr "不存在的店舖"
 #: program/admin-sub2.cgi:96
 msgid "存在しません %1"
 msgstr "不存在的項目 %1"
-
-#: uron/custom/inc-menu.cgi:47
-msgid "宅配便"
-msgstr "宅急便"
 
 #: program/plug/letter.cgi:24
 msgid "宅配便のお知らせ"
@@ -4549,7 +4258,7 @@ msgstr "無法執行。"
 msgid "実際かかった時間"
 msgstr "實際花費的時間"
 
-#: program/palace-s.cgi:16 program/palace.cgi:16 uron/custom/inc-menu.cgi:30
+#: program/palace-s.cgi:16 program/palace.cgi:16
 msgid "宮殿"
 msgstr "皇宮"
 
@@ -4601,7 +4310,7 @@ msgstr "給予。"
 msgid "差追"
 msgstr "差追"
 
-#: program/menu.cgi:13 program/plug/whole.cgi:8 program/shop-m.cgi:14 uron/custom/inc-menu.cgi:27 uron/custom/inc-town.cgi:48
+#: program/menu.cgi:13 program/plug/whole.cgi:8 program/shop-m.cgi:14
 msgid "市場"
 msgstr "市場"
 
@@ -4646,11 +4355,7 @@ msgstr "欲關閉店鋪請輸入closeshop"
 msgid "店じまいの手続きが完了いたしました。"
 msgstr "已完成閉店手續。"
 
-#: uron/sindex-mob.html:12 uron/sindex.html:40
-msgid "店へ入る"
-msgstr "進入店鋪"
-
-#: program/inc-main.cgi:23 uron/custom/inc-menu.cgi:19
+#: program/inc-main.cgi:23
 msgid "店内"
 msgstr "店鋪"
 
@@ -4658,11 +4363,11 @@ msgstr "店鋪"
 msgid "店内に戻る"
 msgstr "回到店裡"
 
-#: program/admin-sub2.cgi:152 program/buy.cgi:43 program/gd-m.cgi:80 program/inc-html-ownerinfo.cgi:25 program/inc-html-ranking-2.cgi:30 program/inc-html-ranking.cgi:29 program/inc-info.cgi:54 program/new.cgi:112 uron/custom/inc-html-ranking.cgi:30 uron/custom/inc-html-top.cgi:14 uron/custom/inc-new.cgi:28
+#: program/admin-sub2.cgi:152 program/buy.cgi:43 program/gd-m.cgi:80 program/inc-html-ownerinfo.cgi:25 program/inc-html-ranking-2.cgi:30 program/inc-html-ranking.cgi:29 program/inc-info.cgi:54 program/new.cgi:112
 msgid "店名"
 msgstr "店名"
 
-#: program/inc-html-ranking.cgi:18 program/inc-html-top.cgi:15 uron/custom/inc-html-ranking.cgi:19
+#: program/inc-html-ranking.cgi:18 program/inc-html-top.cgi:15
 msgid "店名　人気"
 msgstr "店名　人氣"
 
@@ -4706,7 +4411,7 @@ msgstr "店鋪名稱修改"
 msgid "店舗情報"
 msgstr "店舗情報"
 
-#: program/gd-o.cgi:45 program/inc-html-ranking.cgi:16 program/inc-html-top.cgi:13 uron/custom/inc-html-ranking.cgi:17 uron/custom/inc-html-top.cgi:12
+#: program/gd-o.cgi:45 program/inc-html-ranking.cgi:16 program/inc-html-top.cgi:13
 msgid "店長"
 msgstr "店長"
 
@@ -4766,10 +4471,6 @@ msgstr "彩花新龍"
 msgid "彼らを集めて反乱を起こすも，逆に領主を守るも，雇い主次第です。"
 msgstr "由雇主召集他們發動叛亂或保護領主。"
 
-#: uron/custom/inc-hometown.cgi:43
-msgid "待って～っ"
-msgstr "等等啊～"
-
 #: program/army.cgi:23 program/inc-dragon.cgi:92
 msgid "待機"
 msgstr "待機"
@@ -4815,7 +4516,7 @@ msgstr "必要職業"
 msgid "性別"
 msgstr "性別"
 
-#: program/inc-html-log.cgi:29 program/inc-html-log.cgi:68 program/inc-html-log.cgi:85 program/inc-html-log.cgi:98 uron/custom/inc-menu.cgi:32
+#: program/inc-html-log.cgi:29 program/inc-html-log.cgi:68 program/inc-html-log.cgi:85 program/inc-html-log.cgi:98
 msgid "情報"
 msgstr "情報"
 
@@ -4838,10 +4539,6 @@ msgstr "成績"
 #: program/inc-dragon-detail.cgi:47
 msgid "成長度"
 msgstr "成長度"
-
-#: uron/custom/inc-palace.cgi:13 uron/custom/inc-palace.cgi:14
-msgid "我が国には，その日の食べ物すらままならない子供たちがおるのじゃ。"
-msgstr "我們國家有一些孩子都沒有飯吃。"
 
 #: program/plug/use.cgi:251
 msgid "戻る"
@@ -4887,10 +4584,6 @@ msgstr "您總共可以發送 %1封信。"
 msgid "手紙を書く"
 msgstr "寫信"
 
-#: uron/custom/inc-menu.cgi:23
-msgid "手続"
-msgstr "手續"
-
 #: program/gd-b.cgi:55
 msgid "手続が完了しました。数分後に反映されると思います。"
 msgstr "手續完成。大概需要幾分鐘才會生效。"
@@ -4931,13 +4624,9 @@ msgstr "骯髒王"
 msgid "探偵室"
 msgstr "探偵室"
 
-#: program/inc-admin.cgi:123 program/treebbs.cgi:21 uron/custom/inc-menu.cgi:48 uron/custom/inc-town.cgi:92
+#: program/inc-admin.cgi:123 program/treebbs.cgi:21
 msgid "掲示板"
 msgstr "留言板"
-
-#: uron/custom/inc-town.cgi:123
-msgid "掲示板のチェックも大切だね。ふむふむ・・・"
-msgstr "嗯嗯~ 觀看留言板很重要呢。"
 
 #: program/admin-sub2.cgi:152 program/gd.cgi:83
 msgid "支出"
@@ -5102,7 +4791,7 @@ msgstr "新月杯"
 msgid "新着"
 msgstr "新的"
 
-#: program/inc-main.cgi:12 program/menu.cgi:14 uron/custom/inc-menu.cgi:13 uron/custom/inc-menu.cgi:34
+#: program/inc-main.cgi:12 program/menu.cgi:14
 msgid "新聞"
 msgstr "新聞"
 
@@ -5114,14 +4803,9 @@ msgstr "新聞：得獎列表"
 msgid "新聞：爵位リスト"
 msgstr "新聞：爵位列表"
 
-#: program/inc-html-ranking.cgi:7 uron/custom/inc-html-ranking.cgi:8
+#: program/inc-html-ranking.cgi:7
 msgid "新聞：順位リスト"
 msgstr "新聞：名次列表"
-
-#. (($MAX_USER-$DTusercount)
-#: uron/custom/inc-new.cgi:18
-msgid "新規店舗オープン：残り%1名様"
-msgstr "開新店舖：剩下%1個名額"
 
 #: program/new.cgi:10
 msgid "新規店舗登録権限がありません。"
@@ -5134,10 +4818,6 @@ msgstr "發新文章"
 #: program/inc-dragon-stable.cgi:23 program/lord.cgi:52 program/slime-l.cgi:27
 msgid "方針"
 msgstr "方針"
-
-#: uron/custom/inc-menu.cgi:38
-msgid "施設"
-msgstr "設施"
 
 #. ($Q{owname})
 #. ($Q{name})
@@ -5175,11 +4855,11 @@ msgstr "天數"
 msgid "春花賞"
 msgstr "春花獎"
 
-#: program/inc-html-ranking.cgi:33 program/inc-sc.cgi:33 uron/custom/inc-html-ranking.cgi:34
+#: program/inc-html-ranking.cgi:33 program/inc-sc.cgi:33
 msgid "昨売"
 msgstr "昨售"
 
-#: program/inc-html-ranking.cgi:37 uron/custom/inc-html-ranking.cgi:38
+#: program/inc-html-ranking.cgi:37
 msgid "昨税"
 msgstr "昨稅"
 
@@ -5356,15 +5036,11 @@ msgstr "未讀"
 msgid "本ゲームへの参加，本当にありがとうございました。"
 msgstr "非常感謝您遊玩此遊戲。"
 
-#: uron/sindex-mob.html:16 uron/sindex.html:45
-msgid "本サイトの管理者"
-msgstr "本站管理員"
-
 #: program/inc-admin.cgi:191
 msgid "本人が入店していても同時に操作できます。"
 msgstr "即使帳號本人在線上，也可以同時操作。"
 
-#: program/inc-html-ranking.cgi:32 program/inc-sc.cgi:32 uron/custom/inc-html-ranking.cgi:33
+#: program/inc-html-ranking.cgi:32 program/inc-sc.cgi:32
 msgid "本売"
 msgstr "本售"
 
@@ -5408,7 +5084,7 @@ msgstr "深栗色毛"
 msgid "桃花賞"
 msgstr "桃花獎"
 
-#: program/army.cgi:15 program/new.cgi:4 uron/custom/staff.cgi:15
+#: program/army.cgi:15 program/new.cgi:4
 msgid "案内人"
 msgstr "嚮導"
 
@@ -5488,7 +5164,7 @@ msgid "次回の%1は賞金未獲得のドラゴンのみ出走できます"
 msgstr "只有沒有得獎的龍才能報名下次的%1"
 
 #. (GetTime2FormatTime($nextday-$TZ_JST+$DATE_REVISE_TIME)
-#: program/menu.cgi:11 uron/custom/inc-menu.cgi:118 uron/custom/inc-menu.cgi:99
+#: program/menu.cgi:11
 msgid "次回決算 %1 まであと%2"
 msgstr "下次決算 %1 還有%2"
 
@@ -5530,8 +5206,8 @@ msgstr "剩下"
 msgid "残%1"
 msgstr "剩下%1"
 
-#. ($stock,$ITEM->{scale})
 #. ($DTS->{item}[$itemno-1],$ITEM->{scale})
+#. ($stock,$ITEM->{scale})
 #: program/shop-a.cgi:121 program/shop-b.cgi:115 program/shop-m.cgi:32
 msgid "残%1%2"
 msgstr "剩下%1%2"
@@ -5539,10 +5215,6 @@ msgstr "剩下%1%2"
 #: program/sweep-s.cgi:27
 msgid "残ったごみの量"
 msgstr "剩餘垃圾量"
-
-#: uron/custom/inc-menu.cgi:35
-msgid "殿堂"
-msgstr "殿堂"
 
 #: program/inc-dragon-detail.cgi:22 program/inc-dragon-pr.cgi:19
 msgid "毛色"
@@ -5575,10 +5247,6 @@ msgstr "治安"
 #: program/lord-f.cgi:36 program/lord.cgi:60
 msgid "治安対策費"
 msgstr "治安經費"
-
-#: uron/custom/inc-menu.cgi:72
-msgid "活動中"
-msgstr "活動中"
 
 #: program/gd-f.cgi:115 program/gd-o.cgi:34
 msgid "活動紹介"
@@ -5645,7 +5313,7 @@ msgstr "溫泉設施"
 msgid "温泉施設 (健康上昇)"
 msgstr "溫泉施設 (健康上昇)"
 
-#: program/gd-o.cgi:44 program/inc-html-bride.cgi:37 program/inc-html-ownerinfo.cgi:26 program/inc-html-ranking.cgi:15 program/inc-html-ranking.cgi:28 program/inc-html-top.cgi:12 program/inc-info.cgi:37 program/inc-info.cgi:63 uron/custom/inc-html-ranking.cgi:16 uron/custom/inc-html-ranking.cgi:29 uron/custom/inc-html-top.cgi:11
+#: program/gd-o.cgi:44 program/inc-html-bride.cgi:37 program/inc-html-ownerinfo.cgi:26 program/inc-html-ranking.cgi:15 program/inc-html-ranking.cgi:28 program/inc-html-top.cgi:12 program/inc-info.cgi:37 program/inc-info.cgi:63
 msgid "点数"
 msgstr "點數"
 
@@ -5661,7 +5329,7 @@ msgstr "指定的數值無效。"
 msgid "無記入で最大"
 msgstr "沒有輸入時則為最大值"
 
-#: program/inc-html-ranking.cgi:21 program/inc-html-ranking.cgi:38 program/inc-html-top.cgi:18 program/stock.cgi:123 program/stock.cgi:138 program/stock.cgi:67 program/stock.cgi:78 uron/custom/inc-html-ranking.cgi:22 uron/custom/inc-html-ranking.cgi:39 uron/custom/inc-html-top.cgi:17
+#: program/inc-html-ranking.cgi:21 program/inc-html-ranking.cgi:38 program/inc-html-top.cgi:18 program/stock.cgi:123 program/stock.cgi:138 program/stock.cgi:67 program/stock.cgi:78
 msgid "熟練"
 msgstr "熟練"
 
@@ -5862,7 +5530,7 @@ msgstr "非常抱歉，請稍後再試。"
 msgid "申し訳ありませんが，現在満員となっております。"
 msgstr "非常抱歉，目前名額已達上限。"
 
-#: program/other.cgi:36 uron/custom/inc-new.cgi:36
+#: program/other.cgi:36
 msgid "画像"
 msgstr "頭像"
 
@@ -5903,22 +5571,14 @@ msgstr "賽龍"
 msgid "登竜レース"
 msgstr "賽龍"
 
-#: program/inc-dragon.cgi:92 uron/custom/inc-new.cgi:50
+#: program/inc-dragon.cgi:92
 msgid "登録"
 msgstr "註冊"
-
-#: uron/custom/inc-new.cgi:20
-msgid "登録は<b>１人１店舗</b>のみ"
-msgstr "<b>一人</b>只能註冊<b>一個店鋪</b>"
 
 #. (GetTime2FormatTime($DRTIME[$rcode + 1])
 #: program/inc-dragon-rd.cgi:26
 msgid "登録締め切りは %1 です。"
 msgstr "報名截止日期為 %1。"
-
-#: uron/custom/inc-hometown.cgi:47
-msgid "盗っ人め・・・待て！"
-msgstr "小偷…別跑啊！"
 
 #: program/item.cgi:32 program/item.cgi:38 program/stock.cgi:125
 msgid "相場"
@@ -6138,41 +5798,17 @@ msgstr "可以擁有 <b>%1</b>頭賽龍。"
 msgid "競争竜一覧"
 msgstr "賽龍列表"
 
-#: uron/custom/inc-menu.cgi:41 uron/custom/inc-town.cgi:26
-msgid "競技場"
-msgstr "競技場"
-
 #: program/inc-admin.cgi:235 program/inc-admin.cgi:240 program/inc-admin.cgi:245 program/inc-admin.cgi:254 program/inc-admin.cgi:261
 msgid "管理パス"
 msgstr "管理員密碼"
 
-#: uron/admin.cgi:131
-msgid "管理メニュー"
-msgstr "管理選單"
-
-#: uron/admin.cgi:34
-msgid "管理メニューへ"
-msgstr "進入管理選單"
-
-#: program/inc-makeitem.cgi:24 uron/admin.cgi:136 uron/admin.cgi:58
+#: program/inc-makeitem.cgi:24
 msgid "管理メニューへ戻る"
 msgstr "回到管理選單"
-
-#: uron/admin.cgi:33
-msgid "管理者パスワード"
-msgstr "管理員密碼"
 
 #: program/inc-makeitem.cgi:16
 msgid "管理者パスワードが不正です"
 msgstr "管理員密碼錯誤"
-
-#: uron/admin.cgi:17
-msgid "管理者パスワードが設定されていません"
-msgstr "沒有設定管理員密碼"
-
-#: uron/admin.cgi:18
-msgid "管理者メールアドレスが設定されていません"
-msgstr "沒有設定管理員信箱"
 
 #: program/inc-dragon.cgi:94
 msgid "紅毛"
@@ -6240,7 +5876,7 @@ msgstr "結果"
 msgid "続けて依頼を見る"
 msgstr "查看其它委託"
 
-#: program/inc-html-ranking.cgi:34 program/stock.cgi:121 program/stock.cgi:65 uron/custom/inc-html-ranking.cgi:35
+#: program/inc-html-ranking.cgi:34 program/stock.cgi:121 program/stock.cgi:65
 msgid "維持"
 msgstr "維護"
 
@@ -6370,10 +6006,6 @@ msgstr "無法自動轉換到維護模式。請手動進入維護模式並重新
 msgid "自在"
 msgstr "自由"
 
-#: uron/custom/inc-menu.cgi:18
-msgid "自店"
-msgstr "自店"
-
 #: program/army-s.cgi:22
 msgid "自店に戻る"
 msgstr "回到商店"
@@ -6401,10 +6033,6 @@ msgstr "灰毛"
 #: program/inc-dragon.cgi:16
 msgid "若葉新竜"
 msgstr "若葉新龍"
-
-#: uron/custom/inc-new.cgi:53
-msgid "荒らしと疑われるような名前は避けましょう。"
-msgstr "避免使用可能被視為網路小白的名稱。"
 
 #. ($MYMANOR[0],    $num,    GetMoneyString($price)
 #: program/manor-s.cgi:53
@@ -6485,7 +6113,7 @@ msgstr "街道資金不足，無法購買"
 msgid "街の軍師"
 msgstr "軍師"
 
-#: program/move.cgi:5 uron/admin.cgi:19
+#: program/move.cgi:5
 msgid "街コードが設定されていません"
 msgstr "沒有設定街道代碼"
 
@@ -6498,10 +6126,6 @@ msgstr "街道清單製作失敗"
 msgid "街リストを作成しました"
 msgstr "已產生街道清單"
 
-#: uron/custom/inc-menu.cgi:11 uron/custom/staff.cgi:13
-msgid "街案内"
-msgstr "街道"
-
 #: program/lord-f.cgi:35 program/lord.cgi:53 program/manor-f.cgi:39
 msgid "街資金"
 msgstr "街道資金"
@@ -6513,10 +6137,6 @@ msgstr "看來街道資金已經用完了，付不起街道護衛軍的薪水了
 #: program/ipcheck.cgi:10
 msgid "街間の重複登録状況"
 msgstr "街道的多重登入情況"
-
-#: uron/custom/staff.cgi:23
-msgid "製作・著作"
-msgstr "開發、著作權"
 
 #: program/user.cgi:145
 msgid "解散したギルド"
@@ -6571,7 +6191,7 @@ msgstr "不允許的行為"
 msgid "許可する相手を指定してください。"
 msgstr "請指定允許的人。"
 
-#: program/inc-html-bride.cgi:39 program/inc-html-top.cgi:7 uron/custom/inc-html-top.cgi:7
+#: program/inc-html-bride.cgi:39 program/inc-html-top.cgi:7
 msgid "詳細"
 msgstr "詳細"
 
@@ -6691,11 +6311,6 @@ msgstr "從購買的作物中生產"
 msgid "買い取ってもらう"
 msgstr "販售"
 
-#. ($DT[0]->{shopname})
-#: uron/custom/inc-town.cgi:128
-msgid "買い物はやっぱり%1よねっ"
-msgstr "要買東西還是得去%1呢"
-
 #: program/buy-s.cgi:136
 msgid "買い物を続ける"
 msgstr "繼續購物"
@@ -6749,7 +6364,7 @@ msgstr "請輸入交易商品。"
 msgid "貿易品リスト"
 msgstr "交易清單"
 
-#: program/admin-sub2.cgi:152 program/gd.cgi:78 program/inc-admin.cgi:176 program/inc-html-bride-list.cgi:105 program/inc-html-bride-list.cgi:110 program/inc-html-bride-list.cgi:124 program/inc-html-ownerinfo.cgi:27 program/inc-html-ranking-3.cgi:27 program/inc-html-ranking-3.cgi:35 program/inc-html-ranking.cgi:20 program/inc-html-ranking.cgi:31 program/inc-html-top.cgi:17 program/inc-info.cgi:37 program/inc-info.cgi:58 program/inc-main.cgi:85 program/req-l.cgi:39 program/req-l.cgi:46 program/req.cgi:71 program/req.cgi:82 uron/custom/inc-html-ranking.cgi:21 uron/custom/inc-html-ranking.cgi:32 uron/custom/inc-html-top.cgi:16
+#: program/admin-sub2.cgi:152 program/gd.cgi:78 program/inc-admin.cgi:176 program/inc-html-bride-list.cgi:105 program/inc-html-bride-list.cgi:110 program/inc-html-bride-list.cgi:124 program/inc-html-ownerinfo.cgi:27 program/inc-html-ranking-3.cgi:27 program/inc-html-ranking-3.cgi:35 program/inc-html-ranking.cgi:20 program/inc-html-ranking.cgi:31 program/inc-html-top.cgi:17 program/inc-info.cgi:37 program/inc-info.cgi:58 program/inc-main.cgi:85 program/req-l.cgi:39 program/req-l.cgi:46 program/req.cgi:71 program/req.cgi:82
 msgid "資金"
 msgstr "資金"
 
@@ -7066,10 +6681,6 @@ msgstr "郵件通知"
 msgid "郵便チェック"
 msgstr "檢查郵件"
 
-#: uron/custom/inc-menu.cgi:46
-msgid "郵便局"
-msgstr "郵局"
-
 #: program/inc-main.cgi:11
 msgid "郵便箱"
 msgstr "信箱"
@@ -7171,10 +6782,6 @@ msgstr "開店時間 %1 以上"
 #: program/move-f.cgi:49
 msgid "開業期間 %1 以下"
 msgstr "開店時間 %1 以下"
-
-#: uron/custom/staff.cgi:14
-msgid "開発スタッフロール"
-msgstr "開發工作人員名單"
 
 #: program/inc-treebbs-view.cgi:56
 msgid "関連発言"
@@ -7285,18 +6892,6 @@ msgstr "霹靂獎"
 msgid "青毛"
 msgstr "藍毛"
 
-#: uron/custom/staff.cgi:35
-msgid "音楽"
-msgstr "音樂"
-
-#: uron/custom/library.cgi:476
-msgid "項目ごとに整理されています。よく読んでおくことをおすすめします。"
-msgstr "都有按照項目整理好了。我們建議您仔細閱讀。"
-
-#: uron/custom/library.cgi:492
-msgid "項目一覧に戻る"
-msgstr "回到項目列表"
-
 #: program/log.cgi:10
 msgid "順位"
 msgstr "排名"
@@ -7345,10 +6940,6 @@ msgstr "沒有領主的情況下無法使用莊園系統"
 msgid "領主の弱兵など相手にならんぞ！ぐわっはっは！"
 msgstr "領主的弱軍才不是我的對手！哇哈哈哈！"
 
-#: uron/custom/inc-town.cgi:111
-msgid "領主を倒せっ"
-msgstr "將領主打倒"
-
 #: program/inc-dragon.cgi:34
 msgid "領主チャレンジカップ"
 msgstr "領主挑戰杯"
@@ -7357,21 +6948,13 @@ msgstr "領主挑戰杯"
 msgid "領主情報"
 msgstr "領主情報"
 
-#: program/town.cgi:76 uron/custom/inc-menu.cgi:39
+#: program/town.cgi:76
 msgid "領主邸"
 msgstr "領主邸"
 
 #: program/inc-treebbs-view.cgi:102
 msgid "題名は，内容が分かるようにお願いします。"
 msgstr "文章標題應有助於理解文章內容。"
-
-#: uron/custom/inc-menu.cgi:12 uron/custom/inc-menu.cgi:33
-msgid "風景"
-msgstr "風景"
-
-#: uron/custom/inc-town.cgi:118
-msgid "食事の材料買いに行かなくっちゃ。"
-msgstr "我得去買做飯的材料了。"
 
 #: program/plug/market.cgi:102 program/plug/market.cgi:88
 msgid "飽和"

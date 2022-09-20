@@ -16,7 +16,7 @@
 }
 
 sub l {
-    my $i18n = ($LANG ne "") ? I18N->get_handle($LANG) : I18N->get_handle();
+    my $i18n = ( $LANG ne "" ) ? I18N->get_handle($LANG) : I18N->get_handle();
     return $i18n->maketext(@_);
 }
 
