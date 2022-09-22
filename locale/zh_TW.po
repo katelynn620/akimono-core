@@ -2696,7 +2696,7 @@ msgstr "獨立住宅"
 
 #: program/inc-html-ranking.cgi:35
 msgid "一押"
-msgstr ""
+msgstr "主打"
 
 #: program/gd-f.cgi:49
 msgid "一般向けホームページ"
