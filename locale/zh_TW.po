@@ -2172,15 +2172,15 @@ msgstr "標題最多20字，目前%1字。"
 
 #: program/inc-dragon-stable.cgi:23 program/inc-dragon.cgi:9 program/slime-l.cgi:27
 msgid "ダート"
-msgstr "沙地"
+msgstr "砂地"
 
 #: program/inc-dragon.cgi:74
 msgid "ダートのレースに強い"
-msgstr "沙地比賽較強"
+msgstr "砂地比賽較強"
 
 #: program/inc-dragon-stable.cgi:113
 msgid "ダートトラック (パワー上昇)"
-msgstr "沙地卡車 (力量上升)"
+msgstr "砂地卡車 (力量上升)"
 
 #. ($dir)
 #: program/inc-admin-func.cgi:324
@@ -3044,7 +3044,7 @@ msgstr "活動需要時間"
 
 #: program/inc-dragon-stable.cgi:111
 msgid "併せ竜 (勝負根性上昇)"
-msgstr "並列龍 (勝負耐性上升)"
+msgstr "並列龍 (競爭的膽量上升)"
 
 #: program/inc-dragon-stable.cgi:23 program/slime-l.cgi:27
 msgid "併竜"
@@ -3611,7 +3611,7 @@ msgstr "勝負"
 
 #: program/inc-dragon-detail.cgi:40 program/inc-dragon-pr.cgi:35 program/inc-dragon.cgi:84
 msgid "勝負根性"
-msgstr "勝負耐力"
+msgstr "競爭的膽量"
 
 #: program/inc-dragon-jock.cgi:23 program/slime-l.cgi:134
 msgid "勤続"
@@ -3643,34 +3643,34 @@ msgstr "指定單價)來販售"
 
 #: program/inc-dragon-rd.cgi:37 program/inc-dragon-stable.cgi:5 program/inc-dras-stedit.cgi:5 program/slime.cgi:18
 msgid "厩舎"
-msgstr "飼育小屋"
+msgstr "龍房"
 
 #: program/inc-dragon-detail.cgi:123
 msgid "厩舎にドラゴンを預託すると，調教による成長が見込めます。"
-msgstr "如果你在飼育小屋飼養龍，可以期待牠透過訓練成長。"
+msgstr "如果你在龍房飼養龍，可以期待牠透過訓練成長。"
 
 #. ($STmax)
 #: program/inc-dragon-stable.cgi:73
 msgid "厩舎は全体で <b>%1</b>舎の上限があり，満杯になると設立できません。"
-msgstr "飼育小屋的總上限為 <b>%1</b>間，若已經到達上限時則無法開設。"
+msgstr "龍房的總上限為 <b>%1</b>間，若已經到達上限時則無法開設。"
 
 #: program/inc-dras-stedit.cgi:76
 msgid "厩舎を増築しました。"
-msgstr "已擴建飼育小屋。"
+msgstr "已擴建龍房。"
 
 #. ($estmsg)
 #: program/inc-dragon-stable.cgi:135
 msgid "厩舎を増築するには，資金<b>%1</b>がかかります。"
-msgstr "擴建飼育小屋需要資金<b>%1</b>。"
+msgstr "擴建龍房需要資金<b>%1</b>。"
 
 #: program/inc-dragon-stable.cgi:11
 msgid "厩舎を持てば，自分や他人のドラゴンを調教することができる。"
-msgstr "如果擁有飼育小屋，你就可以訓練自己的龍和其他人的龍。"
+msgstr "如果擁有龍房，你就可以訓練自己的龍和其他人的龍。"
 
 #. ($estmsg)
 #: program/inc-dragon-stable.cgi:70
 msgid "厩舎を設立するには，資金<b>%1</b>がかかります。"
-msgstr "開設飼育小屋需要資金<b>%1</b>。"
+msgstr "開設龍房需要資金<b>%1</b>。"
 
 #: program/inc-dragon-info.cgi:14 program/slime-l.cgi:25
 msgid "厩舎一覧"
@@ -4662,7 +4662,7 @@ msgstr "政治活動只有領主才可以進行"
 
 #: program/bride.cgi:24 program/hometown.cgi:99 program/inc-html-bride-list.cgi:85
 msgid "教会"
-msgstr "教會"
+msgstr "教堂"
 
 #: program/gd.cgi:33
 msgid "数分経ったら出来上がるはずですので，しばらくお待ちください。"
@@ -4730,12 +4730,12 @@ msgstr "想提出新的委託書嗎？敬請閱讀以下注意事項。"
 #. ($Q{name})
 #: program/inc-dras-stedit.cgi:54
 msgid "新しい厩舎「%1」が設立されました。"
-msgstr "已開設新的飼育小屋「%1」。"
+msgstr "已開設新的龍房「%1」。"
 
 #. ($Q{name})
 #: program/inc-dras-stedit.cgi:55
 msgid "新しい厩舎「<b>%1</b>」を設立しました。"
-msgstr "新的飼育小屋「%1」被開設了。"
+msgstr "新的龍房「%1」被開設了。"
 
 #: program/gd-f.cgi:80
 msgid "新しい団長様，どのようなギルドを結成なさるおつもりですか？"
@@ -5017,11 +5017,11 @@ msgstr "沒有勝利"
 
 #: program/inc-dragon.cgi:25
 msgid "未勝利1600ダート"
-msgstr "魯蛇1600沙地"
+msgstr "魯蛇1600砂地"
 
 #: program/inc-dragon.cgi:19
 msgid "未勝利2600ダート"
-msgstr "魯蛇2600沙地"
+msgstr "魯蛇2600砂地"
 
 #. ($val[0])
 #: program/inc-makeitem.cgi:937
@@ -5984,7 +5984,7 @@ msgstr "不能跟自己結婚啊。"
 
 #: program/inc-dragon-stable.cgi:10
 msgid "自分の厩舎を持っていないようだな。"
-msgstr "你似乎沒有自己的飼育小屋。"
+msgstr "你似乎沒有自己的龍房。"
 
 #: program/buy-s.cgi:30
 msgid "自分の店から買うことはできません"
