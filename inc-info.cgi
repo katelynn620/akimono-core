@@ -50,6 +50,8 @@ if(!$MOBILE)
 }
 else
 {
+	my $timestr = l('時間#A');
+	$timestr =~ s/#A//g;
 	$disp.=l('名前').':'.$DT->{name}."<BR>";
 	$disp.=l('店名').':'.GetTagImgGuild($DT->{guild}).$DT->{shopname}."<BR>";
 	$disp.=l('RANK').':'.($id2idx{$DT->{id}}+1)."<BR>";
@@ -59,7 +61,7 @@ else
 	$disp.=l('今売').':'.GetMoneyString($DT->{saletoday})."<BR>";
 	$disp.=l('今払').':'.GetMoneyString($DT->{paytoday})."<BR>";
 	$disp.=l('今維').':'.GetMoneyString(int($DT->{costtoday}))."+".GetMoneyString($SHOWCASE_COST[$DT->{showcasecount}-1])."<BR>";
-	$disp.=l('時間').':'.$tm."<BR>";
+	$disp.=$timestr.':'.$tm."<BR>";
 	$disp.=l('点数').':'.$DT->{point}."<BR>";
 	$disp.=l('職業').':'.$job."<BR>";
 }

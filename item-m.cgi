@@ -41,7 +41,9 @@ my $exp=$DT->{exp}->{$USE->{itemno}};
 
 if($USE->{time} || $exp)
 {
-	$disp.=$TR.$TDB.l("時間")." $scaleone".$TD.GetTime2HMS($USE->{time});
+	my $timestr = l('時間#A');
+	$timestr =~ s/#A//g;
+	$disp.=$TR.$TDB.$timestr." $scaleone".$TD.GetTime2HMS($USE->{time});
 	$disp.="(".l("熟練度").int($exp/10)."%)" if $exp;
 	$disp.=$TRE;
 	

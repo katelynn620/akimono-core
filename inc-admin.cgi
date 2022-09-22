@@ -90,7 +90,8 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 		$disp.="<tr><td>".$_."<td>".substr(sprintf("%o",(stat($_))[2]),-3,3)."</tr>";
 	}
 	$disp.="</table><td bgcolor=\"#DBD5FF\">";
-	
+	my $timestr = l('時間#A');
+	$timestr =~ s/#A//g;
 	$disp.=<<"HTML";
 	<table width=500><tr><td colspan=2>
 	<FORM ACTION="$MYNAME" METHOD="POST">
@@ -174,7 +175,7 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	<INPUT TYPE="TEXT" size=46 NAME=comment VALUE="">${\l('←コメント(任意)')}<br>
 	・${\l('アイテム')} <SELECT NAME=senditem>$formitem</SELECT>：<INPUT TYPE="TEXT" size=3 NAME=count VALUE="1">${\l('個')}
 	／・${\l('資金')}：<INPUT TYPE="TEXT" size=5 NAME=sendmoney VALUE="0">$term[2]
-	／・${\l('時間')}：<INPUT TYPE="TEXT" size=3 NAME=sendtime VALUE="0">${\l('時間')}
+	／・$timestr：<INPUT TYPE="TEXT" size=3 NAME=sendtime VALUE="0">${\l('時間')}
 	／・${\l('爵位')}：<INPUT TYPE="TEXT" size=3 NAME=senddig VALUE="0">${\l('ポイント')}<br>
 	※${\l('それぞれを一度に指定することもできます。コメントを空欄にすると公表しません。')}
 	</FORM></tr></table><hr width=700 noshade size=1>

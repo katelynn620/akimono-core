@@ -78,7 +78,9 @@ else
 	$disp.=$USE->{result}->{function_return}."<BR>" if $USE->{result}->{function_return};
 	$disp.=$USE->{result}->{count}.$USE->{scale}."<BR>";
 	$disp.=l('費用').":".GetMoneyString($USE->{money}*$USE->{result}->{count})."<BR>" if $USE->{money}*$USE->{result}->{count};
-	$disp.=l('時間').":".GetTime2HMS(GetItemUseTime($USE)*$count)."<BR><BR>";
+	my $timestr = l('時間#A');
+	$timestr =~ s/#A//g;
+	$disp.=$timestr.":".GetTime2HMS(GetItemUseTime($USE)*$count)."<BR><BR>";
 	
 	foreach my $MESSAGE (@{$USE->{result}->{addmsg}})
 		{$disp.=$MESSAGE."<BR>" if $MESSAGE;}
