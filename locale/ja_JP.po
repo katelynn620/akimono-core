@@ -565,7 +565,7 @@ msgid "%1回優勝"
 msgstr ""
 
 #. ($limit)
-#: program/item-m.cgi:172
+#: program/item-m.cgi:174
 msgid "%1字以内"
 msgstr ""
 
@@ -872,7 +872,7 @@ msgstr ""
 msgid "OP"
 msgstr ""
 
-#: program/inc-html-ranking.cgi:27 program/inc-info.cgi:55
+#: program/inc-html-ranking.cgi:27 program/inc-info.cgi:57
 msgid "RANK"
 msgstr ""
 
@@ -943,31 +943,31 @@ msgstr ""
 msgid "write mode open error"
 msgstr ""
 
-#: program/inc-admin.cgi:224
+#: program/inc-admin.cgi:225
 msgid "← 確認のため closeshop と入力"
 msgstr ""
 
-#: program/inc-admin.cgi:174
+#: program/inc-admin.cgi:175
 msgid "←コメント(任意)"
 msgstr ""
 
-#: program/inc-admin.cgi:222
+#: program/inc-admin.cgi:223
 msgid "←コメント（任意）"
 msgstr ""
 
-#: program/inc-admin.cgi:207
+#: program/inc-admin.cgi:208
 msgid "←凍結理由"
 msgstr ""
 
-#: program/inc-admin.cgi:199
+#: program/inc-admin.cgi:200
 msgid "←新パス"
 msgstr ""
 
-#: program/inc-admin.cgi:200
+#: program/inc-admin.cgi:201
 msgid "←新パスもう一度"
 msgstr ""
 
-#: program/inc-admin.cgi:223
+#: program/inc-admin.cgi:224
 msgid "←通知しない "
 msgstr ""
 
@@ -998,7 +998,7 @@ msgstr ""
 msgid "「<b>%1</b>」の %2行目付近に原因があるようです。"
 msgstr ""
 
-#: program/inc-admin.cgi:208
+#: program/inc-admin.cgi:209
 msgid "「off」と入力で凍結解除：「mark」と入力でログイン履歴ログ：「stop」と入力で休止扱い"
 msgstr ""
 
@@ -1056,8 +1056,8 @@ msgstr ""
 msgid "あと %1通まで手紙を送ることができます。"
 msgstr ""
 
-#. (GetTime2HMS($lasttime)
 #. (GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME)
+#. (GetTime2HMS($lasttime)
 #. (GetTime2HMS($DWF[$i]->{tm}-$NOW_TIME+$BOX_STOCK_TIME)
 #: program/inc-dwarf-trade.cgi:104 program/inc-dwarf.cgi:136 program/inc-dwarf.cgi:77 program/req-l.cgi:50 program/req.cgi:87
 msgid "あと%1"
@@ -1248,7 +1248,7 @@ msgstr ""
 msgid "このまま 逃げ切れるのか"
 msgstr ""
 
-#: program/item-m.cgi:128
+#: program/item-m.cgi:130
 msgid "このコマンドには特定のイベントの発生が必要です"
 msgstr ""
 
@@ -1392,7 +1392,7 @@ msgstr ""
 msgid "これ以上，この施設は増築できません"
 msgstr ""
 
-#: program/admin-sub2.cgi:152 program/inc-html-ranking-3.cgi:51 program/inc-info.cgi:40 program/inc-info.cgi:57 program/inc-main.cgi:88
+#: program/admin-sub2.cgi:152 program/inc-html-ranking-3.cgi:51 program/inc-info.cgi:40 program/inc-info.cgi:59 program/inc-main.cgi:88
 msgid "ごみ"
 msgstr ""
 
@@ -1509,7 +1509,7 @@ msgstr ""
 msgid "その騎手はすでに他の竜に騎乗しています"
 msgstr ""
 
-#: program/inc-admin.cgi:179
+#: program/inc-admin.cgi:180
 msgid "それぞれを一度に指定することもできます。コメントを空欄にすると公表しません。"
 msgstr ""
 
@@ -1622,7 +1622,7 @@ msgstr ""
 msgid "にドラゴンを"
 msgstr ""
 
-#: program/inc-guild-cmd.cgi:69 program/item-m.cgi:145
+#: program/inc-guild-cmd.cgi:69 program/item-m.cgi:147
 msgid "に対して"
 msgstr ""
 
@@ -1642,7 +1642,7 @@ msgstr ""
 msgid "のみ"
 msgstr ""
 
-#: program/inc-admin.cgi:260
+#: program/inc-admin.cgi:261
 msgid "の時点に"
 msgstr ""
 
@@ -1678,7 +1678,7 @@ msgstr ""
 msgid "またごみがたまったら，こまめに掃除しましょう。"
 msgstr ""
 
-#: program/inc-admin.cgi:155 program/inc-item-show.cgi:31 program/item-m.cgi:161
+#: program/inc-admin.cgi:156 program/inc-item-show.cgi:31 program/item-m.cgi:163
 msgid "または"
 msgstr ""
 
@@ -1686,7 +1686,7 @@ msgstr ""
 msgid "まだこれ以上の増築はできません"
 msgstr ""
 
-#: program/inc-admin.cgi:165
+#: program/inc-admin.cgi:166
 msgid "まで"
 msgstr ""
 
@@ -1741,7 +1741,7 @@ msgstr ""
 msgid "わずか"
 msgstr ""
 
-#: program/inc-admin.cgi:155 program/inc-admin.cgi:161 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
+#: program/inc-admin.cgi:156 program/inc-admin.cgi:162 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
 msgid "を"
 msgstr ""
 
@@ -1769,7 +1769,7 @@ msgstr ""
 msgid "アイコン一覧"
 msgstr ""
 
-#: program/inc-admin.cgi:175
+#: program/inc-admin.cgi:176
 msgid "アイテム"
 msgstr ""
 
@@ -1824,7 +1824,7 @@ msgstr ""
 msgid "アクセス制限を解除しました"
 msgstr ""
 
-#: program/inc-admin.cgi:161
+#: program/inc-admin.cgi:162
 msgid "イベントコード"
 msgstr ""
 
@@ -1865,7 +1865,7 @@ msgstr ""
 msgid "エラー情報を削除しました。"
 msgstr ""
 
-#: program/inc-admin.cgi:129
+#: program/inc-admin.cgi:130
 msgid "エラー情報削除"
 msgstr ""
 
@@ -2084,7 +2084,7 @@ msgstr ""
 msgid "ゲームデータがなくなっています。"
 msgstr ""
 
-#: program/inc-admin.cgi:234
+#: program/inc-admin.cgi:235
 msgid "ゲームデータのうち，商品データ・関連ディレクトリだけを"
 msgstr ""
 
@@ -2092,7 +2092,7 @@ msgstr ""
 msgid "ゲームデータの新規作成に失敗しました"
 msgstr ""
 
-#: program/inc-admin.cgi:259
+#: program/inc-admin.cgi:260
 msgid "ゲームデータを"
 msgstr ""
 
@@ -2100,7 +2100,7 @@ msgstr ""
 msgid "ゲームデータを新規作成しました"
 msgstr ""
 
-#: program/inc-main.cgi:89 program/item-m.cgi:171 program/move-f.cgi:30 program/other.cgi:15
+#: program/inc-main.cgi:89 program/item-m.cgi:173 program/move-f.cgi:30 program/other.cgi:15
 msgid "コメント"
 msgstr ""
 
@@ -2227,7 +2227,7 @@ msgstr ""
 msgid "データファイルを変更出来ませんでした"
 msgstr ""
 
-#: program/inc-admin.cgi:226
+#: program/inc-admin.cgi:227
 msgid "データ初期化・削除機能"
 msgstr ""
 
@@ -2277,7 +2277,7 @@ msgstr ""
 msgid "トップ獲得回数 %1 回以下"
 msgstr ""
 
-#: program/inc-admin.cgi:149
+#: program/inc-admin.cgi:150
 msgid "トップ画面へ"
 msgstr ""
 
@@ -2389,7 +2389,7 @@ msgstr ""
 msgid "パスワードは必ずメモを取っておいてください。"
 msgstr ""
 
-#: program/inc-admin.cgi:198 program/other.cgi:75
+#: program/inc-admin.cgi:199 program/other.cgi:75
 msgid "パスワード変更"
 msgstr ""
 
@@ -2427,7 +2427,7 @@ msgstr ""
 msgid "プレイを再開するときは<a href=\"mailto:%1\">管理人までご連絡</a>ください。"
 msgstr ""
 
-#: program/inc-admin.cgi:155
+#: program/inc-admin.cgi:156
 msgid "プレイデータから"
 msgstr ""
 
@@ -2476,7 +2476,7 @@ msgstr ""
 msgid "プロポーズを断る"
 msgstr ""
 
-#: program/inc-admin.cgi:144
+#: program/inc-admin.cgi:145
 msgid "ホスト表示"
 msgstr ""
 
@@ -2488,7 +2488,7 @@ msgstr ""
 msgid "ボタンを押すと別ウインドウで開くので，情報を参照しながら操作できるんだ。"
 msgstr ""
 
-#: program/inc-admin.cgi:178
+#: program/inc-admin.cgi:179
 msgid "ポイント"
 msgstr ""
 
@@ -2532,7 +2532,7 @@ msgstr ""
 msgid "メンテモードに入りました"
 msgstr ""
 
-#: program/inc-admin.cgi:99
+#: program/inc-admin.cgi:100
 msgid "メンテモードに移行"
 msgstr ""
 
@@ -2544,7 +2544,7 @@ msgstr ""
 msgid "メンテモードの解除に失敗しました"
 msgstr ""
 
-#: program/inc-admin.cgi:103
+#: program/inc-admin.cgi:104
 msgid "メンテモードを解除"
 msgstr ""
 
@@ -2564,7 +2564,7 @@ msgstr ""
 msgid "メンバーに連絡してから退団することをおすすめします。"
 msgstr ""
 
-#: program/inc-admin.cgi:143
+#: program/inc-admin.cgi:144
 msgid "メンバーリスト"
 msgstr ""
 
@@ -2572,11 +2572,11 @@ msgstr ""
 msgid "メンバー呼称"
 msgstr ""
 
-#: program/inc-admin.cgi:181
+#: program/inc-admin.cgi:182
 msgid "メンバー管理機能"
 msgstr ""
 
-#: program/inc-admin.cgi:168
+#: program/inc-admin.cgi:169
 msgid "メンバー賞品授与機能"
 msgstr ""
 
@@ -2588,19 +2588,23 @@ msgstr ""
 msgid "ユーザーを選択"
 msgstr ""
 
-#: program/inc-admin.cgi:244
+#: program/inc-admin.cgi:245
 msgid "ユーザーデータを含めて，全ゲームデータ・関連ディレクトリを"
 msgstr ""
 
-#: program/inc-admin.cgi:239
+#: program/inc-admin.cgi:240
 msgid "ユーザーデータを残しつつ，ゲームデータ・関連ディレクトリを"
 msgstr ""
 
-#: program/inc-admin.cgi:206
+#: program/inc-admin.cgi:191
+msgid "ユーザー店舗入店"
+msgstr ""
+
+#: program/inc-admin.cgi:207
 msgid "ユーザー店舗凍結"
 msgstr ""
 
-#: program/inc-admin.cgi:221
+#: program/inc-admin.cgi:222
 msgid "ユーザー店舗追放"
 msgstr ""
 
@@ -2705,7 +2709,7 @@ msgstr ""
 msgid "一覧に表示される看板文句"
 msgstr ""
 
-#: program/inc-admin.cgi:145
+#: program/inc-admin.cgi:146
 msgid "一覧のみ"
 msgstr ""
 
@@ -2827,11 +2831,11 @@ msgstr ""
 msgid "人民解放"
 msgstr ""
 
-#: program/admin-sub2.cgi:152 program/inc-dragon-rd.cgi:37 program/inc-html-ranking-3.cgi:59 program/inc-html-ranking-3.cgi:67 program/inc-html-ranking.cgi:30 program/inc-info.cgi:40 program/inc-info.cgi:56 program/inc-main.cgi:87
+#: program/admin-sub2.cgi:152 program/inc-dragon-rd.cgi:37 program/inc-html-ranking-3.cgi:59 program/inc-html-ranking-3.cgi:67 program/inc-html-ranking.cgi:30 program/inc-info.cgi:40 program/inc-info.cgi:58 program/inc-main.cgi:87
 msgid "人気"
 msgstr ""
 
-#: program/item-m.cgi:125
+#: program/item-m.cgi:127
 msgid "人気が足りません"
 msgstr ""
 
@@ -2856,11 +2860,11 @@ msgstr ""
 msgid "今回の依頼を打ち切ったぜ。またよろしく頼むな。"
 msgstr ""
 
-#: program/inc-info.cgi:59
+#: program/inc-info.cgi:61
 msgid "今売"
 msgstr ""
 
-#: program/inc-info.cgi:60
+#: program/inc-info.cgi:62
 msgid "今払"
 msgstr ""
 
@@ -2888,7 +2892,7 @@ msgstr ""
 msgid "今期維持費"
 msgstr ""
 
-#: program/inc-info.cgi:61
+#: program/inc-info.cgi:63
 msgid "今維"
 msgstr ""
 
@@ -3061,7 +3065,7 @@ msgstr ""
 msgid "使命達成"
 msgstr ""
 
-#: program/item-m.cgi:58
+#: program/item-m.cgi:60
 msgid "使用"
 msgstr ""
 
@@ -3190,7 +3194,7 @@ msgstr ""
 msgid "倉庫最大"
 msgstr ""
 
-#: program/inc-admin.cgi:175 program/inc-dwarf-form.cgi:57 program/manor-f.cgi:59 program/manor-f.cgi:67 program/manor-m.cgi:35 program/manor-m.cgi:36 program/manor-m.cgi:75 program/manor.cgi:57 program/manor.cgi:62
+#: program/inc-admin.cgi:176 program/inc-dwarf-form.cgi:57 program/manor-f.cgi:59 program/manor-f.cgi:67 program/manor-m.cgi:35 program/manor-m.cgi:36 program/manor-m.cgi:75 program/manor.cgi:57 program/manor.cgi:62
 msgid "個"
 msgstr ""
 
@@ -3311,7 +3315,7 @@ msgstr ""
 msgid "入団許可が出ていません"
 msgstr ""
 
-#: program/item-s.cgi:94
+#: program/item-s.cgi:96
 msgid "入手"
 msgstr ""
 
@@ -3491,7 +3495,7 @@ msgstr ""
 msgid "出走竜詳細"
 msgstr ""
 
-#: program/inc-admin.cgi:164 program/inc-admin.cgi:252 program/inc-func.cgi:401 program/inc-func.cgi:404
+#: program/inc-admin.cgi:165 program/inc-admin.cgi:253 program/inc-func.cgi:401 program/inc-func.cgi:404
 msgid "分"
 msgstr ""
 
@@ -3511,7 +3515,7 @@ msgstr ""
 msgid "初期化/修復の必要はありませんでした。"
 msgstr ""
 
-#: program/inc-admin.cgi:231
+#: program/inc-admin.cgi:232
 msgid "初期化/破損修復"
 msgstr ""
 
@@ -3840,7 +3844,7 @@ msgstr ""
 msgid "各種エラーのログ"
 msgstr ""
 
-#: program/inc-admin.cgi:137
+#: program/inc-admin.cgi:138
 msgid "各種ログ閲覧"
 msgstr ""
 
@@ -3860,7 +3864,7 @@ msgstr ""
 msgid "名"
 msgstr ""
 
-#: program/admin-sub2.cgi:152 program/buy.cgi:45 program/inc-dragon-jock.cgi:23 program/inc-dragon-rd.cgi:37 program/inc-info.cgi:53 program/new.cgi:111 program/slime-l.cgi:134
+#: program/admin-sub2.cgi:152 program/buy.cgi:45 program/inc-dragon-jock.cgi:23 program/inc-dragon-rd.cgi:37 program/inc-info.cgi:55 program/new.cgi:111 program/slime-l.cgi:134
 msgid "名前"
 msgstr ""
 
@@ -3972,11 +3976,11 @@ msgstr ""
 msgid "商品を相手に送り，その代金をとることができます。"
 msgstr ""
 
-#: program/inc-admin.cgi:108
+#: program/inc-admin.cgi:109
 msgid "商品データを作成"
 msgstr ""
 
-#: program/inc-admin.cgi:113
+#: program/inc-admin.cgi:114
 msgid "商品データを確認"
 msgstr ""
 
@@ -4132,7 +4136,7 @@ msgstr ""
 msgid "変更"
 msgstr ""
 
-#: program/inc-admin.cgi:253 program/other.cgi:17 program/other.cgi:41 program/other.cgi:78
+#: program/inc-admin.cgi:254 program/other.cgi:17 program/other.cgi:41 program/other.cgi:78
 msgid "変更する"
 msgstr ""
 
@@ -4189,7 +4193,7 @@ msgstr ""
 msgid "宅配便到着のお知らせ"
 msgstr ""
 
-#: program/inc-admin.cgi:245
+#: program/inc-admin.cgi:246
 msgid "完全アンインストールする"
 msgstr ""
 
@@ -4201,7 +4205,7 @@ msgstr ""
 msgid "定員"
 msgstr ""
 
-#: program/inc-admin.cgi:187
+#: program/inc-admin.cgi:188
 msgid "定員にかかわらずオープン可能。"
 msgstr ""
 
@@ -4325,7 +4329,7 @@ msgstr ""
 msgid "平穏"
 msgstr ""
 
-#: program/inc-admin.cgi:162
+#: program/inc-admin.cgi:163 program/inc-admin.cgi:251
 msgid "年"
 msgstr ""
 
@@ -4362,7 +4366,7 @@ msgstr ""
 msgid "店内に戻る"
 msgstr ""
 
-#: program/admin-sub2.cgi:152 program/buy.cgi:43 program/gd-m.cgi:80 program/inc-html-ownerinfo.cgi:25 program/inc-html-ranking-2.cgi:30 program/inc-html-ranking.cgi:29 program/inc-info.cgi:54 program/new.cgi:112
+#: program/admin-sub2.cgi:152 program/buy.cgi:43 program/gd-m.cgi:80 program/inc-html-ownerinfo.cgi:25 program/inc-html-ranking-2.cgi:30 program/inc-html-ranking.cgi:29 program/inc-info.cgi:56 program/new.cgi:112
 msgid "店名"
 msgstr ""
 
@@ -4483,31 +4487,31 @@ msgstr ""
 msgid "後続竜が差を詰めていきます"
 msgstr ""
 
-#: program/inc-admin.cgi:260
+#: program/inc-admin.cgi:261
 msgid "復元する"
 msgstr ""
 
-#: program/inc-admin.cgi:231
+#: program/inc-admin.cgi:232
 msgid "復旧機能です。すでにあるデータは削除されません"
 msgstr ""
 
-#: program/item-m.cgi:119
+#: program/item-m.cgi:121
 msgid "必要な職業に就いていません"
 msgstr ""
 
-#: program/item-m.cgi:53
+#: program/item-m.cgi:55
 msgid "必要人気"
 msgstr ""
 
-#: program/item-m.cgi:52
+#: program/item-m.cgi:54
 msgid "必要点数"
 msgstr ""
 
-#: program/item-m.cgi:48
+#: program/item-m.cgi:50
 msgid "必要熟練度"
 msgstr ""
 
-#: program/item-m.cgi:51
+#: program/item-m.cgi:53
 msgid "必要職業"
 msgstr ""
 
@@ -4623,7 +4627,7 @@ msgstr ""
 msgid "探偵室"
 msgstr ""
 
-#: program/inc-admin.cgi:123 program/treebbs.cgi:21
+#: program/inc-admin.cgi:124 program/treebbs.cgi:21
 msgid "掲示板"
 msgstr ""
 
@@ -4806,6 +4810,10 @@ msgstr ""
 msgid "新聞：順位リスト"
 msgstr ""
 
+#: program/inc-admin.cgi:187
+msgid "新規店舗オープン"
+msgstr ""
+
 #: program/new.cgi:10
 msgid "新規店舗登録権限がありません。"
 msgstr ""
@@ -4834,7 +4842,7 @@ msgstr ""
 msgid "既読"
 msgstr ""
 
-#: program/inc-admin.cgi:163 program/inc-admin.cgi:251 program/inc-func.cgi:406 program/plug/time.cgi:20
+#: program/inc-admin.cgi:164 program/inc-admin.cgi:252 program/inc-func.cgi:406 program/plug/time.cgi:20
 msgid "日"
 msgstr ""
 
@@ -4862,15 +4870,15 @@ msgstr ""
 msgid "昨税"
 msgstr ""
 
-#: program/inc-admin.cgi:163 program/inc-admin.cgi:251
+#: program/inc-admin.cgi:164 program/inc-admin.cgi:252
 msgid "時"
 msgstr ""
 
-#: program/inc-admin.cgi:177 program/inc-func.cgi:404 program/inc-info.cgi:62 program/item-m.cgi:44 program/item-s.cgi:81 program/plug/time.cgi:19 program/sweep-s.cgi:23 program/sweep.cgi:58
+#: program/inc-admin.cgi:178 program/inc-func.cgi:404 program/plug/time.cgi:19 program/sweep-s.cgi:23 program/sweep.cgi:58
 msgid "時間"
 msgstr ""
 
-#: program/inc-html-ownerinfo.cgi:19 program/inc-main.cgi:82
+#: program/inc-admin.cgi:93 program/inc-html-ownerinfo.cgi:19 program/inc-info.cgi:53 program/inc-main.cgi:82 program/item-m.cgi:44 program/item-s.cgi:81
 msgid "時間#A"
 msgstr ""
 
@@ -4883,7 +4891,7 @@ msgstr ""
 msgid "時間、もしくは"
 msgstr ""
 
-#: program/army.cgi:125 program/army.cgi:146 program/army.cgi:163 program/army.cgi:44 program/army.cgi:85 program/buy.cgi:66 program/gd-s.cgi:45 program/gd-s.cgi:87 program/inc-guild-cmd.cgi:52 program/inc-guild-cmd.cgi:79 program/item-m.cgi:113 program/manor-m.cgi:45 program/sweep.cgi:33
+#: program/army.cgi:125 program/army.cgi:146 program/army.cgi:163 program/army.cgi:44 program/army.cgi:85 program/buy.cgi:66 program/gd-s.cgi:45 program/gd-s.cgi:87 program/inc-guild-cmd.cgi:52 program/inc-guild-cmd.cgi:79 program/item-m.cgi:115 program/manor-m.cgi:45 program/sweep.cgi:33
 msgid "時間が足りません"
 msgstr ""
 
@@ -4899,7 +4907,7 @@ msgstr ""
 msgid "時間指定"
 msgstr ""
 
-#: program/item-m.cgi:100
+#: program/item-m.cgi:102
 msgid "時間最大"
 msgstr ""
 
@@ -4915,7 +4923,7 @@ msgstr ""
 msgid "晴"
 msgstr ""
 
-#: program/inc-admin.cgi:116
+#: program/inc-admin.cgi:117
 msgid "更新を確認"
 msgstr ""
 
@@ -4960,7 +4968,7 @@ msgstr ""
 msgid "最安値"
 msgstr ""
 
-#: program/inc-admin.cgi:235
+#: program/inc-admin.cgi:236
 msgid "最小アンインストールする"
 msgstr ""
 
@@ -4972,7 +4980,7 @@ msgstr ""
 msgid "最終login"
 msgstr ""
 
-#: program/inc-admin.cgi:250
+#: program/inc-admin.cgi:251
 msgid "最終更新時刻を"
 msgstr ""
 
@@ -4993,7 +5001,7 @@ msgstr ""
 msgid "最高値"
 msgstr ""
 
-#: program/inc-admin.cgi:162 program/inc-admin.cgi:250
+#: program/inc-admin.cgi:163 program/inc-admin.cgi:251
 msgid "月"
 msgstr ""
 
@@ -5035,7 +5043,7 @@ msgstr ""
 msgid "本ゲームへの参加，本当にありがとうございました。"
 msgstr ""
 
-#: program/inc-admin.cgi:191
+#: program/inc-admin.cgi:192
 msgid "本人が入店していても同時に操作できます。"
 msgstr ""
 
@@ -5051,7 +5059,7 @@ msgstr ""
 msgid "本昨売"
 msgstr ""
 
-#: program/item-m.cgi:101
+#: program/item-m.cgi:103
 msgid "材料最大"
 msgstr ""
 
@@ -5196,17 +5204,17 @@ msgstr ""
 msgid "武装蜂起"
 msgstr ""
 
-#: program/item-m.cgi:67
+#: program/item-m.cgi:69
 msgid "残"
 msgstr ""
 
 #. ($DT->{item}[$no-1])
-#: program/item-s.cgi:121 program/item-s.cgi:99
+#: program/item-s.cgi:101 program/item-s.cgi:123
 msgid "残%1"
 msgstr ""
 
-#. ($DTS->{item}[$itemno-1],$ITEM->{scale})
 #. ($stock,$ITEM->{scale})
+#. ($DTS->{item}[$itemno-1],$ITEM->{scale})
 #: program/shop-a.cgi:121 program/shop-b.cgi:115 program/shop-m.cgi:32
 msgid "残%1%2"
 msgstr ""
@@ -5263,7 +5271,7 @@ msgstr ""
 msgid "浮気は禁物ですよ。"
 msgstr ""
 
-#: program/inc-admin.cgi:156
+#: program/inc-admin.cgi:157
 msgid "消去する"
 msgstr ""
 
@@ -5271,15 +5279,15 @@ msgstr ""
 msgid "消去するアイテムを指定してください。"
 msgstr ""
 
-#: program/item-s.cgi:116
+#: program/item-s.cgi:118
 msgid "消費"
 msgstr ""
 
-#: program/item-m.cgi:70
+#: program/item-m.cgi:72
 msgid "消費しない"
 msgstr ""
 
-#: program/item-m.cgi:74
+#: program/item-m.cgi:76
 msgid "消費する"
 msgstr ""
 
@@ -5292,7 +5300,7 @@ msgstr ""
 msgid "消費時間:%1"
 msgstr ""
 
-#: program/item-m.cgi:79
+#: program/item-m.cgi:81
 msgid "消費確率"
 msgstr ""
 
@@ -5312,11 +5320,11 @@ msgstr ""
 msgid "温泉施設 (健康上昇)"
 msgstr ""
 
-#: program/gd-o.cgi:44 program/inc-html-bride.cgi:37 program/inc-html-ownerinfo.cgi:26 program/inc-html-ranking.cgi:15 program/inc-html-ranking.cgi:28 program/inc-html-top.cgi:12 program/inc-info.cgi:37 program/inc-info.cgi:63
+#: program/gd-o.cgi:44 program/inc-html-bride.cgi:37 program/inc-html-ownerinfo.cgi:26 program/inc-html-ranking.cgi:15 program/inc-html-ranking.cgi:28 program/inc-html-top.cgi:12 program/inc-info.cgi:37 program/inc-info.cgi:65
 msgid "点数"
 msgstr ""
 
-#: program/item-m.cgi:122
+#: program/item-m.cgi:124
 msgid "点数が足りません"
 msgstr ""
 
@@ -5332,11 +5340,11 @@ msgstr ""
 msgid "熟練"
 msgstr ""
 
-#: program/item-m.cgi:45
+#: program/item-m.cgi:47
 msgid "熟練度"
 msgstr ""
 
-#: program/item-m.cgi:116
+#: program/item-m.cgi:118
 msgid "熟練度が足りません"
 msgstr ""
 
@@ -5344,7 +5352,7 @@ msgstr ""
 msgid "熟練度合計"
 msgstr ""
 
-#: program/army.cgi:19 program/inc-admin.cgi:178 program/inc-html-ranking-2.cgi:30 program/inc-info.cgi:35 program/log.cgi:11
+#: program/army.cgi:19 program/inc-admin.cgi:179 program/inc-html-ranking-2.cgi:30 program/inc-info.cgi:35 program/log.cgi:11
 msgid "爵位"
 msgstr ""
 
@@ -5541,7 +5549,7 @@ msgstr ""
 msgid "異常処理です。最初からやり直してみてください。"
 msgstr ""
 
-#: program/inc-admin.cgi:165
+#: program/inc-admin.cgi:166
 msgid "発生させる"
 msgstr ""
 
@@ -5673,7 +5681,7 @@ msgstr ""
 msgid "秋月賞"
 msgstr ""
 
-#: program/inc-admin.cgi:164 program/inc-admin.cgi:252 program/inc-func.cgi:398
+#: program/inc-admin.cgi:165 program/inc-admin.cgi:253 program/inc-func.cgi:398
 msgid "秒"
 msgstr ""
 
@@ -5797,7 +5805,7 @@ msgstr ""
 msgid "競争竜一覧"
 msgstr ""
 
-#: program/inc-admin.cgi:235 program/inc-admin.cgi:240 program/inc-admin.cgi:245 program/inc-admin.cgi:254 program/inc-admin.cgi:261
+#: program/inc-admin.cgi:236 program/inc-admin.cgi:241 program/inc-admin.cgi:246 program/inc-admin.cgi:255 program/inc-admin.cgi:262
 msgid "管理パス"
 msgstr ""
 
@@ -5817,7 +5825,7 @@ msgstr ""
 msgid "納税トップ"
 msgstr ""
 
-#: program/inc-admin.cgi:162
+#: program/inc-admin.cgi:163
 msgid "終了時刻"
 msgstr ""
 
@@ -5933,7 +5941,7 @@ msgstr ""
 msgid "老朽化"
 msgstr ""
 
-#: program/inc-info.cgi:64 program/move-f.cgi:52 program/move-f.cgi:53
+#: program/inc-info.cgi:66 program/move-f.cgi:52 program/move-f.cgi:53
 msgid "職業"
 msgstr ""
 
@@ -6363,7 +6371,7 @@ msgstr ""
 msgid "貿易品リスト"
 msgstr ""
 
-#: program/admin-sub2.cgi:152 program/gd.cgi:78 program/inc-admin.cgi:176 program/inc-html-bride-list.cgi:105 program/inc-html-bride-list.cgi:110 program/inc-html-bride-list.cgi:124 program/inc-html-ownerinfo.cgi:27 program/inc-html-ranking-3.cgi:27 program/inc-html-ranking-3.cgi:35 program/inc-html-ranking.cgi:20 program/inc-html-ranking.cgi:31 program/inc-html-top.cgi:17 program/inc-info.cgi:37 program/inc-info.cgi:58 program/inc-main.cgi:85 program/req-l.cgi:39 program/req-l.cgi:46 program/req.cgi:71 program/req.cgi:82
+#: program/admin-sub2.cgi:152 program/gd.cgi:78 program/inc-admin.cgi:177 program/inc-html-bride-list.cgi:105 program/inc-html-bride-list.cgi:110 program/inc-html-bride-list.cgi:124 program/inc-html-ownerinfo.cgi:27 program/inc-html-ranking-3.cgi:27 program/inc-html-ranking-3.cgi:35 program/inc-html-ranking.cgi:20 program/inc-html-ranking.cgi:31 program/inc-html-top.cgi:17 program/inc-info.cgi:37 program/inc-info.cgi:60 program/inc-main.cgi:85 program/req-l.cgi:39 program/req-l.cgi:46 program/req.cgi:71 program/req.cgi:82
 msgid "資金"
 msgstr ""
 
@@ -6382,7 +6390,7 @@ msgstr ""
 msgid "資金が<b>1500万%1</b>かかります。共用倉庫から支出されます。"
 msgstr ""
 
-#: program/army.cgi:43 program/buy.cgi:64 program/inc-html-bride-list.cgi:196 program/item-m.cgi:110 program/manor-m.cgi:43
+#: program/army.cgi:43 program/buy.cgi:64 program/inc-html-bride-list.cgi:196 program/item-m.cgi:112 program/manor-m.cgi:43
 msgid "資金が足りません"
 msgstr ""
 
@@ -6406,11 +6414,11 @@ msgstr ""
 msgid "資金を準備しておいてください。"
 msgstr ""
 
-#: program/army.cgi:62 program/buy.cgi:88 program/item-m.cgi:99
+#: program/army.cgi:62 program/buy.cgi:88 program/item-m.cgi:101
 msgid "資金最大"
 msgstr ""
 
-#: program/inc-admin.cgi:173
+#: program/inc-admin.cgi:174
 msgid "賞品授与"
 msgstr ""
 
@@ -6636,7 +6644,7 @@ msgstr ""
 msgid "達成する"
 msgstr ""
 
-#: program/gd-e.cgi:70 program/gd-e.cgi:82 program/gd-m.cgi:111 program/item-m.cgi:179
+#: program/gd-e.cgi:70 program/gd-e.cgi:82 program/gd-m.cgi:111 program/item-m.cgi:181
 msgid "選択"
 msgstr ""
 
@@ -6668,7 +6676,7 @@ msgstr ""
 msgid "遺伝力"
 msgstr ""
 
-#: program/inc-admin.cgi:240
+#: program/inc-admin.cgi:241
 msgid "部分アンインストールする"
 msgstr ""
 
@@ -6716,15 +6724,15 @@ msgstr ""
 msgid "重複登録検出"
 msgstr ""
 
-#: program/inc-admin.cgi:214
+#: program/inc-admin.cgi:215
 msgid "重複登録許可／禁止"
 msgstr ""
 
-#: program/inc-admin.cgi:215
+#: program/inc-admin.cgi:216
 msgid "重複禁止"
 msgstr ""
 
-#: program/admin-sub2.cgi:212 program/inc-admin.cgi:215
+#: program/admin-sub2.cgi:212 program/inc-admin.cgi:216
 msgid "重複許可"
 msgstr ""
 

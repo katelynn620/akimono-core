@@ -184,11 +184,11 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	<FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=key VALUE="new">
 	<INPUT TYPE="HIDDEN" NAME=admin VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="${\l('')}新規店舗オープン"><br>
+	<INPUT TYPE="SUBMIT" VALUE="${\l('新規店舗オープン')}"><br>
 	※${\l('定員にかかわらずオープン可能。')}</FORM>
 	<td><FORM TARGET="_blank" ACTION="action.cgi" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=pw VALUE="$Q{admin}">
-	<INPUT TYPE="SUBMIT" VALUE="${\l('')}ユーザー店舗入店"> <SELECT NAME=nm>$userselect</SELECT><br>
+	<INPUT TYPE="SUBMIT" VALUE="${\l('ユーザー店舗入店')}"> <SELECT NAME=nm>$userselect</SELECT><br>
 	※${\l('本人が入店していても同時に操作できます。')}
 	</FORM></tr>
 	<tr><td colspan=2>
@@ -248,7 +248,7 @@ if(open(IN,"<:encoding(UTF-8)","$DATA_DIR/$DATA_FILE$FILE_EXT"))
 	<tr><td>
 	<FORM ACTION="$MYNAME" METHOD="POST">
 	<INPUT TYPE="HIDDEN" NAME=mode VALUE="timeedit">
-	${\l('最終更新時刻を')}<INPUT TYPE="TEXT" NAME=tlyear SIZE=5 VALUE="$y">${\l('')}年<INPUT TYPE="TEXT" NAME=tlmon SIZE=3 VALUE="$m">${\l('月')}
+	${\l('最終更新時刻を')}<INPUT TYPE="TEXT" NAME=tlyear SIZE=5 VALUE="$y">${\l('年')}<INPUT TYPE="TEXT" NAME=tlmon SIZE=3 VALUE="$m">${\l('月')}
 	<INPUT TYPE="TEXT" NAME=tlday SIZE=3 VALUE="$d">${\l('日')} <INPUT TYPE="TEXT" NAME=tlhour SIZE=3 VALUE="$h">${\l('時')}
 	<INPUT TYPE="TEXT" NAME=tlmin SIZE=3 VALUE="$min">${\l('分')}<INPUT TYPE="TEXT" NAME=tlsec SIZE=3 VALUE="$s">${\l('秒')}
 	に<INPUT TYPE="SUBMIT" VALUE="${\l('変更する')}">
