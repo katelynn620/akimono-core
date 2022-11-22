@@ -2383,8 +2383,8 @@ msgid "パスワードに使用できない文字がありましたので変更�
 msgstr "密碼使用了無法使用的字元，停止修改密碼。"
 
 #: program/user.cgi:95
-msgid "パスワードは 8文字までです。"
-msgstr "密碼只能8個字。"
+msgid "パスワードは 12文字までです。"
+msgstr "密碼最多只能12個字。"
 
 #: program/new.cgi:115
 msgid "パスワードは必ずメモを取っておいてください。"
@@ -3870,8 +3870,8 @@ msgid "名前"
 msgstr "名字"
 
 #: program/new.cgi:47
-msgid "名前(全角6文字)・店名(全角10文字)・パスワード(8文字)の文字数が多いです。"
-msgstr "字數過多，名稱(全形6字以內)・店名(全形10字以內)・密碼(最多8字以內)。"
+msgid "名前(全角6文字)・店名(全角10文字)・パスワード(12文字)の文字数が多いです。"
+msgstr "字數過多，名稱(全形6字以內)・店名(全形10字以內)・密碼(最多12字以內)。"
 
 #: program/inc-dras-dredit.cgi:43 program/inc-dras-jkedit.cgi:36 program/inc-dras-predit.cgi:105 program/inc-dras-rcedit.cgi:35 program/inc-dras-stedit.cgi:36 program/user.cgi:81
 msgid "名前が短すぎます。"

@@ -2382,7 +2382,7 @@ msgid "パスワードに使用できない文字がありましたので変更�
 msgstr ""
 
 #: program/user.cgi:95
-msgid "パスワードは 8文字までです。"
+msgid "パスワードは 12文字までです。"
 msgstr ""
 
 #: program/new.cgi:115
@@ -3869,7 +3869,7 @@ msgid "名前"
 msgstr ""
 
 #: program/new.cgi:47
-msgid "名前(全角6文字)・店名(全角10文字)・パスワード(8文字)の文字数が多いです。"
+msgid "名前(全角6文字)・店名(全角10文字)・パスワード(12文字)の文字数が多いです。"
 msgstr ""
 
 #: program/inc-dras-dredit.cgi:43 program/inc-dras-jkedit.cgi:36 program/inc-dras-predit.cgi:105 program/inc-dras-rcedit.cgi:35 program/inc-dras-stedit.cgi:36 program/user.cgi:81

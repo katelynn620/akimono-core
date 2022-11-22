@@ -92,7 +92,7 @@ sub repass
 	OutError(l('確認入力と不一致のため変更中止します。')) if $Q{pw1}ne$Q{pw2};
 	OutError(l('変更パスワードが入力されていません。')) if $Q{pw1}eq'';
 	OutError(l('パスワードに使用できない文字がありましたので変更中止します。')) if $Q{pw1}=~/[^a-zA-Z0-9_\-]/;
-	OutError(l('パスワードは 8文字までです。')) if length($Q{pw1})>8;
+	OutError(l('パスワードは 12文字までです。')) if length($Q{pw1})>12;
 	$DT->{pass}=$PASSWORD_CRYPT ? crypt($Q{pw1},GetSalt()) : $Q{pw1};
 	$disp.=l("パスワード変更しました")."<BR>".l("トップより入店し直してください")."<BR><BR>";
 	$disp.="<A HREF='index.cgi?nm=$DT->{name}&pw=$Q{pw1}'>".l('トップへ')."</A>";

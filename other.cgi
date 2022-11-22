@@ -73,8 +73,8 @@ $disp.=<<STR;
 <INPUT TYPE=HIDDEN NAME=mode VALUE=repass>
 $USERPASSFORM
 <SPAN>${\l('パスワード変更')}</SPAN> ： 
-<INPUT TYPE=TEXT NAME=pw1 SIZE=10 maxlength=12 VALUE="">${\l('新パス ')}
-<INPUT TYPE=TEXT NAME=pw2 SIZE=10 maxlength=12 VALUE="">${\l('新パス再入力')} 
+<INPUT TYPE=password NAME=pw1 SIZE=12 maxlength=12 VALUE="">${\l('新パス ')}
+<INPUT TYPE=password NAME=pw2 SIZE=12 maxlength=12 VALUE="">${\l('新パス再入力')} 
 <INPUT TYPE=SUBMIT VALUE="${\l('変更する')}">
 </FORM>
 STR

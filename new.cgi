@@ -42,9 +42,9 @@ if($Q{sname}.$Q{name}.$Q{pass1}.$Q{pass2})
 		OutError(l('店名の文字数が少ないです。'));
 	}
 	if(length($Q{name})>12 || length($Q{sname})>20
-	|| length($Q{pass1})>12 || length($Q{pass2})>8)
+	|| length($Q{pass1})>12 || length($Q{pass2})>12)
 	{
-		OutError(l('名前(全角6文字)・店名(全角10文字)・パスワード(8文字)の文字数が多いです。'));
+		OutError(l('名前(全角6文字)・店名(全角10文字)・パスワード(12文字)の文字数が多いです。'));
 	}
 	if( $Q{name} eq $Q{pass1} )
 	{
