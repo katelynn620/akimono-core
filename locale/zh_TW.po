@@ -3563,7 +3563,7 @@ msgstr "上期銷售數"
 
 #: program/inc-info.cgi:45
 msgid "前期売却税"
-msgstr "上期銷售"
+msgstr "上期銷售稅"
 
 #: program/inc-info.cgi:42
 msgid "前期支払"
