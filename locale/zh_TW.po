@@ -1293,7 +1293,7 @@ msgstr "這種勢頭會持續到最後嗎？"
 
 #: program/req-l.cgi:56 program/req-s.cgi:88
 msgid "この取引はもう達成されてるぜ。またよろしく頼むな。"
-msgstr "這筆交易已經完成。請不要再問我了。"
+msgstr "這筆交易已經完成。歡迎再次利用。"
 
 #: program/buy.cgi:57 program/item.cgi:52
 msgid "この商品は陳列してもほとんど売れません"
@@ -2859,7 +2859,7 @@ msgstr "祝兩位百年好合。"
 
 #: program/req-s.cgi:128
 msgid "今回の依頼を打ち切ったぜ。またよろしく頼むな。"
-msgstr "本次委託已經取消了。請不要再問我了。"
+msgstr "本次委託已經取消。歡迎再次利用。"
 
 #: program/inc-info.cgi:61
 msgid "今売"
