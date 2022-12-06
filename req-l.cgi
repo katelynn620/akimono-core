@@ -47,7 +47,8 @@ STR
 	}
 	$tex.=defined($id2idx{$id}) ?'<td>'.$DT[$id2idx{$id}]->{shopname} : '<td>'.l('なし');
 	$tex.=defined($id2idx{$mode}) ? "<td><SPAN>".l('達成')."</SPAN>" : '<td> ';
-	$tex.='<td>'.l("あと%1",GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME));
+	$tex.='<td>';
+	$tex.=($REQ[$i]->{tm} - $NOW_TIME < 0) ? "<span>已過期</span>" : l("あと%1",GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME));
 $tex.=$TRE.$TBE;
 }
 

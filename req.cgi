@@ -54,11 +54,16 @@ STR
 foreach my $i(0..$Scount)
 {
 	next unless defined($REQ[$i]->{no});
+	next if (($REQ[$i]->{tm} - $NOW_TIME) < 0 && $DT->{id} != $REQ[$i]->{id});
 	my($no,$id,$itemno,$num,$prn,$pr,$mode)=($REQ[$i]->{no},$REQ[$i]->{id},$REQ[$i]->{itemno},$REQ[$i]->{num},$REQ[$i]->{prn},$REQ[$i]->{pr},$REQ[$i]->{mode});
 	$disp.=$TR.$TD;
 	if (!$GUEST_USER)
 		{
-		$disp.=($mode && $id == $DT->{id}) ? "<a href=\"action.cgi?key=req-s&mode=thank&idx=$no&$USERPASSURL\">" : "<a href=\"action.cgi?key=req-l&no=$no&$USERPASSURL\">";
+			if ($mode && $id == $DT->{id}) {
+				$disp.="<a href=\"action.cgi?key=req-s&mode=thank&idx=$no&$USERPASSURL\">";
+			} else {
+				$disp.= ($REQ[$i]->{tm} - $NOW_TIME) < 0 ? "<a href=\"action.cgi?key=req-s&mode=end&id=$DT->{id}&idx=$no&$USERPASSURL\">" : "<a href=\"action.cgi?key=req-l&no=$no&$USERPASSURL\">";
+			}
 		}
 	if ($prn > 0)
 		{
@@ -84,7 +89,8 @@ foreach my $i(0..$Scount)
 	$disp.=($DT->{id} == $REQ[$i]->{id}) ? $TDB : $TD;
 	$disp.=defined($id2idx{$id}) ? ($DT[$id2idx{$id}]->{shopname}) : 'なし';
 	$disp.=defined($id2idx{$mode}) ? "$TD<SPAN>".l('達成')."</b></SPAN>" : "$TD ";
-	$disp.="$TD".l("あと%1",GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME));
+	$disp.="$TD";
+	$disp.=($REQ[$i]->{tm} - $NOW_TIME < 0) ? "<span>已過期</span>" : l("あと%1",GetTime2HMS($REQ[$i]->{tm}-$NOW_TIME));
 	$enum++ if ($id == $DT->{id});	#出品数をカウント
 	}
 $disp.=$TRE.$TBE;

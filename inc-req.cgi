@@ -26,7 +26,7 @@ foreach my $cnt(0..$Scount)
 	chop $req[$cnt];
 	my @buf=split(/,/,$req[$cnt]); my $i=0;
 	foreach (@REQnamelist) { $REQ[$cnt]->{$_}=$buf[$i];$i++;}
-	undef $REQ[$cnt],next if ($REQ[$cnt]->{tm} < $NOW_TIME);	# 期限切れを削除。
+	undef $REQ[$cnt],next if ($REQ[$cnt]->{tm}+86400 < $NOW_TIME);	# 超過1天才刪除
 	$REQNONE=0;
 	}
 }
