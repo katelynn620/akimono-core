@@ -62,7 +62,7 @@ sub RenewLog
 	}
 	else
 	{
-		open(IN,">:encoding(UTF-8)",(-e $tempfile ? $tempfile : $s0));
+		open(IN,"<:encoding(UTF-8)",(-e $tempfile ? $tempfile : $s0));
 		push(@LOG,<IN>);
 		close(IN);
 	}
