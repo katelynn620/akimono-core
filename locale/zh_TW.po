@@ -6107,7 +6107,7 @@ msgstr "改變了街道的內部政策。"
 #. ($taxrate,$i)
 #: program/lord-s.cgi:41
 msgid "街の税率を%1%に%2。"
-msgstr "街道的稅率變成%1%%2。"
+msgstr "街道的稅率%2為%1%了。"
 
 #: program/inc-period.cgi:138
 msgid "街の護衛軍が少ないため，治安が悪化しています。"
