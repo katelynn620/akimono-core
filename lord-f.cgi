@@ -20,7 +20,7 @@ $taxsum=GetMoneyString(int($taxsum * $ONE_DAY_TIME / $ii / 10000) * 10000);
 
 $disp.="<BIG>●".l('政務室')."</BIG><br><br>";
 $disp.=$TB.$TR.$TD.$image[0].$TD."<SPAN>".l('大臣')."</SPAN>：".l('これはこれは領主様。ご機嫌うるわしゅうございます。')."<br>";
-$disp.=l("政治のことなど大臣にお任せくださればいいのに，ご熱心ですな。ふん。")..$TRE.$TBE;
+$disp.=l("政治のことなど大臣にお任せくださればいいのに，ご熱心ですな。ふん。").$TRE.$TBE;
 my $money=GetMoneyString($STATE->{money}+0);
 my $army=$STATE->{army} + $STATE->{robina};
 my $armycost=200-int($STATE->{safety} / 100); 	# 100 - 200

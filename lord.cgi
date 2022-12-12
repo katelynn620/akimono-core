@@ -15,8 +15,8 @@ foreach my $DT (@DT)
 	$msg{double}.=$DT->{shopname}."， " if ($DT->{taxmode}==2);
 	}
 
-$msg{free} = substr($msg{free},0,(length($msg{free})-3)) if ($msg{free});
-$msg{double} = substr($msg{double},0,(length($msg{double})-3)) if ($msg{double});
+$msg{free} = substr($msg{free},0,(length($msg{free})-2)) if ($msg{free});
+$msg{double} = substr($msg{double},0,(length($msg{double})-2)) if ($msg{double});
 
 
 if (defined($id2idx{$STATE->{leader}}))

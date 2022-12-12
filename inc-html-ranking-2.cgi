@@ -24,7 +24,7 @@ foreach my $DT (@DT)
 
 my $ret;
 foreach (1..$#DIG_POINT) {
-	$msg{$_} = substr($msg{$_},0,(length($msg{$_})-3)) if ($msg{$_});
+	$msg{$_} = substr($msg{$_},0,(length($msg{$_})-2)) if ($msg{$_});
 	$ret=$TR.$TDB.DignityDefine($DIG_POINT[$_],2).$TD.$msg{$_}.$TRE.$ret;
 }
 $disp.="$TB$TR<td width=50>".l('爵位')."<td class=b width=570>".l('店名')."$TRE";
