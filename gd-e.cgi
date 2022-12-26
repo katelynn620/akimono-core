@@ -71,7 +71,7 @@ $MYFORM$USERPASSFORM
 $formmember
 </SELECT> ${\l('の肩書きを')}
 <INPUT TYPE=TEXT NAME=name SIZE=16 VALUE="">
-と <INPUT TYPE=SUBMIT VALUE="${\l('命名する')}"> (${\l('%1文字以内',20)})
+${\l('と')} <INPUT TYPE=SUBMIT VALUE="${\l('命名する')}"> (${\l('%1文字以内',20)})
 </FORM>
 <hr width=500 noshade size=1>
 <form action="action.cgi" $METHOD>
@@ -81,7 +81,7 @@ $MYFORM$USERPASSFORM
 <SELECT NAME=id SIZE=1>
 <OPTION VALUE="">${\l('選択')}
 $formmember
-</SELECT> を <INPUT TYPE=SUBMIT VALUE="${\l('退団させる')}">
+</SELECT> ${\l('を')} <INPUT TYPE=SUBMIT VALUE="${\l('退団させる')}">
 <INPUT TYPE=TEXT NAME=guild SIZE=10 VALUE="">
 (${\l('leaveと入力')})
 </FORM>

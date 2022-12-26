@@ -574,13 +574,13 @@ msgstr ""
 msgid "%1度目の優勝"
 msgstr ""
 
+#. (20)
 #. (60)
 #. (10)
 #. (30)
 #. (12)
 #. (6)
 #. (120)
-#. (20)
 #: program/gd-e.cgi:74 program/gd-f.cgi:103 program/gd-f.cgi:105 program/gd-f.cgi:111 program/gd-f.cgi:113 program/gd-f.cgi:115 program/gd-f.cgi:117 program/gd-f.cgi:48 program/gd-f.cgi:88
 msgid "%1文字以内"
 msgstr ""
@@ -1576,6 +1576,10 @@ msgstr ""
 msgid "でも大事なのは，やはり二人の強い絆でしょうね。"
 msgstr ""
 
+#: program/gd-e.cgi:74
+msgid "と"
+msgstr ""
+
 #: program/inc-dragon-jock.cgi:46 program/inc-dragon-pr.cgi:72 program/inc-dragon-ranch.cgi:118 program/inc-dragon-stable.cgi:65
 msgid "と名付けて"
 msgstr ""
@@ -1741,7 +1745,7 @@ msgstr ""
 msgid "わずか"
 msgstr ""
 
-#: program/inc-admin.cgi:156 program/inc-admin.cgi:162 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
+#: program/gd-e.cgi:84 program/inc-admin.cgi:156 program/inc-admin.cgi:162 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
 msgid "を"
 msgstr ""
 

@@ -575,13 +575,13 @@ msgstr "%1字以内"
 msgid "%1度目の優勝"
 msgstr "%1次優勝"
 
+#. (20)
 #. (60)
 #. (10)
 #. (30)
 #. (12)
 #. (6)
 #. (120)
-#. (20)
 #: program/gd-e.cgi:74 program/gd-f.cgi:103 program/gd-f.cgi:105 program/gd-f.cgi:111 program/gd-f.cgi:113 program/gd-f.cgi:115 program/gd-f.cgi:117 program/gd-f.cgi:48 program/gd-f.cgi:88
 msgid "%1文字以内"
 msgstr "%1字以内"
@@ -1577,6 +1577,10 @@ msgstr "」"
 msgid "でも大事なのは，やはり二人の強い絆でしょうね。"
 msgstr "但真正重要的是兩人之間的強烈羈絆。"
 
+#: program/gd-e.cgi:74
+msgid "と"
+msgstr "來"
+
 #: program/inc-dragon-jock.cgi:46 program/inc-dragon-pr.cgi:72 program/inc-dragon-ranch.cgi:118 program/inc-dragon-stable.cgi:65
 msgid "と名付けて"
 msgstr "以此為名"
@@ -1653,7 +1657,7 @@ msgstr "的稅率"
 
 #: program/gd-e.cgi:72
 msgid "の肩書きを"
-msgstr "的頭銜"
+msgstr "的頭銜以"
 
 #: program/inc-main.cgi:169
 msgid "はじめまして。私が店のお手伝いをさせてもらってます。"
@@ -1742,7 +1746,7 @@ msgstr "所以我會獎勵你 %1<b>爵位經驗值</b>。"
 msgid "わずか"
 msgstr "快了"
 
-#: program/inc-admin.cgi:156 program/inc-admin.cgi:162 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
+#: program/gd-e.cgi:84 program/inc-admin.cgi:156 program/inc-admin.cgi:162 program/inc-dragon-pr.cgi:75 program/inc-dragon-ranch.cgi:117 program/inc-dragon-stable.cgi:131 program/inc-dwarf-form.cgi:57
 msgid "を"
 msgstr " "
 
