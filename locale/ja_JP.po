@@ -3539,6 +3539,10 @@ msgstr ""
 msgid "削除する"
 msgstr ""
 
+#: program/inc-treebbs-list.cgi:60
+msgid "前ページ"
+msgstr ""
+
 #: program/inc-dragon-pr.cgi:19
 msgid "前回の出産"
 msgstr ""
@@ -5167,6 +5171,10 @@ msgstr ""
 
 #: program/slime-l.cgi:194
 msgid "次の調教時刻"
+msgstr ""
+
+#: program/inc-treebbs-list.cgi:66
+msgid "次ページ"
 msgstr ""
 
 #. ($R[0])

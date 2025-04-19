@@ -3540,6 +3540,10 @@ msgstr "沒有需要刪除的資料。"
 msgid "削除する"
 msgstr "刪除"
 
+#: program/inc-treebbs-list.cgi:60
+msgid "前ページ"
+msgstr "上一頁"
+
 #: program/inc-dragon-pr.cgi:19
 msgid "前回の出産"
 msgstr "上次生產"
@@ -5169,6 +5173,10 @@ msgstr "下次的實況轉播是 %1。"
 #: program/slime-l.cgi:194
 msgid "次の調教時刻"
 msgstr "下次訓練時間"
+
+#: program/inc-treebbs-list.cgi:66
+msgid "次ページ"
+msgstr "下一頁"
 
 #. ($R[0])
 #: program/inc-dras-dredit.cgi:114

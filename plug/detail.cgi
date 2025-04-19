@@ -84,7 +84,7 @@ sub GetMoneyMessage
 
 	foreach my $rank (10000,50000,100000)
 	{
-		return int($rank/10000)."<font size=\"-3\">".l('億')."$term[2].l('以下').</font>" if $money<=$rank;
+		return int($rank/10000)."<font size=\"-3\">".l('億')."$term[2]".l('以下')."</font>" if $money<=$rank;
 	}
 }
 

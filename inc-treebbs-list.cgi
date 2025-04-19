@@ -57,13 +57,13 @@ sub move_list {
 		$disp.="<td><FORM ACTION=\"action.cgi\" $METHOD>$MYFORM$USERPASSFORM\n";
 		$disp.="<input type=hidden name=page value=\"$back\">\n";
 		$disp.="<input type=hidden name=list value=\"$Q{list}\">\n";
-		$disp.="<input type=submit value=\"前ページ\"></td></form>\n";
+		$disp.="<input type=submit value=\"".l("前ページ")."\"></td></form>\n";
 	}
 	if ($next < $i) {
 		$disp.="<td><FORM ACTION=\"action.cgi\" $METHOD>$MYFORM$USERPASSFORM\n";
 		$disp.="<input type=hidden name=page value=\"$next\">\n";
 		$disp.="<input type=hidden name=list value=\"$Q{list}\">\n";
-		$disp.="<input type=submit value=\"次ページ\"></td></form>\n";
+		$disp.="<input type=submit value=\"".l("次ページ")."\"></td></form>\n";
 	}
 	$disp.="<td width=10></td><td class=num>";
 
